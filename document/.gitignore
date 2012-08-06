@@ -1,0 +1,6 @@
+*.d
+*.log
+*.toc
+*.aux
+*.fls
+thesis.pdf

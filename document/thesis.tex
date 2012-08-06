@@ -1,0 +1,106 @@
+\documentclass[11pt,oneside,a4paper]{lancsthesis}
+% =============================================================================
+% -------------| Packages
+\usepackage{setspace}
+\usepackage{lancsthesis}
+\usepackage{swLaTeXTools}
+\usepackage{draftwatermark}
+	\SetWatermarkScale{6}
+	\SetWatermarkLightness{0.95}
+\usepackage[left=38mm,top=25mm,right=25mm,bottom=25mm]{geometry}
+
+\usepackage{listings}
+\lstset{breaklines=true}
+
+% -------------| Other Doc Settings
+\doublespacing
+
+
+
+% =============================================================================
+%  Begin document
+% =============================================================================
+\begin{document}
+\pagenumbering{Roman}
+\thispagestyle{empty}
+
+
+
+% =============================================================================
+%  Title Page
+% =============================================================================
+\include{titlepage}
+
+
+
+
+% =============================================================================
+%  Introductory items
+% =============================================================================
+\chapter*{Abstract}
+\input{abstract}
+%\pagebreak
+
+\chapter*{Acknowledgements}
+\input{acknowledgements}
+%\pagebreak
+
+\chapter*{Declaration}
+\input{declaration}
+%\pagebreak
+
+% Auxiliary introductory things
+\tableofcontents
+\listoffigures
+\clearpage
+
+
+
+% =============================================================================
+%  Start of Actual Content
+% =============================================================================
+\pagenumbering{arabic}
+
+
+
+\chapter{Introduction}
+\input{introduction}
+
+
+
+\chapter{Review of Literature}
+\input{litreview}
+% The lit review ends with a discussion of WaC issues.
+% It's possible that this discussion is best held within its own chapter,
+% as motivation for document attrition and other web bias work.
+
+
+
+\chapter{Document Attrition Online}
+\input{attrition}
+
+
+\chapter{Sampling the Web}
+\input{samplingweb}
+
+
+\chapter{Repeating and Rebuilding}
+\input{repeating}
+
+
+\chapter{Conclusions \& Review}
+\input{conclusions}
+
+
+
+% =============================================================================
+%  Auxiliary stuff
+% =============================================================================
+
+% TODO : bibtex
+% TODO : Appendices
+
+% =============================================================================
+%  Fin.
+% =============================================================================
+\end{document}

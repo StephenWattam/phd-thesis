@@ -1,0 +1,12 @@
+%% This package contains various random tools and declarative formatting things
+%% wot 'r' normally useful when typesetting large documents
+
+\ProvidesPackage{swLaTeXTools}
+
+
+%% Define an itemize environment with titles for each item
+\newenvironment{itemizeTitle}{%
+\let\olditem\item% 
+\renewcommand\item[2][]{\olditem \textbf{##1}\\[-0.3\baselineskip]##2}%
+\begin{itemize}}{\end{itemize}%
+}
