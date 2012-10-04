@@ -1,0 +1,115 @@
+This is a provisional list of deadlines for significant portions of work in the thesis:
+
+ 2. Lit Review (general)
+    To be written in parallel with other tasks, except for survey-style portions.
+    To be started immediately
+
+     2.1. Sampling in CL
+        Considered a survey portion, provide 1-2wk of dedicated effort at the start,
+        followed by parallel effort with rest of LR.  
+        Allocate: 2 wk + 2-4wk.
+        Depends on: 2.2.
+
+     2.2. Formal Sampling
+        A depdendency of many other review sections, rationales.
+        Provide a week of dedicated effort, then parallel with thesis.
+        Allocate: 2 wk + 2-4wk.
+
+         2.2.1. Theoretical basis for corpopra
+            This is to be the main focus of the week mentioned above
+
+         2.2.2. Comparison of methods
+            Cover quickly as part of 2.2, do just enough to justify position of thesis,
+            then switch into parallel.
+
+    2.3. New Technologies
+       Another survey section, but probably easier to write.
+       Should be first task in parallel stream (after week on sampling)
+       Allocate: none (parallel)
+       Depends on: none (but preferred after 2.2.1)
+
+         2.3.1. Web Corpus Challenges
+             This is an amalgam of many existing surveys.
+             Work on in parallel
+             Main bulk of 2.3.
+             Start early (to justify thesis)
+             Finish late (to smooth argument)
+             
+
+ 3. Document Attrition Online
+    Flows from lit review, start early.
+    Requires long. data, end late.
+
+     3.1. Methods for Sampling Web Data
+         Survey with critical aspects.  
+         Targeted and rhetorically motivated by 2.3.1 and 2.1
+         Allocate: 3 wk
+         Depends on: none (pref. 2.3.1, 2.1)
+
+     3.2. LREC/Sharoff Motivational Papers
+         Each of these needs addressing separately:
+
+         LREC: 1 week to adapt/write up in place.
+         Sharoff: 2-4wk to adapt method/write up, possible 6 mo to gather data (Jan-Aug preferred?)
+
+     3.3. Longitudinal DA Study
+         Aimed at journal.
+         Using full year dataset from DA downloader
+         Analysis alone may take a long time to run with big data.
+         Writeup will be likely take this beyond sep. deadline if started in August.
+         Allocate: 1-2mo
+         Depends: data (August 2013)
+
+
+ 4. Sampling the Web
+     Much of this reacts to arguments in 3, but time constraints demand it is not dependent.
+     Work under presumption that 3.2 is motivation enough without 3.3.
+     Provisional findings using augmented LREC data in 3.2 may help with narrative.
+
+     4.1. Methods for Web Sampling
+        It'd be nice if this section could be published as a single item.
+        Discussion of the solutions may take time, targeted form of lit review.
+        Parallelise with 2.2 for best match.
+        Since this will justify the primary "solution" of the thesis, I'd like to consider it thoroughly.
+        Allocate: 2-4wk
+
+    4.2. Tools based on 4.1
+        These will likely take a while to physically code in production-ready ways.
+        Split into:
+            Design: Allocate 1 week for design, depends on 4.1 and thus 2.2
+            Implementation: 1mo, possibly broken into parts if multiple tools involved
+            Evaluation Methods: 1 week for study design, partial writeup as an experiment
+            Evaluation: 1-2 weeks for evaluation of tools.  Possibly dependent on longer data processes.
+        *NB: possibly include separate discussion of evaluation methods.  FIXME: this bit needs more attention
+
+
+ 5. Repeating and Rebuilding
+    Requires motivation from 3 and significant input from discussions in 4.1
+
+    5.1. Describing a Sampling Policy
+        Most theoretical bit, dependent on formal theory in 4.1, 2.2.1
+        Links to open source corpora depend on 2.3, but should be done in paralle with 4 anyway.
+        Allocate: 3-5wk to describe problem, enumerate methods
+
+    5.2. Dissemination and Re-use
+        More implementation, be it theoretical/proof of concept or production code.
+        Focus on Rebuilding:
+
+         5.2.1. Rebuilding a Corpus
+            Most important to narrative (but algorithmically overlaps with 5.2.2.)
+            Requires evaluation methods discussion again.
+            Allocate: 1mo for establishing methods, writeup
+
+         5.2.2. Reweighting a Corpus
+            Informed by 5.2.1 methodologically.
+            Allocate: 2-3wk, if 5.2.1's methods are suitable, ~1mo otherwise
+
+    5.3. Evaluation of Dissemination Methods
+        Discussion of evaluation methods informed by 5.2 (which are notionally more statistical, but
+        perhaps these are in the wrong order in the thesis)
+        This is notably hard.  5.3.1 alone is also hard, but relates strongly to 5.1
+        Allocate: 1.5mo, but unsure until closer to the time.
+
+
+
+
