@@ -488,13 +488,14 @@
                {\endlist}
 \newenvironment{quotation}
                {\list{}{\listparindent 1.5em%
+                        \it
                         \itemindent    \listparindent
                         \rightmargin   \leftmargin
                         \parsep        \z@ \@plus\p@}%
                 \item\relax}
                {\endlist}
 \newenvironment{quote}
-               {\list{}{\rightmargin\leftmargin}%
+               {\list{}{\it \rightmargin\leftmargin}%
                 \item\relax}
                {\endlist}
 \if@compatibility
