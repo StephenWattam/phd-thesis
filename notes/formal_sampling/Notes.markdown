@@ -1,5 +1,5 @@
-Formal Sampling Notes
-====================
+Sampling: Design and Analysis
+=============================
 These notes are largely based on the "Sampling: Design and Analysis" book.
 
 Section 1.3 covers sampling bias:

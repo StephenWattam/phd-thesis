@@ -15,16 +15,16 @@ Though I will stop short of defining, in concrete terms, the specification of an
 
 %- this is motivation for a later chapter really, and this subsection may want moving to after the discussion of sampling policies, or the intro to that chapter.
 
-\subsubsection{Desirable Properties of a Corpus}
+\subsection{Desirable Properties of a Corpus}
 
 
 
-\paragraph{Sample Size}
+\subsubsection{Sample Size}
 This is a tricky but crucial property that is much discussed elsewhere relative to linguistic properties.  In seeking a sampling strategy, it is important that we are able to accurately assess the necessary size from, at worst, modest amounts of auxiliary data.  Any method that requires significant over-sampling or repeated iteration will incur the costs and efforts associated with physically gathering the data, which is most undesirable.
 
 
 
-\paragraph{Randomness}
+\subsubsection{Randomness}
 This is a particularly thorny issue that has been little-addressed by linguists.  Upon initial examination of the problem, a simple random sample (SRS) may seem like the ideal---we know little about the data we're sampling, and use of any existing corpora to improve sampling proportions will be subject to the biases in their original design.  
 
 Though stratified, random sample designs seem to offer the most obvious way of representing populations of texts.  This method is advocated by the Brown documentation, explained at length by Evert and others [Dunning, IIRC, covers this], and samples are treated as random by those analysing text (Biber's assessments don't weight things, for example).
@@ -67,7 +67,7 @@ Both of these are impossible to fully determine without first having an experime
 
 
 
-\paragraph{Replicability and Reliability}
+\subsubsection{Replicability and Reliability}
 The replicability of studies based on the same corpus is one main reason for using general-purpose corpora.  One major concern with the use of larger corpora is that they are quickly rendered out of date for certain purposes: those studying technology-related neologisms, for example, are likely to call upon web corpora and more recent publications, rather than look to more established works, because their hypotheses centre on a rapid change which is poorly represented by a decade-old corpus, however balanced.
 
 [perhaps it'd be nice to look through some journals and count who's using corpora of what age here, might be handy]
@@ -79,7 +79,7 @@ Synchronic corpora are also, given their very narrow temporal distribution, more
 
 
 
-\paragraph{Flexibilty/Generality}
+\subsubsection{Flexibilty/Generality}
 One of the aims of a general purpose corpus is to foster re-use of data for all those studying a given population, across a multitude of research questions.  Though, as the above discusses, it is necessary to restrict the useful domain of a corpus during the design stages, care should be taken to sample a sufficiently general population of language users (and a sufficiently general set of variables on each one) so as to be useful in many different study designs.
 
 Efforts in this area have primarily centred around two foci---the former of these is the proper selection of corpus variables and sampling, discussed in collaborative efforts to standardise corpus design:
@@ -95,10 +95,10 @@ The representation of the [ahrg, can't find the paper, austrian? national] corpu
 
 
 
-\subsubsection{Sampling Strategy}
+\subsection{Sampling Strategy}
 *NB: I don't wish for this to get too prescriptive.  It's intended as an overview of an idealised procedure, rather than a "how to", which will basically come later in a far more practical form*
 
-\paragraph{Population Definition}
+\subsubsection{Population Definition}
 Defined in terms of
 
 \begin{itemize}
@@ -117,7 +117,7 @@ How: Population estimation methods
 
 
 
-\paragraph{Sampling Frame}
+\subsubsection{Sampling Frame}
 
 \begin{itemize}
  \item Enumeration/definition
@@ -131,7 +131,7 @@ How: Population estimation methods
 
 
 
-\paragraph{Sampling Method}
+\subsubsection{Sampling Method}
 A discussion of what each does, and where it seems to be used, split up into nonrandom:
 
 \begin{itemize}
@@ -150,7 +150,7 @@ and random:
 \end{itemize}
 
 
-\paragraph{Size}
+\subsubsection{Size}
 Methods for selecting sample sizes, stratum sizes, sampling unit sizes [last of these is mainly linguistic, but might be worth mentioning].
 
 \begin{itemize}
@@ -165,7 +165,7 @@ Methods for selecting sample sizes, stratum sizes, sampling unit sizes [last of 
 \end{itemize}
 
 
-\paragraph{Post-hoc/Reweighting(/representation)}
+\subsubsection{Post-hoc/Reweighting(/representation)}
 Methods for upping weights in line with auxiliary data, even of existing corpora.
 
 \begin{itemize}
@@ -177,7 +177,7 @@ Methods for upping weights in line with auxiliary data, even of existing corpora
 \end{itemize}
 
 
-\paragraph{Bias Estimation/Evaluation}
+\subsubsection{Bias Estimation/Evaluation}
 Methods for evaluating and comparing corpora
 
 \begin{itemize}

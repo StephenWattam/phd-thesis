@@ -1,7 +1,35 @@
 
-% FIXME Does this belong in the lit review?
+\section{Introduction}
+WaC methods, whilst solving many problems surrounding conventional corpus construction, come bundled with their own set of practical issues.  These are largely widely-recognised, and will remain as hurdles to corpus construction.  
+
+Many such problems arising from these are minor when compared to those evident in conventionally-compiled corpora, and are recognised and acknowledged by practitioners in exchange for the benefits provided by use of these methods %anaphor across paragraph
+.  In addition, the relative novelty of WaC means that awareness of its limitations is greater.
+
+\til{the above is pretty crap.}
+
+<signposting>
+
+This section examines a series of these challenges, outlining how each one arises and how they are in the process of being solved by the WaC community.  The summary of this section identifies those problems to which the application of new sampling methods and designs may prove beneficial.
+
+
+
+\section{Data Format}
+Though no longer requiring digitisation, there is only one consistent consumer of web data---humans.  Data available online is presented in myriad formats, languages and forms, often in a manner that is only described loosely or with contextual clues.
+
+This has been a problem for many web clients, from web browsers (which have notably evolved a number of systems to embed applications within their pages) to search engine spiders.  The latter of these faces similar issues to those encountered when attempting to build a corpus of language from the web---it must be able to cleanly extract the information from a file online in much the same way a human would.
+
+In addition to the requirements of search engines, those building corpora must apply some degree of human interest model to their data.  Whereas it is perfectly useful to search for (and retrieve) a data by the terms in its links bar or logo, these areas are of little focus when reading the content itself, and are certainly consumed far less than they are presented to a user.
+
+\til{Biolerplate removal, format conversion, pagination, multimedia}
+
+
+
 \section{Document Attrition}
-I intend to cover methods people use for sampling.  This will include all the various tools (and commentary on each, though there will likely not be time for an evaluation of each).  From this, various deficiencies will be extracted, which will form the basis for my improved tools.
+The open publishing model of the web leads to a far faster turnover of documents compared to conventional `printed' sources (notably excepted are magazines etc).  In addition, the lifespan of a document is controlled by its author, and is likely both to be highly heterogenous and correlate with linguistic features.  This leads to a number of issues regarding the validity of corpora that fail to control for the age of their documents, or the validity of studies due to age (depending on area).
+
+Further, repeating a study using data taken from the web is likely to observe skew due to this attrition (esp. an issue if corpus is disseminated using url lists).
+
+\til{ cover types of document attrition (information vs url seeking) }
 
 % --------------- %
 % \section{Re-Implementation of Sharoff's Paper}
@@ -15,10 +43,10 @@ I intend to cover methods people use for sampling.  This will include all the va
 The content from my longitudinal study will fall here, though it's possible to populate some of this will LREC and other work.
 
 \subsubsection{Method}
-In addition to a discussion of best practice (perhaps best moved elsewhere?), outline the study:
+In addition to a discussion of best practice (perhaps best moved to chapter 4?), outline the study:
 \begin{itemize}
 	\item The process of sampling, related to the lit review;
-	\item The choice of input data.
+	\item The choice of input data, informed by lit review.
 \end{itemize}
 
 
@@ -31,7 +59,31 @@ Analyse the results, and provide an evaluation of:
 \end{itemize}
 
 
+
+
+
+
 \section{Copyright and Dissemination}
-\section{Post-processing and Transformation}
-\section{Accesibility and Indexing}
-\section{Is the web a corpus?}
+Licensing and copyright issues are some of the major hurdles to free dissemination and use of larger corpora.  They are usually difficult-to-circumvent, and have led to compromise both in corpus design [excerpts] and constituency [missing publishers, etc.].
+
+Web corpora are typically seen as one way around many of these issues, in that content is freely published for consumption, however, this is an informal assessment and is not technically true.  
+
+\til{ mention sampling from just one website, like forums, privacy?, mention open-source corpora using url lists and relate to document attrition
+
+How licensing concerns differ for web corpora, and the approaches used to avoid this. also cover some of the more famous legal battles by search engines, who encountered similar issues (particularly in the case of caching images).
+}
+
+
+\section{Accessibility and Indexing}
+There's no easy central index, but many unauthoritative indexes exist such as web directories, search engines, and DNS records.  Many efforts use these to one extent or another.  These indexes are provably very incomplete even compared to the real-world ones.
+
+
+
+
+\section{The web as a Corpus}
+How biased is the web as a corpus re. non-electronic texts [rather], and how much adjustment should be needed to sample a corpus from the web rather than a corpus of the web.  Relate to literature on this.
+
+
+
+\section{Summary}
+Mention which of these are to be selected and why, link to later chapters.
