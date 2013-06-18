@@ -1,0 +1,3 @@
+#!/usr/bin/sh
+
+texcount -utf8 -enc=UTF8 ./tex/*.tex

@@ -9,12 +9,18 @@
 % ------------------------------------------------------------------------------
 \usepackage{ifdraft}
 \usepackage{todonotes}
-\newcommand{\td}[1]{\todo[size=\tiny,color=yellow]{#1}}
-\newcommand{\til}[1]{\todo[inline,size=\tiny,color=yellow]{#1}}
+\newcommand{\td}[1]{\todo[size=\tiny,color=yellow!20]{#1}}
+\newcommand{\til}[1]{\todo[inline,size=\small,color=yellow!20]{#1}}
 % ------------------------------------------------------------------------------
 
+% UTF-encoded input files
+\usepackage[utf8]{inputenc}
+
+% Allow insertion of outline
+\usepackage{pdfpages}
+
 % hyperref
-\usepackage[pagebackref]{hyperref}
+\usepackage[pdfauthor={Stephen Wattam},pagebackref]{hyperref}
 \hypersetup{
     hidelinks=true,
     unicode=true,   % Enable the 21st century
@@ -30,6 +36,9 @@
     colorlinks=true,
     bookmarks=true
 }
+
+% PDF bookmarks
+\usepackage{bookmark}
 
 % Watermark if in draft mode
 \ifdraft{
@@ -77,7 +86,7 @@
 % =============================================================================
 %  Title Page
 % =============================================================================
-\include{titlepage}
+\include{tex/titlepage}
 
 
 
@@ -86,15 +95,15 @@
 %  Introductory items
 % =============================================================================
 \chapter*{Abstract}
-\input{abstract}
+\input{tex/abstract}
 %\pagebreak
 
 \chapter*{Acknowledgements}
-\input{acknowledgements}
+\input{tex/acknowledgements}
 %\pagebreak
 
 \chapter*{Declaration}
-\input{declaration}
+\input{tex/declaration}
 %\pagebreak
 
 % Auxiliary introductory things
@@ -111,49 +120,43 @@
 
 
 \chapter{Introduction}
-\input{introduction}
+\input{tex/introduction}
 
 
 
 \chapter{Review of Literature}
-\input{litreview}
+\input{tex/litreview}
 % The lit review ends with a discussion of WaC issues.
 % It's possible that this discussion is best held within its own chapter,
 % as motivation for document attrition and other web bias work.
 
 
 \chapter{Web Sampling Issues}
-\input{webissues}
+\input{tex/webissues}
 
 
 \chapter{Describing a Web Sample}
-\input{samplingweb}
+\input{tex/samplingweb}
 
 
 \chapter{Building and Rebuilding}
-\input{repeating}
+\input{tex/repeating}
 
 \chapter{Evaluation/Discussion}
-\input{evaluation}
+\input{tex/evaluation}
 
 \chapter{Conclusions \& Review}
-\input{conclusions}
-
-BibTeX test \cite{Ahlberg94visualinformation}
+\input{tex/conclusions}
 
 
 % =============================================================================
 %  Bibliography
 % =============================================================================
-\pagebreak
-\bibliographystyle{swBibStyle}
-\backmatter
-\bibliography{
-./bib/Representativeness,%
-./bib/Sampling,%
-./bib/PersonalCorpora,%
-./bib/WebAsCorpus%
-}
+\pagebreak%
+\bibliographystyle{swBibStyle}%
+\backmatter%
+\bibliography{../bib/PhilScience,../bib/CorpusDesign,../bib/Representativeness,../bib/Sampling,../bib/PersonalCorpora,../bib/WebAsCorpus}
+% }
 
 
 % =============================================================================
