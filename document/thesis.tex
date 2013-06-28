@@ -4,15 +4,6 @@
 \usepackage{lancsthesis}    % Book format, local copy
 \usepackage{swLaTeXTools}   % Custom additions and commands
 
-% ------------------------------------------------------------------------------
-%  Stuff to remove after drafting 
-% ------------------------------------------------------------------------------
-\usepackage{ifdraft}
-\usepackage{todonotes}
-\newcommand{\td}[1]{\todo[size=\tiny,color=yellow!20]{#1}}
-\newcommand{\til}[1]{\todo[inline,size=\small,color=yellow!20]{#1}}
-% ------------------------------------------------------------------------------
-
 % UTF-encoded input files
 \usepackage[utf8]{inputenc}
 
@@ -39,6 +30,9 @@
 
 % PDF bookmarks
 \usepackage{bookmark}
+
+% Remove me after drafting
+\usepackage{ifdraft}
 
 % Watermark if in draft mode
 \ifdraft{
@@ -69,6 +63,15 @@
 \linespread{1.45}    % double spacing is 1.6, half is 1.3
 % \onehalfspacing
 % \doublespacing
+
+
+% ------------------------------------------------------------------------------
+%  Stuff to remove after drafting 
+% ------------------------------------------------------------------------------
+\usepackage{todonotes}
+\newcommand{\td}[1]{\todo[fancyline,size=\tiny,color=yellow!20]{#1}}
+\newcommand{\til}[1]{\todo[inline,size=\small,color=yellow!20]{#1}}
+% ------------------------------------------------------------------------------
 
 
 
