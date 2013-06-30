@@ -1,6 +1,34 @@
 % This will be a review of more formal sampling theory, comparing it to methods for acquiring language.
 
 
+Many of the problems listed in section~\ref{sec:litreview-corpora} may be mitigated with careful sampling.  There are a great number of available sampling strategies, and the purpose of this section is to review those which are suitable for use with text data.
+
+
+%- *NB: I don't wish for this to get too prescriptive.  It's intended as an overview of an idealised procedure, rather than a "how to", which will basically come later in a far more practical form*
+
+\subsection{Population Definition}
+The population covered by a corpus is likely to be defined in terms of social demographics, linguistic features, or media type.  The manner in which each of these may be estimated, enumerated, and sampled is highly variable mainly due to the availability of auxiliary data.
+
+An accurate population definition is necessary for two purposes.  At one level, specification of this will define the bounds of external validity, guiding use of the corpus and defining the set of problems for which it is useful.  A second reason for accurate population specification lies in estimation of its size, which is necessary for power analysis and sample size calculation.
+
+% Discuss justification of external validity, how this must be strict for use with general-purpose corpora
+Ultimately, any statement of population coverage will be unique to the corpus being built.  In the case of general-purpose corpora, documentation of this population is particularly important, as the corpus is likely to be reused and possibly subsampled.  Further, the relationship each sample point within the corpus has to the overall population should be annotated, so that any resampling is defensible.
+
+% Discuss causal theories of language, and how these must inform a choice
+If sampling from linguistic features, the population items are taken from may be purely theoretical.  This initially would seem to violate the principles of corpus linguistics sampling language `as it is used', however, each example is necessarily also covered by a demographic population from which those data were taken.  It is particularly important that both are documented, especially given disagreements between theories regarding language use (for example, some researchers may consider two features related where others do not)\td{examples}.
+
+
+\til{p'raps examples of how corpora do this right now, and other others do this?}
+
+\til{mention external nature of definition, homogeniety of population (though the latter might be less important given the purpose comments in the corpus section)}
+
+
+
+% 
+% \begin{itemize}
+%  \item Applications to language (not sure of any in the abstract, todo: find some.)
+%  \item Applications to the web (google/yahoo estimation papers from DA bibtex)
+% \end{itemize}
 
 
 
@@ -9,197 +37,159 @@
 
 
 
-Many of the problems listed in section [ref] above are fairly minor, and careful sampling easily mitigates their effect.  A number of sampling strategies are available for selection of data, and the purpose of this section is to review them in the abstract case, in order to identify their suitability for linguistic sampling.
+\subsection{Sampling Frame}
+Definition of a sampling frame is a very similar problem to the population definition above, except that, where a population definition may relate to the aspects being studied, definition of a sampling frame is necessarily performed in terms of texts themselves.
 
-Though I will stop short of defining, in concrete terms, the specification of an 'ideal' general-purpose corpus, this section begins with a discussion of the aims of a corpus, and how they impact desirable properties which we may wish to maximise through proper selection of a sampling strategy. 
+One significant challenge here is that a well defined population may yield a very poorly defined sampling frame (or one which only matches under certain strong assumptions).  The difficulty of acquiring texts from many different sources means this is a particularly pertinant issue to corpus validity.
 
-%- this is motivation for a later chapter really, and this subsection may want moving to after the discussion of sampling policies, or the intro to that chapter.
+\til{say what a sampling frame is :-)}
 
-\subsection{Desirable Properties of a Sample}
-\til{Remove the linguistic stuff in preference for more theoretical side.  Cover power.}
-
-
-\subsubsection{Sample Size}
-This is a tricky but crucial property that is much discussed elsewhere relative to linguistic properties.  In seeking a sampling strategy, it is important that we are able to accurately assess the necessary size from, at worst, modest amounts of auxiliary data.  Any method that requires significant over-sampling or repeated iteration will incur the costs and efforts associated with physically gathering the data, which is most undesirable.
+\til{Enumeration of sampling frame, is it necessary for each sampling method?}
 
 
 
-\subsubsection{Randomness}
-This is a particularly thorny issue that has been little-addressed by linguists.  Upon initial examination of the problem, a simple random sample (SRS) may seem like the ideal---we know little about the data we're sampling, and use of any existing corpora to improve sampling proportions will be subject to the biases in their original design.  
+\subsubsection{Selection of a Sampling Unit}
+\til{Linguistic: Mention dispersion, size needed, counts usually happening in words.  Statisitcal: foreshadow power and size debate below.  Discuss the relative complexity of multi-level data.}
 
-Though stratified, random sample designs seem to offer the most obvious way of representing populations of texts.  This method is advocated by the Brown documentation, explained at length by Evert and others [Dunning, IIRC, covers this], and samples are treated as random by those analysing text (Biber's assessments don't weight things, for example).
 
-The problem with random sample designs remains their attempt to be proportional.  Biber, rejecting the idea of a proportional corpus says
-
- > "if we were to sample proportionally, we'd just get a whole load of speech" (find in '93 paper)
-
-This sentiment is contradicted by Varadi (2001), who calls for proportional sampling in order to ease analysis, however, Biber's point is a valid one.  The complexity of language, and its distribution over other interesting covariates, may mean that it is impractical to sample a sufficiently-sized proportional corpus.
-
-The issue of proportionality, and sample sizes needed to acquire a useful level of significance from analyses thereon, is intimately related to the problem of selecting categories for selection, and as such should be assessed in context of a particular corpus.  If non-random sampling is to be used, it should be considered carefully and explicitly based on preliminary samples and other sources of auxiliary data.]
-
-% --
-in summary:
+\subsubsection{Auxiliary Information}
+Auxiliary information may be used from a wide variety of sources to inform the specification both of a population and of a sampling frame.  The source of this information will vary depending on the focus of the corpus, however, there are some obvious sources of authoritative data:
 
 \begin{itemize}
- \item for randomness --- easy analysis without weights, easy subsampling, clear docs on demographics, equal 'resolution' of data for each covariate
- \item for nonrandomness --- better representation of small populations, smaller sample needed for many purposes, faster analyses, easier acquisition
+    \item Social surveys (for demographic, attitudinal information)
+    \item Previous corpus building efforts
+    \item Smaller-scale research on specific issues
 \end{itemize}
 
 
 
-\paragraph{Validity}
-The concept of validity is only meaningful relative to a certain task, however, we may clarify the issues by breaking up the link between the theories we wish to test and their underlying physical manifestations (which we wish to sample):
-
-\begin{itemizeTitle}
- \item [Criterion/predictive validity] the degree of association between the concept measured and the value of the data acquired, i.e. are we sampling in the correct way?
- \item [Content validity] the extent to which measurement of a given 'thing' and the theory, i.e. are we sampling the correct thing?
- \item [Construct Validity] The extent of agreement between theories and their implications and other [currently accepted] theories. \td{This should probably be removed, it's not terribly relevant.}
-\end{itemizeTitle}
-
-Alternatively, from 'SAGE's dictionary of quantitative management research' \til{find better sources before cementing this section, check library's obscenely expensive books section}:
-
-> "Internal validity is the quality of an experimental design such that the results obtained can be attributed to the manipulation of the independent variable, whereas external validity is the quality of an experimental design such that the results can be generalised from the original sample and, by extension, to the populatrion from which the sample originated."\td{make a blockquote LaTeX thing}
-
-Both of these are impossible to fully determine without first having an experimental design, however, a poorly designed corpus will yield fewer valid designs and uses than will an equivalently-specified well-sampled one.  Further to this, poor documentation of corpora may lead people to incorrectly assess the validity of their application.
-
-\til{ include discussion on transferrability/generalisability; decide which of the above formalisms to use (probably internal/external, the former offers little but might be handy for discussing links between proxy variables and sample selection)}
+\til{ More detail.  Methodological stuff.
+    use of auxiliary information iteration to inform selection of texts}
 
 
 
 
-\subsubsection{Replicability and Reliability}
-The replicability of studies based on the same corpus is one main reason for using general-purpose corpora.  One major concern with the use of larger corpora is that they are quickly rendered out of date for certain purposes: those studying technology-related neologisms, for example, are likely to call upon web corpora and more recent publications, rather than look to more established works, because their hypotheses centre on a rapid change which is poorly represented by a decade-old corpus, however balanced.
-
-[perhaps it'd be nice to look through some journals and count who's using corpora of what age here, might be handy]
-
-Synchronic corpora are also, given their very narrow temporal distribution, more likely to represent fashions and short-term affectations.  Whilst this may initially be desirable, the relevance of its data to other corpora, and to everyday life, diminishes in a difficult-to-predict fashion (indeed, change through time is a whole area of inquiry in its own right).
-
-[ talk about how technology might help, but link to future sections instead of going too far into it]
 
 
 
 
-\subsubsection{Flexibilty/Generality}
-One of the aims of a general purpose corpus is to foster re-use of data for all those studying a given population, across a multitude of research questions.  Though, as the above discusses, it is necessary to restrict the useful domain of a corpus during the design stages, care should be taken to sample a sufficiently general population of language users (and a sufficiently general set of variables on each one) so as to be useful in many different study designs.
 
-Efforts in this area have primarily centred around two foci---the former of these is the proper selection of corpus variables and sampling, discussed in collaborative efforts to standardise corpus design:
+% Much of this list belongs in the sampling methods bit below.
+% \begin{itemize}
+%     \item Subsampling with/without weights
+%     \item Using auxiliary information to weight strata
+%     \item artificial inflation of interesting sections of the population (modelling, stratification)
+% \end{itemize}
 
-> There's a quote from EAGLES where they say, in effect, "one of the major contributions of this is that we've got people talking about standardisation and collective use"
+\subsection{Sampling Method}
 
-\til{ also see efforts to cover corpus design in general, seek from Bibtex list. }
+\til{A discussion of what each does, and where it seems to be used, split up into nonrandom:}
 
-The latter of these surrounds subsampling corpora for given uses.  Subsampling is a relatively common operation for general purpose corpora, and many commonly-used corpus analysis tools such as SketchEngine and CQPWeb [bncweb?] support simple mechanisms for constructing subcorpora.
+\til{Difficulties in random sampling due to the above problems with specifying a sampling frame}
 
-The representation of the [ahrg, can't find the paper, austrian? national] corpus was designed such that text was stored in "chunks", aligned with powers of two.  This, along with an interface that allowed selection of these chunks to form a subcorpus, allowed a user to subsample the corpus with high levels of granularity for each of the variables he was interested in.  Perhaps due to the focus on having fairly large text samples, this approach does not seem to have caught on [yet...].
-
-
+\til{Opportunities in nonrandom sampling.  Cover nonrandom sampling used elsewhere where similar problems exist}
 
 
-\subsection{Sampling Strategy}
-*NB: I don't wish for this to get too prescriptive.  It's intended as an overview of an idealised procedure, rather than a "how to", which will basically come later in a far more practical form*
+\subsubsection{Random}
 
-\subsubsection{Population Definition}
-Defined in terms of
 
 \begin{itemize}
- \item aim of corpus \& science, who would find a given set useful for study?
- \item External validity justification
- \item Causal systems of language, variation within them
+    \item SRS (more special purpose focus, mention use in re-sampling)
+    \item Stratified (focus on this, mention IPW, use of external data to find proportions, primary dimensions of variation and link to taxonomic stuff)
+    \item Multi-stage (link to above, perhaps belongs in that section)
+    \item Cluster (may simplify some practical issues)
+    \item Adaptive (possibly introduce later since it's a plausible solution to some issues, but not currently used.  Some parallels with the iterative method)
 \end{itemize}
 
-How: Population estimation methods
+\subsubsection{NonRandom}
 
 \begin{itemize}
- \item Applications to language (not sure of any in the abstract, todo: find some.)
- \item Applications to the web (google/yahoo estimation papers from DA bibtex)
+    \item Snowball sampling (web crawlers)
+    \item 'Purposive' in general (applies slightly to many things, perhaps worth mentioning but not really labouring)
 \end{itemize}
 
 
 
 
-\subsubsection{Sampling Frame}
-
-\begin{itemize}
- \item Enumeration/definition
-    \begin{itemize}
-    \item taxonomy specification work, p'raps?  this is possibly too 'linguistic' for this section though
-    \end{itemize}
- \item Subsampling with/without weights
- \item Using auxiliary information to weight strata
- \item artificial inflation of interesting sections of the population (modelling, stratification)
-\end{itemize}
 
 
 
-\subsubsection{Sampling Method}
-A discussion of what each does, and where it seems to be used, split up into nonrandom:
-
-\begin{itemize}
- \item Snowball sampling (web crawlers)
- \item 'Purposive' in general (applies slightly to many things, perhaps worth mentioning but not really labouring)
-\end{itemize}
-
-and random:
-
-\begin{itemize}
- \item SRS (more special purpose focus, mention use in re-sampling)
- \item Stratified (focus on this, mention IPW, use of external data to find proportions, primary dimensions of variation and link to taxonomic stuff)
- \item Multi-stage (link to above, perhaps belongs in that section)
- \item Cluster (may simplify some practical issues)
- \item Adaptive (possibly introduce later since it's a plausible solution to some issues, but not currently used.  Some parallels with the iterative method)
-\end{itemize}
 
 
-\subsubsection{Size}
-Methods for selecting sample sizes, stratum sizes, sampling unit sizes [last of these is mainly linguistic, but might be worth mentioning].
-
-\begin{itemize}
- \item Criteria for selection
-    \begin{itemize}
-    \item purpose-based models [should be big enough for x]
-    \item sufficiency/internal measures [should contain n xs]
-    \item breadth/variation [should contain n types of x]
-    \end{itemize}
- \item Big data's approach
- \item Size of auxiliary data for multi-stage designs
-\end{itemize}
 
 
-\subsubsection{Post-hoc/Reweighting(/representation)}
+
+\subsection{Size and Power}
+Methods for selecting sample sizes, (stratum sizes), sampling unit sizes [last of these is mainly linguistic, but might be worth mentioning].
+
+\subsubsection{Population Size Estimation}
+\til{Write up notes, cover various methods and assess suitability.  Cover existing efforts from SE literature (perhaps later in web stuff)}
+% http://www.healthknowledge.org.uk/public-health-textbook/health-information/3a-populations/methods-population-estimation-projection
+% http://www.jstor.org/discover/10.2307/3797301?uid=3738032&uid=2&uid=4&sid=21102138383343
+% http://en.wikipedia.org/wiki/German_tank_problem
+% http://www.cals.ncsu.edu/course/fw353/Estimate.htm
+
+
+\subsection{Sample Size and Power}
+\til{Discuss methods for estimating sample size.}
+\til{Debate suitability for various uses, esp. for general purpose corpora.  Focus on Zipfianness.}
+\til{Cover saturation measures, 'new information' approaches}
+
+% \begin{itemize}
+%     \item Criteria for selection
+%     \begin{itemize}
+%         \item purpose-based models [should be big enough for x]
+%         \item sufficiency/internal measures [should contain n xs]
+%         \item breadth/variation [should contain n types of x]
+%     \end{itemize}
+%     \item Big data's approach
+%     \item Size of auxiliary data for multi-stage designs
+% \end{itemize}
+
+
+
+
+
+
+
+
+
+% TODO: this section might not belong, or it might be best off later
+\til{ The section below is probably best off being placed later, or at least where its focus is more well-defined}
+\subsection{Post-hoc/Reweighting(/representation)}
+\til{this seems to conflate the stratification stuff, restructure}
 Methods for upping weights in line with auxiliary data, even of existing corpora.
 
 \begin{itemize}
- \item Establishing weights using auxiliary data
+    \item Establishing weights using auxiliary data
     \begin{itemize}
-    \item possible sources of valid data
-    \item existing manual resampling by selection of categories (compare to above method)
+        \item possible sources of valid data
+        \item existing manual resampling by selection of categories (compare to above method)
     \end{itemize}
 \end{itemize}
 
 
-\subsubsection{Bias Estimation/Evaluation}
+
+
+
+
+
+
+
+
+
+
+\subsection{Bias Estimation and Evaluation}
 Methods for evaluating and comparing corpora
 
+% http://en.wikipedia.org/wiki/Mean_signed_difference ?
+% http://en.wikipedia.org/wiki/Mean_absolute_error
+
 \begin{itemize}
- \item Bootstrapping
- \item Comparison to other corpora (validity, meaning, can we trust previous corpus to be a gold standard?)
- \item Comparison to humans (heuristics, summarising, "getting to know your corpus")
+    \item Bootstrapping
+    \item Comparison to other corpora (validity, meaning, can we trust previous corpus to be a gold standard?)
+    \item Comparison to humans (heuristics, summarising, "getting to know your corpus")
 \end{itemize}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
