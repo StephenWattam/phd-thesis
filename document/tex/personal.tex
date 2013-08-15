@@ -1,0 +1,196 @@
+\section{Introduction}
+The degree to which a general purpose corpus represents ``real'' language use is often debated at length, and is the key issue affecting design of corpora.  A wide variety of methods have been used to estimate language proportions and usage for a whole population, however, these are mediated by (and often centre around), expert opinion.
+
+Reasons for this approach are both theoretical and practical---sampling individuals in the act of using language is very difficult (something other social sciences also struggle with), and the persistent nature of texts means that they conceptually stand alone, especially where the corpus designers intend to include older works.
+
+Nonetheless, there is a missing empirical link between the expert-guided designs of language proportions and the ground truth of an individual's language use.  This is lamented by many who wish to study language acquisition (or more detailed explanatory theories regarding language use over time \td{cite Hoey, quote too}.
+
+This chapter describes a case study whereby a census of text types was attempted for a single individual.  This sample design yields very little inferential power regarding the whole population, but serves to illustrate the disparity between the proportions a general purpose corpus may have, and the language used by an example individual.  The extent to which this example individual may be a useful guide for corpus building is not addressed directly, but this is an area that could be expanded using demographic auxiliary data.
+
+
+
+
+
+\section{Intro/review stuff}
+
+There is some discussion about the value of proportionality in corpus building.  The web makes this discussion particularly interesting, as the availability of pages online is different to those in general life (for any web user, a sizable subset).
+
+Using the methods above, it should be possible to control for the proportions of language used in daily life, to construct a corpus from these that is both web-sourced (and hence easy to sample) and yet balanced to a given population.  This is, in effect, the goal of many special purpose corpora sampled online.
+
+\section{Methods for Proportional Selection Online}
+Many web-as-corpus tools make surprisingly modest efforts to constrain their output.  There are a number of good reasons for this:
+
+\paragraph{Metadata Availability}
+Many of the variables available for balancing data online are of limited applicabilty to many corpus objectives: consider, for example, the data attached to many web pages, which is typically limited to the HTTP headers, location, and immediate context.  Many users will combine knowledge about the world and intuitions regarding content to judge the genre, author, and many other salient properties---something that is beyond the scope of many WaC processing toolchains.
+
+This has been adjusted for using various methods, such as:
+
+\begin{itemize}
+    \item Selection of only certain top-level-domains (i.e. those for a given country)
+    \item Use of HTTP headers to identify language or location of servers (limited due to poor coverage of internationalisation technologies)
+    \item Use of metadata and non-content HTML body data (applicable only where services make a layout/content distinction)
+    \item Heuristics (such as keyword counting in various languages; suitable only for simple inferences)
+\end{itemize}
+
+
+\paragraph{Internal Variables}
+The problem of metadata availability is compounded further by the need to select documents without systematic linguistic bias (especially where general-purpose corpora are concerned).  Many available properties of web documents are essentially internal variables, and should not be used for sampling.
+
+One method for controlling for this relies on seed terms, where a search engine will be used to find pages containing various collocations from a corpus.  This method is essentially a complex heuristic, and is reliant either on the principle that search engines will duplicate external variables by summary of the content they select, or that the content will be summarised from the original document and selected without bias by the search engine.  In practice this method proves fast, easy, and able to control (at least to some extent) for more complex characterisation than the coarse definitions covered by page metadata.  This method is boosted further by the existence of boilerlate/non-content text in pages, which may prove cause for selection without itself being content for the corpus.
+
+\paragraph{Format Heterogeniety}
+The format of web data is particularly heterogeneous, and this poses significant problems with respect to selection of pages based on their layout or appearance.  Without further (arbitrary) restriction by corpus compilers, the only common interface data online is designed for is the human eye (and some content even violates this assumption\footnote{Such as large dumps of tables, or things like JSON and XML serialisation formats.  Largely it is assumed that these will be excluded from the corpus by design anyway}).  
+
+This means that any use of boilerplate and data surrounding the content itself is severely limited by our capacity to codify and process such a distinction---something that is easy for a corpus with few sources, but difficult for larger ones sampling wider population of text.
+
+\paragraph{Population Ambiguity}
+As mentioned in [the special edition on web as corpus], web corpora may be seen, strictly, as only representative of web content.  The extent to which this applies in practice is a matter of debate.
+
+Those who spider the web, such as WebCorp and other services, offer corpora that are perhaps most closely tied to its layout and content---they do not make any efforts to (re-)balance their corpora in terms of other proportions, and subsequently end up with a natural representation of web data.
+
+Users of techniques such as those mentioned above are able to apply weighted selection policies to correct for this, however, the extent to which this is capable of correcting for the web's idiosynchrasies is debatable---issues of presentation (``click here") and context are at play for which there is no alternative source of data online, and this necessarily limits the power of any methods for mitigating differences between `real life' and web corpora. % TODO: rephrase and shorten
+\til{More stuff, elucidate more especially on this point since it's pretty crucial to the narrative} 
+
+
+\section{Establishing Proportions of Strata}
+The proportions of corpora have traditionally been established through a combination of experiment, debate, and reason.  This process has been well documented in the early corpora, \todo{ read up on some examples to include here}
+
+
+As with most aspects of corpus construction, practical limitations necessarily restrict the selection and variety of data sources available.  This has conventionally led to selection from large pre-indexed resources such as library catalogues, publisher's records, and bestseller lists.  We may see this stratification of variables as being primarily governed by the proportional consumption of text types, measuring the population's socioeconomically-influenced consumption of text by the text's popularity.
+
+This method is contrary to many other samples in social science, which seek primarily to control for a given socioeconomically-defined population.  In the case of text corpora, the reasoning behind this is doubtless often pragmatic: it is far cheaper and simpler to rely on existing indexes, and brings us one step closer to gathering actual real-world book statistics.  This decision, then, may be seen as a generally wise and productive one for corpus linguistics, as it has freed the field from the need to fund and maintain even larger projects akin to the British Household Panel Survey or cohort studies.
+
+Nonetheless, there are a number of disadvantages associated with this selection of variables.  One of the most pronounced scientifically is the definition of population: selecting primarily in terms of textual variables leads us to define our population in such a way, something that leads to an ambiguity in the boundaries of representation for the corpus, and the limits of generalisability for any resultant conclusions.  This effects is especially pronounced for special-purpose corpora, about which generalisations must be qualified with much greater specificity.
+
+Other disadvantages with this method surround the power socioeconomic annotation gives to those using corpus resources.  Often, simpler annotations derived from text-oriented variables are insufficient to drill-down into a ``Who uses what'' question format, something that may be crucial in reducing within-class variance to the point where many techniques are useful.
+
+Another property obscured by description in terms of texts is the differentiation between text production/performance and reception.  This distinction is well noted in corpus documentation (going back to Brown... % TODO: quote
+), but, except in circumstances where the distinction is of particular interest, often compromised.  Designs for corpora including Brown and the BNC state that their aim is to sample a ``mix'' of the two, so as to represent language use for the population (this is one major reason they take into account the relative popularity of works when selecting texts).  The lack of detail in this method denies any detailed inquiry into the ratio of text production and consumption, and any analyses and insights that lead from this.  Simply put, selection of texts from text-centric central indexes obscures this distinction.
+
+\til{It might be wise to expand this section to debate the difficulties in text selection proportionally.  Also mention Leech, review things like the Czech NC}
+
+It's worth noting here that the approach taken for written resources often differs to that for spoken.  The transient nature of spoken language mandates capture during performance, meaning that little of it is indexed.  Many spoken corpora thus contain data that was gathered by the authors themselves, affording an opportunity to both describe and balance the socioeconomic variables first with little effort.
+
+As such, many spoken corpora are primarily oriented around these variables (in addition to text-format ones), for example the BNC's section, LLC, etc.  \todo{find examples}
+
+
+\subsection{Life Logging}
+Just as the availability of portable recording technology made acquisition of spoken corpora relatively easy to control, so have the limitations on digitisation and format conversion limited the selection of written text to those already-indexed properties.  As modern computing devices have miniturised and become ubiquitous, they have developed a number of capacities that may be used to afford the same ``instantly recordable'' status to non-spoken language use.
+
+
+A number of these technologies are as a direct result of the life-logging community's interest in multimedia records.  Life logging is an activity that emerged slowly out of the principles of webcam shows and reality TV.  It involves recording (and usually broadcasting) continuous information about one's life as it occurs.
+
+Though most popular efforts started as a means for providing entertainment, and thus focused on multimedia broadcasting on the web, the techniques required soon diversified and gained the interest of the information retrieval and processing communities.  Many projects have been started with an aim to catalogue and operationalise the huge stream of data each person creates, largely with a focus on aiding that person in their daily life, or aiding large organisations (such as defence forces) in management of resources and people.
+
+\til{citations and a proper lit review, but they are maybe better off elsewhere}
+
+Because of the continuous nature of life-logging, many efforts have been made to use methods that are easy to maintain, self-contained, and covert.  % CITE
+Due to this, as well as the original intent of the life-logging process, much of the effort surrounding life-logging focuses on multi-media sources, and how they may be best combined to form a coherent idea of context.  
+
+Typical sources of data considered include:
+
+\begin{itemizeTitle}
+    \item[Video recording] Many life-loggers wear systems that are able to continuously record video in the direction they look, and upload this using mobile networking systems.
+    \item[Audio recording] Due to its lower obtrusivity, many efforts surround the analysis of audio logs, and include systems to detect voices and identify events such as making appointments.
+    \item[Document storage] With the increase in use of digital-origin documents, some of the more holistic life-logging systems record documents as they are read, with a focus being to integrate this data into the larger picture.  Others scan in their post for later retrieval.
+\end{itemizeTitle}
+
+Many of the requirements of a life-logging platform (covert operation, comprehensive data management, context identification) overlap notably with the methods used in covert sociological research and, of particular note for our purposes, those constructing spoken language corpora.
+
+Notably, one of the methods used to create the spoken portion of the BNC was covert recording, where a number of people were provided with tape recorders...
+\til{ Quote from BNC documentation }
+
+As illustrated by the BNC's demographic balancing of that portion of their corpus, this ability to directly record data from the field satisfies the disadvantages of text-index-oriented methods of document selection, allowing us access to all of the contextual data at the time of text consumption/production 
+\til{perhaps because the time of production and consumption don't differ much for spoken stuff...}
+
+The cost of this is, as felt by all sociological studies, a need to find a sufficiently large and heterogenous sample of people who may record data about their language use (and for long enough for it to be useful to researchers).  This is arguably more difficult in practice than text-index-based methods, and should only be considered at a large scale where the difference is likely to be crucial to a study, nonetheless, large samples exist in sociology as testament to the value such designs may yield [and the illustration that no alternative method exists for many sociological issues].
+
+The benefit of having a clearly-defined population about which to generalise linguistic findings is applicable to any size sample, however, making techniques of logging particularly applicable to special-purpose corpora, especially where those corpora are best demarcked along social lines.  Indeed, at one extreme of this scale exists the concept of a personal corpus; something that may yield insights or models about a single person's current language usage.  Such a resource may one day be particularly valuable in defining how one uses text-based interactive systems (such as the web), reads content (such as news articles) or even how one would learn.
+
+Such designs exhibit a tradeoff: a decrease in socioeconomic breadth in exchange for an increase in linguistic breadth.  It is my intent to illustrate the value in this approach, and to investigate methods by which it is possible to construct corpora without undue difficulty through the use of life-logging methods.
+% This needs mega elucidation, methinks
+
+
+
+\til{ Intro to life logging, a good lit review needs to be done.  Perhaps it belongs in the lit review section rather than here though.}
+
+
+\til{Notes suggest uses: 
+
+* Stratified Comparison
+* Synchronic Comparison
+* Vocabulary estimation
+* 'learning rate' estimation for some features (learner corpus stuff)
+}
+
+% 
+% \til{ talk about this allowing us to go out into the field and re-examine language use with less interruption,
+%     the ability to get empirical data on text proportinoality,
+%     lack of a need for a central index,
+%     better population definition
+% }
+% 
+
+
+\section{Scope}
+The methods presented here are intended as an inspection of the issues that surround construction of personalised corpora, and should be seen as a first step towards the principles of building a ``socially balanced'' set of important variables across which to sample.  
+
+\til{What aspects are in common with typical fieldwork?
+
+Why stop where I did?
+
+How long to sample for? Why?
+
+Data sources.
+}
+
+\section{Method}
+\til{What I did, like...
+Should I describe the first preliminary approach as an iterative things?
+}
+
+\subsection{Variable Selection}
+Variables selected for recording in the preliminary study were selected to be in line with those most commonly included in general-purpose corpora.  The decision was made to limit the number of these variables to facilitate unobtrusive recording (and maximise the relevance to the many different media recorded).
+
+
+
+\til{Which variables I have tried to record and why}
+
+
+\subsection{Capture Methods}
+\til{ \\paragraph{}-ised list of methods }
+
+
+
+\subsection{Annotation Methods}
+Corpus items were annotated along a small subset of the variables usually included in general purpose corpus metadata.  This was guided both by the practical concerns of the process and the literature % CITE atkins, clear, ostler
+.
+
+In many cases there was a need to review and augment a text's main properties from memory and free-form notes.  This was done partially to reduce the intrusiveness of the initial recording process (which must be done as soon as possible after the text consumption event).  As such, though much metadata is available from inspection of pictures, recordings etc., some detailed properties (such as the country of origin of authors) are absent.  This was a deliberate design choice, as increased intrusivity of recording methods would have led to the exclusion of many minor linguistic events (a group most likely to be neglected using other methods of sampling).
+
+
+\til{Show initial intent, resultant listing, interpolation}
+
+\section{Results}
+\til{ Perhaps move this section, but provide layouts}
+
+\section{Discussion}
+\til{ Technical problems,
+    coding problems,
+    what did I read/not read?,
+    What proportions were missing/over/under represented,
+}
+
+\subsection{Ethics}
+
+
+\section{Future Work}
+
+
+\section{Summary}
+
+
+
+
+
+

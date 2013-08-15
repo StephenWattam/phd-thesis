@@ -48,8 +48,38 @@ One significant challenge here is that a well defined population may yield a ver
 
 
 
-\subsubsection{Selection of a Sampling Unit}
-\til{Linguistic: Mention dispersion, size needed, counts usually happening in words.  Statisitcal: foreshadow power and size debate below.  Discuss the relative complexity of multi-level data.}
+\subsubsection{Sampling Unit and Linguistic Dispersion}
+\label{sec:sampling-unit-and-dispersion}
+One of the key problems in determining an agreed-upon structure for general-purpose corpora is the selection of a sampling unit.  The sampling unit for many studies is self-evident: a cross-sectional sample of heights would, for example, be done on a person-by-person basis.  In such a case, there are obvious theoretical reasons to select the individual for study.
+
+Linguistics is faced with a particular challenge in this regard, on a number of theoretical points that would seem to defy answers for the forseeable future:
+
+\begin{itemize}
+    \item Many studies of language require wildly different spans of text: those using lexical collocations have decided upon a 5-word limit\td{cite sinclair?}, whereas those studying sentence structure will demand more data, and some require whole documents in order to examine narrative and discourse.
+    \item There is no agreement upon the human limits of perception for linguistic features, and so the above is unlikely to be answered by an authoritative model.
+    \item Due to copyright concerns and the overheads associated with digitising and normalising the format of texts, sampling smaller portions of text is often easier, except that:
+    \item There is an overhead associated with looking up each text, making sampling of particularly small units from many texts difficult.
+\end{itemize}
+
+
+These issues, and the dearth of any immediate solution thereto, has led to a situation where corpus sizes are commonly measured in words.  This, in turn, has raised some severe issues for corpus methods, since they must handle the lack of consistent inter-word variation when performing word-level variation.
+
+The disparity between the unit of sampling (word) and the unit of analysis (often text, author, etc.) has led to much criticism aimed at statistical methods (which buy their validity from assumptions of randomness) when applied to corpus data\td{cite kilgarriff's h0 questioning paper, others}.  This criticism is well-placed, and has led to a large amount of reseach into methods that are able to model and compensate for the nonrandom (but stochastic) `dispersion' of a linguistic feature throughout a corpus\td{massive string of cite}.
+
+This approach may be seen as a way of ensuring that the practical limitations mentioned above are respected whilst extracting maximum value from the data gathered therefrom.  This is undoubtedly a valuable endeavour for some uses of such corpora, however, it is no substitute for sampling using the correct unit to begin with.  This argument becomes particularly salient when one sees that each category within a popular corpus such as the BNC may hold only tens of texts, rendering a sample of authors, for example, low enough to damage the validity of even very unambitious study designs.
+
+\paragraph{}
+An alternative viewpoint is extolled by Evert's `library metaphor' paper, in which he posits that the source of randomness comes from sampling:
+
+\begin{quote}
+Something about getting a random word, then getting another random word etc.
+\end{quote}
+
+Though he goes on to publish a number of times on the subject of applying dispersion measures in linguistics (curiously contradicting a number of his arguments by implication), this publication serves to hint at the purist approach to sampling unit selection.
+
+For the purposes of this thesis I shall be attempting to steer clear of the theoretical basis of sampling unit selection, except to note that the policy of applying dispersion measures after sampling is a poor substitute for appropriate initial selection of data.  As we shall see in later sections, the availability of WaC methods allows us to mitigate some of the practical barriers to ensuring measurement- and sampling-unit coordination.
+
+
 
 
 \subsubsection{Auxiliary Information}
@@ -120,6 +150,7 @@ Auxiliary information may be used from a wide variety of sources to inform the s
 
 
 \subsection{Size and Power}
+\til{Perhaps go over hypothesis testing/types of error?  Is that too simple to put here?}
 Methods for selecting sample sizes, (stratum sizes), sampling unit sizes [last of these is mainly linguistic, but might be worth mentioning].
 
 \subsubsection{Population Size Estimation}
@@ -131,6 +162,48 @@ Methods for selecting sample sizes, (stratum sizes), sampling unit sizes [last o
 
 
 \subsection{Sample Size and Power}
+The process of selecting an appropriately large sample for a given test, and ensuring that its results afford meaningful analysis, is called power analysis.  This is dependent upon four variables, each of which may be derived as a function of its bretherin:
+
+\begin{itemizeTitle}
+\item[Desired Effect Size] The minimum difference between the hypothesised value being tested and the null, that is, the smallest change we deem to be scientifically meaningful.  This may be difficult to determine when working with complex reductions of the dimensions within corpora, but should be related back to the original data in order to be interpreted anyway. \td{"The degree to which the null hypothesis is false" Cohen "Statistical power analysis for the behavioural sciences"}
+\item[Probability of Type I Error] The confidence we wish to have in any result rejecting the null hypothesis, that is, the probability we will correctly reject the null hypothesis and state that there is a difference between the groups we have identified.
+\item[Sample Size] The size of the sample.  Assuming it is taken without bias, this affects the amount of sampling error in the study---larger samples will exhibit less error (on top of the natural population variation).
+\item[Statistical Power] The probability that a test will correctly reject $H_0$.  Like $\alpha$ above, this is conventionalised and should be chosen to fit the circumstances.
+\end{itemizeTitle}
+
+A test that is specified so as to be higher powered will be likely to detect smaller effects, to the point where it may detect effect sizes that no longer have ramifications for the real world.  Conventionally, this is warned against for practical and ethical reasons: the overheads required in gathering the data impose a practical disadvantage on the study.  This is less of an argument, however, for shared resources such as corpora, for which we may be tempted to say ``the more data the better'' if it were not for the insane complexity of larger portions of language, implying that more will never be enough for some anyway.  The question here is who those some are, and what portion of those wishing to use a corpus they comprise.  We shall revisit this conundrum later.
+
+Where data is as dimensional as linguistic data (and formal statistics often explain very small proportions of variance), the detection of very small changes in a parameter of interest is also likely to represent spurious influence, evidencing not the alternative hypothesis presented, but instead some correlational quirk that may not be relied upon.  Philosophical purists may at this point be objecting to the implication that rejection of the null hypothesis implies acceptance of the alternate given.  They are right, of course, but in practice the distinction is respected less than it perhaps ought to be.
+
+
+
+Underpowered tests suffer an altogether more familiar failure, in that they are unlikely to detect an effect where one actually exists.  Where this is the case it is largely impossible to determine if any observed effect is down to meaningful variation in the sample used (which should warrant further study) or simply due to the sample size being too small (which should [ideally] not).
+
+This would seem to be of epidemic proportions in linguistics, especially where larger features are studied, with researchers often noting that an effect is interesting but statistically unconfirmable:
+\begin{quote}
+QUOTE STUFF FROM PEOPLE
+\end{quote}
+\til{Quote a load of things where people say "There's not enough data to prove it, but this effect looks interesting"}
+
+
+
+
+
+
+
+
+
+Where a corpus is built in a special-purpose manner, the desirable sample size may be authoritatively calculated a priori, on conditions defined by the intended study design.\td{note how rarely this is done}  Where general-purpose corpora are defined, however, this is unlikely to be accurate due to the disparate study designs used after sampling is complete (see~\ref{sec:sampling-unit-and-dispersion} above).
+
+It would seem that general-purpose corpora in their current form, as large shared pre-built repositories of text, are doomed to one of two fates: either they will be so large as to be difficult-to-process (containing enough text to satisfy power requirements of studies focusing on large units of text), or they will be incapable of offering valid insight into larger features due to insufficient sample sizes.
+
+
+
+
+
+
+\subsubsection{Methods for Sample Size Calculation}
+
 \til{Discuss methods for estimating sample size.}
 \til{Debate suitability for various uses, esp. for general purpose corpora.  Focus on Zipfianness.}
 \til{Cover saturation measures, 'new information' approaches}
