@@ -18,7 +18,7 @@ There is some discussion about the value of proportionality in corpus building. 
 Using the methods above, it should be possible to control for the proportions of language used in daily life, to construct a corpus from these that is both web-sourced (and hence easy to sample) and yet balanced to a given population.  This is, in effect, the goal of many special purpose corpora sampled online.
 
 \section{Methods for Proportional Selection Online}
-Many web-as-corpus tools make surprisingly modest efforts to constrain their output.  There are a number of good reasons for this:
+Many web-as-corpus tools make at best modest efforts to constrain their output.  There are a number of good reasons for this:
 
 \paragraph{Metadata Availability}
 Many of the variables available for balancing data online are of limited applicabilty to many corpus objectives: consider, for example, the data attached to many web pages, which is typically limited to the HTTP headers, location, and immediate context.  Many users will combine knowledge about the world and intuitions regarding content to judge the genre, author, and many other salient properties---something that is beyond the scope of many WaC processing toolchains.
@@ -115,6 +115,13 @@ Such designs exhibit a tradeoff: a decrease in socioeconomic breadth in exchange
 \til{ Intro to life logging, a good lit review needs to be done.  Perhaps it belongs in the lit review section rather than here though.}
 
 
+
+
+
+
+
+
+
 \til{Notes suggest uses: 
 
 * Stratified Comparison
@@ -132,8 +139,15 @@ Such designs exhibit a tradeoff: a decrease in socioeconomic breadth in exchange
 % 
 
 
+
+
 \section{Scope}
 The methods presented here are intended as an inspection of the issues that surround construction of personalised corpora, and should be seen as a first step towards the principles of building a ``socially balanced'' set of important variables across which to sample.  
+
+
+
+
+
 
 \til{What aspects are in common with typical fieldwork?
 
@@ -144,7 +158,21 @@ How long to sample for? Why?
 Data sources.
 }
 
+
+
+
+
+
+
+
+
 \section{Method}
+In order to best derive methods of data recording that were practical and well-suited to the lifestyle of the subject, experimental design proceeded in an iterative fashion.  Ultimately there were two formal preliminary data gathering stages, and after each of these a summary was written to alter the procedure for the next.
+
+
+
+
+
 \til{What I did, like...
 Should I describe the first preliminary approach as an iterative things?
 }
@@ -181,10 +209,31 @@ In many cases there was a need to review and augment a text's main properties fr
     What proportions were missing/over/under represented,
 }
 
+
+
+
+
 \subsection{Ethics}
+The increased resolution of data pertaining to a single individual renders the methods discussed here ethically sensitive.  This sensitivity is increased further if continuous recording of audio or video are used, though, as mentioned above, this data was not integrated into my analysis.
+
+There are a number of arguments justifying covert research in the social sciences, and ...
+
+
+
+
+Further, future developments in the methods described may use questionnaires or other less-invasive methods as sources of auxiliary data.  These would be targeted to a particular study design and need not cover the full set of language uses, mitigating any ethical concerns by limiting the descriptive power of the raw data itself.
+
+A number of technical measures are also possible that may assist this issue---some of these have been developed by \td{who} working on the Machine Listening project, who irreversably scramble their audio recordings in such a way that VAD algorithms may still run.  A further option is streaming of data to a remote server, which can process, summarise, and discard data on-the-fly to prevent any possible information security breaches.
+
+
+
 
 
 \section{Future Work}
+
+
+
+
 
 
 \section{Summary}
