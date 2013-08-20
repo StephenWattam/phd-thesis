@@ -440,7 +440,7 @@ The process followed was a hybrid approach---data were freely coded by inspectio
 Though this approach was suitable for the aims of this particular study, it is difficult to advocate for any others using the sampling techniques described, and its use here should not be taken as such.
 
 %---
-\paragraph{}
+\subsubsection{Human Interest Models}
 Beyond coding, by far the largest single influence on the data recorded was the human interest model applied.  This was created in order to take into account two factors that had become particularly apparent (and notably do not apply in the same manner to conventional corpus designs, where many eyes may cover a whole document in sum):
 
 \begin{itemize}
@@ -454,21 +454,43 @@ Though crude, this measure was able to produce approximations for word counts th
 
 
 % TODO: perhaps a run-down of each annotation program?
-\subsubsection{}
+\paragraph{Web logs}
+The human interest model for web logging was built by inspection of the web logs and cross-referencing with information about the hosts identified.  The normalisation script is concerned primarily with removing material that was downloaded without ever having been viewed, for example, non-text MIME types and advertising, and contains a multi-stage strategy for excluding content:
+
+\begin{enumerate}
+    \item Filter only successful requests
+    \item Filter only those requests that are of textual mime types (\texttt{text/*})
+    \item Apply a blacklist of advertising websites and file extensions (manually constructed)
+    \item Discard links where the page was reloaded and the URL is the same as the previous entry in the list (this pattern is often caused by initially connecting to the proxy, for example)
+    \item Non-visible text items were discarded (non-body elements if the file is HTML), and markup was removed
+\end{enumerate}
+
+Beyond this initial normalisation, a speadsheet's \texttt{LOOKUP} function was used to manually assign attention coefficients to the domains, based upon entries in the journals and interesting portions of web pages that follow regular structures.
+
+Days were classified as changing at 4am, since there were no points in the data set where the subject was still using the web at this time.
 
 
 
+\paragraph{IRC Logs}
+IRC logs were already stored using a limited attention model, which was based on the principle that, in IRC, conversations are started, live for a short time, then die off as people in the channel return to work.  The bot performing logging would start logging (and continue to log) for as long as the subject was talking, stopping 10 minutes after the final utterance.
+
+In order to capture a human notion of day, that is, one demarked by sleep rather than midnight, the start time of each conversation was used to determine the day its data fell into.
 
 
 
+\paragraph{}
 
 
 
+\paragraph{}
 
 
 
+\paragraph{}
 
 
+
+\paragraph{}
 
 
 
