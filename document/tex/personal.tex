@@ -300,7 +300,7 @@ The second set of methods are focused on a single data source, typically requiri
 \label{fig:personal:online_notebook}
 \end{figure}
 
-Two journals were maintained throughout the sample.  The former of these was an A6 notebook maintained `on-line' as events occurred (pictured in figure~\ref{fig:personal:online_notebook}).  This was used to store durations of conversations, titles of persistent sources, etc.
+Two journals were maintained throughout the sample.  The former of these was an A6 notebook maintained `on-line'\td{rename to hot/warm/cold, front/mid/backline or something similar} as events occurred (pictured in figure~\ref{fig:personal:online_notebook}).  This was used to store durations of conversations, titles of persistent sources, etc.
 
 The second was an off-line journal, maintained at the end of each day in a narrative style.  This blog-like record was intended to reflect in depth on the proportions of text used in each source, and how attentively each linguistic event was engaged in.  The writing of the journal itself was not logged by any other methods.  It was also possible to attach daily records to this journal, and the process of writing it inserted an opportunity to reflect on the mnemonic codes used during the day.  This process is described in context in section~\ref{sec:personal:recording}.
 
@@ -405,7 +405,7 @@ At the end of the sampling period, these tags were collected and downloaded in m
 
 \subsection{Recording Procedure}
 \label{sec:personal:recording}
-The recording process was, as mentioned, structured around each day.
+The study is based around a period of continuous sampling using the methods discussed above.  For two weeks (in some cases longer), data was captured for each source.  This process was structured around a daily routine:
 
 Upon waking, and before any language was used, the recorder was turned on and a note of the time at which this occurred was made in the on-line notebook.  Recording was then continued until the end of the day without interruption.
 
@@ -448,7 +448,7 @@ Beyond coding, by far the largest single influence on the data recorded was the 
     \item Texts, especially broadcast media and speech, were often used whilst also accomplishing a non-textual task (or sometimes both at once, such as talking with the radio on in the background).
 \end{itemize}
 
-Both of these were noted in journals, and added to the processing toolchain---each data source's normalisation script contained a model to extract the portions of text that were read, and each row of the normalised data format contained an ``attention index'', ranging from 0-1, that served as a coefficient of the word count.
+Both of these were noted in journals, and added to the processing toolchain---each data source's normalisation script contained a model to extract the portions of text that were read, and each row of the normalised data format contained an ``attention index'', ranging from 0--1, that served as a coefficient of the word count.
 
 Though crude, this measure was able to produce approximations for word counts that were inline with the expectations of the subject.  (It is recognised that this may not hold much scientific value to others wishing to replicate the study, and in general it is necessary to investigate the inter-person variability of these properties in order to create more generalised processing tools.)
 
@@ -478,19 +478,145 @@ In order to capture a human notion of day, that is, one demarked by sleep rather
 
 
 
-\paragraph{}
+\paragraph{Terminal [Console] logs}
+Terminal data was logged with timestamps on each individual character, and the model was thus responsible for inferring when a command had output, and suggesting which portions of text were still on screen.
+
+This was done with a `timeout' and a `scrollback'---the former describing a delay that had to be present for the text to have been read (rather than simply scrolling offscreen), and the latter describing the average size of a terminal (and thus the number of rows of text that remain displayed).
+
+These parameters were tuned to match the specific data sampled over the period---for example, the time recorded included terminal use displaying logs from software that was being developed, and these would produce thousands of lines of output before a pause.
 
 
 
-\paragraph{}
+% \paragraph{}
 
 
 
-\paragraph{}
+
+
+\section{Results}
+
+\subsection{Recording Period}
+
+\begin{figure}[p]
+\centering
+\includegraphics[width=0.8\textwidth]{dataoverview}
+\caption{The availability of data from various sources}
+\label{fig:personal:dataoverview}
+\end{figure}
+
+
+These results describe data collected during the third iteration of sampling, which lasted roughly two weeks during April 2013.  Table~\ref{figure:personal:dataoverview}\td{make into a table} describes the availability of data per-day.
+
+The period marked from Friday the 5th to Friday the 19th (inclusive) forms the sampling period described herein (with exceptions to this noted where made).  This was the period for which the on-line notebook was maintained along with other intrusive data collection techniques, though notably some methods continued due to their ease-of-use.
+
+Though audio data is missing for Friday 19th, this was not used due to the difficulty in processing such data ethically and within a reasonable time frame.  Word counts for spoken transactions were instead based on an estimated words-per-minute.  /%XXX: revisit this and do manual transcription some day before the viva?
+
+This fifteen-day recording period covers 8,619 linguistic events, encompassing an estimated 980,000 words.  
 
 
 
-\paragraph{}
+\subsubsection{Activities}
+During the sampling period, all work surrounding the personal corpus case study was stopped, in favour of other, ongoing, projects.  Other than this intervention, work continued as normal, which for this period involved significant amounts of development on the LWAC downloader tool.
+
+% TODO: more about genera life in that period
+
+
+
+
+
+\subsection{Frequencies and Summaries}
+\til{See presentation for a few breakdowns.
+
+Also do more word count comparisons against things such as the BNC.  Possibly also pick out some demographics and compare only to people like me.
+}
+
+
+\subsection{Specific RQs...}
+
+\til{Notes suggest uses: 
+
+* Stratified Comparison
+* Synchronic Comparison
+* Vocabulary estimation
+* 'learning rate' estimation for some features (learner corpus stuff)
+}
+
+
+\til{ Technical problems,
+    coding problems,
+    what did I read/not read?,
+    What proportions were missing/over/under represented,
+}
+
+
+\subsection{Discussion}
+
+\til{qualitative findings...}
+\subsection{}
+
+
+
+\subsection{Validity}
+The design of this experiment is subject to a number of challenges to validity, and is presented in an explanatory context.
+
+* The proportions used are estimated and based on my subjective opinion
+* When something is formally `read' is based on my subjective opinion
+* Generalisability is low to others
+* Any inference drawn from comparison to other corpora can be done rationally only, as quantiative data does not exist on inter-person variability
+
+
+
+\subsection{Ethics}
+The increased resolution of data pertaining to a single individual renders the methods discussed here ethically sensitive.  This sensitivity is increased further if continuous recording of audio or video are used, though, as mentioned above, this data was not integrated into my analysis.
+
+There are a number of arguments justifying covert research in the social sciences, and ...
+
+
+
+
+Further, future developments in the methods described may use questionnaires or other less-invasive methods as sources of auxiliary data.  These would be targeted to a particular study design and need not cover the full set of language uses, mitigating any ethical concerns by limiting the descriptive power of the raw data itself.
+
+A number of technical measures are also possible that may assist this issue---some of these have been developed by \td{who} working on the Machine Listening project, who irreversably scramble their audio recordings in such a way that VAD algorithms may still run.  A further option is streaming of data to a remote server, which can process, summarise, and discard data on-the-fly to prevent any possible information security breaches.
+
+
+
+
+
+
+
+
+% ============================================================================
+\section{Future Work}
+
+In the long term, it is hoped that a greater understanding of the above may contribute to:
+
+\begin{itemize}
+    \item Methods for augmenting and rebalancing corpora using a questionnaire or other surrogate auxiliary data
+    \item A greater understanding of variance in terms of the populations being studied
+    \item 
+\end{itemize}
+
+From a sample of just one person, it is possible to use auxiliary data from existing sources to operationalise and reason about inter-person variability.  This may be done by cross-referencing a subject's demographic variables with those from an existing corpus, placing them in context and allowing comparison of his linguistic data to other groups (or to those within a given similarity).
+
+This technique can also be used to impute data from partially-sampled sources, creating a personal corpus by re-weighting existing samples.
+
+Unfortunately many existing corpora are unsuitable for this process due to the limited availability of metadata (something that is also an issue for those constructing ``informal'' subsets).
+
+
+
+
+
+
+% ============================================================================
+\section{Summary}
+
+
+
+
+
+
+
+
 
 
 
@@ -567,15 +693,6 @@ Users of techniques such as those mentioned above are able to apply weighted sel
 
 
 
-
-\til{Notes suggest uses: 
-
-* Stratified Comparison
-* Synchronic Comparison
-* Vocabulary estimation
-* 'learning rate' estimation for some features (learner corpus stuff)
-}
-
 % 
 % \til{ talk about this allowing us to go out into the field and re-examine language use with less interruption,
 %     the ability to get empirical data on text proportinoality,
@@ -650,64 +767,6 @@ In many cases there was a need to review and augment a text's main properties fr
 \til{ Perhaps move this section, but provide layouts}
 
 \section{Discussion}
-\til{ Technical problems,
-    coding problems,
-    what did I read/not read?,
-    What proportions were missing/over/under represented,
-}
-
-
-
-\subsection{Validity}
-The design of this experiment is subject to a number of challenges to validity, and is presented in an explanatory context.
-
-* The proportions used are estimated and based on my subjective opinion
-* When something is formally `read' is based on my subjective opinion
-* Generalisability is low to others
-* Any inference drawn from comparison to other corpora can be done rationally only, as quantiative data does not exist on inter-person variability
-
-
-
-\subsection{Ethics}
-The increased resolution of data pertaining to a single individual renders the methods discussed here ethically sensitive.  This sensitivity is increased further if continuous recording of audio or video are used, though, as mentioned above, this data was not integrated into my analysis.
-
-There are a number of arguments justifying covert research in the social sciences, and ...
-
-
-
-
-Further, future developments in the methods described may use questionnaires or other less-invasive methods as sources of auxiliary data.  These would be targeted to a particular study design and need not cover the full set of language uses, mitigating any ethical concerns by limiting the descriptive power of the raw data itself.
-
-A number of technical measures are also possible that may assist this issue---some of these have been developed by \td{who} working on the Machine Listening project, who irreversably scramble their audio recordings in such a way that VAD algorithms may still run.  A further option is streaming of data to a remote server, which can process, summarise, and discard data on-the-fly to prevent any possible information security breaches.
-
-
-
-
-
-% ============================================================================
-\section{Future Work}
-
-In the long term, it is hoped that a greater understanding of the above may contribute to:
-
-\begin{itemize}
-    \item Methods for augmenting and rebalancing corpora using a questionnaire or other surrogate auxiliary data
-    \item A greater understanding of variance in terms of the populations being studied
-    \item 
-\end{itemize}
-
-From a sample of just one person, it is possible to use auxiliary data from existing sources to operationalise and reason about inter-person variability.  This may be done by cross-referencing a subject's demographic variables with those from an existing corpus, placing them in context and allowing comparison of his linguistic data to other groups (or to those within a given similarity).
-
-This technique can also be used to impute data from partially-sampled sources, creating a personal corpus by re-weighting existing samples.
-
-Unfortunately many existing corpora are unsuitable for this process due to the limited availability of metadata (something that is also an issue for those constructing ``informal'' subsets).
-
-
-
-
-
-
-% ============================================================================
-\section{Summary}
 
 
 
