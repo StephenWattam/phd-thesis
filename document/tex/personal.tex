@@ -250,9 +250,11 @@ The sources identified in the initial case study were as follows:
 The inadequacies of introspective methods to identify these soon became apparent during preliminary tests, as the process of recording increased awareness of language use, raising a series of edge cases.  These were collected and resulted in a final selection of sources displayed below.  As well as expending the set of sources to be gathered, methods of collection were chosen with flexibility in mind in order to cope with unenvisaged sources of data\footnote{This flexibility has the unwelcome effect of slowing down analysis later on, and may be undesirable in some cases}.
 
 
+\td{This image is complete, but not in the git repo.}
 \begin{figure}[p]
 \centering
-\includegraphics[width=0.4\textwidth]{datasources}
+% \includegraphics[width=0.4\textwidth]{datasources}
+\includegraphics[width=0.4\textwidth]{missing}
 \caption{Data sources and their appropriate capture methods}
 \label{fig:personal:datasources}
 \end{figure}
@@ -420,7 +422,7 @@ The study is based around a period of continuous sampling using the methods disc
 
 Upon waking, and before any language was used, the recorder was turned on and a note of the time at which this occurred was made in the on-line notebook.  Recording was then continued until the end of the day without interruption.
 
-The on-line notebook, cameraphone, and flash drive, were carried at all times.  Since each of these could be backed up (the cameraphone even did this backup automatically), the most data at risk was a single day.
+The on-line notebook, smartphone, and flash drive, were carried at all times.  Since each of these could be backed up (the smartphone even did this backup automatically), the most data at risk was a single day.
 
 Notebook entries were made as soon as was possible without interrupting the linguistic event being recorded.
 
@@ -498,6 +500,24 @@ These parameters were tuned to match the specific data sampled over the period--
 
 
 
+
+\subsection{Coding and Genres}
+Since the case study is, in part, aiming to identify genre distinctions not found in other general-purpose corpora it is not possible to use an existing taxonomy to code text genres.
+
+\til{Also note how I'm coding things from both spoken and written, and such, thus one taxonomy would be unable to cover it anyway?}
+
+
+Genre distinctions were made using a process that loosely follows the principles of the coding stages of grounded theory \td{cite}.  
+This involves a focus on free coding, and a consideration of all available context and information---something aided both by the `memoing' innate in the design of the journals, and the fact that the analyst is also the subject.  Free coding was performed with prior knowledge of Lee's genre categories.
+
+
+This process was done in order to deliberately apply distinctions made by Lee to the data gathered, such that genres selected would be more easily compared to the BNC.  No effort was made to adhere to Lee's specification directly, as this would lead to over-specification where the case study's corpus proves more diverse in form than the equivalent BNC category.
+
+It's particularly noteworthy here that the analyst selecting codes for genres is the same person as the subject gathering the data.  This, along with the mnemonic form of the notebooks and data captured, provides extra (informal) insight afforded by context.
+
+
+
+
 % \paragraph{}
 
 
@@ -525,9 +545,47 @@ This fifteen-day recording period covers 8,619 linguistic events, encompassing a
 
 
 \subsection{Variables}
-Variables recorded on each linguistic event are based heavily on Lee's BNC index, augmented to take into account the attention index and word count estimates.
+Variables recorded on each linguistic event are based heavily on Lee's BNC index, augmented to take into account the attention index and word count estimates.  A summary of these is provided in Table~\ref{table:personal:variables}.
 
-\til{table of variables}
+\begin{table}[hp]
+\centering
+    \begin{tabular}{ | l | c | p{7cm} |}
+    \hline
+    \textbf{Variable} & \textbf{Complete?} & \textbf{Description} \\ \hline
+   
+    source              & yes & The data source (email, audio, etc.) \\ \hline
+    source2             & no & Any origin data from within the source (i.e. the caller in a phone conversation, sender for email) \\ \hline
+    day                 & yes & Day of the month sampled \\ \hline
+    mode                & yes & Spoken or Written \\ \hline
+    circulation status  & yes & Exact circulation, or `h', `m', `l' following Lee's guidelines\\ \hline
+    portion read        & yes & The attention index mentioned above \\ \hline
+    informal genre      & yes & Free-coded genre \\ \hline
+    medium              & yes & The form of the language used.  Usually the same as the source. \\ \hline
+    % ...
+    title               & yes & The title of the document, or an identifier for the text \\ \hline
+    author              & no & The author[s] of the text\\ \hline
+    author age          & no & The age of the author[s] \\ \hline
+    author sex          & no & The sex of the author[s] \\ \hline
+    author type         & yes & An indication of the type of entity authoring the text.  Follow's Lee's coding for \textbf{s}ingle, \textbf{m}ultiple, and \textbf{c}ommercial\\ \hline
+    produced/consumed   & yes & During the transaction, was text produced, consumed, or engaged in interactively \\ \hline 
+    % \hline
+    words               & no & Authoritative word count\\ \hline
+    duration            & no & Authoritative duration for spoken data\\ \hline
+    computed words      & yes & Estimated word count, merging durations and word counts above\\ \hline
+    computed genre      & yes & A composite of the medium and the informal genre, intended as a more specific genre representation \\
+    \hline
+    \end{tabular}
+\caption{A summary of variables sampled}
+\label{table:personal:variables}
+\end{table}
+
+
+
+
+
+
+
+
 
 
 
@@ -540,11 +598,319 @@ During the sampling period, all work surrounding the personal corpus case study 
 
 
 
-\subsection{Frequencies and Summaries}
-\til{See presentation for a few breakdowns.
 
-Also do more word count comparisons against things such as the BNC.  Possibly also pick out some demographics and compare only to people like me.
-}
+
+
+
+\subsection{Frequencies and Summaries}
+As mentioned above, the data collected constitutes roughly 9000 linguistic events, covering almost a million words.  In total 3.4GB of data were collected, though the majority of this figure (2.3GB, 67\%) of this is audio data which could easily be compressed or discarded after processing.
+
+The overall word count is changed massively by disabling the attention model, rising to roughly 5 million words.  As we shall see later, this is largely because the data sources and genres which dominate the data set are particularly heavily adjusted.  This raises the question of how we may ensure accuracy of attention models, something that shall be addressed in the discussion section below.
+
+
+
+
+\subsubsection{Distribution}
+Quantitative data about time and other super-simple breakdowns here
+
+
+
+\begin{figure}[p]
+\centering
+\includegraphics[width=0.8\textwidth]{cbyday}
+\caption{Daily event frequencies}
+\label{fig:personal:eventcountbyday}
+\end{figure}
+
+
+Figure~\ref{fig:personal:eventcountbyday} shows the number of events recorded each day.  It shows event counts between 124 and 969, with much of the variation being expressed in terms of written data.  \td{a large amount of that 969 is terminal stuff from developing lwac all day}.
+
+Contrary to expectations, and in part due to large aomunts of terminal and web use during software development work, the majority of daily language use is written.  This is contrasted by Figure~\ref{fig:personal:wordcountbyday}, which indicates that spoken events are likely to expunge greater amounts of words in a single event (spoken median is 128 words, vs. 27 words for written).  This is largely explainable by a penchant for consuming broadcast media (especially spoken radio), which have large amounts of ongoing spoken content.
+
+% > mean(dat[which(dat$mode == 's'),]$computed_words)
+% [1] 307.464
+% > mean(dat[which(dat$mode == 'w'),]$computed_words)
+% [1] 76.68702
+% > sd(dat[which(dat$mode == 's'),]$computed_words)
+% [1] 938.2
+% > sd(dat[which(dat$mode == 'w'),]$computed_words)
+% [1] 196.6995
+% 
+
+
+\begin{figure}[p]
+\centering
+\includegraphics[width=0.8\textwidth]{cbyday}
+\caption{Daily word counts}
+\label{fig:personal:wordcountbyday}
+\end{figure}
+
+As shown in Figure~\ref{fig:personal:eventcountbyday}, the event count as broken down by day shows that between 35,000 and 80,000 words were used each day.  As we shall see later, this is mainly explainable by way of broadcast media and web page views.  It is notable that weekends fall upon days 6,7,13 and 14.  There is no significant pattern by day.
+
+Before this study it was conjectured that the vast majority of all language used would be 
+
+
+
+\til{More fun breakdowns, plot and comment on the distribution of some larger features throughout the data}
+
+
+
+
+
+\subsubsection{Events}
+
+\til{Plot event by source, bar plot}
+\begin{figure}[p]
+\centering
+% \includegraphics[width=0.8\textwidth]{cbyday}
+\begin{verbatim}
+    call    email     file      irc    music    notes   photos      sms 
+      14      184      279      266     1433      272      152       28 
+   squid terminal 
+    6076     1214 
+\end{verbatim}
+\caption{Event count by source}
+\label{fig:personal:eventsbysource}
+\end{figure}
+
+The proportions described in Figure~\ref{fig:personal:eventsbysource} are likely a very individual trait of the subject.  They exhibit a number of properties that would be significantly affected not only by daily routine, but also the specific work being completed at the time of the sample (the implications of this on scientific validity are discussed below in section~\ref{}\td{ref}).
+
+Particularly curious is the large number of terminal, web (squid), and music events.  These are partially explainable by the work being completed at the time of the study, as the subject was developing software, listening to music whilst doing so and using many web references as documentation.  The subject also uses a GUI on his computer that mandates use of terminals for many tasks (this is doubtless atypical).
+
+
+
+\begin{table}[ht]
+\centering
+\begin{tabular}{rr}
+  \hline
+  Computed Genre & Events \\ 
+  \hline
+  web/entertainment/social & 2598 \\ 
+  web/music & 708 \\ 
+  display/output & 627 \\ 
+  music/punk & 587 \\ 
+  web/reference & 421 \\ 
+  web/shopping & 388 \\ 
+  display/interactive & 285 \\ 
+  web/academic & 280 \\ 
+  web/tech & 218 \\ 
+  web/outdoors & 180 \\ 
+  web/video streaming & 167 \\ 
+  irc/informal/discussion & 159 \\ 
+  music/guitar & 147 \\ 
+  web/academic/reference & 142 \\ 
+  web/tech/reference & 116 \\ 
+  web/news & 105 \\ 
+  file/ruby code &  82 \\ 
+  music/metal &  73 \\ 
+  music/pop &  68 \\ 
+  music/rock &  67 \\ 
+  web/hosting &  54 \\ 
+  file/documentation &  49 \\ 
+  web/comedy &  49 \\ 
+  web/social &  49 \\ 
+  web/product support &  48 \\ 
+  product/packaging &  43 \\ 
+  web/tech/academic &  40 \\ 
+  TV/comedy &  39 \\ 
+  web/outdoors/reference &  36 \\ 
+  email/academic &  34 \\ 
+  email/advertising &  28 \\ 
+  web/entertainment &  28 \\ 
+  email/personal &  26 \\ 
+  file/config &  24 \\ 
+  email/business &  22 \\ 
+  speech/discussion &  22 \\ 
+  speech/informal &  21 \\ 
+  web/comedy/social &  21 \\ 
+  email/orders &  20 \\ 
+  speech/service &  19 \\ 
+  web/search &  19 \\ 
+  email/spam &  17 \\ 
+  music/blues &  17 \\ 
+  speech/greeting &  16 \\ 
+  web/fitness &  16 \\ 
+  web/tech/news &  15 \\ 
+  TV/Entertainment &  14 \\ 
+  speech/info &  14 \\ 
+  web/tech/shopping &  14 \\ 
+  web/reference/academic &  13 \\ 
+  TV/news &  12 \\ 
+  radio/music &  12 \\ 
+  radio/news &  12 \\ 
+  sign/info &  11 \\ 
+  web/art &  11 \\ 
+  web/music/shopping &  11 \\ 
+  music/folk/metal &   9 \\ 
+  music/progressive &   9 \\ 
+  TV/entertainment &   8 \\ 
+  email/technical &   8 \\ 
+  sign/info/instruction &   8 \\ 
+  speech/ephemera &   8 \\ 
+  web/banking &   8 \\ 
+  music/country/rock &   7 \\ 
+  music/fusion &   7 \\ 
+  sign/product info &   7 \\ 
+  book/info &   6 \\ 
+  sign/advertising &   6 \\ 
+  TV/documentary &   5 \\ 
+  flyer/advertising &   5 \\ 
+  notes/note &   5 \\ 
+  product/info &   5 \\ 
+  speech/parting &   5 \\ 
+  web/advertising &   5 \\ 
+  web/conspiracy &   5 \\ 
+  box/address &   4 \\ 
+  flyer/info/advertising &   4 \\ 
+  radio/news/entertainment &   4 \\ 
+  sms/informal &   4 \\ 
+  web/blogs &   4 \\ 
+  web/games &   4 \\ 
+  web/news/social &   4 \\ 
+  web/reference/social &   4 \\ 
+  web/reference/travel &   4 \\ 
+  web/reference/woodwork &   4 \\ 
+  web/shopping/investment &   4 \\ 
+  web/tech/utility &   4 \\ 
+  web/utility &   4 \\ 
+  TV/advertising &   3 \\ 
+  application/info &   3 \\ 
+  file/js code &   3 \\ 
+  flyer/menu &   3 \\ 
+  music/country &   3 \\ 
+  phone/ &   3 \\ 
+  sign/advertising/info &   3 \\ 
+  sms/info &   3 \\ 
+  speech/organisation &   3 \\ 
+  speech/request &   3 \\ 
+  web/health &   3 \\ 
+  web/news/tech &   3 \\ 
+  application/info/status &   2 \\ 
+  book/packaging/book title &   2 \\ 
+  map/info &   2 \\ 
+  music/indie &   2 \\ 
+  paper slip/invoice &   2 \\ 
+  phone/informal &   2 \\ 
+  poster/advertising &   2 \\ 
+  radio/News &   2 \\ 
+  speech/Discussion &   2 \\ 
+  speech/informal/discussion &   2 \\ 
+  web/comedy/entertainment &   2 \\ 
+  web/entertainment/images &   2 \\ 
+  web/entertainment/news &   2 \\ 
+  web/entertainment/puzzles &   2 \\ 
+  web/game &   2 \\ 
+  web/tech/social &   2 \\ 
+  TV/advertising/info &   1 \\ 
+  TV/documentary/entertainment &   1 \\ 
+  TV/info &   1 \\ 
+  TV/music &   1 \\ 
+  TV/sport &   1 \\ 
+  application/album listing &   1 \\ 
+  application/buttons/info &   1 \\ 
+  application/update &   1 \\ 
+  book/ &   1 \\ 
+  book/packaging/book blurb &   1 \\ 
+  box/packaging &   1 \\ 
+  card/info &   1 \\ 
+  cheque/info &   1 \\ 
+  clothing/packaging &   1 \\ 
+  display/info &   1 \\ 
+  display/info/status &   1 \\ 
+  file/html code &   1 \\ 
+  film/Entertainment &   1 \\ 
+  game/discussion &   1 \\ 
+  game/game &   1 \\ 
+  music/classical &   1 \\ 
+  music/electronica &   1 \\ 
+  music/music &   1 \\ 
+  music/pop/metal &   1 \\ 
+  notes/agenda/minutes &   1 \\ 
+  notes/diagram &   1 \\ 
+  noticeboard/advert &   1 \\ 
+  paper slip/info &   1 \\ 
+  phone/info &   1 \\ 
+  poster/info &   1 \\ 
+  poster/menu &   1 \\ 
+  product/instruction/info/packaging &   1 \\ 
+  radio/News/entertainment &   1 \\ 
+  sign/ &   1 \\ 
+  sign/instruction &   1 \\ 
+  sign/map &   1 \\ 
+  sign/menu &   1 \\ 
+  sms/ &   1 \\ 
+  speech/Informal &   1 \\ 
+  speech/Inquiry &   1 \\ 
+  speech/discussion/academic &   1 \\ 
+  speech/info/discussion &   1 \\ 
+  speech/question &   1 \\ 
+  speech/service/discussion &   1 \\ 
+  taxdisc/info &   1 \\ 
+  vehicle/branding/sign &   1 \\ 
+  vehicle/info/advertising &   1 \\ 
+  video/info/academic &   1 \\ 
+  video/info/advertising &   1 \\ 
+  web/downloads &   1 \\ 
+  web/games/news &   1 \\ 
+  web/info/advert &   1 \\ 
+  web/reference/entertainment &   1 \\ 
+  web/reference/military &   1 \\ 
+  web/reference/outdoors &   1 \\ 
+  web/reference/shopping &   1 \\ 
+  web/tech/hosting &   1 \\ 
+   \hline
+\end{tabular}
+\caption{Event frequency by computed genre}
+\label{table:personal:eventcountbygenre}
+\end{table}
+
+
+Table~\ref{table:personal:eventcountbygenre} shows a breakdown of event frequencies by computed genre \td{probably exclude hapaxes to shorten the table?} (which includes the source).  This shows a somewhat predictable zipfian distribution of genres surrounding a number of themes:
+
+\begin{itemize}
+    \item Daily events, such as reading social media websites
+    \item Short events, such as consuming single programs of media (especially songs due to additive effects with the above)
+    \item Any of the above that are particularly surrounding personal interests of the subject
+\end{itemize}
+
+Clearly, the last of these is the most obvious and desirable effect of building a corpus using this method.  The overwhelming prevalence of \texttt{web/entertainment/social} events may be explained (rather embarrassingly) by one website, which displays a single image per page (along with socially-contributed captions), and thus demands a lot of page reloads for relatively little content.
+
+
+
+
+
+\subsubsection{Word Counts}
+
+\begin{table}[ht]
+\centering
+\begin{tabular}{rrrrrrrr}
+  \hline
+ & 5\% & 10\% & 20\% & 50\% & 70\% & 90\% & 95\% \\ 
+  \hline
+1 & 0.00 & 0.00 & 8.90 & 27.85 & 74.00 & 217.00 & 354.88 \\ 
+   \hline
+\end{tabular}
+\caption{Percentiles for words-per-event.}
+\label{table:personal:wordsperevent}
+\end{table}
+
+Word counts were established either directly, or by assuming an 80 word-per-minute speech ratetd{cite where this figure was pulled from, mention that song lyric estimates also back it up}.  Table~\ref{table:personal:wordsperevent} shows that the distribution of word count per event is heavily skewed towards the lower end, with the median being 27 words per event.
+
+This figure also reflects the degree to which the attention model affects results---disabling calculations for this, the distribution of word counts is affected significantly by the largest source of data, web pages, becoming 442 words.  Most pages are, even compared to other types of event in the corpus, read only partially (often graphical clues indicate which portions to read, especially since most people revisit websites more than they visit new ones).
+
+
+
+
+
+
+
+
+
+\subsubsection{Comparisons}
+Comparisons against BNC for genres, word counts etc.  Also extract demographic info from BNC for more targeted comparison
+
+The comparisons from my presentation are qualitative, so I have left them for the discussion.  I'll revisit this when more time is available for subsetting the BNC's data.
+
 
 
 
@@ -570,14 +936,95 @@ Also do more word count comparisons against things such as the BNC.  Possibly al
 }
 
 
-\subsection{Discussion}
-
-\til{qualitative findings...}
-\subsection{}
 
 
 
-\subsection{Validity}
+
+
+\section{Discussion \& Reflection}
+The quantitative data presented above are of limited utility to others, since the degree to which they describe the subject's life (rather than some general linguistic trend) is unknown.  Without further sampling, or detailed linguistic auxiliary data, we cannot begin to generalise from the above in a useful manner.
+
+This does not mean, however, that we cannot reason rationally about how transferrable those results are---it is more unlikely that a member of the general population is a software developer than it is that they watch TV, or listen to radio 4 in the mornings.
+
+Moreover, since the purpose of the study is to assess the viability of methods, these may be seen as significantly more transferrable than the data they have collected (this distinction is blurred significantly by the inclusion of a human interest model, however.)
+
+
+
+
+
+
+\subsection{Method}
+The process of gathering data itself was optimised for low intrusiveness, and largely proved practical to persue for long periods of time.
+
+Maintenance of the on-line notebook was the major interruption in everyday language use, and this was gradually optimised to a shorthand format that demanded less time in the field, yet more annotation to extract data.  Where the subject is someone other than the analyst, the format of journals would need to be solidified ahead of time to ensure all properties are identifiable.
+
+On reflection, the mnemonic effects of the notebook were most useful---the narrative they created placed all other data items in context, and the detailed notes in the nightly journal contribute to an episodic memory that aided the coding process.  Again, this process of reflection is unlikely to be made available to an analyst without explicit insertion of an interview phase where the two may meet to resolve possible misconceptions.
+
+The nightly journal, whilst useful during the study as a place to write down easily-forgotten details of language events, was less useful than anticipated during analysis.  In reality, the richness of the narrative one quickly notes down of a night proved to be difficult to operationalise, meaning that it was largely of use only as auxiliary data to augment the on-line notebook's event-by-event format.
+
+Some sources of data proved significantly easier to operationalise (and subsequently normalise into a workable format) than did others.  (The suitability of each will depend heavily on the form of data one is aiming for when deciding to use similar methods, however).
+
+SQUID logs proved particularly difficult to process largely due to technical reasons, as extensive whitelists and multiple manual inspection phases were necessary to disregard advertising and AJAX requests.  A possible solution to this would be to rely on sampling of web data closer to where it is consumed, for example through the use of a browser plugin.
+
+Initial plans were to use Voice Activity Detection (or full automated transcription) to estimate word counts from verbatim audio recordings.  In practice the diversity of unwanted noise effects (background noise, positioning of microphone, overheard conversations) rendered this practically impossible.  Even rudimentary VAD algorithms work with frequency detection strategies, and some were liable to detect things such as music as continuous speech.  \td{say more on this}
+
+
+% ---
+\paragraph{}
+Of particular interest to the methodology is the inclusion of a human interest model in the processing stages.  Without this model, the data is changed to massively overestimate the word counts of many data sources (some more than others), and it is the opinion of the subject that the model improves the plausibility of data.  Generalising the method requires generalising this model or narrowing down the number of sources it must cover (either by using more selective data gathering methods or by restricting the scope of the sample).  
+
+Each of the data sources mentioned is burdened with its own empirical concerns that must be considered when designing a human interest model, and the general solutions for many of these may be particularly complex.  For example, models for websites using large graphical elements as well as text must take into account Gestalt principles as well as models for humans as they read text, and the particular interests of the subject.
+
+One way this problem may be solved is through detailed eludication of particular features and interests via a questionnaire or laboratory tasks in addition to the data gathering methods described here.  Clearly, though, relating these to a usefully-complex model of human interest will demand significant further research.
+
+
+% ---
+\paragraph{}
+\til{ Specific experiences from the process of gathering data (take from notes, which are detailed on this) }
+
+
+
+
+
+
+
+
+
+\subsection{Sampling Period \& Validity}
+It seems clear both from personal reflection and examination of the data, which strongly favours certain work-related activities over others, that a two-week sampling period is hardly enough to represent even an individual's language use.
+
+There are a number of obvious reasons for this, particularly egregious examples being:
+
+\begin{itemize}
+    \item Some language sources are usually read slowly, such as books read at bedtime.  A sampling period that covers an individual's various literary interests would have to be very long indeed.
+    \item Life is strongly periodic, and though attempts were made to cover the weekly cycle of work and weekend, many events occur annually (either due to seasons or social convention).  There are no christmas songs in my corpus.
+    \item Many more obscure items were represented only once in the corpus (such as advertising on vehicles or documentation on things such as legal forms).  These features may not be periodic but they are ultimately rare.
+    \item A person's behaviour is likely to be `chunky', following one pattern for a time and then deviating suddenly (for example, during holidays or upon a job change).  Significant effort would have to be given to careful description of duration and circumstance in order to make confident generalisation from the data captured using this method.
+\end{itemize}
+
+It is my opinion that this method is up against two major challenges which must be balanced in order to achieve some degree of scientific validity.  The former of these is the difficulty of sampling in-the-field.  The more obtrusive a method, the higher quality data is going to be, however, the shorter any practical sampling period is likely to be.
+
+Given the relative paucity of metadata within many general-purpose corpora and the periodic/temporal complexity of life, it seems reasonable to suggest that an ideal mix would be better formed from long-term (multi-year) samples using low-resolution sampling techniques.  This may entail, for example, discarding the on-line journals and manual photography in favour of automated life-log photography and a nightly journal only.
+
+Following sufficient short-duration studies, it would be possible to be more confident in the results of longer-term, lower-resolution samples, as the areas with less uncertainty may be attended to less intrusively.
+
+
+
+
+
+
+
+\subsection{Data and Comparisons}
+Compare rationally to BNC and conjecture how representative various corpora are for me
+
+\til{Mention the million count thing as done in the summary}
+
+
+
+
+
+
+\section{Validity}
 The design of this experiment is subject to a number of challenges to validity, and is presented in an explanatory context.
 
 * The proportions used are estimated and based on my subjective opinion
@@ -587,7 +1034,7 @@ The design of this experiment is subject to a number of challenges to validity, 
 
 
 
-\subsection{Ethics}
+\section{Ethics}
 The increased resolution of data pertaining to a single individual renders the methods discussed here ethically sensitive.  This sensitivity is increased further if continuous recording of audio or video are used, though, as mentioned above, this data was not integrated into my analysis.
 
 There are a number of arguments justifying covert research in the social sciences, and ...
@@ -623,174 +1070,183 @@ This technique can also be used to impute data from partially-sampled sources, c
 
 Unfortunately many existing corpora are unsuitable for this process due to the limited availability of metadata (something that is also an issue for those constructing ``informal'' subsets).
 
+% ---
+Methodologically, it is possible to generalise the data-gathering procedures mentioned in this case study either through reduction of the population covered (the technique used here in extremis), or reduction in the linguistic fields covered (the technique used more typically in special-purpose corpora).
 
+Careful application of elitication strategies such as questionnaires or source-specific tools like web usage monitors may be able to produce sufficient auxiliary data to resample larger corpora, however, these methods would need justification from repeated studies such as the one described here (which sample directly).
 
 
 
 
 % ============================================================================
-\section{Summary}
+\section{Summary\td{are conclusions suitable for a case study?}}
+There are a number of methodological challenges that continue to prevent application of the methods described here to larger populations.  These are either due to the problems inherent in sampling varied data in the first place (digitising photographs or transcribing audio), or the processing required to transform data into a usable form (models of attention).
+
+It is hoped that further work will be able to develop these methods in order to mitigate these issues, at least for certain applications.  However, the utility of these methods to the thesis is retained under less ambitious conditions of restricting a combinatino of the domain (for example, only sampling web histories or work-day language use) and the population (i.e. only people very similar to myself).
+
+The practical issues encountered during sampling are largely minor, and modern portable technology proved decisive in making capture of hitherto-unseen (or at least widely ignored) sources of text possible in-the-field.  The census design lends an empirical justification to inclusion of these genres in larger general-purpose corpora, however, we are unable to formally generalise with confidence to demographics other than that of the subject covered.
+
+Of particular note (and perhaps greatest generalisability) is the number of words used throughout the sampling period.  Almost a million words were used by a single individual over a two week period.  Since it is reasonable to deduce that this sampling is at best representative only of a normal working week for a single individual, it is rational to suppose that a corpus purporting to cover the whole population of a country demands a sample size far greater than many existing corpora.
 
 
 
-
-
-
-
-
-
-
-
-
-
-\section{--- --- ---}
-% 
-% \section{Intro/review stuff}
-% 
-% There is some discussion about the value of proportionality in corpus building.  The web makes this discussion particularly interesting, as the availability of pages online is different to those in general life (for any web user, a sizable subset).
-% 
-% Using the methods above, it should be possible to control for the proportions of language used in daily life, to construct a corpus from these that is both web-sourced (and hence easy to sample) and yet balanced to a given population.  This is, in effect, the goal of many special purpose corpora sampled online.
-% 
-\section{Methods for Proportional Selection Online}
-Many web-as-corpus tools make at best modest efforts to constrain their output.  There are a number of good reasons for this:
-
-\paragraph{Metadata Availability}
-Many of the variables available for balancing data online are of limited applicabilty to many corpus objectives: consider, for example, the data attached to many web pages, which is typically limited to the HTTP headers, location, and immediate context.  Many users will combine knowledge about the world and intuitions regarding content to judge the genre, author, and many other salient properties---something that is beyond the scope of many WaC processing toolchains.
-
-This has been adjusted for using various methods, such as:
-
-\begin{itemize}
-    \item Selection of only certain top-level-domains (i.e. those for a given country)
-    \item Use of HTTP headers to identify language or location of servers (limited due to poor coverage of internationalisation technologies)
-    \item Use of metadata and non-content HTML body data (applicable only where services make a layout/content distinction)
-    \item Heuristics (such as keyword counting in various languages; suitable only for simple inferences)
-\end{itemize}
-
-
-\paragraph{Internal Variables}
-The problem of metadata availability is compounded further by the need to select documents without systematic linguistic bias (especially where general-purpose corpora are concerned).  Many available properties of web documents are essentially internal variables, and should not be used for sampling.
-
-One method for controlling for this relies on seed terms, where a search engine will be used to find pages containing various collocations from a corpus.  This method is essentially a complex heuristic, and is reliant either on the principle that search engines will duplicate external variables by summary of the content they select, or that the content will be summarised from the original document and selected without bias by the search engine.  In practice this method proves fast, easy, and able to control (at least to some extent) for more complex characterisation than the coarse definitions covered by page metadata.  This method is boosted further by the existence of boilerlate/non-content text in pages, which may prove cause for selection without itself being content for the corpus.
-
-\paragraph{Format Heterogeniety}
-The format of web data is particularly heterogeneous, and this poses significant problems with respect to selection of pages based on their layout or appearance.  Without further (arbitrary) restriction by corpus compilers, the only common interface data online is designed for is the human eye (and some content even violates this assumption\footnote{Such as large dumps of tables, or things like JSON and XML serialisation formats.  Largely it is assumed that these will be excluded from the corpus by design anyway}).  
-
-This means that any use of boilerplate and data surrounding the content itself is severely limited by our capacity to codify and process such a distinction---something that is easy for a corpus with few sources, but difficult for larger ones sampling wider population of text.
-
-\paragraph{Population Ambiguity}
-As mentioned in [the special edition on web as corpus], web corpora may be seen, strictly, as only representative of web content.  The extent to which this applies in practice is a matter of debate.
-
-Those who spider the web, such as WebCorp and other services, offer corpora that are perhaps most closely tied to its layout and content---they do not make any efforts to (re-)balance their corpora in terms of other proportions, and subsequently end up with a natural representation of web data.
-
-Users of techniques such as those mentioned above are able to apply weighted selection policies to correct for this, however, the extent to which this is capable of correcting for the web's idiosynchrasies is debatable---issues of presentation (``click here") and context are at play for which there is no alternative source of data online, and this necessarily limits the power of any methods for mitigating differences between `real life' and web corpora. % TODO: rephrase and shorten
-\til{More stuff, elucidate more especially on this point since it's pretty crucial to the narrative} 
-
-% 
-% \section{Establishing Proportions of Strata}
-% The proportions of corpora have traditionally been established through a combination of experiment, debate, and reason.  This process has been well documented in the early corpora, \todo{ read up on some examples to include here}
-% 
-% 
-% As with most aspects of corpus construction, practical limitations necessarily restrict the selection and variety of data sources available.  This has conventionally led to selection from large pre-indexed resources such as library catalogues, publisher's records, and bestseller lists.  We may see this stratification of variables as being primarily governed by the proportional consumption of text types, measuring the population's socioeconomically-influenced consumption of text by the text's popularity.
-% 
-% This method is contrary to many other samples in social science, which seek primarily to control for a given socioeconomically-defined population.  In the case of text corpora, the reasoning behind this is doubtless often pragmatic: it is far cheaper and simpler to rely on existing indexes, and brings us one step closer to gathering actual real-world book statistics.  This decision, then, may be seen as a generally wise and productive one for corpus linguistics, as it has freed the field from the need to fund and maintain even larger projects akin to the British Household Panel Survey or cohort studies.
-% 
-% Nonetheless, there are a number of disadvantages associated with this selection of variables.  One of the most pronounced scientifically is the definition of population: selecting primarily in terms of textual variables leads us to define our population in such a way, something that leads to an ambiguity in the boundaries of representation for the corpus, and the limits of generalisability for any resultant conclusions.  This effects is especially pronounced for special-purpose corpora, about which generalisations must be qualified with much greater specificity.
-% 
-% Other disadvantages with this method surround the power socioeconomic annotation gives to those using corpus resources.  Often, simpler annotations derived from text-oriented variables are insufficient to drill-down into a ``Who uses what'' question format, something that may be crucial in reducing within-class variance to the point where many techniques are useful.
-% 
-% Another property obscured by description in terms of texts is the differentiation between text production/performance and reception.  This distinction is well noted in corpus documentation (going back to Brown... % TODO: quote
-% ), but, except in circumstances where the distinction is of particular interest, often compromised.  Designs for corpora including Brown and the BNC state that their aim is to sample a ``mix'' of the two, so as to represent language use for the population (this is one major reason they take into account the relative popularity of works when selecting texts).  The lack of detail in this method denies any detailed inquiry into the ratio of text production and consumption, and any analyses and insights that lead from this.  Simply put, selection of texts from text-centric central indexes obscures this distinction.
-% 
-% \til{It might be wise to expand this section to debate the difficulties in text selection proportionally.  Also mention Leech, review things like the Czech NC}
-% 
-% It's worth noting here that the approach taken for written resources often differs to that for spoken.  The transient nature of spoken language mandates capture during performance, meaning that little of it is indexed.  Many spoken corpora thus contain data that was gathered by the authors themselves, affording an opportunity to both describe and balance the socioeconomic variables first with little effort.
-% 
-% As such, many spoken corpora are primarily oriented around these variables (in addition to text-format ones), for example the BNC's section, LLC, etc.  \todo{find examples}
-
-
-
+Of particular interest to this thesis is the high level of detail that may be captured using this method.  The census design affords full coverage of a given area about which we may wish to generalise, and the detail it is possible to capture this way makes the data ideal as a `seed' for constructing larger corpora with comparable properties.  Application of these methods, as well as those using auxiliary data mentioned above, will hopefully render this sampling method a complementary one, to be added to the collection of existing corpus designs.
 
 
 
 
 
 % 
-% \til{ talk about this allowing us to go out into the field and re-examine language use with less interruption,
-%     the ability to get empirical data on text proportinoality,
-%     lack of a need for a central index,
-%     better population definition
+% 
+% 
+% \section{--- --- ---}
+% % 
+% % \section{Intro/review stuff}
+% % 
+% % There is some discussion about the value of proportionality in corpus building.  The web makes this discussion particularly interesting, as the availability of pages online is different to those in general life (for any web user, a sizable subset).
+% % 
+% % Using the methods above, it should be possible to control for the proportions of language used in daily life, to construct a corpus from these that is both web-sourced (and hence easy to sample) and yet balanced to a given population.  This is, in effect, the goal of many special purpose corpora sampled online.
+% % 
+% \section{Methods for Proportional Selection Online}
+% Many web-as-corpus tools make at best modest efforts to constrain their output.  There are a number of good reasons for this:
+% 
+% \paragraph{Metadata Availability}
+% Many of the variables available for balancing data online are of limited applicabilty to many corpus objectives: consider, for example, the data attached to many web pages, which is typically limited to the HTTP headers, location, and immediate context.  Many users will combine knowledge about the world and intuitions regarding content to judge the genre, author, and many other salient properties---something that is beyond the scope of many WaC processing toolchains.
+% 
+% This has been adjusted for using various methods, such as:
+% 
+% \begin{itemize}
+%     \item Selection of only certain top-level-domains (i.e. those for a given country)
+%     \item Use of HTTP headers to identify language or location of servers (limited due to poor coverage of internationalisation technologies)
+%     \item Use of metadata and non-content HTML body data (applicable only where services make a layout/content distinction)
+%     \item Heuristics (such as keyword counting in various languages; suitable only for simple inferences)
+% \end{itemize}
+% 
+% 
+% \paragraph{Internal Variables}
+% The problem of metadata availability is compounded further by the need to select documents without systematic linguistic bias (especially where general-purpose corpora are concerned).  Many available properties of web documents are essentially internal variables, and should not be used for sampling.
+% 
+% One method for controlling for this relies on seed terms, where a search engine will be used to find pages containing various collocations from a corpus.  This method is essentially a complex heuristic, and is reliant either on the principle that search engines will duplicate external variables by summary of the content they select, or that the content will be summarised from the original document and selected without bias by the search engine.  In practice this method proves fast, easy, and able to control (at least to some extent) for more complex characterisation than the coarse definitions covered by page metadata.  This method is boosted further by the existence of boilerlate/non-content text in pages, which may prove cause for selection without itself being content for the corpus.
+% 
+% \paragraph{Format Heterogeniety}
+% The format of web data is particularly heterogeneous, and this poses significant problems with respect to selection of pages based on their layout or appearance.  Without further (arbitrary) restriction by corpus compilers, the only common interface data online is designed for is the human eye (and some content even violates this assumption\footnote{Such as large dumps of tables, or things like JSON and XML serialisation formats.  Largely it is assumed that these will be excluded from the corpus by design anyway}).  
+% 
+% This means that any use of boilerplate and data surrounding the content itself is severely limited by our capacity to codify and process such a distinction---something that is easy for a corpus with few sources, but difficult for larger ones sampling wider population of text.
+% 
+% \paragraph{Population Ambiguity}
+% As mentioned in [the special edition on web as corpus], web corpora may be seen, strictly, as only representative of web content.  The extent to which this applies in practice is a matter of debate.
+% 
+% Those who spider the web, such as WebCorp and other services, offer corpora that are perhaps most closely tied to its layout and content---they do not make any efforts to (re-)balance their corpora in terms of other proportions, and subsequently end up with a natural representation of web data.
+% 
+% Users of techniques such as those mentioned above are able to apply weighted selection policies to correct for this, however, the extent to which this is capable of correcting for the web's idiosynchrasies is debatable---issues of presentation (``click here") and context are at play for which there is no alternative source of data online, and this necessarily limits the power of any methods for mitigating differences between `real life' and web corpora. % TODO: rephrase and shorten
+% \til{More stuff, elucidate more especially on this point since it's pretty crucial to the narrative} 
+% 
+% % 
+% % \section{Establishing Proportions of Strata}
+% % The proportions of corpora have traditionally been established through a combination of experiment, debate, and reason.  This process has been well documented in the early corpora, \todo{ read up on some examples to include here}
+% % 
+% % 
+% % As with most aspects of corpus construction, practical limitations necessarily restrict the selection and variety of data sources available.  This has conventionally led to selection from large pre-indexed resources such as library catalogues, publisher's records, and bestseller lists.  We may see this stratification of variables as being primarily governed by the proportional consumption of text types, measuring the population's socioeconomically-influenced consumption of text by the text's popularity.
+% % 
+% % This method is contrary to many other samples in social science, which seek primarily to control for a given socioeconomically-defined population.  In the case of text corpora, the reasoning behind this is doubtless often pragmatic: it is far cheaper and simpler to rely on existing indexes, and brings us one step closer to gathering actual real-world book statistics.  This decision, then, may be seen as a generally wise and productive one for corpus linguistics, as it has freed the field from the need to fund and maintain even larger projects akin to the British Household Panel Survey or cohort studies.
+% % 
+% % Nonetheless, there are a number of disadvantages associated with this selection of variables.  One of the most pronounced scientifically is the definition of population: selecting primarily in terms of textual variables leads us to define our population in such a way, something that leads to an ambiguity in the boundaries of representation for the corpus, and the limits of generalisability for any resultant conclusions.  This effects is especially pronounced for special-purpose corpora, about which generalisations must be qualified with much greater specificity.
+% % 
+% % Other disadvantages with this method surround the power socioeconomic annotation gives to those using corpus resources.  Often, simpler annotations derived from text-oriented variables are insufficient to drill-down into a ``Who uses what'' question format, something that may be crucial in reducing within-class variance to the point where many techniques are useful.
+% % 
+% % Another property obscured by description in terms of texts is the differentiation between text production/performance and reception.  This distinction is well noted in corpus documentation (going back to Brown... % TODO: quote
+% % ), but, except in circumstances where the distinction is of particular interest, often compromised.  Designs for corpora including Brown and the BNC state that their aim is to sample a ``mix'' of the two, so as to represent language use for the population (this is one major reason they take into account the relative popularity of works when selecting texts).  The lack of detail in this method denies any detailed inquiry into the ratio of text production and consumption, and any analyses and insights that lead from this.  Simply put, selection of texts from text-centric central indexes obscures this distinction.
+% % 
+% % \til{It might be wise to expand this section to debate the difficulties in text selection proportionally.  Also mention Leech, review things like the Czech NC}
+% % 
+% % It's worth noting here that the approach taken for written resources often differs to that for spoken.  The transient nature of spoken language mandates capture during performance, meaning that little of it is indexed.  Many spoken corpora thus contain data that was gathered by the authors themselves, affording an opportunity to both describe and balance the socioeconomic variables first with little effort.
+% % 
+% % As such, many spoken corpora are primarily oriented around these variables (in addition to text-format ones), for example the BNC's section, LLC, etc.  \todo{find examples}
+% 
+% 
+% 
+% 
+% 
+% 
+% 
+% 
+% % 
+% % \til{ talk about this allowing us to go out into the field and re-examine language use with less interruption,
+% %     the ability to get empirical data on text proportinoality,
+% %     lack of a need for a central index,
+% %     better population definition
+% % }
+% % 
+% 
+% 
+% 
+% 
+% \section{Scope}
+% The methods presented here are intended as an inspection of the issues that surround construction of personalised corpora, and should be seen as a first step towards the principles of building a ``socially balanced'' set of important variables across which to sample.  
+% 
+% 
+% 
+% 
+% 
+% 
+% \til{What aspects are in common with typical fieldwork?
+% 
+% Why stop where I did?
+% 
+% How long to sample for? Why?
+% 
+% Data sources.
 % }
 % 
-
-
-
-
-\section{Scope}
-The methods presented here are intended as an inspection of the issues that surround construction of personalised corpora, and should be seen as a first step towards the principles of building a ``socially balanced'' set of important variables across which to sample.  
-
-
-
-
-
-
-\til{What aspects are in common with typical fieldwork?
-
-Why stop where I did?
-
-How long to sample for? Why?
-
-Data sources.
-}
-
-
-
-
-
-
-
-
-
-% ============================================================================
-\section{Method}
-In order to best derive methods of data recording that were practical and well-suited to the lifestyle of the subject, experimental design proceeded in an iterative fashion.  Ultimately there were two formal preliminary data gathering stages, and after each of these a summary was written to alter the procedure for the next.
-
-
-
-
-
-\til{What I did, like...
-Should I describe the first preliminary approach as an iterative things?
-}
-
-\subsection{Variable Selection}
-Variables selected for recording in the preliminary study were selected to be in line with those most commonly included in general-purpose corpora.  The decision was made to limit the number of these variables to facilitate unobtrusive recording (and maximise the relevance to the many different media recorded).
-
-
-
-\til{Which variables I have tried to record and why}
-
-
-\subsection{Capture Methods}
-\til{ \\paragraph{}-ised list of methods }
-
-
-
-\subsection{Annotation Methods}
-Corpus items were annotated along a small subset of the variables usually included in general purpose corpus metadata.  This was guided both by the practical concerns of the process and the literature % CITE atkins, clear, ostler
-.
-
-In many cases there was a need to review and augment a text's main properties from memory and free-form notes.  This was done partially to reduce the intrusiveness of the initial recording process (which must be done as soon as possible after the text consumption event).  As such, though much metadata is available from inspection of pictures, recordings etc., some detailed properties (such as the country of origin of authors) are absent.  This was a deliberate design choice, as increased intrusivity of recording methods would have led to the exclusion of many minor linguistic events (a group most likely to be neglected using other methods of sampling).
-
-
-\til{Show initial intent, resultant listing, interpolation}
-
-\section{Results}
-\til{ Perhaps move this section, but provide layouts}
-
-\section{Discussion}
-
-
-
+% 
+% 
+% 
+% 
+% 
+% 
+% 
+% 
+% % ============================================================================
+% \section{Method}
+% In order to best derive methods of data recording that were practical and well-suited to the lifestyle of the subject, experimental design proceeded in an iterative fashion.  Ultimately there were two formal preliminary data gathering stages, and after each of these a summary was written to alter the procedure for the next.
+% 
+% 
+% 
+% 
+% 
+% \til{What I did, like...
+% Should I describe the first preliminary approach as an iterative things?
+% }
+% 
+% \subsection{Variable Selection}
+% Variables selected for recording in the preliminary study were selected to be in line with those most commonly included in general-purpose corpora.  The decision was made to limit the number of these variables to facilitate unobtrusive recording (and maximise the relevance to the many different media recorded).
+% 
+% 
+% 
+% \til{Which variables I have tried to record and why}
+% 
+% 
+% \subsection{Capture Methods}
+% \til{ \\paragraph{}-ised list of methods }
+% 
+% 
+% 
+% \subsection{Annotation Methods}
+% Corpus items were annotated along a small subset of the variables usually included in general purpose corpus metadata.  This was guided both by the practical concerns of the process and the literature % CITE atkins, clear, ostler
+% .
+% 
+% In many cases there was a need to review and augment a text's main properties from memory and free-form notes.  This was done partially to reduce the intrusiveness of the initial recording process (which must be done as soon as possible after the text consumption event).  As such, though much metadata is available from inspection of pictures, recordings etc., some detailed properties (such as the country of origin of authors) are absent.  This was a deliberate design choice, as increased intrusivity of recording methods would have led to the exclusion of many minor linguistic events (a group most likely to be neglected using other methods of sampling).
+% 
+% 
+% \til{Show initial intent, resultant listing, interpolation}
+% 
+% \section{Results}
+% \til{ Perhaps move this section, but provide layouts}
+% 
+% \section{Discussion}
+% 
+% 
+% 
 
 
 
