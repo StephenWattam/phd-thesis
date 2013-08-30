@@ -907,34 +907,50 @@ This figure also reflects the degree to which the attention model affects result
 
 
 \subsubsection{Comparisons}
-Comparisons against BNC for genres, word counts etc.  Also extract demographic info from BNC for more targeted comparison
+% Comparisons against BNC for genres, word counts etc.  Also extract demographic info from BNC for more targeted comparison
+At a large scale, there are some obvious differences between the personal corpus and the BNC's selection.
+
+One of the most striking of these is the rate of broadcast media consumption, which forms a full 50\% of the subject's spoken word count, yet only 10\% of the BNC's.  There is a fair argument to say that many people of a similar age, who grew up surrounded by online streaming services and easy access to cheap receiving devices, will share this disparity.
+
+A less compelling difference is exhibited between the rate of spoken conversations---our subject's spoken data was 20\% conversational, whereas the BNC contains 40\% conversational data (as a proportion of its spoken component).  The degree to which this applies to others is difficult to estimate, since (contrary to the verbiage of this thesis) the subject may simply be unusually laconic.
+
+
+
+Arguments for the diversity of texts within corpora are driven only vaguely by the quantitative findings of this study due to its restricted inter-person relevance.  Nonetheless, some trends were identified which could reasonably be expected to extend to many others in a similar culture.
+
+Inspecting the selection of genres yields a diversity not covered in many corpora.  Though notably the BNC is quite good at this, covering many brochures and other such texts\td{examples}, it hardly represents the amount of times thanks were exchanged for holding a door open, bottles, cans and other labels were read (particularly addresses on mail), or a tax disc was checked.  It would seem that a corpus purporting to cover a large population would be awash with weirder texts, especially as those less academic than the subject here are likely to have relatively higher proportions of them in their corpora.
+
+A particularly compelling argument is made for the inclusion of song lyrics.  These are a large portion of the corpus collected here \td{how big}, and often spawn sayings, memes and linguistic affectations that can last decades in popular culture.  It's also notable that this is one of the easier things to sample and music use by the population is meticulously documented and studied by the industry already (often in publicly available lists).
+
+
 
 The comparisons from my presentation are qualitative, so I have left them for the discussion.  I'll revisit this when more time is available for subsetting the BNC's data.
 
 
+\til{Do some tests to establish the variability and compare that (hapax counts, sources, etc)}
 
 
 
 
 
-
-\subsection{Specific RQs...}
-
-\til{Notes suggest uses: 
-
-* Stratified Comparison
-* Synchronic Comparison
-* Vocabulary estimation
-* 'learning rate' estimation for some features (learner corpus stuff)
-}
-
-
-\til{ Technical problems,
-    coding problems,
-    what did I read/not read?,
-    What proportions were missing/over/under represented,
-}
-
+% 
+% \subsection{Specific RQs...}
+% 
+% \til{Notes suggest uses: 
+% 
+% * Stratified Comparison
+% * Synchronic Comparison
+% * Vocabulary estimation
+% * 'learning rate' estimation for some features (learner corpus stuff)
+% }
+% 
+% 
+% \til{ Technical problems,
+%     coding problems,
+%     what did I read/not read?,
+%     What proportions were missing/over/under represented,
+% }
+% 
 
 
 
@@ -969,6 +985,7 @@ SQUID logs proved particularly difficult to process largely due to technical rea
 Initial plans were to use Voice Activity Detection (or full automated transcription) to estimate word counts from verbatim audio recordings.  In practice the diversity of unwanted noise effects (background noise, positioning of microphone, overheard conversations) rendered this practically impossible.  Even rudimentary VAD algorithms work with frequency detection strategies, and some were liable to detect things such as music as continuous speech.  \td{say more on this}
 
 
+
 % ---
 \paragraph{}
 Of particular interest to the methodology is the inclusion of a human interest model in the processing stages.  Without this model, the data is changed to massively overestimate the word counts of many data sources (some more than others), and it is the opinion of the subject that the model improves the plausibility of data.  Generalising the method requires generalising this model or narrowing down the number of sources it must cover (either by using more selective data gathering methods or by restricting the scope of the sample).  
@@ -978,12 +995,32 @@ Each of the data sources mentioned is burdened with its own empirical concerns t
 One way this problem may be solved is through detailed eludication of particular features and interests via a questionnaire or laboratory tasks in addition to the data gathering methods described here.  Clearly, though, relating these to a usefully-complex model of human interest will demand significant further research.
 
 
+
+
+One of the larger challenges in gathering data from so many sources (and in so many forms) is the amount of work needed to operationalise it.  This was done both manually (in the case of complex data such as photographs and notebook entries) and automatically (for the majority of sources).  Often, some degree of manual correction or annotation was necessary even where automated processing was used.  These processing tools were bespoke, and would need to be generalised if the method is to become viable for use gathering further samples.
+
+
+
 % ---
 \paragraph{}
+A number of questions were raised during the sampling period surrounding the limits of data that should be captured.  The solutions used were taken from the subject's own judgement of what constituted language `use' (since this case study is predicated upon recording that opinion), however, further work would be needed to establish answers to these in the general case.
+
+
+The attention models used to narrow down input have already been mentioned, however, they apply at a very specific level---often, shorter texts such as signs, brands and labels would have particularly familiar or conventional text placements, styles, and shapes (some media, such as road signs, deliberately accentuate these features to aid recognition).  It is unclear at what point a text is `read' rather than just recognised in the periphery of one's vision.  The solution used in this study was one of internal vocalisation---if the text was recognised sufficient to repeat it mentally, it was classed as read.  This means it is often possible to say that a text source had just a few words read, when in fact a number of boilerplate features were skipped over because of their position and style.
+
+
+An extension of this problem is one of re-reading texts that are being written.  The degree to which this occurs is likely extremely variable by person and task, however, it proves to be a particularly complex form of the above problem and is particularly hard to measure (or even subjectively assess).  In this case study no attempt was made to compensate for this effect.  Detailed study using some kind of attention measuring system (for example, eye tracking) may allow for deliberately using attention models over 1 (for word counts) or deliberate repetition of data in the final corpus.
+
+
+The nature of the attention system used in this case study is also debatable.  The current method of using a coefficient works only for estimating word counts, and does not favour certain regions of the final data over others.  Additionally, it conflates two effects---that of reading only a small proportion of the source text, and that of paying little attention to the text (you may also consider using the text at the same time as another a third form).  Annotation of simultaneous events was fairly simple in the notebooks, however, estimation of the distribution of one's attention was done only at a low resolution (the codes used practically equate to ratios of 80/20, 50/50, 20/80, 100 with only a few exceptions).
+
+
+
 \til{ Specific experiences from the process of gathering data (take from notes, which are detailed on this) }
 
 
 
+Since the aim of this study was to assess genre proportions, significant amounts of effort were saved by not converting all sources into verbatim text.  This is largely an issue of post-processing, as many methods were digital and thus yielded verbatim text with ease and those that do not have well established transcription procedures.  Of particular note is the importance of being able to apply a regional attention model to extract (or weight) the most read portions of a text, something that (as noted above) was not attempted here due to a focus on proportions and word counts.
 
 
 
@@ -1017,7 +1054,15 @@ Following sufficient short-duration studies, it would be possible to be more con
 \subsection{Data and Comparisons}
 Compare rationally to BNC and conjecture how representative various corpora are for me
 
-\til{Mention the million count thing as done in the summary}
+As mentioned in the quantitative section above, there are some large differences between the corpus gathered here and the BNC (here used as an example general-purpose corpus that purports to cover the subject).  It is clear that a number of these are down to individual variation (the technical and musical genre bias), however, other disparities are of an altogether more ambiguous status.
+
+The overall word count of the BNC, and other similar corpora, is called into question by the size of this corpus.  In two weeks, a single person used almost a million words whilst focusing heavily on just a few subjects and roles.  Given the sheer number of people within the British population, their demographic variability, and the dubious extent to which even these two weeks represents our subject's use of language accurately, it seems preposterous to suggest that a mere 100 million (or even billion) words would sufficiently represent language use for almost any purpose.
+
+
+\til{probably some more...}
+
+
+
 
 
 
@@ -1040,11 +1085,12 @@ The increased resolution of data pertaining to a single individual renders the m
 There are a number of arguments justifying covert research in the social sciences, and ...
 
 
-
-
 Further, future developments in the methods described may use questionnaires or other less-invasive methods as sources of auxiliary data.  These would be targeted to a particular study design and need not cover the full set of language uses, mitigating any ethical concerns by limiting the descriptive power of the raw data itself.
 
 A number of technical measures are also possible that may assist this issue---some of these have been developed by \td{who} working on the Machine Listening project, who irreversably scramble their audio recordings in such a way that VAD algorithms may still run.  A further option is streaming of data to a remote server, which can process, summarise, and discard data on-the-fly to prevent any possible information security breaches.
+
+
+
 
 
 
@@ -1089,8 +1135,10 @@ The practical issues encountered during sampling are largely minor, and modern p
 Of particular note (and perhaps greatest generalisability) is the number of words used throughout the sampling period.  Almost a million words were used by a single individual over a two week period.  Since it is reasonable to deduce that this sampling is at best representative only of a normal working week for a single individual, it is rational to suppose that a corpus purporting to cover the whole population of a country demands a sample size far greater than many existing corpora.
 
 
+This would seem to form an argument that it is simply not cost-effective to build a conventional general-purpose corpus large enough to represent large populations, suggesting that the focus should lie in those built for more specialist purposes, or those sampled non-probabilistically.  Here, the extreme size of web corpora may be well justified, so long as they can be shown to have been sampled rigorously.
 
-Of particular interest to this thesis is the high level of detail that may be captured using this method.  The census design affords full coverage of a given area about which we may wish to generalise, and the detail it is possible to capture this way makes the data ideal as a `seed' for constructing larger corpora with comparable properties.  Application of these methods, as well as those using auxiliary data mentioned above, will hopefully render this sampling method a complementary one, to be added to the collection of existing corpus designs.
+
+Of interest to this thesis is the high level of detail that may be captured using this method.  The census design affords full coverage of a given area about which we may wish to generalise, and the detail it is possible to capture this way makes the data ideal as a `seed' for constructing larger corpora with comparable properties.  Application of these methods, as well as those using auxiliary data mentioned above, will hopefully render this sampling method a complementary one, to be added to the collection of existing corpus designs.
 
 
 
