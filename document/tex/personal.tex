@@ -27,14 +27,16 @@ As we have seen in chapters~\ref{}\td{ref}, conventional corpus building efforts
 
 Often, the only way to ensure demographic balance is to rely on sources of auxiliary data such as bestseller lists and library loan records that map textual variables to socioeconomic ones.  This process of using `proxy' variables is particularly opaque, and often limits the metadata available.
 
-The intent of this chapter is to sample in an ad-hoc manner, that is, to record details of a text or single use of language in context, as it is used.  This approach is far closer to that used in special purpose corpora, especially where the restricted domain allows use of automated recording tools or sampling from an existing rich database (such as from an online forum).
+The intent of this chapter is to sample in an ad-hoc manner, that is, to record details of a text or single use of language in context and at the time it is used.  In order to accomplish this, detailed logs will be kept on everyday activities, and a major part of this study centres around development of the methods used, something that was approached iteratively using a series of preliminary samples.
+
+This approach is far closer to that used in special purpose corpora, especially where the restricted domain allows use of automated recording tools or sampling from an existing rich database (such as from an online forum).
 
 The case study itself takes the form of a census of language use, for a given period, for a given person.  This offers empirical validity for linguistic proportions, but is a single data point from the population of language users and cannot be formally generalised.
 
 Of particular interest are variables that are particularly challenging to sample:
 
 \begin{itemize}
-    \item The age of a text when ``used''
+    \item The age of a text when `used'
     \item Other temporal information, such as the times and days when texts are read, and inter-day variance etc.
     \item The social context of text use
     \item Attention paid to a text, and which portions were read
@@ -97,37 +99,67 @@ One community that has been using these techniques extensively is that associate
 
 
 \subsection{Life Logging}
-Just as the availability of portable recording technology made acquisition of spoken corpora relatively easy to control, so have the limitations on digitisation and format conversion limited the selection of written text to those already-indexed properties.  As modern computing devices have miniturised and become ubiquitous, they have developed a number of capacities that may be used to afford the same ``instantly recordable'' status to non-spoken language use.
+Just as the availability of portable recording technology limited acquisition of spoken corpora, so have the limitations on digitisation and format conversion limited the selection of written text to those formats that are already indexed, or in formats standard enough to transcribe and represent easily.   As modern computing devices have miniturised and become ubiquitous, both of these issues have become more minor, rendering larger amounts of text recordable without significant manual intervention.
+
+A number of these technologies were developed as a result of the life-logging community's interest in multimedia records.  Life logging is an activity that emerged slowly out of the principles of webcam shows and reality TV.  It involves recording (and usually broadcasting) continuous information about one's life as it occurs.
+
+Though most popular efforts started as a means for providing entertainment, methods used soon diversified and gained the interest of the information retrieval and processing communities.  Many projects have been started with an aim to catalogue and operationalise the huge stream of data each person creates, largely with a focus on aiding that person in their daily life, or aiding large organisations (such as defence forces) in management of resources and people.
 
 
-A number of these technologies are as a direct result of the life-logging community's interest in multimedia records.  Life logging is an activity that emerged slowly out of the principles of webcam shows and reality TV.  It involves recording (and usually broadcasting) continuous information about one's life as it occurs.
 
-Though most popular efforts started as a means for providing entertainment, and thus focused on multimedia broadcasting on the web, the techniques required soon diversified and gained the interest of the information retrieval and processing communities.  Many projects have been started with an aim to catalogue and operationalise the huge stream of data each person creates, largely with a focus on aiding that person in their daily life, or aiding large organisations (such as defence forces) in management of resources and people.
 
-\til{citations and a proper lit review, but they are maybe better off elsewhere}
 
-Because of the continuous nature of life-logging, many efforts have been made to use methods that are easy to maintain, self-contained, and covert.  % CITE
-Due to this, as well as the original intent of the life-logging process, much of the effort surrounding life-logging focuses on multi-media sources, and how they may be best combined to form a coherent idea of context.  
+% --------------------
+Life-logging as a distinct activity is often considered to have started with Jennifer Ringley, who started broadcasting her entire life using webcams in 1996 ('JenniCam').  Her website proved particularly successful for many years, gained significant media coverage, and in many ways can be credited with popularising lifecasting (broadcasting of one's life rather than simply logging it) and helping to define the most recent wave of life-logging efforts.  However, she did not start the practice of either life-logging in general, or life-casting.
+
+
+Life-logging using less technical methods has arguably been performed by millions in the form of diaries.  Though informal, the value these can offer as databases is well-known to historians as they offer a narrative structure that is difficult to build from other sources.  (The case study detailed within this chapter uses such methods for exactly that reason.)
+
+
+More formal, detailed forms of diary could properly be called the first life-logs.  Of particular note in this area is the `Dymaxion Chronofile'\td{cite this somehow}---Buckminster-Fuller's attempt to document his own life, which consists of a series of scrapbooks recording his actions (and documents) every 15 minutes between the years of 1920 and 1983.
+
+Buckminster-Fuller's extreme logging efforts captured the last 63 years of his life in extreme (multi-modal) detail, capturing all correspondence, bills, personal notes and material such as clippings from newspapers.  This detailed record of his life is essentially unmatched in the pre-digital era, and would not be attempted again until the digitisation of many common tasks eased the process of capturing documents.
+
+
+For the first life-caster, we must turn to Steve Mann.  Mann began working on wearable computing in the early 1980s\td{cite}, focusing on video recording and head-up-displays, however, it is clear from photographs of his equipment that it could hardly be considered unobtrusive enough for sampling purposes (indeed, it would probably prove more troublesome than Buckminster-Fuller's 15-minute interruptions).
+
+The posterity-oriented and academic streams of life-logging persue a parallel course from the mid nineties onwards.  The aforementioned success of JenniCam led to a number of copycats, and, eventually, services such as ustream\td{cite} and Justin.tv\td{cite}, both of which make lifecasting available to anyone owning a smartphone.  The consumer side of life-logging has also been rising in popularity due to products such as Memoto\td{cite} (which emluates Microsoft's SenseCam) and Google's Glass project (which, though not explicitly designed for life-logging, provides hardware well suited to it).
+
+Academically, much more focus was put on use of the data gathered.  This meant a greater focus not just on multimedia methods and streaming, but also other sources of data such as documents (digital or paper), location data, etc.  Microsoft's Gordon Bell is particularly well known in this area for developing SenseCam\td{cite}, which focused on photography and location data, and MyLifeBits\cite{gemmell2002mylifebits,gemmell2006mylifebits}, which consolidated many different sources.  In these cases (and others' similar efforts \cite{huynh2002haystack,dumais2003stuff,dittrich2006imemex}), the focus was on producing a record of life that could be used by the original subject as a form of super-accurate memory, similar to Vannevar Bush's `Memex' vision\cite{bush1945we}.
+
+A similar project, funded by DARPA (but later dropped) was simply called LifeLog\td{cite}.  This took a similar approach to MyLifeBits, aggregating many sources of data into a single narrative.  Unlike MyLifeBits, however, much of the focus was on using information retrieval methods to construct a coherent narrative for a person, which could later be interrogated at a higher level than the collected data itself.
+
+Work on `Machine Listening' by \td{whatsisname}\cite{malkin2006machine} moves the focus of much of this logging from visual to audio recording, with the intent being to create a digital memory of events that is based on the most inconspicuous and unobtrusive recording methods.  They present a number of audio analysis techniques, including those for anonymising data without loss of other information, that may be used for speech data\td{rather ugly sentence...}.
+
+Much of the focus of these projects was on recall and operationalisation---tasks that are particularly difficult and largely ignored by the more entertainment-focused communities.  It is unfortunate, however, that their purpose was largely one of narrative creation: many exploration and recall tools rely on a human's ability to interpret the complex data recorded, and this is ill-suited to the more formal sampling approach needed here.
+
+One notable exception to this is Deb Roy's project to record the language use of his own child.  This involved continuous video recording using a number of cameras in his house.  The footage from this was then analysed to identify regions where his child was speaking, and thus develop a corpus for use in language acquisition studies.  [He used a number of methods to identify interesting video regions that, it was initially hoped, would apply to analysis of the speech portion of this case study's corpus.  In reality, however, the conditions under which he records audio proved significantly simpler than those in the case study.]
+
+
+
+
+
+Because of the continuous nature of life-logging, efforts have been made to use methods that are easy to maintain, self-contained, and covert\td{cite}.  Due to this, as well as the original intent of the life-logging process, much of the effort surrounding life-logging focuses on multi-media sources, and how they may be best combined to form a coherent idea of context.  
 
 Typical sources of data considered include:
 
 \begin{itemizeTitle}
     \item[Video recording] Many life-loggers wear systems that are able to continuously record video in the direction they look, and upload this using mobile networking systems.
     \item[Audio recording] Due to its lower obtrusivity, many efforts surround the analysis of audio logs, and include systems to detect voices and identify events such as making appointments.
-    \item[Document storage] With the increase in use of digital-origin documents, some of the more holistic life-logging systems record documents as they are read, with a focus being to integrate this data into the larger picture.  Others scan in their post for later retrieval.
+    \item[Document storage] With the increase in use of digital-origin documents, some of the more holistic life-logging systems record documents as they are read, with a focus being to integrate this data into the larger picture.  Others scan in physical documents such as their post for later retrieval.
 \end{itemizeTitle}
 
 Many of the requirements of a life-logging platform (covert operation, comprehensive data management, context identification) overlap notably with the methods used in covert sociological research and, of particular note for our purposes, those constructing spoken language corpora.
 
+
 Notably, one of the methods used to create the spoken portion of the BNC was covert recording, where a number of people were provided with tape recorders...
 \til{ Quote from BNC documentation }
 
-As illustrated by the BNC's demographic balancing of that portion of their corpus, this ability to directly record data from the field satisfies the disadvantages of text-index-oriented methods of document selection, allowing us access to all of the contextual data at the time of text consumption/production 
-\til{perhaps because the time of production and consumption don't differ much for spoken stuff...}
+As illustrated by the BNC's demographic balancing of that portion of their corpus, this ability to directly record data from the field satisfies the disadvantages of text-index-oriented methods of document selection, allowing us access to all of the contextual data at the time of text consumption/production (this is particularly advantageous for spoken texts, where production and consumption often occur soon after one another).
 
-The cost of this is, as felt by all sociological studies, a need to find a sufficiently large and heterogenous sample of people who may record data about their language use (and for long enough for it to be useful to researchers).  This is arguably more difficult in practice than text-index-based methods, and should only be considered at a large scale where the difference is likely to be crucial to a study, nonetheless, large samples exist in sociology as testament to the value such designs may yield [and the illustration that no alternative method exists for many sociological issues].
+The cost of this demographic approach is (as felt by all sociological studies) a need to find a sufficiently large and heterogenous sample of people who may record data about their language use (and for long enough for it to be useful to researchers).  This is arguably more difficult in practice than text-index-based methods, and should only be considered at a large scale where the difference is likely to be crucial to a study, nonetheless, large samples exist in sociology as testament to the value such designs may yield [and the illustration that no alternative method exists for many sociological issues].
 
-The benefit of having a clearly-defined population about which to generalise linguistic findings is applicable to any size sample, however, making techniques of logging particularly applicable to special-purpose corpora, especially where those corpora are best demarcked along social lines.  Indeed, at one extreme of this scale exists the concept of a personal corpus; something that may yield insights or models about a single person's current language usage.  Such a resource may one day be particularly valuable in defining how one uses text-based interactive systems (such as the web), reads content (such as news articles) or even how one would learn.
+The ability to specify the demographic variables of a sample directly makes techniques using logging particularly applicable to the construction of special-purpose corpora, especially where those corpora are best demarcated along social lines.  Indeed, at one extreme of this scale exists the concept of a personal corpus; something that may yield insights or models about a single person's current language usage.  Such a resource may one day be particularly valuable in defining how one uses text-based interactive systems (such as the web), reads content (such as news articles) or even how one would learn.
 
 Such designs exhibit a tradeoff: a decrease in socioeconomic breadth in exchange for an increase in linguistic breadth.  It is my intent to illustrate the value in this approach, and to investigate methods by which it is possible to construct corpora without undue difficulty through the use of life-logging methods.
 % This needs mega elucidation, methinks
@@ -138,10 +170,9 @@ Such designs exhibit a tradeoff: a decrease in socioeconomic breadth in exchange
 
 
 
+In practice the distinction between life-logging methods and `conventional' data recording for research is one of rigor and intent.  Life-logging is primarily concerned with capturing data, often in a best-effort manner, using whatever means is necessary to unobtrusively do so---favouring imperfect but complete records.  Conventional data capture techniques, though often overlapping methodologically, focus on specific research questions; seldom recording data that cannot be operationalised and valuing quality recording of few variables, rather than opportunistic recording of many.
 
-
-
-
+%i.e. As the methods life-loggers and life-casters use to record and organise their captured data progress, they often converge with existing research methods.
 
 
 
@@ -233,53 +264,39 @@ Before the first iteration of the sampling/review process, all of the possible l
 
 This classification was useful in order to minimise the intrusiveness of a collection method, whilst maximising the detail recorded for a given source (ideally to the point of storing verbatim text).  In practice, methods were easy to develop for automated recording of digital documents, and many techniques exist for sampling non-digital persistent and ephemeral sources with scientific levels of accuracy already.
 
-The sources identified in the initial case study were as follows:
+Sources initially identified by introspection are listed in black in Figure~\ref{fig:personal:datasources}.
 
-\td{Merge these two lists with a separator or something?}
-\begin{itemize}
-    \item Speech
-    \item Printed documents (i.e.\ letters, brochures)
-    \item Digital documents (same, but unprinted)
-    \item Terminal logs
-    \item IRC logs
-    \item Email
-    \item Websites
-    \item Unusually formatted printed material (posters, labels, advertising on vehicles, billboards, etc.)
-\end{itemize}
-
-The inadequacies of introspective methods to identify these soon became apparent during preliminary tests, as the process of recording increased awareness of language use, raising a series of edge cases.  These were collected and resulted in a final selection of sources displayed below.  As well as expending the set of sources to be gathered, methods of collection were chosen with flexibility in mind in order to cope with unenvisaged sources of data\footnote{This flexibility has the unwelcome effect of slowing down analysis later on, and may be undesirable in some cases}.
-
-
-\td{This image is complete, but not in the git repo.}
 \begin{figure}[p]
 \centering
-% \includegraphics[width=0.4\textwidth]{datasources}
-\includegraphics[width=0.4\textwidth]{missing}
-\caption{Data sources and their appropriate capture methods}
+\includegraphics[width=0.7\textwidth]{sources}
+\caption{Data sources and their appropriate capture methods (those in blue were added during preliminaries)}
 \label{fig:personal:datasources}
 \end{figure}
 
 
 
-\begin{itemize}
-    \item Speech
-    \item Printed documents (i.e.\ letters, brochures)
-    \item Digital documents (same, but unprinted)
-    \item Terminal logs
-    \item IRC logs
-    \item Email
-    \item Websites
-    \item Unusually formatted printed material (posters, labels, advertising on vehicles, billboards, etc.)
-    %---
-    \item Written (but non-OCRable) material
-    \item Key strokes
-    \item SMS records
-    \item Phone conversations (separated from speech as they yield differing metadata)
-    \item Music tracks
-    \item Files accessed
-\end{itemize}
+The inadequacies of introspective methods to identify these soon became apparent during preliminary tests, as the process of recording increased awareness of language use, raising a series of edge cases.  These were collected and resulted in a final selection of sources displayed below.  As well as expending the set of sources to be gathered, methods of collection were chosen with flexibility in mind in order to cope with unenvisaged sources of data\footnote{This flexibility has the unwelcome effect of slowing down analysis later on, and may be undesirable in some cases}.
 
-This list is necessarily furnished according to the life of the subject in question---from this study I am unable to assert that it is generalisable to others, though the process of doing so would involve relatively little intrusive sampling\td{link to further work}.
+
+% \begin{itemize}
+%     \item Speech
+%     \item Printed documents (i.e.\ letters, brochures)
+%     \item Digital documents (same, but unprinted)
+%     \item Terminal logs
+%     \item IRC logs
+%     \item Email
+%     \item Websites
+%     \item Unusually formatted printed material (posters, labels, advertising on vehicles, billboards, etc.)
+%     %---
+%     \item Written (but non-OCRable) material
+%     \item Key strokes
+%     \item SMS records
+%     \item Phone conversations (separated from speech as they yield differing metadata)
+%     \item Music tracks
+%     \item Files accessed
+% \end{itemize}
+
+The list shown in Figure~\ref{fig:personal:datasources} is necessarily furnished according to the life of the subject in question---from this study I am unable to assert that it is generalisable to others, though the process of doing so would involve relatively little intrusive sampling\td{link to further work}.
 
 Each of these sources is ``covered'' by one or more sampling tools.  These tools progressed most during the iterative process, and each was subject to a number of procedural subtleties that were refined throughout the study.
 
@@ -337,7 +354,7 @@ Following work on machine listening, the original intent of audio recording was 
 
 
 
-Capturing was performed with an Olympus 713PC\td{check this, is it PC713?} dictaphone, recording to a suitably sized external card that yielded many days' continuous recording.  Provision was made to download recordings each night and store them with the off-line journal, however, in practice they remained on the recorder until the end of the study.
+Capturing was performed with an Olympus VN713PC dictaphone, recording to a suitably sized external card that yielded many days' continuous recording.  Provision was made to download recordings each night and store them with the off-line journal, however, in practice they remained on the recorder until the end of the study.
 
 
 \begin{figure}[p]
@@ -502,18 +519,32 @@ These parameters were tuned to match the specific data sampled over the period--
 
 
 \subsection{Coding and Genres}
-Since the case study is, in part, aiming to identify genre distinctions not found in other general-purpose corpora it is not possible to use an existing taxonomy to code text genres.
+Since the case study is, in part, aiming to identify genre distinctions not found in other general-purpose corpora it is not possible to select, a priori, an authoritative taxonomy of genres.  This problem is further complicated by the mix of spoken and written data in the corpus, something that would usually be more formally separated.
 
-\til{Also note how I'm coding things from both spoken and written, and such, thus one taxonomy would be unable to cover it anyway?}
-
+% \til{Also note how I'm coding things from both spoken and written, and such, thus one taxonomy would be unable to cover it anyway?}
 
 Genre distinctions were made using a process that loosely follows the principles of the coding stages of grounded theory \td{cite}.  
 This involves a focus on free coding, and a consideration of all available context and information---something aided both by the `memoing' innate in the design of the journals, and the fact that the analyst is also the subject.  Free coding was performed with prior knowledge of Lee's genre categories.
 
 
-This process was done in order to deliberately apply distinctions made by Lee to the data gathered, such that genres selected would be more easily compared to the BNC.  No effort was made to adhere to Lee's specification directly, as this would lead to over-specification where the case study's corpus proves more diverse in form than the equivalent BNC category.
+This process was done in order to deliberately apply distinctions made by Lee where these seem appropriate, but to retain the flexibility to deviate where portions of the corpus did not fit comfortably within the existing categories.  This soft alignment was chosen in order to ease comparison against existing corpora, especially the BNC.  No effort was made to adhere to Lee's specification directly, as this would lead to over-specification where the case study's corpus proves more diverse in form than the equivalent BNC category.
 
 It's particularly noteworthy here that the analyst selecting codes for genres is the same person as the subject gathering the data.  This, along with the mnemonic form of the notebooks and data captured, provides extra (informal) insight afforded by context.
+
+
+Because of the large volume of data, and the manner in which it was extracted from its original sources, coding was performed using a semi-automated process on a source-by-source basis.  This was chosen in part because the source itself refers to how the language was used by the subject, rather than simply what form it was available to the corpus builder, and is thus a contextual factor affecting genre distinctions.
+
+For data that were processed and annotated largely automatically, codes were assigned after a systematic review of the data itself, using a spreadsheet to reduce the number of lines according to variables that were assumed to define a given genre (for example, web data was split by domain, and music was assigned by artist).  These distinctions were then written into the extraction tools as heuristics, or applied directly before being merged with the main corpus.
+
+For data such as images and notebook entries manual coding was required.  This was completed using similar tools, except that it was seldom possible to reduce the data set before coding, and thus was not possible to apply heuristics to impute data.  Data recorded in these formats were often more varied and esoteric.
+
+\til{More on coding, passes used, efforts to align to Lee's}
+
+This method would, if extended to use external data sources (such as the CDDB music information service), be capable of automatically assigning genres for a number of data sources, greatly easing the manual intervention required.  It is also likely that improvements in computer vision, or applications of existing databases (such as Wikipedia, or the web itself) could be used to extend these methods further to cover images and other data that were manually processed here.
+
+
+
+
 
 
 
@@ -538,7 +569,7 @@ These results describe data collected during the third iteration of sampling, wh
 
 The period marked from Friday the 5th to Friday the 19th (inclusive) forms the sampling period described herein (with exceptions to this noted where made).  This was the period for which the on-line notebook was maintained along with other intrusive data collection techniques, though notably some methods continued due to their ease-of-use.
 
-Though audio data is missing for Friday 19th, this was not used due to the difficulty in processing such data ethically and within a reasonable time frame.  Word counts for spoken transactions were instead based on an estimated words-per-minute.  /%XXX: revisit this and do manual transcription some day before the viva?
+Though audio data is missing for Friday 19th, this was not used due to the difficulty in processing such data ethically and within a reasonable time frame.  Word counts for spoken transactions were instead based on an estimated words-per-minute.  %XXX: revisit this and do manual transcription some day before the viva?
 
 This fifteen-day recording period covers 8,619 linguistic events, encompassing an estimated 980,000 words.  
 
@@ -592,7 +623,7 @@ Variables recorded on each linguistic event are based heavily on Lee's BNC index
 \subsection{Activities}
 During the sampling period, all work surrounding the personal corpus case study was stopped, in favour of other, ongoing, projects.  Other than this intervention, work continued as normal, which for this period involved significant amounts of development on the LWAC downloader tool.
 
-% TODO: more about genera life in that period
+% TODO: more about general life in that period
 
 
 
@@ -673,7 +704,7 @@ Before this study it was conjectured that the vast majority of all language used
 \label{fig:personal:eventsbysource}
 \end{figure}
 
-The proportions described in Figure~\ref{fig:personal:eventsbysource} are likely a very individual trait of the subject.  They exhibit a number of properties that would be significantly affected not only by daily routine, but also the specific work being completed at the time of the sample (the implications of this on scientific validity are discussed below in section~\ref{}\td{ref}).
+The proportions described in Figure~\ref{fig:personal:eventsbysource}\td{make into bar graph} are likely a very individual trait of the subject.  They exhibit a number of properties that would be significantly affected not only by daily routine, but also the specific work being completed at the time of the sample (the implications of this on scientific validity are discussed below in section~\ref{}\td{ref}).
 
 Particularly curious is the large number of terminal, web (squid), and music events.  These are partially explainable by the work being completed at the time of the study, as the subject was developing software, listening to music whilst doing so and using many web references as documentation.  The subject also uses a GUI on his computer that mandates use of terminals for many tasks (this is doubtless atypical).
 
@@ -682,183 +713,183 @@ Particularly curious is the large number of terminal, web (squid), and music eve
 \begin{table}[ht]
 \centering
 \begin{tabular}{rr}
-  \hline
-  Computed Genre & Events \\ 
-  \hline
-  web/entertainment/social & 2598 \\ 
-  web/music & 708 \\ 
-  display/output & 627 \\ 
-  music/punk & 587 \\ 
-  web/reference & 421 \\ 
-  web/shopping & 388 \\ 
-  display/interactive & 285 \\ 
-  web/academic & 280 \\ 
-  web/tech & 218 \\ 
-  web/outdoors & 180 \\ 
-  web/video streaming & 167 \\ 
-  irc/informal/discussion & 159 \\ 
-  music/guitar & 147 \\ 
-  web/academic/reference & 142 \\ 
-  web/tech/reference & 116 \\ 
-  web/news & 105 \\ 
-  file/ruby code &  82 \\ 
-  music/metal &  73 \\ 
-  music/pop &  68 \\ 
-  music/rock &  67 \\ 
-  web/hosting &  54 \\ 
-  file/documentation &  49 \\ 
-  web/comedy &  49 \\ 
-  web/social &  49 \\ 
-  web/product support &  48 \\ 
-  product/packaging &  43 \\ 
-  web/tech/academic &  40 \\ 
-  TV/comedy &  39 \\ 
-  web/outdoors/reference &  36 \\ 
-  email/academic &  34 \\ 
-  email/advertising &  28 \\ 
-  web/entertainment &  28 \\ 
-  email/personal &  26 \\ 
-  file/config &  24 \\ 
-  email/business &  22 \\ 
-  speech/discussion &  22 \\ 
-  speech/informal &  21 \\ 
-  web/comedy/social &  21 \\ 
-  email/orders &  20 \\ 
-  speech/service &  19 \\ 
-  web/search &  19 \\ 
-  email/spam &  17 \\ 
-  music/blues &  17 \\ 
-  speech/greeting &  16 \\ 
-  web/fitness &  16 \\ 
-  web/tech/news &  15 \\ 
-  TV/Entertainment &  14 \\ 
-  speech/info &  14 \\ 
-  web/tech/shopping &  14 \\ 
-  web/reference/academic &  13 \\ 
-  TV/news &  12 \\ 
-  radio/music &  12 \\ 
-  radio/news &  12 \\ 
-  sign/info &  11 \\ 
-  web/art &  11 \\ 
-  web/music/shopping &  11 \\ 
-  music/folk/metal &   9 \\ 
-  music/progressive &   9 \\ 
-  TV/entertainment &   8 \\ 
-  email/technical &   8 \\ 
-  sign/info/instruction &   8 \\ 
-  speech/ephemera &   8 \\ 
-  web/banking &   8 \\ 
-  music/country/rock &   7 \\ 
-  music/fusion &   7 \\ 
-  sign/product info &   7 \\ 
-  book/info &   6 \\ 
-  sign/advertising &   6 \\ 
-  TV/documentary &   5 \\ 
-  flyer/advertising &   5 \\ 
-  notes/note &   5 \\ 
-  product/info &   5 \\ 
-  speech/parting &   5 \\ 
-  web/advertising &   5 \\ 
-  web/conspiracy &   5 \\ 
-  box/address &   4 \\ 
-  flyer/info/advertising &   4 \\ 
-  radio/news/entertainment &   4 \\ 
-  sms/informal &   4 \\ 
-  web/blogs &   4 \\ 
-  web/games &   4 \\ 
-  web/news/social &   4 \\ 
-  web/reference/social &   4 \\ 
-  web/reference/travel &   4 \\ 
-  web/reference/woodwork &   4 \\ 
-  web/shopping/investment &   4 \\ 
-  web/tech/utility &   4 \\ 
-  web/utility &   4 \\ 
-  TV/advertising &   3 \\ 
-  application/info &   3 \\ 
-  file/js code &   3 \\ 
-  flyer/menu &   3 \\ 
-  music/country &   3 \\ 
-  phone/ &   3 \\ 
-  sign/advertising/info &   3 \\ 
-  sms/info &   3 \\ 
-  speech/organisation &   3 \\ 
-  speech/request &   3 \\ 
-  web/health &   3 \\ 
-  web/news/tech &   3 \\ 
-  application/info/status &   2 \\ 
-  book/packaging/book title &   2 \\ 
-  map/info &   2 \\ 
-  music/indie &   2 \\ 
-  paper slip/invoice &   2 \\ 
-  phone/informal &   2 \\ 
-  poster/advertising &   2 \\ 
-  radio/News &   2 \\ 
-  speech/Discussion &   2 \\ 
-  speech/informal/discussion &   2 \\ 
-  web/comedy/entertainment &   2 \\ 
-  web/entertainment/images &   2 \\ 
-  web/entertainment/news &   2 \\ 
-  web/entertainment/puzzles &   2 \\ 
-  web/game &   2 \\ 
-  web/tech/social &   2 \\ 
-  TV/advertising/info &   1 \\ 
-  TV/documentary/entertainment &   1 \\ 
-  TV/info &   1 \\ 
-  TV/music &   1 \\ 
-  TV/sport &   1 \\ 
-  application/album listing &   1 \\ 
-  application/buttons/info &   1 \\ 
-  application/update &   1 \\ 
-  book/ &   1 \\ 
-  book/packaging/book blurb &   1 \\ 
-  box/packaging &   1 \\ 
-  card/info &   1 \\ 
-  cheque/info &   1 \\ 
-  clothing/packaging &   1 \\ 
-  display/info &   1 \\ 
-  display/info/status &   1 \\ 
-  file/html code &   1 \\ 
-  film/Entertainment &   1 \\ 
-  game/discussion &   1 \\ 
-  game/game &   1 \\ 
-  music/classical &   1 \\ 
-  music/electronica &   1 \\ 
-  music/music &   1 \\ 
-  music/pop/metal &   1 \\ 
-  notes/agenda/minutes &   1 \\ 
-  notes/diagram &   1 \\ 
-  noticeboard/advert &   1 \\ 
-  paper slip/info &   1 \\ 
-  phone/info &   1 \\ 
-  poster/info &   1 \\ 
-  poster/menu &   1 \\ 
-  product/instruction/info/packaging &   1 \\ 
-  radio/News/entertainment &   1 \\ 
-  sign/ &   1 \\ 
-  sign/instruction &   1 \\ 
-  sign/map &   1 \\ 
-  sign/menu &   1 \\ 
-  sms/ &   1 \\ 
-  speech/Informal &   1 \\ 
-  speech/Inquiry &   1 \\ 
-  speech/discussion/academic &   1 \\ 
-  speech/info/discussion &   1 \\ 
-  speech/question &   1 \\ 
-  speech/service/discussion &   1 \\ 
-  taxdisc/info &   1 \\ 
-  vehicle/branding/sign &   1 \\ 
-  vehicle/info/advertising &   1 \\ 
-  video/info/academic &   1 \\ 
-  video/info/advertising &   1 \\ 
-  web/downloads &   1 \\ 
-  web/games/news &   1 \\ 
-  web/info/advert &   1 \\ 
-  web/reference/entertainment &   1 \\ 
-  web/reference/military &   1 \\ 
-  web/reference/outdoors &   1 \\ 
-  web/reference/shopping &   1 \\ 
-  web/tech/hosting &   1 \\ 
-   \hline
+      \hline
+      Computed Genre & Events \\ 
+      \hline
+      web/entertainment/social & 2598 \\ 
+      web/music & 708 \\ 
+      display/output & 627 \\ 
+      music/punk & 587 \\ 
+      web/reference & 421 \\ 
+      web/shopping & 388 \\ 
+      display/interactive & 285 \\ 
+      web/academic & 280 \\ 
+      web/tech & 218 \\ 
+      web/outdoors & 180 \\ 
+      web/video streaming & 167 \\ 
+      irc/informal/discussion & 159 \\ 
+      music/guitar & 147 \\ 
+      web/academic/reference & 142 \\ 
+      web/tech/reference & 116 \\ 
+      web/news & 105 \\ 
+      file/ruby code &  82 \\ 
+      music/metal &  73 \\ 
+      music/pop &  68 \\ 
+      music/rock &  67 \\ 
+      web/hosting &  54 \\ 
+      file/documentation &  49 \\ 
+      web/comedy &  49 \\ 
+      web/social &  49 \\ 
+      web/product support &  48 \\ 
+      product/packaging &  43 \\ 
+      web/tech/academic &  40 \\ 
+      TV/comedy &  39 \\ 
+      web/outdoors/reference &  36 \\ 
+      email/academic &  34 \\ 
+      email/advertising &  28 \\ 
+      web/entertainment &  28 \\ 
+      email/personal &  26 \\ 
+      file/config &  24 \\ 
+      email/business &  22 \\ 
+      speech/discussion &  22 \\ 
+      speech/informal &  21 \\ 
+      web/comedy/social &  21 \\ 
+      email/orders &  20 \\ 
+      speech/service &  19 \\ 
+      web/search &  19 \\ 
+      email/spam &  17 \\ 
+      music/blues &  17 \\ 
+      speech/greeting &  16 \\ 
+      web/fitness &  16 \\ 
+      web/tech/news &  15 \\ 
+      TV/Entertainment &  14 \\ 
+      speech/info &  14 \\ 
+      web/tech/shopping &  14 \\ 
+      web/reference/academic &  13 \\ 
+      TV/news &  12 \\ 
+      radio/music &  12 \\ 
+      radio/news &  12 \\ 
+      sign/info &  11 \\ 
+      web/art &  11 \\ 
+      web/music/shopping &  11 \\ 
+      music/folk/metal &   9 \\ 
+      music/progressive &   9 \\ 
+      TV/entertainment &   8 \\ 
+      email/technical &   8 \\ 
+      sign/info/instruction &   8 \\ 
+      speech/ephemera &   8 \\ 
+      web/banking &   8 \\ 
+      music/country/rock &   7 \\ 
+      music/fusion &   7 \\ 
+      sign/product info &   7 \\ 
+      book/info &   6 \\ 
+      sign/advertising &   6 \\ 
+      TV/documentary &   5 \\ 
+      flyer/advertising &   5 \\ 
+      notes/note &   5 \\ 
+      product/info &   5 \\ 
+      speech/parting &   5 \\ 
+      web/advertising &   5 \\ 
+      web/conspiracy &   5 \\ 
+      box/address &   4 \\ 
+      flyer/info/advertising &   4 \\ 
+      radio/news/entertainment &   4 \\ 
+      sms/informal &   4 \\ 
+      web/blogs &   4 \\ 
+      web/games &   4 \\ 
+      web/news/social &   4 \\ 
+      web/reference/social &   4 \\ 
+      web/reference/travel &   4 \\ 
+      web/reference/woodwork &   4 \\ 
+      web/shopping/investment &   4 \\ 
+      web/tech/utility &   4 \\ 
+      web/utility &   4 \\ 
+      TV/advertising &   3 \\ 
+      application/info &   3 \\ 
+      file/js code &   3 \\ 
+      flyer/menu &   3 \\ 
+      music/country &   3 \\ 
+      phone/ &   3 \\ 
+      sign/advertising/info &   3 \\ 
+      sms/info &   3 \\ 
+      speech/organisation &   3 \\ 
+      speech/request &   3 \\ 
+      web/health &   3 \\ 
+      web/news/tech &   3 \\ 
+      application/info/status &   2 \\ 
+      book/packaging/book title &   2 \\ 
+      map/info &   2 \\ 
+      music/indie &   2 \\ 
+      paper slip/invoice &   2 \\ 
+      phone/informal &   2 \\ 
+      poster/advertising &   2 \\ 
+      radio/News &   2 \\ 
+      speech/Discussion &   2 \\ 
+      speech/informal/discussion &   2 \\ 
+      web/comedy/entertainment &   2 \\ 
+      web/entertainment/images &   2 \\ 
+      web/entertainment/news &   2 \\ 
+      web/entertainment/puzzles &   2 \\ 
+      web/game &   2 \\ 
+      web/tech/social &   2 \\ 
+      TV/advertising/info &   1 \\ 
+      TV/documentary/entertainment &   1 \\ 
+      TV/info &   1 \\ 
+      TV/music &   1 \\ 
+      TV/sport &   1 \\ 
+      application/album listing &   1 \\ 
+      application/buttons/info &   1 \\ 
+      application/update &   1 \\ 
+      book/ &   1 \\ 
+      book/packaging/book blurb &   1 \\ 
+      box/packaging &   1 \\ 
+      card/info &   1 \\ 
+      cheque/info &   1 \\ 
+      clothing/packaging &   1 \\ 
+      display/info &   1 \\ 
+      display/info/status &   1 \\ 
+      file/html code &   1 \\ 
+      film/Entertainment &   1 \\ 
+      game/discussion &   1 \\ 
+      game/game &   1 \\ 
+      music/classical &   1 \\ 
+      music/electronica &   1 \\ 
+      music/music &   1 \\ 
+      music/pop/metal &   1 \\ 
+      notes/agenda/minutes &   1 \\ 
+      notes/diagram &   1 \\ 
+      noticeboard/advert &   1 \\ 
+      paper slip/info &   1 \\ 
+      phone/info &   1 \\ 
+      poster/info &   1 \\ 
+      poster/menu &   1 \\ 
+      product/instruction/info/packaging &   1 \\ 
+      radio/News/entertainment &   1 \\ 
+      sign/ &   1 \\ 
+      sign/instruction &   1 \\ 
+      sign/map &   1 \\ 
+      sign/menu &   1 \\ 
+      sms/ &   1 \\ 
+      speech/Informal &   1 \\ 
+      speech/Inquiry &   1 \\ 
+      speech/discussion/academic &   1 \\ 
+      speech/info/discussion &   1 \\ 
+      speech/question &   1 \\ 
+      speech/service/discussion &   1 \\ 
+      taxdisc/info &   1 \\ 
+      vehicle/branding/sign &   1 \\ 
+      vehicle/info/advertising &   1 \\ 
+      video/info/academic &   1 \\ 
+      video/info/advertising &   1 \\ 
+      web/downloads &   1 \\ 
+      web/games/news &   1 \\ 
+      web/info/advert &   1 \\ 
+      web/reference/entertainment &   1 \\ 
+      web/reference/military &   1 \\ 
+      web/reference/outdoors &   1 \\ 
+      web/reference/shopping &   1 \\ 
+      web/tech/hosting &   1 \\ 
+       \hline
 \end{tabular}
 \caption{Event frequency by computed genre}
 \label{table:personal:eventcountbygenre}
@@ -924,10 +955,24 @@ A particularly compelling argument is made for the inclusion of song lyrics.  Th
 
 
 
-The comparisons from my presentation are qualitative, so I have left them for the discussion.  I'll revisit this when more time is available for subsetting the BNC's data.
-
-
 \til{Do some tests to establish the variability and compare that (hapax counts, sources, etc)}
+
+
+% ---
+As expected, the genres identified within the personal corpus are an imperfect subset of those featured in the BNC.  Following Lee's index, there are no magazines, religious texts, newspapers, dramatic scripts, school or university essays, texts on the subject of commerce/economics or academic texts in many fields.  Newspapers alone comprise 9.9\% of the BNC, implying that caution should be exercised before applying any findings from the BNC to any single subject. % However, another criticism could be that the BNC is 100 times the size...
+
+It is unfortunate that the BNC, even with Lee's annotation, lacks sufficient detail to create a demographic subset focused around the status of the subject covered here.
+
+%---
+
+Particularly interesting are instances where the hierarchical categorisation of the BNC indicates that both corpora have sampled from the same sources, yet the resulting within-category proportions differ.  
+
+\til{recode data along lee's lines and pick these out}
+
+
+
+
+
 
 
 
@@ -960,7 +1005,7 @@ The comparisons from my presentation are qualitative, so I have left them for th
 \section{Discussion \& Reflection}
 The quantitative data presented above are of limited utility to others, since the degree to which they describe the subject's life (rather than some general linguistic trend) is unknown.  Without further sampling, or detailed linguistic auxiliary data, we cannot begin to generalise from the above in a useful manner.
 
-This does not mean, however, that we cannot reason rationally about how transferrable those results are---it is more unlikely that a member of the general population is a software developer than it is that they watch TV, or listen to radio 4 in the mornings.
+This does not mean, however, that we cannot reason rationally about how transferrable those results are---it is more unlikely that a member of the general population is a software developer than it is that they watch TV, or listen to BBC Radio 4 in the mornings.
 
 Moreover, since the purpose of the study is to assess the viability of methods, these may be seen as significantly more transferrable than the data they have collected (this distinction is blurred significantly by the inclusion of a human interest model, however.)
 
@@ -1009,10 +1054,10 @@ A number of questions were raised during the sampling period surrounding the lim
 The attention models used to narrow down input have already been mentioned, however, they apply at a very specific level---often, shorter texts such as signs, brands and labels would have particularly familiar or conventional text placements, styles, and shapes (some media, such as road signs, deliberately accentuate these features to aid recognition).  It is unclear at what point a text is `read' rather than just recognised in the periphery of one's vision.  The solution used in this study was one of internal vocalisation---if the text was recognised sufficient to repeat it mentally, it was classed as read.  This means it is often possible to say that a text source had just a few words read, when in fact a number of boilerplate features were skipped over because of their position and style.
 
 
-An extension of this problem is one of re-reading texts that are being written.  The degree to which this occurs is likely extremely variable by person and task, however, it proves to be a particularly complex form of the above problem and is particularly hard to measure (or even subjectively assess).  In this case study no attempt was made to compensate for this effect.  Detailed study using some kind of attention measuring system (for example, eye tracking) may allow for deliberately using attention models over 1 (for word counts) or deliberate repetition of data in the final corpus.
+An extension of this problem is one of re-reading texts that are being written.  The degree to which this occurs is likely extremely variable by person and task, however, it proves to be a particularly complex form of the above problem and is particularly hard to measure (or even subjectively assess).  In this case study no attempt was made to compensate for this effect.  Detailed study using some kind of attention measuring system (for example, eye tracking) may allow for deliberately using attention coefficients greater than 1 (for word counts) or deliberate repetition of data in the final corpus.
 
 
-The nature of the attention system used in this case study is also debatable.  The current method of using a coefficient works only for estimating word counts, and does not favour certain regions of the final data over others.  Additionally, it conflates two effects---that of reading only a small proportion of the source text, and that of paying little attention to the text (you may also consider using the text at the same time as another a third form).  Annotation of simultaneous events was fairly simple in the notebooks, however, estimation of the distribution of one's attention was done only at a low resolution (the codes used practically equate to ratios of 80/20, 50/50, 20/80, 100 with only a few exceptions).
+The suitability of the attention system used in this case study is also debatable.  The current method of using a coefficient works only for estimating word counts, and does not favour certain regions of the final data over others.  Additionally, it conflates two effects---that of reading only a small proportion of the source text, and that of paying little attention to the text (you may also consider using a second text at the same time a third form).  Annotation of simultaneous events was fairly simple in the notebooks, however, estimation of the distribution of one's attention was done only at a low resolution (the codes used practically equate to ratios of 80/20, 50/50, 20/80, 100 with only a few exceptions).
 
 
 
@@ -1034,12 +1079,12 @@ There are a number of obvious reasons for this, particularly egregious examples 
 
 \begin{itemize}
     \item Some language sources are usually read slowly, such as books read at bedtime.  A sampling period that covers an individual's various literary interests would have to be very long indeed.
-    \item Life is strongly periodic, and though attempts were made to cover the weekly cycle of work and weekend, many events occur annually (either due to seasons or social convention).  There are no christmas songs in my corpus.
-    \item Many more obscure items were represented only once in the corpus (such as advertising on vehicles or documentation on things such as legal forms).  These features may not be periodic but they are ultimately rare.
+    \item Life is strongly periodic, and though attempts were made to cover the weekly cycle of work and weekend, many events occur annually (either due to seasons or social convention).  There are no Christmas songs in my corpus.
+    \item Many more obscure items were represented only once in the corpus (such as advertising on vehicles or documentation on things such as legal forms).  These features may not be periodic but they are rare.
     \item A person's behaviour is likely to be `chunky', following one pattern for a time and then deviating suddenly (for example, during holidays or upon a job change).  Significant effort would have to be given to careful description of duration and circumstance in order to make confident generalisation from the data captured using this method.
 \end{itemize}
 
-It is my opinion that this method is up against two major challenges which must be balanced in order to achieve some degree of scientific validity.  The former of these is the difficulty of sampling in-the-field.  The more obtrusive a method, the higher quality data is going to be, however, the shorter any practical sampling period is likely to be.
+It is my opinion that this method is up against two major challenges which must be balanced in order to achieve some degree of scientific validity.  The former, and most addressable, of these is the difficulty of sampling in-the-field.  The more obtrusive a method, the higher quality data is going to be, however, the shorter any practical sampling period is likely to be.  The latter, as already discussed, is the problem of generalising between people in order to create a corpus of inter-person language use that retains the same details discussed here.
 
 Given the relative paucity of metadata within many general-purpose corpora and the periodic/temporal complexity of life, it seems reasonable to suggest that an ideal mix would be better formed from long-term (multi-year) samples using low-resolution sampling techniques.  This may entail, for example, discarding the on-line journals and manual photography in favour of automated life-log photography and a nightly journal only.
 
@@ -1069,17 +1114,32 @@ The overall word count of the BNC, and other similar corpora, is called into que
 
 
 
-\section{Validity}
+\subsection{Validity}
 The design of this experiment is subject to a number of challenges to validity, and is presented in an explanatory context.
 
-* The proportions used are estimated and based on my subjective opinion
-* When something is formally `read' is based on my subjective opinion
-* Generalisability is low to others
-* Any inference drawn from comparison to other corpora can be done rationally only, as quantiative data does not exist on inter-person variability
+Perhaps the most severe of these is the extremely personal nature of the corpus itself, which renders verification of the data all but impossible except through elicitation and subjective judgement.  This is to some degree a property of all case studies, especially those seeking to experiment with methodology.
+
+A strong case has been made in many fields (and by the inaccuracy of certain assumptions made during preliminary tests within this study) for the fallibility of subjective opinion, and this is partially the reasoning behind a census methodology---it is a simpler (and hopefully less controversial) task to mechanically and objectively record each linguistic event than it is to estimate their size.
+
+The only major source of subjective input before the linguistic events themselves are recorded is one of judging when a text is read, rather than unthinkingly `seen'.  The assumption made for this case study is hopefully uncontroversial enough to be accepted for a majority of purposes: after all, it seems unlikely that we will be able to develop an objective and meaningful threshold for this.
+
+The primary challenge to validity due to subjective reasoning is inserted after the data is captured.  This is where issues that lie beyond the scope of this thesis lie---development of a robust and generalisable human interest model being a major one that has been shown to make a large difference to the results.  The model used for this study is deliberately and knowingly subjective, and would not be applicable to any replication effort.
+
+% ---
+\paragraph{}
+From another perspective, the data set described here is difficult to relate to existing literature due to its othogonal sampling structure---the whole corpus represents a single (albeit very rich) data point in most other corpus designs, and this robs us of quantitative knowledge of how it relates to other data sources.
+
+This question of generalisability has been attempted by a rational comparison with corpora of known demographic coverage above.  A better method still would be to extract only those texts from a corpus that match the demographics of the subject described here.  Unfortunately, this is not possible to any useful degree given the limited information on the \textit{users} of texts within conventional corpora, and so a more detailed comparison is again stopped by the lack of known-similar data.
+
+These limits on comparison to others are both lifted by restriction of the data types being covered, especially where those types are easy to sample.  It would be possible, for example, to build a special-purpose web history corpus in which to contextualise a user's web history, and use this to impute their position in larger corpora with greater-than-zero confidence.
 
 
 
-\section{Ethics}
+
+
+
+\subsection{Ethics}
+\til{STUFF FROM NOTES}
 The increased resolution of data pertaining to a single individual renders the methods discussed here ethically sensitive.  This sensitivity is increased further if continuous recording of audio or video are used, though, as mentioned above, this data was not integrated into my analysis.
 
 There are a number of arguments justifying covert research in the social sciences, and ...
@@ -1100,7 +1160,7 @@ A number of technical measures are also possible that may assist this issue---so
 
 
 % ============================================================================
-\section{Future Work}
+\subsection{Future Work}
 
 In the long term, it is hoped that a greater understanding of the above may contribute to:
 
@@ -1136,6 +1196,9 @@ Of particular note (and perhaps greatest generalisability) is the number of word
 
 
 This would seem to form an argument that it is simply not cost-effective to build a conventional general-purpose corpus large enough to represent large populations, suggesting that the focus should lie in those built for more specialist purposes, or those sampled non-probabilistically.  Here, the extreme size of web corpora may be well justified, so long as they can be shown to have been sampled rigorously.
+
+
+This suggestion is reinforced by the obvious variability in the proportions of texts taken from each source, which will vary greatly by lifestyle.  Indeed, it seems that the measure of one's lifestyle by text source is a particularly direct way of characterising inter-person variability, and further work may be focused on this problem as a way of simplifying the methods described here.
 
 
 Of interest to this thesis is the high level of detail that may be captured using this method.  The census design affords full coverage of a given area about which we may wish to generalise, and the detail it is possible to capture this way makes the data ideal as a `seed' for constructing larger corpora with comparable properties.  Application of these methods, as well as those using auxiliary data mentioned above, will hopefully render this sampling method a complementary one, to be added to the collection of existing corpus designs.
