@@ -1,13 +1,18 @@
 \section{Introduction}
-The degree to which a general purpose corpus represents ``real'' language use is often debated at length, and is the key issue affecting design of corpora.  A wide variety of methods have been used to estimate language proportions and usage for a whole population, however, these are mediated by (and often centre around), expert opinion.
+The degree to which a corpus represents ``real'' language use is arguably the most important aspect of corpus design.  General purpose corpora are constructed typically based on a mix of expert opinion and per-medium data sources such as bestseller lists.
 
-Reasons for this approach are both theoretical and practical---sampling individuals in the act of using language is very difficult (something other social sciences also struggle with), and the persistent nature of texts means that they conceptually stand alone, especially where the corpus designers intend to include older works.
+% The degree to which a general purpose corpus represents ``real'' language use is often debated at length, and is the key issue affecting design of corpora.  A wide variety of methods have been used to estimate language proportions and usage for a whole population, however, these are mediated by (and often centre around), expert opinion.
 
-Nonetheless, there is a missing empirical link between the expert-guided designs of language proportions and the ground truth of an individual's language use.  This is lamented by many who wish to study language acquisition (or more detailed explanatory theories regarding language use over time \td{cite Hoey, quote too}.
+Reasons for this approach are both theoretical and practical---sampling individuals in the act of using language is very difficult, and the persistent nature of texts means that they conceptually stand alone after such ``usage events''.  This is especially relevant where the corpus designers intend to include older works.
 
-This chapter describes a case study whereby a census of text types was attempted for a single individual.  This sample design yields very little inferential power regarding the whole population, but serves to illustrate the disparity between the proportions a general purpose corpus may have, and the language used by an example individual.  The extent to which this example individual may be a useful guide for corpus building is not addressed directly, but this is an area that could be expanded using demographic auxiliary data.
+Nonetheless, there is a missing empirical link between the expert-guided designs of language proportions and the ground truth of an individual's (or population's) language use.  This is lamented by many who wish to study language acquisition, or apply more detailed models of language comprehension \td{cite Hoey, quote too}.
 
 
+
+
+This chapter describes a case study whereby a census of language use was constructed for a single individual, described by genre and source.  This sample design yields very little inferential power about whole population, but serves to illustrate the disparity between the proportions a general purpose corpus may have, and the language used by an example individual.  The extent to which this one subject may be a useful guide for corpus building is not addressed directly, but this is an area that could be expanded using demographic auxiliary data.
+
+Though beyond the scope of this thesis, this approach could be generalised for use with questionnaires and other less-invasive data gathering techniques, or specialised and restricted to a given source of data for use with automated tools (for example, analysing a user's web history).  We hope that the methods described herein offer some value for this further work.
 
 
 
@@ -25,19 +30,19 @@ This chapter describes a case study whereby a census of text types was attempted
 \section{Sample Design}
 As we have seen in chapters~\ref{}\td{ref}, conventional corpus building efforts centre around linguistic variables, and rely largely on expert opinion to balance their socioeconomic variables.  This approach was initially selected in order to avoid certain practical problems (many of them caused by technological limitations), though it has also caused others, most notably the difficulty in retrieving metadata about texts post-hoc.
 
-Often, the only way to ensure demographic balance is to rely on sources of auxiliary data such as bestseller lists and library loan records that map textual variables to socioeconomic ones.  This process of using `proxy' variables is particularly opaque, and often limits the metadata available.
+Often, the only way to ensure demographic balance is to rely on sources of auxiliary data such as bestseller lists and library loan records that map textual variables to socioeconomic ones.  This process of using `proxy' variables is particularly opaque, and often limits the metadata available to that in the list used for selection.
 
-The intent of this chapter is to sample in an ad-hoc manner, that is, to record details of a text or single use of language in context and at the time it is used.  In order to accomplish this, detailed logs will be kept on everyday activities, and a major part of this study centres around development of the methods used, something that was approached iteratively using a series of preliminary samples.
+The design used for this chapter's census is instead based on observing ``linguistic events'' --- informally-demarked single uses of language --- in an ad-hoc manner.  This allows the context to be recorded and metadata to be captured without reprospection.  In order to accomplish this, detailed logs will be kept on everyday activities.
 
-This approach is far closer to that used in special purpose corpora, especially where the restricted domain allows use of automated recording tools or sampling from an existing rich database (such as from an online forum).
+This approach is far closer to that used in many special purpose corpora, especially where the restricted domain allows use of automated recording tools or sampling from an existing rich database (such as from an online forum).
 
-The case study itself takes the form of a census of language use, for a given period, for a given person.  This offers empirical validity for linguistic proportions, but is a single data point from the population of language users and cannot be formally generalised.
+Sampling in this way offers empirical validity for linguistic proportions, but may be considered just a single data point from the population of language users and cannot be formally generalised to other people.  The purpose of this case study is in part to explore the methods that may be used in creating such samples.
 
 Of particular interest are variables that are particularly challenging to sample:
 
 \begin{itemize}
     \item The age of a text when `used'
-    \item Other temporal information, such as the times and days when texts are read, and inter-day variance etc.
+    \item Other temporal information, such as the times and days when texts are used.
     \item The social context of text use
     \item Attention paid to a text, and which portions were read
     \item Proportions of text types used, especially representation of types that may be missing from other corpora such as greetings, billboards, product labels.
@@ -54,11 +59,11 @@ A further advantage of this method is that the population may be rigorously defi
 
 
 \subsection{Difficulties and Disadvantages}
-Sampling language use ad-hoc involves changes in sampling strategy that are practically challenging.  Taking this study as an example, one would have to take data from enough people to cover the population required, and each would have to undertake a fairly in-depth procedure.
+Sampling language use ad-hoc involves changes in method that are practically challenging.  To build a general-purpose corpus, one would have to take data from enough people to cover the population required, and each would have to undertake a fairly intrusive procedure to do so.
 
-Difficulties encountered when trying to sample large populations are well documented in the social sciences, and many techniques exist to mitigate common biases (\td{such as}), however, these are largely beyond the scope of this chapter.  It is notable that one solution in sociology has been to share data (in a style similar to corpus linguistics) in order to minimise the costs involved in implementing a high quality survey.
+Difficulties encountered when trying to sample large populations are well documented in the social sciences, and many techniques exist to mitigate common biases (\td{such as weighted/nonprobability sampling used in large surveys, grids etc.}), however, these are largely beyond the scope of this chapter.  It is notable that one solution in sociology has been to share data in a style similar to corpus linguistics, to minimise the costs involved in executing a high quality survey.
 
-The increased ``person-focused''ness of a primarily social design also raises a number of ethical issues, as it is increasingly possible to derive information not just about a general group's language preferences, but about an individual's (or a comparison between groups).  This is merely the inverse of its value, but it is nonetheless worth considering as many study designs in linguistics need not work with such sensitive data.  This issue is addressed after the discussion of methods and findings\td{Ensure that it is.}.
+The increased ``person-focused-ness'' of a primarily social design also raises a number of ethical issues, as it is increasingly possible to derive information not just about a general group's language preferences, but about an individual's (or a comparison between groups).  This is the inverse of its value, but it is nonetheless worth considering as many study designs in linguistics and NLP need not work with such sensitive data.  This issue is addressed after the discussion of methods and findings in Section~\ref{sec:personal:discussion:ethic}.
 
 Further, sampling text as it is used raises methodological challenges---how can we be sure that the language observed is still naturally occurring and valid?  All sampling is going to compromise on this, and the extent to which one values detail over interruption will vary by study design.  The aims of this study are, in part, to identify major challenges in this area, for example, which text types are most difficult to sample or require most time to record.
 
@@ -77,17 +82,19 @@ Further, sampling text as it is used raises methodological challenges---how can 
 
 % ============================================================================
 \section{Technology}
-As mentioned, a number of the limitations to this kind of sampling may be addressed through the application of new and emerging technologies.  This takes two main forms:
+Conventional corpus designs were chosen to avoid practical challenges that were existant at a time when computerisation was in its infancy.  The application of new technologies to the problems of sampling offer way to mitigate a number of these issues, making alternate designs possible.
+
+Two main themes are notable in easing access to text in a usable form:
 
 \begin{itemize}
-    \item Many more documents are now poduced and consumed in digital form.  This means they are accessible for automatic copying and processing by sampling software, often without any intervention necessary by the user.
-    \item The abundance and ubiquity of portable technology such as smartphones lowers the difficulty of many existing sampling methods such as audio recording or photography.
+    \item Many more documents are now produced and consumed in digital form.  This means they are accessible for automatic copying and processing by sampling software, often without any intervention necessary by the user.  As techniques for cataloguing, monitoring, and annotating documents improve these data become richer, often in ways that would benefit an end user (and thus a corpus).
+    \item The abundance and ubiquity of portable technology such as smartphones lowers the difficulty of many existing sampling methods such as audio recording or photography.  Connectivity of these devices allows for easier movement of data and offloading of processing, even when in physically remote areas.
 \end{itemize}
 
 
-The former of these is well represented by the WaC movement in corpus linguistics, and many corpora include sections which have been sampled by distributing portable technology\til{So, er, this is where the lit review seems out of place 'cause it's in chapter 2}.  Of particular interest, however, is the value that we may extract by exploiting both to form a coherent narrative.
+The former of these is well represented by the WaC movement in corpus linguistics, and many corpora include sections which have been sampled by distributing portable technology (originally tape recorders).  Of particular interest, however, is the value that we may extract by exploiting both to form a coherent narrative, and using that narrative to inform corpus annotation.
 
-One community that has been using these techniques extensively is that associated with life-logging.  Life-loggers do stuff---see lit review.
+One community that has been using such techniques extensively is that associated with life-logging.  Life-loggers record, and often catalogue, their own activities and use of many different kinds of resource in everyday life for reasons of posterity, entertainment, or memorisation.
 
 
 
@@ -99,9 +106,9 @@ One community that has been using these techniques extensively is that associate
 
 
 \subsection{Life Logging}
-Just as the availability of portable recording technology limited acquisition of spoken corpora, so have the limitations on digitisation and format conversion limited the selection of written text to those formats that are already indexed, or in formats standard enough to transcribe and represent easily.   As modern computing devices have miniturised and become ubiquitous, both of these issues have become more minor, rendering larger amounts of text recordable without significant manual intervention.
+Just as the state of transcription technology has limited acquisition of spoken corpora, so have the limitations on digitisation and format conversion limited the selection of written text to those formats that are already indexed, or in formats standard enough to transcribe and represent easily.   As modern computing devices have miniturised and become ubiquitous, both of these issues have become less significant, rendering larger amounts of text recordable without significant manual intervention.
 
-A number of these technologies were developed as a result of the life-logging community's interest in multimedia records.  Life logging is an activity that emerged slowly out of the principles of webcam shows and reality TV.  It involves recording (and usually broadcasting) continuous information about one's life as it occurs.
+A number of these technologies were developed as a result of the life-logging community's interest in multimedia records.  Life logging is an activity that emerged slowly out of the principles of webcam shows and reality TV, and involves recording (and usually broadcasting) continuous information about one's life as it occurs.
 
 Though most popular efforts started as a means for providing entertainment, methods used soon diversified and gained the interest of the information retrieval and processing communities.  Many projects have been started with an aim to catalogue and operationalise the huge stream of data each person creates, largely with a focus on aiding that person in their daily life, or aiding large organisations (such as defence forces) in management of resources and people.
 
@@ -149,7 +156,7 @@ Typical sources of data considered include:
     \item[Document storage] With the increase in use of digital-origin documents, some of the more holistic life-logging systems record documents as they are read, with a focus being to integrate this data into the larger picture.  Others scan in physical documents such as their post for later retrieval.
 \end{itemizeTitle}
 
-Many of the requirements of a life-logging platform (covert operation, comprehensive data management, context identification) overlap notably with the methods used in covert sociological research and, of particular note for our purposes, those constructing spoken language corpora.
+Many of the requirements of a life-logging platform (covert operation, comprehensive data management, context identification) overlap notably with the methods used in covert sociological research and, of particular note for our purposes, those constructing spoken language corpora.  The distinction I draw here is one of philosophy.  Where life-logging focuses on construction of a narrative, contextualising data, more conventional sampling methods have focused on data recording and normalisation in a formal setting, discarding data that is not immediately operationalisable.
 
 
 Notably, one of the methods used to create the spoken portion of the BNC was covert recording, where a number of people were provided with tape recorders...
@@ -166,7 +173,7 @@ Such designs exhibit a tradeoff: a decrease in socioeconomic breadth in exchange
 
 
 
-\til{ Intro to life logging, a good lit review needs to be done.  Perhaps it belongs in the lit review section rather than here though.}
+% \til{ Intro to life logging, a good lit review needs to be done.  Perhaps it belongs in the lit review section rather than here though.}
 
 
 
@@ -184,20 +191,23 @@ In practice the distinction between life-logging methods and `conventional' data
 
 
 % ============================================================================
-\section{Approach \& RQs}
-The case study described here is an attempt to assess the extent to which techniques from life-logging may assist corpus builders in creasing a demographically-oriented corpus.
+\section{Aims and Objectives}
+The case study described here is an attempt to assess the extent to which techniques from life-logging may assist corpus builders in creating a demographically-oriented corpus.
 
-It follows an iterative design surrounding these aims, with each iteration refining a number of key design areas:
+It follows an iterative design in order to gradually refine the methods used, focusing on:
 
 \begin{itemize}
     \item The variables that may practically be recorded about a text (and that must be before they are lost);
     \item Methods that may be used to sample text unobtrusively, especially how new technologies may be used to assist;
     \item Methods and tools for operationalising logs after sampling is complete, and how these may assist the process of data gathering itself.
+    \item How to minimise the intrusiveness of capture methods both to the experimentor (meaning that can capture smaller interactions) and to those around him (meaning the data is more representative).
 \end{itemize}
+
 \til{I'm sure I'm missing stuff here.  Check notes and presentations}
 
-Ultimately, the differences in sample design contribute to a larger picture that could yield much future work.  The direct research questions addressed here are:
+Ultimately, the differences in sample design contribute to a larger picture that could yield much future work.  The issues addressed here are:
 
+\til{Change section to more issue-based "aims and objectives"}
 \begin{itemize}
     \item What methods may be used for gathering data in a short-term language census?
     \item How may the collected data be operationalised?
@@ -205,6 +215,8 @@ Ultimately, the differences in sample design contribute to a larger picture that
     \item How may these methods be used in future to aid those building corpora?
 \end{itemize}
 
+
+The case study described here is but the first effort in exploring a method that may be useful to many fields.  Aspects of the life-logging approach to determining corpus properties could be generalised (or relaxed) in order to further reduce the demand on the subject.  This thesis does not permit further study on these methods, however, it is written with a view to clarifying further work into questionnaire-based or electronic elicitation of language proportions.
 
 
 
@@ -242,7 +254,7 @@ A number of practical challenges were identified before sampling, and these were
 
 % ============================================================================
 \section{Method}
-As mentioned in~\ref{sec:personal:samplingpolicy}, the primary objective of the sampling is to record all ``linguistic events'' for a given period, for a given subject.
+The form of sampling chosen was to record all language use by a single subject, across a given period.  As this study is largely exploratory, seeking to drive and refine the methods used, an iterative design was chosen.  This saw a number of preliminary sampling periods, with a review after each to identify the strengths and weaknesses of each.
 
 The subject chosen was myself---this was done for a number of reasons:
 
@@ -301,9 +313,6 @@ The list shown in Figure~\ref{fig:personal:datasources} is necessarily furnished
 Each of these sources is ``covered'' by one or more sampling tools.  These tools progressed most during the iterative process, and each was subject to a number of procedural subtleties that were refined throughout the study.
 
 
-\til{Diagram from notebook, figure~\ref{fig:personal:datasources}}
-
-
 
 
 
@@ -313,43 +322,48 @@ Each of these sources is ``covered'' by one or more sampling tools.  These tools
 
 
 \subsection{Recording Methods}
-Recording methods were chosen for a variety of reasons.  First and foremost they must, in sum, cover the sources mentioned above.  Secondly, they were selected in order to be unobtrusive both for the experimenter and those around him.  Thirdly, they were selected to be flexible enough to cover unforseen contexts and data sources.
+Method used to record data were chosen for a variety of reasons.  They must, in sum, cover the sources mentioned above, be unobtrusive both for the experimenter and those around him, and be sufficiently flexible to cover unforseen contexts and data sources.
 
-The methods used can be separated further into two groups: many methods are capable of recording multiple sources, and serve to form a narrative that describes the metadata of a linguistic event, pointing at another source for the data itself.  These methods were chosen to allow for post-hoc ``memory jogging'' and narrative creation, something that was added to the experimental procedure after the first iteration indicated how difficult to operationalise much of the data would be.
+These methods can be separated further into two groups: many methods are capable of recording multiple sources, and serve to form a narrative that describes the metadata of a linguistic event, pointing at another source for the data itself.  These methods were chosen to allow for post-hoc sensemaking and narrative creation, something that was added to the experimental procedure after the first iteration indicated how difficult to operationalise much of the data would be.
 
-The second set of methods are focused on a single data source, typically requiring little to no manual intervention to record it.  Their records are either indexed by time, or by the more flexible methods mentioned above.
+The second set of methods are focused on a single data source, typically requiring little to no manual intervention to record data.  Their records are either indexed by time, or by the more flexible methods mentioned above.
 
 
 \subsubsection{Indexing and Overview}
 \paragraph{Journals and Note-taking}
 
 \begin{figure}[p]
-\centering
-\includegraphics[width=0.8\textwidth]{notebook}
-\caption{The `on-line' notebook}
-\label{fig:personal:online_notebook}
+    \centering
+    \includegraphics[width=0.8\textwidth]{notebook}
+    \caption{The `on-line' notebook}
+    \label{fig:personal:online_notebook}
 \end{figure}
 
 Two journals were maintained throughout the sample.  The former of these was an A6 notebook maintained `on-line'\td{rename to hot/warm/cold, front/mid/backline or something similar} as events occurred (pictured in figure~\ref{fig:personal:online_notebook}).  This was used to store durations of conversations, titles of persistent sources, etc.
 
 The second was an off-line journal, maintained at the end of each day in a narrative style.  This blog-like record was intended to reflect in depth on the proportions of text used in each source, and how attentively each linguistic event was engaged in.  The writing of the journal itself was not logged by any other methods.  It was also possible to attach daily records to this journal, and the process of writing it inserted an opportunity to reflect on the mnemonic codes used during the day.  This process is described in context in section~\ref{sec:personal:recording}.
 
-The on-line notebook proved to be the primary indexing method for all other sources of data, and its maintenance was the primary overhead of the study.  Each entry in the notebook was eventually reduced to a compressed form that roughly followed one-line-per-event, storing the time each event occurred, any identifying information deemed necessary for later memory of it, and a duration or other index of word counts.
+The on-line notebook proved to be the primary indexing method for all other sources of data, and its maintenance was the primary overhead of the study.  As illustrated in Figure~\ref{fig:personal:notebookformat}, each entry in the notebook was eventually reduced to a compressed form that roughly followed one-line-per-event, storing the time each event occurred, any identifying information deemed necessary for later memory of it, and a duration or other index of word counts.
 
-\til{Insert a picture of one of the scanned days, pointing out the format}
+\begin{figure}[p]
+    \centering
+    \includegraphics[width=0.8\textwidth]{notebookpage}
+    \caption{A page from the on-line notebook, detailing the format used}
+    \label{fig:personal:notebookformat}
+\end{figure}
+
 
 Problems of simultaneous events and split attention were solved in the notes by having a start/stop event for ongoing events, and by using the off-line journal to reflect upon each event.
-
 
 \paragraph{Audio Recording}
 Following work on machine listening, the original intent of audio recording was to capture the occurrence and duration of conversations, as well as any smaller interactions that would otherwise be difficult to capture (such as greetings, thanks when opening doors, etc.)
 
 
 \begin{figure}[p]
-\centering
-\includegraphics[width=0.8\textwidth]{dictaphone}
-\caption{The audio recorder used}
-\label{fig:personal:audiorecorder}
+    \centering
+    \includegraphics[width=0.8\textwidth]{dictaphone}
+    \caption{The audio recorder used}
+    \label{fig:personal:audiorecorder}
 \end{figure}
 
 
@@ -358,10 +372,10 @@ Capturing was performed with an Olympus VN713PC dictaphone, recording to a suita
 
 
 \begin{figure}[p]
-\centering
-\includegraphics[width=0.8\textwidth]{clicker}
-\caption{The second audio index marker}
-\label{fig:personal:clicker}
+    \centering
+    \includegraphics[width=0.8\textwidth]{clicker}
+    \caption{The second audio index marker}
+    \label{fig:personal:clicker}
 \end{figure}
 
 
@@ -519,7 +533,7 @@ These parameters were tuned to match the specific data sampled over the period--
 
 
 \subsection{Coding and Genres}
-Since the case study is, in part, aiming to identify genre distinctions not found in other general-purpose corpora it is not possible to select, a priori, an authoritative taxonomy of genres.  This problem is further complicated by the mix of spoken and written data in the corpus, something that would usually be more formally separated.
+Since the case study is in part aiming to identify genre distinctions not found in other general-purpose corpora it is not possible to select, a priori, an authoritative taxonomy of genres.  This problem is further complicated by the mix of spoken and written data in the corpus, something that would usually be more formally separated.
 
 % \til{Also note how I'm coding things from both spoken and written, and such, thus one taxonomy would be unable to cover it anyway?}
 
@@ -527,7 +541,8 @@ Genre distinctions were made using a process that loosely follows the principles
 This involves a focus on free coding, and a consideration of all available context and information---something aided both by the `memoing' innate in the design of the journals, and the fact that the analyst is also the subject.  Free coding was performed with prior knowledge of Lee's genre categories.
 
 
-This process was done in order to deliberately apply distinctions made by Lee where these seem appropriate, but to retain the flexibility to deviate where portions of the corpus did not fit comfortably within the existing categories.  This soft alignment was chosen in order to ease comparison against existing corpora, especially the BNC.  No effort was made to adhere to Lee's specification directly, as this would lead to over-specification where the case study's corpus proves more diverse in form than the equivalent BNC category.
+This process was done in order to deliberately apply distinctions made by Lee where these seem appropriate, but to retain the flexibility to deviate where portions of the corpus did not fit comfortably within the existing categories.  This soft alignment was chosen in order to ease comparison against existing corpora, especially the BNC.  No effort was made to adhere to Lee's specification directly, so as to prevent forming a disconnect between the Lee-inspired categories and those that were sufficently different to form their own.
+% as this would lead to over-specification where the case study's corpus proves more diverse in form than the equivalent BNC category.
 
 It's particularly noteworthy here that the analyst selecting codes for genres is the same person as the subject gathering the data.  This, along with the mnemonic form of the notebooks and data captured, provides extra (informal) insight afforded by context.
 
@@ -536,11 +551,16 @@ Because of the large volume of data, and the manner in which it was extracted fr
 
 For data that were processed and annotated largely automatically, codes were assigned after a systematic review of the data itself, using a spreadsheet to reduce the number of lines according to variables that were assumed to define a given genre (for example, web data was split by domain, and music was assigned by artist).  These distinctions were then written into the extraction tools as heuristics, or applied directly before being merged with the main corpus.
 
-For data such as images and notebook entries manual coding was required.  This was completed using similar tools, except that it was seldom possible to reduce the data set before coding, and thus was not possible to apply heuristics to impute data.  Data recorded in these formats were often more varied and esoteric.
+For data such as images and notebook entries manual coding was required.  This was completed using similar tools, except that it was seldom possible to reduce the data set before coding, and thus was not possible to apply heuristics to impute data.  Data recorded in these formats were often more varied with many unique or esoteric entires (such as the single tax disc).
 
-\til{More on coding, passes used, efforts to align to Lee's}
+In order to better align the informal genre distinctions with Lee's format, the final document genre distinctions were formed by prefixing the data source, i.e. transforming ``rock'' into ``music/rock''.  These resultant genres are used herein for describing the corpus, as as the basis for any direct comparison with Lee's BNC index.
 
-This method would, if extended to use external data sources (such as the CDDB music information service), be capable of automatically assigning genres for a number of data sources, greatly easing the manual intervention required.  It is also likely that improvements in computer vision, or applications of existing databases (such as Wikipedia, or the web itself) could be used to extend these methods further to cover images and other data that were manually processed here.
+\til{It might still be necessary to review the codes, or align them to Lee's for comparison in the results lower down}
+
+
+% ---
+
+This process of augmenting manual entries method would, if extended to use external data sources (such as the CDDB music information service), be capable of automatically assigning genres for a number of data sources, greatly easing the manual intervention required.  It is also likely that improvements in computer vision, or applications of existing databases (such as Wikipedia, or the web itself) could be used to extend these methods further to cover images and other data that were manually processed here.
 
 
 
@@ -557,11 +577,11 @@ This method would, if extended to use external data sources (such as the CDDB mu
 
 \section{Results}
 
-\begin{figure}[p]
-\centering
-\includegraphics[width=0.8\textwidth]{dataoverview}
-\caption{The availability of data from various sources}
-\label{fig:personal:dataoverview}
+\begin{figure}[hp]
+    \centering
+    \includegraphics[width=1.0\textwidth]{dataoverview}
+    \caption{The availability of data from various sources}
+    \label{fig:personal:dataoverview}
 \end{figure}
 
 
@@ -569,41 +589,51 @@ These results describe data collected during the third iteration of sampling, wh
 
 The period marked from Friday the 5th to Friday the 19th (inclusive) forms the sampling period described herein (with exceptions to this noted where made).  This was the period for which the on-line notebook was maintained along with other intrusive data collection techniques, though notably some methods continued due to their ease-of-use.
 
-Though audio data is missing for Friday 19th, this was not used due to the difficulty in processing such data ethically and within a reasonable time frame.  Word counts for spoken transactions were instead based on an estimated words-per-minute.  %XXX: revisit this and do manual transcription some day before the viva?
-
-This fifteen-day recording period covers 8,619 linguistic events, encompassing an estimated 980,000 words.  
+Audio data is missing for the 19th as sampling was initially intended to end the day before, however, for producing estimated word counts this was not used as other recording methods cover the data sources.  Though attempts were made to use the audio data, difficulties in automated processing meant that transcription (or precise word counts) were only possible using manual review (something only the subject could legally perform).  Word counts were instead based on an estimated words-per-minute.
 
 
+This fifteen-day recording period covers 8,619 linguistic events, encompassing an estimated 980,000 words.  In total 3.4GB of data were collected, though the majority of this figure (2.3GB, 67\%) of this is audio data.  This is roughly in line with other life-logging studies \td{cite magazine article on mylifebits where they discuss storage sizes}.
 
-\subsection{Variables}
-Variables recorded on each linguistic event are based heavily on Lee's BNC index, augmented to take into account the attention index and word count estimates.  A summary of these is provided in Table~\ref{table:personal:variables}.
+The overall word count is changed massively by disabling the attention model, rising to roughly 5 million words.  As we shall see later, this is largely because the data sources and genres which dominate the data set are particularly heavily adjusted.  This raises the question of how we may ensure accuracy of attention models, something that shall be addressed in the discussion section below.
+
+
+
+
+
+% \subsection{Variables}
+Variables recorded on each linguistic event are based heavily on Lee's BNC index, augmented to take into account the attention index and word count estimates.  A summary of these is provided in Table~\ref{table:personal:variables}.  The `missing' column describes the proportion of rows missing this field, either because it is not applicable, or because insufficient data was recorded to complete it with confidence.
+
+The variables `source2' and `duration' have missing values exclusively due to non-applicability.  As such they have been integrated into (complete) summary variables for analysis, forming the computed words and computer genre in an effort to unify measurement of spoken and written material, and increase the specificity of the data source recorded.
+
+Though part of the initial purpose 
+
 
 \begin{table}[hp]
 \centering
     \begin{tabular}{ | l | c | p{7cm} |}
     \hline
-    \textbf{Variable} & \textbf{Complete?} & \textbf{Description} \\ \hline
+    \textbf{Variable} & \textbf{Missing} & \textbf{Description} \\ \hline
    
-    source              & yes & The data source (email, audio, etc.) \\ \hline
-    source2             & no & Any origin data from within the source (i.e. the caller in a phone conversation, sender for email) \\ \hline
-    day                 & yes & Day of the month sampled \\ \hline
-    mode                & yes & Spoken or Written \\ \hline
-    circulation status  & yes & Exact circulation, or `h', `m', `l' following Lee's guidelines\\ \hline
-    portion read        & yes & The attention index mentioned above \\ \hline
-    informal genre      & yes & Free-coded genre \\ \hline
-    medium              & yes & The form of the language used.  Usually the same as the source. \\ \hline
+    source              & - & The data source (email, audio, etc.) \\ \hline
+    source2             & 34.3\% & Any origin data from within the source (i.e. the caller in a phone conversation, sender for email) \\ \hline
+    day                 & - & Day of the month sampled \\ \hline
+    mode                & - & Spoken or Written \\ \hline
+    circulation status  & - & Exact circulation, or `h', `m', `l' following Lee's guidelines\\ \hline
+    portion read        & - & The attention index mentioned above \\ \hline
+    informal genre      & - & Free-coded genre \\ \hline
+    medium              & - & The form of the language used.  Usually the same as the source. \\ \hline
     % ...
-    title               & yes & The title of the document, or an identifier for the text \\ \hline
-    author              & no & The author[s] of the text\\ \hline
-    author age          & no & The age of the author[s] \\ \hline
-    author sex          & no & The sex of the author[s] \\ \hline
-    author type         & yes & An indication of the type of entity authoring the text.  Follow's Lee's coding for \textbf{s}ingle, \textbf{m}ultiple, and \textbf{c}ommercial\\ \hline
-    produced/consumed   & yes & During the transaction, was text produced, consumed, or engaged in interactively \\ \hline 
+    title               & - & The title of the document, or an identifier for the text \\ \hline
+    author              & 18.0\% & The author[s] of the text\\ \hline
+    author age          & 97.2\% & The age of the author[s] \\ \hline
+    author sex          & 97.1\% & The sex of the author[s] \\ \hline
+    author type         & - & An indication of the type of entity authoring the text.  Follow's Lee's coding for \textbf{s}ingle, \textbf{m}ultiple, and \textbf{c}ommercial\\ \hline
+    produced/consumed   & - & During the transaction, was text produced, consumed, or engaged in interactively \\ \hline 
     % \hline
-    words               & no & Authoritative word count\\ \hline
-    duration            & no & Authoritative duration for spoken data\\ \hline
-    computed words      & yes & Estimated word count, merging durations and word counts above\\ \hline
-    computed genre      & yes & A composite of the medium and the informal genre, intended as a more specific genre representation \\
+    words               & 2.8\% & Authoritative word count\\ \hline
+    duration            & 97.2\% & Authoritative duration for spoken data\\ \hline
+    computed words      & - & Estimated word count, merging durations and word counts above\\ \hline
+    computed genre      & - & A composite of the medium and the informal genre, intended as a more specific genre representation \\
     \hline
     \end{tabular}
 \caption{A summary of variables sampled}
@@ -615,14 +645,10 @@ Variables recorded on each linguistic event are based heavily on Lee's BNC index
 
 
 
-
-
-
-
-
 \subsection{Activities}
 During the sampling period, all work surrounding the personal corpus case study was stopped, in favour of other, ongoing, projects.  Other than this intervention, work continued as normal, which for this period involved significant amounts of development on the LWAC downloader tool.
 
+\til{How much to write about those two weeks?}
 % TODO: more about general life in that period
 
 
@@ -630,27 +656,16 @@ During the sampling period, all work surrounding the personal corpus case study 
 
 
 
-
-
-
-\subsection{Frequencies and Summaries}
-As mentioned above, the data collected constitutes roughly 9000 linguistic events, covering almost a million words.  In total 3.4GB of data were collected, though the majority of this figure (2.3GB, 67\%) of this is audio data which could easily be compressed or discarded after processing.
-
-The overall word count is changed massively by disabling the attention model, rising to roughly 5 million words.  As we shall see later, this is largely because the data sources and genres which dominate the data set are particularly heavily adjusted.  This raises the question of how we may ensure accuracy of attention models, something that shall be addressed in the discussion section below.
-
-
-
-
-\subsubsection{Distribution}
+\subsection{Distribution}
 Quantitative data about time and other super-simple breakdowns here
 
 
 
-\begin{figure}[p]
-\centering
-\includegraphics[width=0.8\textwidth]{cbyday}
-\caption{Daily event frequencies}
-\label{fig:personal:eventcountbyday}
+\begin{figure}[hp]
+    \centering
+    \includegraphics[width=0.8\textwidth]{cbyday}
+    \caption{Daily event frequencies}
+    \label{fig:personal:eventcountbyday}
 \end{figure}
 
 
@@ -669,7 +684,7 @@ Contrary to expectations, and in part due to large aomunts of terminal and web u
 % 
 
 
-\begin{figure}[p]
+\begin{figure}[hp]
 \centering
 \includegraphics[width=0.8\textwidth]{cbyday}
 \caption{Daily word counts}
@@ -682,26 +697,26 @@ Before this study it was conjectured that the vast majority of all language used
 
 
 
-\til{More fun breakdowns, plot and comment on the distribution of some larger features throughout the data}
+\til{More fun breakdowns.  Take some plots from presentation. plot and comment on the distribution of some larger features throughout the data}
 
 
 
 
 
-\subsubsection{Events}
+\subsection{Events}
 
 \til{Plot event by source, bar plot}
-\begin{figure}[p]
-\centering
-% \includegraphics[width=0.8\textwidth]{cbyday}
-\begin{verbatim}
-    call    email     file      irc    music    notes   photos      sms 
-      14      184      279      266     1433      272      152       28 
-   squid terminal 
-    6076     1214 
-\end{verbatim}
-\caption{Event count by source}
-\label{fig:personal:eventsbysource}
+\begin{figure}[hp]
+    \centering
+    \includegraphics[width=0.8\textwidth]{ebysource}
+   %  \begin{verbatim}
+   %  call    email     file      irc    music    notes   photos      sms 
+   %    14      184      279      266     1433      272      152       28 
+   % squid terminal 
+   %  6076     1214 
+   %  \end{verbatim}
+    \caption{Event count by source}
+    \label{fig:personal:eventsbysource}
 \end{figure}
 
 The proportions described in Figure~\ref{fig:personal:eventsbysource}\td{make into bar graph} are likely a very individual trait of the subject.  They exhibit a number of properties that would be significantly affected not only by daily routine, but also the specific work being completed at the time of the sample (the implications of this on scientific validity are discussed below in section~\ref{}\td{ref}).
@@ -910,19 +925,19 @@ Clearly, the last of these is the most obvious and desirable effect of building 
 
 
 
-\subsubsection{Word Counts}
+\subsection{Word Counts}
 
 \begin{table}[ht]
-\centering
-\begin{tabular}{rrrrrrrr}
-  \hline
- & 5\% & 10\% & 20\% & 50\% & 70\% & 90\% & 95\% \\ 
-  \hline
-1 & 0.00 & 0.00 & 8.90 & 27.85 & 74.00 & 217.00 & 354.88 \\ 
-   \hline
-\end{tabular}
-\caption{Percentiles for words-per-event.}
-\label{table:personal:wordsperevent}
+    \centering
+    \begin{tabular}{rrrrrrrr}
+        \hline
+        & 5\% & 10\% & 20\% & 50\% & 70\% & 90\% & 95\% \\ 
+        \hline
+        1 & 0.00 & 0.00 & 8.90 & 27.85 & 74.00 & 217.00 & 354.88 \\ 
+        \hline
+    \end{tabular}
+    \caption{Percentiles for words-per-event.}
+    \label{table:personal:wordsperevent}
 \end{table}
 
 Word counts were established either directly, or by assuming an 80 word-per-minute speech ratetd{cite where this figure was pulled from, mention that song lyric estimates also back it up}.  Table~\ref{table:personal:wordsperevent} shows that the distribution of word count per event is heavily skewed towards the lower end, with the median being 27 words per event.
@@ -937,7 +952,13 @@ This figure also reflects the degree to which the attention model affects result
 
 
 
-\subsubsection{Comparisons}
+\subsection{Comparisons}
+\til{Table of high-level genres for the two (align them).
+
+This could be done by re-coding existing genres or by fitting both to higher-level ones (the latter might be clearer and less work)}
+
+
+
 % Comparisons against BNC for genres, word counts etc.  Also extract demographic info from BNC for more targeted comparison
 At a large scale, there are some obvious differences between the personal corpus and the BNC's selection.
 
@@ -951,12 +972,57 @@ Arguments for the diversity of texts within corpora are driven only vaguely by t
 
 Inspecting the selection of genres yields a diversity not covered in many corpora.  Though notably the BNC is quite good at this, covering many brochures and other such texts\td{examples}, it hardly represents the amount of times thanks were exchanged for holding a door open, bottles, cans and other labels were read (particularly addresses on mail), or a tax disc was checked.  It would seem that a corpus purporting to cover a large population would be awash with weirder texts, especially as those less academic than the subject here are likely to have relatively higher proportions of them in their corpora.
 
-A particularly compelling argument is made for the inclusion of song lyrics.  These are a large portion of the corpus collected here \td{how big}, and often spawn sayings, memes and linguistic affectations that can last decades in popular culture.  It's also notable that this is one of the easier things to sample and music use by the population is meticulously documented and studied by the industry already (often in publicly available lists).
+A particularly compelling argument is made for the inclusion of song lyrics.  These are a large portion of the corpus collected here \td{how big}, and often spawn sayings, memes and linguistic affectations that can last decades in popular culture (\textit{will you do the Fandango?}).  It's also notable that this is one of the easier things to sample and music use by the population is meticulously documented and studied by the industry already (often in publicly available lists).  In the case of music, use of English as a lingua franca would see its influence spread far beyond the bounds of a national corpus (as well as absorbing influences from other national flavours of the language% Gasolina or Shakira's spanish singing?
+).
 
 
 
-\til{Do some tests to establish the variability and compare that (hapax counts, sources, etc)}
 
+\subsubsection{Genres Absent from the Corpus}
+There are a number of genres absent from the corpus that are listed in the BNC.  Examples of this that are unlikely to change if the sampling period is extended indicate lifestyle differences and, in sum, indicate the likely representativeness of the BNC relative to the subject.  Where a genre is seen as likely to be represented given sufficient time, they are evidence that the sampling period was insufficient (something that the BNC's breadth mitigates).
+
+Comparisons were performed between the list of composite source/genres given in Table~\ref{table:personal:wordsperevent} and Lee's genre listings.  Where any overlap was seen, a genre was discounted entirely.
+
+
+\begin{table}[ht]
+    \centering
+
+    \begin{tabular}{ |l|l| }
+        \hline
+        Medium & Genre Category \\ \hline
+        \multirow{5}{*}{Spoken (\texttt{S\_})} 
+                                & classroom \\
+                                & courtroom \\
+                                & demonstratn \\
+                                & interview* \\
+                                & lect* \\
+                                & sermon \\
+        \hline
+        \multirow{5}{*}{Written (\texttt{W\_})} 
+                                & humanities\_arts \\
+                                & ac* (all but tech\_engin) \\
+                                & biography \\
+                                & essay* \\
+                                & fict\_poetry \\
+                                & hansard \\
+                                & newsp\_*\_sport \\
+                                & pop\_lore \\
+                                & religion \\
+        \hline
+    \end{tabular}
+    \caption{Major categories missing from the personal corpus but present in the BNC.}
+    \label{table:personal:missingcatspersonal}
+\end{table}
+
+
+The 11 (of 24) top-level categories missing entirely are summarised in Table~\ref{table:personal:missingcatspersonal}.  Of those spoken, only interviews and lectures are likely to ever be encountered during a longer sampling period.  The former of these would require a sampling period of years for most subjects.
+
+Written material is more comprehensively covered, with 15 of 46 genres missing.  Worth noting is that, whilst newspaper articles are absent from the corpus in their original form, many of the same genre were read online (with the exception of sports articles).  
+
+
+
+
+\til{Compare large-scale genres}
 
 % ---
 As expected, the genres identified within the personal corpus are an imperfect subset of those featured in the BNC.  Following Lee's index, there are no magazines, religious texts, newspapers, dramatic scripts, school or university essays, texts on the subject of commerce/economics or academic texts in many fields.  Newspapers alone comprise 9.9\% of the BNC, implying that caution should be exercised before applying any findings from the BNC to any single subject. % However, another criticism could be that the BNC is 100 times the size...
@@ -1139,6 +1205,7 @@ These limits on comparison to others are both lifted by restriction of the data 
 
 
 \subsection{Ethics}
+\label{sec:personal:discussion:ethics}
 \til{STUFF FROM NOTES}
 The increased resolution of data pertaining to a single individual renders the methods discussed here ethically sensitive.  This sensitivity is increased further if continuous recording of audio or video are used, though, as mentioned above, this data was not integrated into my analysis.
 
@@ -1192,7 +1259,7 @@ It is hoped that further work will be able to develop these methods in order to 
 
 The practical issues encountered during sampling are largely minor, and modern portable technology proved decisive in making capture of hitherto-unseen (or at least widely ignored) sources of text possible in-the-field.  The census design lends an empirical justification to inclusion of these genres in larger general-purpose corpora, however, we are unable to formally generalise with confidence to demographics other than that of the subject covered.
 
-Of particular note (and perhaps greatest generalisability) is the number of words used throughout the sampling period.  Almost a million words were used by a single individual over a two week period.  Since it is reasonable to deduce that this sampling is at best representative only of a normal working week for a single individual, it is rational to suppose that a corpus purporting to cover the whole population of a country demands a sample size far greater than many existing corpora.
+Of particular note (and perhaps greatest generalisability) is the number of words used throughout the sampling period.  Almost a million words were input and output by a single individual over a two week period.  Since it is reasonable to deduce that this sampling is at best representative only of a normal working week for a single individual, it is rational to suppose that a corpus purporting to cover the whole population of a country demands a sample size far greater than many existing corpora.
 
 
 This would seem to form an argument that it is simply not cost-effective to build a conventional general-purpose corpus large enough to represent large populations, suggesting that the focus should lie in those built for more specialist purposes, or those sampled non-probabilistically.  Here, the extreme size of web corpora may be well justified, so long as they can be shown to have been sampled rigorously.
@@ -1203,7 +1270,7 @@ This suggestion is reinforced by the obvious variability in the proportions of t
 
 Of interest to this thesis is the high level of detail that may be captured using this method.  The census design affords full coverage of a given area about which we may wish to generalise, and the detail it is possible to capture this way makes the data ideal as a `seed' for constructing larger corpora with comparable properties.  Application of these methods, as well as those using auxiliary data mentioned above, will hopefully render this sampling method a complementary one, to be added to the collection of existing corpus designs.
 
-
+\til{Link back to main themes of thesis}
 
 
 
