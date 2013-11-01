@@ -1,0 +1,180 @@
+
+
+The quantitative data presented above are of limited utility to others, since the degree to which they describe the subject's life (rather than some general linguistic trend) is unknown.  Without further sampling, or detailed linguistic auxiliary data, we cannot begin to generalise from the above in a useful manner.
+
+This does not mean, however, that we cannot reason rationally about how transferrable those results are---it is more unlikely that a member of the general population is a software developer than it is that they watch TV, or listen to BBC Radio 4 in the mornings.
+
+Moreover, since the purpose of the study is to assess the viability of methods, these may be seen as significantly more transferrable than the data they have collected (this distinction is blurred significantly by the inclusion of a human interest model, however.)
+
+
+
+
+
+
+\subsection{Method}
+The process of gathering data itself was optimised for low intrusiveness, and largely proved practical to persue for long periods of time.
+
+Maintenance of the on-line notebook was the major interruption in everyday language use, and this was gradually optimised to a shorthand format that demanded less time in the field, yet more annotation to extract data.  Where the subject is someone other than the analyst, the format of journals would need to be solidified ahead of time to ensure all properties are identifiable.
+
+On reflection, the mnemonic effects of the notebook were most useful---the narrative they created placed all other data items in context, and the detailed notes in the nightly journal contribute to an episodic memory that aided the coding process.  Again, this process of reflection is unlikely to be made available to an analyst without explicit insertion of an interview phase where the two may meet to resolve possible misconceptions.
+
+The nightly journal, whilst useful during the study as a place to write down easily-forgotten details of language events, was less useful than anticipated during analysis.  In reality, the richness of the narrative one quickly notes down of a night proved to be difficult to operationalise, meaning that it was largely of use only as auxiliary data to augment the on-line notebook's event-by-event format.
+
+Some sources of data proved significantly easier to operationalise (and subsequently normalise into a workable format) than did others.  (The suitability of each will depend heavily on the form of data one is aiming for when deciding to use similar methods, however).
+
+SQUID logs proved particularly difficult to process largely due to technical reasons, as extensive whitelists and multiple manual inspection phases were necessary to disregard advertising and AJAX requests.  A possible solution to this would be to rely on sampling of web data closer to where it is consumed, for example through the use of a browser plugin.
+
+Initial plans were to use Voice Activity Detection (or full automated transcription) to estimate word counts from verbatim audio recordings.  In practice the diversity of unwanted noise effects (background noise, positioning of microphone, overheard conversations) rendered this practically impossible.  Even rudimentary VAD algorithms work with frequency detection strategies, and some were liable to detect things such as music as continuous speech.  \td{say more on this}
+
+
+
+% ---
+\paragraph{}
+Of particular interest to the methodology is the inclusion of a human interest model in the processing stages.  Without this model, the data is changed to massively overestimate the word counts of many data sources (some more than others), and it is the opinion of the subject that the model improves the plausibility of data.  Generalising the method requires generalising this model or narrowing down the number of sources it must cover (either by using more selective data gathering methods or by restricting the scope of the sample).  
+
+Each of the data sources mentioned is burdened with its own empirical concerns that must be considered when designing a human interest model, and the general solutions for many of these may be particularly complex.  For example, models for websites using large graphical elements as well as text must take into account Gestalt principles as well as models for humans as they read text, and the particular interests of the subject.
+
+One way this problem may be solved is through detailed eludication of particular features and interests via a questionnaire or laboratory tasks in addition to the data gathering methods described here.  Clearly, though, relating these to a usefully-complex model of human interest will demand significant further research.
+
+
+
+
+One of the larger challenges in gathering data from so many sources (and in so many forms) is the amount of work needed to operationalise it.  This was done both manually (in the case of complex data such as photographs and notebook entries) and automatically (for the majority of sources).  Often, some degree of manual correction or annotation was necessary even where automated processing was used.  These processing tools were bespoke, and would need to be generalised if the method is to become viable for use gathering further samples.
+
+
+
+% ---
+\paragraph{}
+A number of questions were raised during the sampling period surrounding the limits of data that should be captured.  The solutions used were taken from the subject's own judgement of what constituted language `use' (since this case study is predicated upon recording that opinion), however, further work would be needed to establish answers to these in the general case.
+
+
+The attention models used to narrow down input have already been mentioned, however, they apply at a very specific level---often, shorter texts such as signs, brands and labels would have particularly familiar or conventional text placements, styles, and shapes (some media, such as road signs, deliberately accentuate these features to aid recognition).  It is unclear at what point a text is `read' rather than just recognised in the periphery of one's vision.  The solution used in this study was one of internal vocalisation---if the text was recognised sufficient to repeat it mentally, it was classed as read.  This means it is often possible to say that a text source had just a few words read, when in fact a number of boilerplate features were skipped over because of their position and style.
+
+
+An extension of this problem is one of re-reading texts that are being written.  The degree to which this occurs is likely extremely variable by person and task, however, it proves to be a particularly complex form of the above problem and is particularly hard to measure (or even subjectively assess).  In this case study no attempt was made to compensate for this effect.  Detailed study using some kind of attention measuring system (for example, eye tracking) may allow for deliberately using attention coefficients greater than 1 (for word counts) or deliberate repetition of data in the final corpus.
+
+
+The suitability of the attention system used in this case study is also debatable.  The current method of using a coefficient works only for estimating word counts, and does not favour certain regions of the final data over others.  Additionally, it conflates two effects---that of reading only a small proportion of the source text, and that of paying little attention to the text (you may also consider using a second text at the same time a third form).  Annotation of simultaneous events was fairly simple in the notebooks, however, estimation of the distribution of one's attention was done only at a low resolution (the codes used practically equate to ratios of 80/20, 50/50, 20/80, 100 with only a few exceptions).
+
+
+
+\til{ Specific experiences from the process of gathering data (take from notes, which are detailed on this) }
+
+
+
+Since the aim of this study was to assess genre proportions, significant amounts of effort were saved by not converting all sources into verbatim text.  This is largely an issue of post-processing, as many methods were digital and thus yielded verbatim text with ease and those that do not have well established transcription procedures.  Of particular note is the importance of being able to apply a regional attention model to extract (or weight) the most read portions of a text, something that (as noted above) was not attempted here due to a focus on proportions and word counts.
+
+
+
+
+
+
+\subsection{Sampling Period \& Validity}
+It seems clear both from personal reflection and examination of the data, which strongly favours certain work-related activities over others, that a two-week sampling period is hardly enough to represent even an individual's language use.
+
+There are a number of obvious reasons for this, particularly egregious examples being:
+
+\begin{itemize}
+    \item Some language sources are usually read slowly, such as books read at bedtime.  A sampling period that covers an individual's various literary interests would have to be very long indeed.
+    \item Life is strongly periodic, and though attempts were made to cover the weekly cycle of work and weekend, many events occur annually (either due to seasons or social convention).  There are no Christmas songs in my corpus.
+    \item Many more obscure items were represented only once in the corpus (such as advertising on vehicles or documentation on things such as legal forms).  These features may not be periodic but they are rare.
+    \item A person's behaviour is likely to be `chunky', following one pattern for a time and then deviating suddenly (for example, during holidays or upon a job change).  Significant effort would have to be given to careful description of duration and circumstance in order to make confident generalisation from the data captured using this method.
+\end{itemize}
+
+It is my opinion that this method is up against two major challenges which must be balanced in order to achieve some degree of scientific validity.  The former, and most addressable, of these is the difficulty of sampling in-the-field.  The more obtrusive a method, the higher quality data is going to be, however, the shorter any practical sampling period is likely to be.  The latter, as already discussed, is the problem of generalising between people in order to create a corpus of inter-person language use that retains the same details discussed here.
+
+Given the relative paucity of metadata within many general-purpose corpora and the periodic/temporal complexity of life, it seems reasonable to suggest that an ideal mix would be better formed from long-term (multi-year) samples using low-resolution sampling techniques.  This may entail, for example, discarding the on-line journals and manual photography in favour of automated life-log photography and a nightly journal only.
+
+Following sufficient short-duration studies, it would be possible to be more confident in the results of longer-term, lower-resolution samples, as the areas with less uncertainty may be attended to less intrusively.
+
+
+
+
+
+
+
+\subsection{Data and Comparisons}
+Compare rationally to BNC and conjecture how representative various corpora are for me
+
+As mentioned in the quantitative section above, there are some large differences between the corpus gathered here and the BNC (here used as an example general-purpose corpus that purports to cover the subject).  It is clear that a number of these are down to individual variation (the technical and musical genre bias), however, other disparities are of an altogether more ambiguous status.
+
+The overall word count of the BNC, and other similar corpora, is called into question by the size of this corpus.  In two weeks, a single person used almost a million words whilst focusing heavily on just a few subjects and roles.  Given the sheer number of people within the British population, their demographic variability, and the dubious extent to which even these two weeks represents our subject's use of language accurately, it seems preposterous to suggest that a mere 100 million (or even billion) words would sufficiently represent language use for almost any purpose.
+
+
+\til{probably some more...}
+
+
+
+
+
+
+
+
+
+\subsection{Validity}
+The design of this experiment is subject to a number of challenges to validity, and is presented in an explanatory context.
+
+Perhaps the most severe of these is the extremely personal nature of the corpus itself, which renders verification of the data all but impossible except through elicitation and subjective judgement.  This is to some degree a property of all case studies, especially those seeking to experiment with methodology.
+
+A strong case has been made in many fields (and by the inaccuracy of certain assumptions made during preliminary tests within this study) for the fallibility of subjective opinion, and this is partially the reasoning behind a census methodology---it is a simpler (and hopefully less controversial) task to mechanically and objectively record each linguistic event than it is to estimate their size.
+
+The only major source of subjective input before the linguistic events themselves are recorded is one of judging when a text is read, rather than unthinkingly `seen'.  The assumption made for this case study is hopefully uncontroversial enough to be accepted for a majority of purposes: after all, it seems unlikely that we will be able to develop an objective and meaningful threshold for this.
+
+The primary challenge to validity due to subjective reasoning is inserted after the data is captured.  This is where issues that lie beyond the scope of this thesis lie---development of a robust and generalisable human interest model being a major one that has been shown to make a large difference to the results.  The model used for this study is deliberately and knowingly subjective, and would not be applicable to any replication effort.
+
+% ---
+\paragraph{}
+From another perspective, the data set described here is difficult to relate to existing literature due to its othogonal sampling structure---the whole corpus represents a single (albeit very rich) data point in most other corpus designs, and this robs us of quantitative knowledge of how it relates to other data sources.
+
+This question of generalisability has been attempted by a rational comparison with corpora of known demographic coverage above.  A better method still would be to extract only those texts from a corpus that match the demographics of the subject described here.  Unfortunately, this is not possible to any useful degree given the limited information on the \textit{users} of texts within conventional corpora, and so a more detailed comparison is again stopped by the lack of known-similar data.
+
+These limits on comparison to others are both lifted by restriction of the data types being covered, especially where those types are easy to sample.  It would be possible, for example, to build a special-purpose web history corpus in which to contextualise a user's web history, and use this to impute their position in larger corpora with greater-than-zero confidence.
+
+
+
+
+
+
+\subsection{Ethics}
+\label{sec:personal:discussion:ethics}
+\til{STUFF FROM NOTES}
+The increased resolution of data pertaining to a single individual renders the methods discussed here ethically sensitive.  This sensitivity is increased further if continuous recording of audio or video are used, though, as mentioned above, this data was not integrated into my analysis.
+
+There are a number of arguments justifying covert research in the social sciences, and ...
+
+
+Further, future developments in the methods described may use questionnaires or other less-invasive methods as sources of auxiliary data.  These would be targeted to a particular study design and need not cover the full set of language uses, mitigating any ethical concerns by limiting the descriptive power of the raw data itself.
+
+A number of technical measures are also possible that may assist this issue---some of these have been developed by \td{who} working on the Machine Listening project, who irreversably scramble their audio recordings in such a way that VAD algorithms may still run.  A further option is streaming of data to a remote server, which can process, summarise, and discard data on-the-fly to prevent any possible information security breaches.
+
+
+
+
+
+
+
+
+
+
+
+% ============================================================================
+\subsection{Future Work}
+
+In the long term, it is hoped that a greater understanding of the above may contribute to:
+
+\begin{itemize}
+    \item Methods for augmenting and rebalancing corpora using a questionnaire or other surrogate auxiliary data
+    \item A greater understanding of variance in terms of the populations being studied
+    \item 
+\end{itemize}
+
+From a sample of just one person, it is possible to use auxiliary data from existing sources to operationalise and reason about inter-person variability.  This may be done by cross-referencing a subject's demographic variables with those from an existing corpus, placing them in context and allowing comparison of his linguistic data to other groups (or to those within a given similarity).
+
+This technique can also be used to impute data from partially-sampled sources, creating a personal corpus by re-weighting existing samples.
+
+Unfortunately many existing corpora are unsuitable for this process due to the limited availability of metadata (something that is also an issue for those constructing ``informal'' subsets).
+
+% ---
+Methodologically, it is possible to generalise the data-gathering procedures mentioned in this case study either through reduction of the population covered (the technique used here in extremis), or reduction in the linguistic fields covered (the technique used more typically in special-purpose corpora).
+
+Careful application of elitication strategies such as questionnaires or source-specific tools like web usage monitors may be able to produce sufficient auxiliary data to resample larger corpora, however, these methods would need justification from repeated studies such as the one described here (which sample directly).
