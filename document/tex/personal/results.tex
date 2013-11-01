@@ -2,7 +2,9 @@
 
 \begin{figure}[hp]
     \centering
-    \includegraphics[width=1.0\textwidth]{personal/dataoverview}
+    \begin{sideways}
+        \includegraphics[width=0.75\paperheight]{personal/dataoverview}
+    \end{sideways}
     \caption{The availability of data from various sources}
     \label{fig:personal:dataoverview}
 \end{figure}
@@ -24,9 +26,9 @@ The overall word count is changed massively by disabling the attention model, ri
 
 % ---------------------------------------------------------------------------
 % \subsection{Variables}
-Variables recorded on each linguistic event are based heavily on Lee's BNC index, augmented to take into account the attention index and word count estimates.  A summary of these is provided in Table~\ref{table:personal:variables}.  The `missing' column describes the proportion of rows missing this field, either because it is not applicable, or because insufficient data was recorded to complete it with confidence.
+Variables recorded on each linguistic event are based heavily on Lee's BNC index, augmented to take into account the attention index and word count estimates.  A summary of these is provided in Table~\ref{table:personal:variables}.  The \variable{missing} column describes the proportion of rows missing this field, either because it is not applicable, or because insufficient data was recorded to complete it with confidence.
 
-The variables `source2' and `duration' have missing values exclusively due to non-applicability.  As such they have been integrated into (complete) summary variables for analysis, forming the computed words and computer genre in an effort to unify measurement of spoken and written material, and increase the specificity of the data source recorded.
+The variables \variable{source2} and \variable{duration} have missing values exclusively due to non-applicability.  As such they have been integrated into (complete) summary variables for analysis, forming the computed words and computer genre in an effort to unify measurement of spoken and written material, and increase the specificity of the data source recorded.
 
 Though part of the initial purpose 
 
@@ -69,9 +71,12 @@ Though part of the initial purpose
 
 % ---------------------------------------------------------------------------
 \subsection{Activities}
-During the sampling period, all work surrounding the personal corpus case study was stopped, in favour of other, ongoing, projects.  Other than this intervention, work continued as normal, which for this period involved significant amounts of development on the LWAC downloader tool.
+During the sampling period, work on the personal corpus project was stopped.  Other than this intervention, work continued as normal.
 
-\til{How much to write about those two weeks?}
+% During the sampling period, all work surrounding the personal corpus case study was stopped, in favour of other, ongoing, projects.  Other than this intervention, work continued as normal, which for this period involved significant amounts of development on the LWAC downloader tool.
+
+\til{ An outline of the two weeks (review journals)
+}
 % TODO: more about general life in that period
 
 
@@ -81,9 +86,6 @@ During the sampling period, all work surrounding the personal corpus case study 
 
 % ---------------------------------------------------------------------------
 \subsection{Distribution}
-Quantitative data about time and other super-simple breakdowns here
-
-
 
 \begin{figure}[hp]
     \centering
@@ -121,7 +123,8 @@ Before this study it was conjectured that the vast majority of all language used
 
 
 
-\til{More fun breakdowns.  Take some plots from presentation. plot and comment on the distribution of some larger features throughout the data}
+\til{More fun breakdowns.  Show the distribution plots from the presentation (Zipfianness stuff).
+Take some plots from presentation. plot and comment on the distribution of some larger features throughout the data}
 
 
 
@@ -150,12 +153,15 @@ Particularly curious is the large number of terminal, web (squid), and music eve
 
 
 
-\begin{table}[ht]
-\centering
-\begin{tabular}{rr}
+% \begin{table}[ht]
+% \centering
+\begin{longtable}{rr}
+\caption{Event frequency by computed genre}
+\label{table:personal:eventcountbygenre} \\
       \hline
       Computed Genre & Events \\ 
       \hline
+      \endfirsthead
       web/entertainment/social & 2598 \\ 
       web/music & 708 \\ 
       display/output & 627 \\ 
@@ -330,10 +336,8 @@ Particularly curious is the large number of terminal, web (squid), and music eve
       web/reference/shopping &   1 \\ 
       web/tech/hosting &   1 \\ 
        \hline
-\end{tabular}
-\caption{Event frequency by computed genre}
-\label{table:personal:eventcountbygenre}
-\end{table}
+\end{longtable}
+% \end{table}
 
 
 Table~\ref{table:personal:eventcountbygenre} shows a breakdown of event frequencies by computed genre \td{probably exclude hapaxes to shorten the table?} (which includes the source).  This shows a somewhat predictable zipfian distribution of genres surrounding a number of themes:
@@ -400,7 +404,7 @@ A less compelling difference is exhibited between the rate of spoken conversatio
 
 Arguments for the diversity of texts within corpora are driven only vaguely by the quantitative findings of this study due to its restricted inter-person relevance.  Nonetheless, some trends were identified which could reasonably be expected to extend to many others in a similar culture.
 
-Inspecting the selection of genres yields a diversity not covered in many corpora.  Though notably the BNC is quite good at this, covering many brochures and other such texts\td{examples}, it hardly represents the amount of times thanks were exchanged for holding a door open, bottles, cans and other labels were read (particularly addresses on mail), or a tax disc was checked.  It would seem that a corpus purporting to cover a large population would be awash with weirder texts, especially as those less academic than the subject here are likely to have relatively higher proportions of them in their corpora.
+Inspecting the selection of genres yields a diversity not covered in many corpora.  Though notably the BNC is quite good at this, covering many brochures and other indicental texts such as unpublished letters or school essays, it hardly represents the amount of times thanks were exchanged for holding a door open, bottles, cans and other labels were read (particularly addresses on mail), or a tax disc was checked.  It would seem that a corpus purporting to cover a large population would be awash with weirder texts, especially as those less academic than the subject here are likely to have relatively higher proportions of them in their corpora.
 
 A particularly compelling argument is made for the inclusion of song lyrics.  These are a large portion of the corpus collected here \td{how big}, and often spawn sayings, memes and linguistic affectations that can last decades in popular culture (\textit{will you do the Fandango?}).  It's also notable that this is one of the easier things to sample and music use by the population is meticulously documented and studied by the industry already (often in publicly available lists).  In the case of music, use of English as a lingua franca would see its influence spread far beyond the bounds of a national corpus (as well as absorbing influences from other national flavours of the language% Gasolina or Shakira's spanish singing?
 ).
