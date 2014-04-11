@@ -111,15 +111,29 @@ Contrary to expectations, and in part due to large aomunts of terminal and web u
 
 
 \begin{figure}[hp]
-\centering
-\includegraphics[width=0.8\textwidth]{personal/cbyday}
-\caption{Daily word counts}
-\label{fig:personal:wordcountbyday}
+    \centering
+    \includegraphics[width=0.8\textwidth]{personal/cbyday}
+    \caption{Daily word counts}
+    \label{fig:personal:wordcountbyday}
 \end{figure}
 
 As shown in Figure~\ref{fig:personal:eventcountbyday}, the event count as broken down by day shows that between 35,000 and 80,000 words were used each day.  As we shall see later, this is mainly explainable by way of broadcast media and web page views.  It is notable that weekends fall upon days 6,7,13 and 14.  There is no significant pattern by day.
 
-Before this study it was conjectured that the vast majority of all language used would be 
+Before this study it was conjectured that the vast majority of all language used would be spoken.
+
+
+\begin{figure}[hp]
+    \centering
+    \includegraphics[width=0.8\textwidth]{personal/prodbyday}
+    \caption{Daily word counts broken down by receipient status}
+    \label{fig:personal:prodcountbyday}
+\end{figure}
+
+Figure~\ref{fig:personal:prodcountbyday} shows the breakdown of words used by the subject, by others, or in a manner inseparable for the purposes of the linguistic event (such as conversation).  Overall 85\% of words were consumed (95\% of events), 15\% were interactive (just 4\% of events) and 0.5\% were produced (0.5\% of events).  This indicates that linguistic events involving some level of interaction yield more words, either by form or duration, something backed up by median frequencies (55 words for production, 27 for consumption, and 80 for interaction events).
+
+
+
+
 
 
 
@@ -132,6 +146,24 @@ Take some plots from presentation. plot and comment on the distribution of some 
 
 % ---------------------------------------------------------------------------
 \subsection{Events}
+
+
+% \begin{table}[ht]
+%     \centering
+%     \scriptsize
+%     \begin{tabular}{ccccccc}
+%         \hline
+%         5\% & 10\% & 20\% & 50\% & 70\% & 90\% & 95\% \\ 
+%         \hline
+%         0.0 & 0.0 & 9 & 28 & 74 & 217 & 354 \\ 
+%         \hline
+%     \end{tabular}
+%     \caption{Event size distribution in words}
+%     \label{fig:personal:eventsizedist}
+% \end{table}
+
+% Events have a median size of 28 words (further information is available in Table~\ref{fig:personal:eventsizedist}).
+
 
 \til{Plot event by source, bar plot}
 \begin{figure}[hp]
@@ -147,21 +179,25 @@ Take some plots from presentation. plot and comment on the distribution of some 
     \label{fig:personal:eventsbysource}
 \end{figure}
 
-The proportions described in Figure~\ref{fig:personal:eventsbysource}\td{make into bar graph} are likely a very individual trait of the subject.  They exhibit a number of properties that would be significantly affected not only by daily routine, but also the specific work being completed at the time of the sample (the implications of this on scientific validity are discussed below in section~\ref{}\td{ref}).
+The proportions described in Figure~\ref{fig:personal:eventsbysource} are likely a very individual trait of the subject, affected not only by daily routine, but also the specific work being undertaken at the time of the sample (the implications of this on scientific validity are discussed below in section~\ref{}\td{ref}).
 
 Particularly curious is the large number of terminal, web (squid), and music events.  These are partially explainable by the work being completed at the time of the study, as the subject was developing software, listening to music whilst doing so and using many web references as documentation.  The subject also uses a GUI on his computer that mandates use of terminals for many tasks (this is doubtless atypical).
 
 
 
-% \begin{table}[ht]
-% \centering
-\begin{longtable}{rr}
-\caption{Event frequency by computed genre}
-\label{table:personal:eventcountbygenre} \\
+
+\begin{table}[ht]
+    \centering
+
+    \includegraphics[width=\textwidth]{personal/ebygenre}
+
+    \vspace{10pt}
+
+    \small
+    \begin{tabular}{r r}
       \hline
       Computed Genre & Events \\ 
       \hline
-      \endfirsthead
       web/entertainment/social & 2598 \\ 
       web/music & 708 \\ 
       display/output & 627 \\ 
@@ -198,6 +234,7 @@ Particularly curious is the large number of terminal, web (squid), and music eve
       file/config &  24 \\ 
       email/business &  22 \\ 
       speech/discussion &  22 \\ 
+      TV/entertainment &  22 \\ 
       speech/informal &  21 \\ 
       web/comedy/social &  21 \\ 
       email/orders &  20 \\ 
@@ -207,137 +244,324 @@ Particularly curious is the large number of terminal, web (squid), and music eve
       music/blues &  17 \\ 
       speech/greeting &  16 \\ 
       web/fitness &  16 \\ 
-      web/tech/news &  15 \\ 
-      TV/Entertainment &  14 \\ 
-      speech/info &  14 \\ 
-      web/tech/shopping &  14 \\ 
-      web/reference/academic &  13 \\ 
-      TV/news &  12 \\ 
-      radio/music &  12 \\ 
-      radio/news &  12 \\ 
-      sign/info &  11 \\ 
-      web/art &  11 \\ 
-      web/music/shopping &  11 \\ 
-      music/folk/metal &   9 \\ 
-      music/progressive &   9 \\ 
-      TV/entertainment &   8 \\ 
-      email/technical &   8 \\ 
-      sign/info/instruction &   8 \\ 
-      speech/ephemera &   8 \\ 
-      web/banking &   8 \\ 
-      music/country/rock &   7 \\ 
-      music/fusion &   7 \\ 
-      sign/product info &   7 \\ 
-      book/info &   6 \\ 
-      sign/advertising &   6 \\ 
-      TV/documentary &   5 \\ 
-      flyer/advertising &   5 \\ 
-      notes/note &   5 \\ 
-      product/info &   5 \\ 
-      speech/parting &   5 \\ 
-      web/advertising &   5 \\ 
-      web/conspiracy &   5 \\ 
-      box/address &   4 \\ 
-      flyer/info/advertising &   4 \\ 
-      radio/news/entertainment &   4 \\ 
-      sms/informal &   4 \\ 
-      web/blogs &   4 \\ 
-      web/games &   4 \\ 
-      web/news/social &   4 \\ 
-      web/reference/social &   4 \\ 
-      web/reference/travel &   4 \\ 
-      web/reference/woodwork &   4 \\ 
-      web/shopping/investment &   4 \\ 
-      web/tech/utility &   4 \\ 
-      web/utility &   4 \\ 
-      TV/advertising &   3 \\ 
-      application/info &   3 \\ 
-      file/js code &   3 \\ 
-      flyer/menu &   3 \\ 
-      music/country &   3 \\ 
-      phone/ &   3 \\ 
-      sign/advertising/info &   3 \\ 
-      sms/info &   3 \\ 
-      speech/organisation &   3 \\ 
-      speech/request &   3 \\ 
-      web/health &   3 \\ 
-      web/news/tech &   3 \\ 
-      application/info/status &   2 \\ 
-      book/packaging/book title &   2 \\ 
-      map/info &   2 \\ 
-      music/indie &   2 \\ 
-      paper slip/invoice &   2 \\ 
-      phone/informal &   2 \\ 
-      poster/advertising &   2 \\ 
-      radio/News &   2 \\ 
-      speech/Discussion &   2 \\ 
-      speech/informal/discussion &   2 \\ 
-      web/comedy/entertainment &   2 \\ 
-      web/entertainment/images &   2 \\ 
-      web/entertainment/news &   2 \\ 
-      web/entertainment/puzzles &   2 \\ 
-      web/game &   2 \\ 
-      web/tech/social &   2 \\ 
-      TV/advertising/info &   1 \\ 
-      TV/documentary/entertainment &   1 \\ 
-      TV/info &   1 \\ 
-      TV/music &   1 \\ 
-      TV/sport &   1 \\ 
-      application/album listing &   1 \\ 
-      application/buttons/info &   1 \\ 
-      application/update &   1 \\ 
-      book/ &   1 \\ 
-      book/packaging/book blurb &   1 \\ 
-      box/packaging &   1 \\ 
-      card/info &   1 \\ 
-      cheque/info &   1 \\ 
-      clothing/packaging &   1 \\ 
-      display/info &   1 \\ 
-      display/info/status &   1 \\ 
-      file/html code &   1 \\ 
-      film/Entertainment &   1 \\ 
-      game/discussion &   1 \\ 
-      game/game &   1 \\ 
-      music/classical &   1 \\ 
-      music/electronica &   1 \\ 
-      music/music &   1 \\ 
-      music/pop/metal &   1 \\ 
-      notes/agenda/minutes &   1 \\ 
-      notes/diagram &   1 \\ 
-      noticeboard/advert &   1 \\ 
-      paper slip/info &   1 \\ 
-      phone/info &   1 \\ 
-      poster/info &   1 \\ 
-      poster/menu &   1 \\ 
-      product/instruction/info/packaging &   1 \\ 
-      radio/News/entertainment &   1 \\ 
-      sign/ &   1 \\ 
-      sign/instruction &   1 \\ 
-      sign/map &   1 \\ 
-      sign/menu &   1 \\ 
-      sms/ &   1 \\ 
-      speech/Informal &   1 \\ 
-      speech/Inquiry &   1 \\ 
-      speech/discussion/academic &   1 \\ 
-      speech/info/discussion &   1 \\ 
-      speech/question &   1 \\ 
-      speech/service/discussion &   1 \\ 
-      taxdisc/info &   1 \\ 
-      vehicle/branding/sign &   1 \\ 
-      vehicle/info/advertising &   1 \\ 
-      video/info/academic &   1 \\ 
-      video/info/advertising &   1 \\ 
-      web/downloads &   1 \\ 
-      web/games/news &   1 \\ 
-      web/info/advert &   1 \\ 
-      web/reference/entertainment &   1 \\ 
-      web/reference/military &   1 \\ 
-      web/reference/outdoors &   1 \\ 
-      web/reference/shopping &   1 \\ 
-      web/tech/hosting &   1 \\ 
+      % web/tech/news &  15 \\ 
+      % speech/info &  14 \\ 
+      % web/tech/shopping &  14 \\ 
+      % web/reference/academic &  13 \\ 
+      % TV/news &  12 \\ 
+      % radio/music &  12 \\ 
+      % radio/news &  12 \\ 
+      % sign/info &  11 \\ 
+      % web/art &  11 \\ 
+      % web/music/shopping &  11 \\ 
+      % music/folk/metal &   9 \\ 
+      % music/progressive &   9 \\ 
+      % email/technical &   8 \\ 
+      % sign/info/instruction &   8 \\ 
+      % speech/ephemera &   8 \\ 
+      % web/banking &   8 \\ 
+      % music/country/rock &   7 \\ 
+      % music/fusion &   7 \\ 
+      % sign/product info &   7 \\ 
+      % book/info &   6 \\ 
+      % sign/advertising &   6 \\ 
+      % TV/documentary &   5 \\ 
+      % flyer/advertising &   5 \\ 
+      % notes/note &   5 \\ 
+      % product/info &   5 \\ 
+      % speech/parting &   5 \\ 
+      % web/advertising &   5 \\ 
+      % web/conspiracy &   5 \\ 
+      % box/address &   4 \\ 
+      % flyer/info/advertising &   4 \\ 
+      % radio/news/entertainment &   4 \\ 
+      % sms/informal &   4 \\ 
+      % web/blogs &   4 \\ 
+      % web/games &   4 \\ 
+      % web/news/social &   4 \\ 
+      % web/reference/social &   4 \\ 
+      % web/reference/travel &   4 \\ 
+      % web/reference/woodwork &   4 \\ 
+      % web/shopping/investment &   4 \\ 
+      % web/tech/utility &   4 \\ 
+      % web/utility &   4 \\ 
+      % TV/advertising &   3 \\ 
+      % application/info &   3 \\ 
+      % file/js code &   3 \\ 
+      % flyer/menu &   3 \\ 
+      % music/country &   3 \\ 
+      % phone/ &   3 \\ 
+      % sign/advertising/info &   3 \\ 
+      % sms/info &   3 \\ 
+      % speech/organisation &   3 \\ 
+      % speech/request &   3 \\ 
+      % web/health &   3 \\ 
+      % web/news/tech &   3 \\ 
+      % application/info/status &   2 \\ 
+      % book/packaging/book title &   2 \\ 
+      % map/info &   2 \\ 
+      % music/indie &   2 \\ 
+      % paper slip/invoice &   2 \\ 
+      % phone/informal &   2 \\ 
+      % poster/advertising &   2 \\ 
+      % radio/News &   2 \\ 
+      % speech/Discussion &   2 \\ 
+      % speech/informal/discussion &   2 \\ 
+      % web/comedy/entertainment &   2 \\ 
+      % web/entertainment/images &   2 \\ 
+      % web/entertainment/news &   2 \\ 
+      % web/entertainment/puzzles &   2 \\ 
+      % web/game &   2 \\ 
+      % web/tech/social &   2 \\ 
+      % TV/advertising/info &   1 \\ 
+      % TV/documentary/entertainment &   1 \\ 
+      % TV/info &   1 \\ 
+      % TV/music &   1 \\ 
+      % TV/sport &   1 \\ 
+      % application/album listing &   1 \\ 
+      % application/buttons/info &   1 \\ 
+      % application/update &   1 \\ 
+      % book/ &   1 \\ 
+      % book/packaging/book blurb &   1 \\ 
+      % box/packaging &   1 \\ 
+      % card/info &   1 \\ 
+      % cheque/info &   1 \\ 
+      % clothing/packaging &   1 \\ 
+      % display/info &   1 \\ 
+      % display/info/status &   1 \\ 
+      % file/html code &   1 \\ 
+      % film/Entertainment &   1 \\ 
+      % game/discussion &   1 \\ 
+      % game/game &   1 \\ 
+      % music/classical &   1 \\ 
+      % music/electronica &   1 \\ 
+      % music/music &   1 \\ 
+      % music/pop/metal &   1 \\ 
+      % notes/agenda/minutes &   1 \\ 
+      % notes/diagram &   1 \\ 
+      % noticeboard/advert &   1 \\ 
+      % paper slip/info &   1 \\ 
+      % phone/info &   1 \\ 
+      % poster/info &   1 \\ 
+      % poster/menu &   1 \\ 
+      % product/instruction/info/packaging &   1 \\ 
+      % radio/News/entertainment &   1 \\ 
+      % sign/ &   1 \\ 
+      % sign/instruction &   1 \\ 
+      % sign/map &   1 \\ 
+      % sign/menu &   1 \\ 
+      % sms/ &   1 \\ 
+      % speech/Informal &   1 \\ 
+      % speech/Inquiry &   1 \\ 
+      % speech/discussion/academic &   1 \\ 
+      % speech/info/discussion &   1 \\ 
+      % speech/question &   1 \\ 
+      % speech/service/discussion &   1 \\ 
+      % taxdisc/info &   1 \\ 
+      % vehicle/branding/sign &   1 \\ 
+      % vehicle/info/advertising &   1 \\ 
+      % video/info/academic &   1 \\ 
+      % video/info/advertising &   1 \\ 
+      % web/downloads &   1 \\ 
+      % web/games/news &   1 \\ 
+      % web/info/advert &   1 \\ 
+      % web/reference/entertainment &   1 \\ 
+      % web/reference/military &   1 \\ 
+      % web/reference/outdoors &   1 \\ 
+      % web/reference/shopping &   1 \\ 
+      % web/tech/hosting &   1 \\ 
        \hline
-\end{longtable}
-% \end{table}
+    \end{tabular}
+    
+    \caption{Event frequency by computed genre}
+    \label{table:personal:eventcountbygenre} 
+\end{table}
+
+
+
+% \begin{longtable}{rr}
+% \caption{Event frequency by computed genre}
+% \label{table:personal:eventcountbygenre} \\
+%       \hline
+%       Computed Genre & Events \\ 
+%       \hline
+%       \endfirsthead
+%       web/entertainment/social & 2598 \\ 
+%       web/music & 708 \\ 
+%       display/output & 627 \\ 
+%       music/punk & 587 \\ 
+%       web/reference & 421 \\ 
+%       web/shopping & 388 \\ 
+%       display/interactive & 285 \\ 
+%       web/academic & 280 \\ 
+%       web/tech & 218 \\ 
+%       web/outdoors & 180 \\ 
+%       web/video streaming & 167 \\ 
+%       irc/informal/discussion & 159 \\ 
+%       music/guitar & 147 \\ 
+%       web/academic/reference & 142 \\ 
+%       web/tech/reference & 116 \\ 
+%       web/news & 105 \\ 
+%       file/ruby code &  82 \\ 
+%       music/metal &  73 \\ 
+%       music/pop &  68 \\ 
+%       music/rock &  67 \\ 
+%       web/hosting &  54 \\ 
+%       file/documentation &  49 \\ 
+%       web/comedy &  49 \\ 
+%       web/social &  49 \\ 
+%       web/product support &  48 \\ 
+%       product/packaging &  43 \\ 
+%       web/tech/academic &  40 \\ 
+%       TV/comedy &  39 \\ 
+%       web/outdoors/reference &  36 \\ 
+%       email/academic &  34 \\ 
+%       email/advertising &  28 \\ 
+%       web/entertainment &  28 \\ 
+%       email/personal &  26 \\ 
+%       file/config &  24 \\ 
+%       email/business &  22 \\ 
+%       speech/discussion &  22 \\ 
+%       speech/informal &  21 \\ 
+%       web/comedy/social &  21 \\ 
+%       email/orders &  20 \\ 
+%       speech/service &  19 \\ 
+%       web/search &  19 \\ 
+%       email/spam &  17 \\ 
+%       music/blues &  17 \\ 
+%       speech/greeting &  16 \\ 
+%       web/fitness &  16 \\ 
+%       web/tech/news &  15 \\ 
+%       TV/Entertainment &  14 \\ 
+%       speech/info &  14 \\ 
+%       web/tech/shopping &  14 \\ 
+%       web/reference/academic &  13 \\ 
+%       TV/news &  12 \\ 
+%       radio/music &  12 \\ 
+%       radio/news &  12 \\ 
+%       sign/info &  11 \\ 
+%       web/art &  11 \\ 
+%       web/music/shopping &  11 \\ 
+%       music/folk/metal &   9 \\ 
+%       music/progressive &   9 \\ 
+%       TV/entertainment &   8 \\ 
+%       email/technical &   8 \\ 
+%       sign/info/instruction &   8 \\ 
+%       speech/ephemera &   8 \\ 
+%       web/banking &   8 \\ 
+%       music/country/rock &   7 \\ 
+%       music/fusion &   7 \\ 
+%       sign/product info &   7 \\ 
+%       book/info &   6 \\ 
+%       sign/advertising &   6 \\ 
+%       TV/documentary &   5 \\ 
+%       flyer/advertising &   5 \\ 
+%       notes/note &   5 \\ 
+%       product/info &   5 \\ 
+%       speech/parting &   5 \\ 
+%       web/advertising &   5 \\ 
+%       web/conspiracy &   5 \\ 
+%       box/address &   4 \\ 
+%       flyer/info/advertising &   4 \\ 
+%       radio/news/entertainment &   4 \\ 
+%       sms/informal &   4 \\ 
+%       web/blogs &   4 \\ 
+%       web/games &   4 \\ 
+%       web/news/social &   4 \\ 
+%       web/reference/social &   4 \\ 
+%       web/reference/travel &   4 \\ 
+%       web/reference/woodwork &   4 \\ 
+%       web/shopping/investment &   4 \\ 
+%       web/tech/utility &   4 \\ 
+%       web/utility &   4 \\ 
+%       TV/advertising &   3 \\ 
+%       application/info &   3 \\ 
+%       file/js code &   3 \\ 
+%       flyer/menu &   3 \\ 
+%       music/country &   3 \\ 
+%       phone/ &   3 \\ 
+%       sign/advertising/info &   3 \\ 
+%       sms/info &   3 \\ 
+%       speech/organisation &   3 \\ 
+%       speech/request &   3 \\ 
+%       web/health &   3 \\ 
+%       web/news/tech &   3 \\ 
+%       application/info/status &   2 \\ 
+%       book/packaging/book title &   2 \\ 
+%       map/info &   2 \\ 
+%       music/indie &   2 \\ 
+%       paper slip/invoice &   2 \\ 
+%       phone/informal &   2 \\ 
+%       poster/advertising &   2 \\ 
+%       radio/News &   2 \\ 
+%       speech/Discussion &   2 \\ 
+%       speech/informal/discussion &   2 \\ 
+%       web/comedy/entertainment &   2 \\ 
+%       web/entertainment/images &   2 \\ 
+%       web/entertainment/news &   2 \\ 
+%       web/entertainment/puzzles &   2 \\ 
+%       web/game &   2 \\ 
+%       web/tech/social &   2 \\ 
+%       TV/advertising/info &   1 \\ 
+%       TV/documentary/entertainment &   1 \\ 
+%       TV/info &   1 \\ 
+%       TV/music &   1 \\ 
+%       TV/sport &   1 \\ 
+%       application/album listing &   1 \\ 
+%       application/buttons/info &   1 \\ 
+%       application/update &   1 \\ 
+%       book/ &   1 \\ 
+%       book/packaging/book blurb &   1 \\ 
+%       box/packaging &   1 \\ 
+%       card/info &   1 \\ 
+%       cheque/info &   1 \\ 
+%       clothing/packaging &   1 \\ 
+%       display/info &   1 \\ 
+%       display/info/status &   1 \\ 
+%       file/html code &   1 \\ 
+%       film/Entertainment &   1 \\ 
+%       game/discussion &   1 \\ 
+%       game/game &   1 \\ 
+%       music/classical &   1 \\ 
+%       music/electronica &   1 \\ 
+%       music/music &   1 \\ 
+%       music/pop/metal &   1 \\ 
+%       notes/agenda/minutes &   1 \\ 
+%       notes/diagram &   1 \\ 
+%       noticeboard/advert &   1 \\ 
+%       paper slip/info &   1 \\ 
+%       phone/info &   1 \\ 
+%       poster/info &   1 \\ 
+%       poster/menu &   1 \\ 
+%       product/instruction/info/packaging &   1 \\ 
+%       radio/News/entertainment &   1 \\ 
+%       sign/ &   1 \\ 
+%       sign/instruction &   1 \\ 
+%       sign/map &   1 \\ 
+%       sign/menu &   1 \\ 
+%       sms/ &   1 \\ 
+%       speech/Informal &   1 \\ 
+%       speech/Inquiry &   1 \\ 
+%       speech/discussion/academic &   1 \\ 
+%       speech/info/discussion &   1 \\ 
+%       speech/question &   1 \\ 
+%       speech/service/discussion &   1 \\ 
+%       taxdisc/info &   1 \\ 
+%       vehicle/branding/sign &   1 \\ 
+%       vehicle/info/advertising &   1 \\ 
+%       video/info/academic &   1 \\ 
+%       video/info/advertising &   1 \\ 
+%       web/downloads &   1 \\ 
+%       web/games/news &   1 \\ 
+%       web/info/advert &   1 \\ 
+%       web/reference/entertainment &   1 \\ 
+%       web/reference/military &   1 \\ 
+%       web/reference/outdoors &   1 \\ 
+%       web/reference/shopping &   1 \\ 
+%       web/tech/hosting &   1 \\ 
+%        \hline
+% \end{longtable}
+% % \end{table}
 
 
 Table~\ref{table:personal:eventcountbygenre} shows a breakdown of event frequencies by computed genre \td{probably exclude hapaxes to shorten the table?} (which includes the source).  This shows a somewhat predictable zipfian distribution of genres surrounding a number of themes:
@@ -351,7 +575,89 @@ Table~\ref{table:personal:eventcountbygenre} shows a breakdown of event frequenc
 Clearly, the last of these is the most obvious and desirable effect of building a corpus using this method.  The overwhelming prevalence of \texttt{web/entertainment/social} events may be explained (rather embarrassingly) by one website, which displays a single image per page (along with socially-contributed captions), and thus demands a lot of page reloads for relatively little content.
 
 
+\begin{table}[ht]
+    \centering
+    \includegraphics[width=0.8\textwidth]{personal/gmdistraw}%
 
+    \begin{tabular}{rr}
+        \hline \\
+        Genre & Mean Words \\
+        \hline \\
+        radio/news & 4183 \\ 
+        book/info & 1950 \\ 
+        TV/news & 1876 \\ 
+        radio/music & 1693 \\ 
+        speech/informal & 1390 \\ 
+        TV/Entertainment & 1000 \\ 
+        TV/comedy &  949 \\ 
+        speech/discussion &  930 \\ 
+        TV/entertainment &  760 \\ 
+        email/personal &  575 \\ 
+        speech/service &  381 \\ 
+        web/social &  286 \\ 
+        web/product support &  278 \\ 
+        web/comedy/social &  266 \\ 
+        music/blues &  248 \\ 
+        email/academic &  247 \\ 
+        file/documentation &  238 \\ 
+        speech/info &  225 \\ 
+        web/tech/news &  194 \\ 
+        web/tech/reference &  185 \\ 
+        web/news &  184 \\ 
+        music/folk/metal &  183 \\ 
+        web/music &  173 \\ 
+        music/progressive &  156 \\ 
+        speech/greeting &  150 \\ 
+        email/advertising &  149 \\ 
+        music/pop &  147 \\ 
+        email/orders &  140 \\ 
+        web/art &  139 \\ 
+        irc/informal/discussion &  132 \\ 
+        music/rock &  130 \\
+        email/business &  129 \\ 
+        web/tech &  124 \\ 
+        web/music/shopping &  120 \\ 
+        music/metal &  119 \\ 
+        music/guitar &  118 \\ 
+        file/ruby code &  117 \\ 
+        web/reference/academic &  103 \\ 
+        web/outdoors/reference &  100 \\ 
+        web/academic/reference &   95 \\ 
+        web/shopping &   91 \\ 
+        web/reference &   90 \\ 
+        speech/ephemera &   90 \\ 
+        music/punk &   86 \\ 
+        web/entertainment &   83 \\ 
+        web/tech/shopping &   81 \\ 
+        web/outdoors &   77 \\ 
+        file/config &   75 \\ 
+        music/fusion &   71 \\ 
+        web/banking &   54 \\ 
+        web/academic &   50 \\ 
+        % web/fitness &   45 \\ 
+        % web/hosting &   36 \\ 
+        % email/technical &   33 \\ 
+        % display/output &   32 \\ 
+        % web/entertainment/social &   26 \\ 
+        % email/spam &   17 \\ 
+        % display/interactive &   16 \\ 
+        % web/video streaming &   16 \\ 
+        % web/search &   15 \\ 
+        % sign/product info &   10 \\ 
+        % product/packaging &    8 \\ 
+        % sign/info/instruction &    8 \\ 
+        % sign/info &    6 \\ 
+        % sign/advertising &    6 \\ 
+        % web/comedy &    3 \\ 
+        \hline
+    \end{tabular}
+    
+
+    \label{fig:presonal:genreworddist}
+    \caption{Log word count by genre and table of mean word count per genre (for all 66 genres with over 5 occurrences)}
+\end{table}
+
+The mean words-per-event for each genre is listed in Table~\ref{fig:personal:genreworddist}.  The embedded graph shows a log-distribution of the word count for each, displaying the usual Zipfian distribution but with an unusually fat tail (that drops off sharply at the 5 word level).  This would seem to indicate the minimum word length necessary to convey information without presupposing context, (i.e. branding, packaging and signage).
 
 
 
@@ -362,6 +668,10 @@ Clearly, the last of these is the most obvious and desirable effect of building 
 
 \begin{table}[ht]
     \centering
+
+    % TODO: make this into a graph
+
+
     \begin{tabular}{rrrrrrrr}
         \hline
         & 5\% & 10\% & 20\% & 50\% & 70\% & 90\% & 95\% \\ 
@@ -379,7 +689,7 @@ This figure also reflects the degree to which the attention model affects result
 
 
 
-
+% TODO: Add production/consumption info
 
 
 
@@ -418,7 +728,7 @@ A particularly compelling argument is made for the inclusion of song lyrics.  Th
 
 
 % ---------------------------------------------------------------------------
-\subsubsection{Genres Absent from the Corpus}
+\subsubsection{Genres Absent from the Corpora}
 There are a number of genres absent from the corpus that are listed in the BNC.  Examples of this that are unlikely to change if the sampling period is extended indicate lifestyle differences and, in sum, indicate the likely representativeness of the BNC relative to the subject.  Where a genre is seen as likely to be represented given sufficient time, they are evidence that the sampling period was insufficient (something that the BNC's breadth mitigates).
 
 Comparisons were performed between the list of composite source/genres given in Table~\ref{table:personal:wordsperevent} and Lee's genre listings.  Where any overlap was seen, a genre was discounted entirely.
@@ -455,17 +765,71 @@ Comparisons were performed between the list of composite source/genres given in 
 \end{table}
 
 
-The 11 (of 24) top-level categories missing entirely are summarised in Table~\ref{table:personal:missingcatspersonal}.  Of those spoken, only interviews and lectures are likely to ever be encountered during a longer sampling period.  The former of these would require a sampling period of years for most subjects.
+The 11 (of 24) top-level categories missing entirely are summarised in Table~\ref{table:personal:missingcatspersonal}.  Of those spoken, only interviews and lectures are likely to ever be encountered by the subject during a longer sampling period.  The former of these would require a sampling period of years for most subjects.
 
-Written material is more comprehensively covered, with 15 of 46 genres missing.  Worth noting is that, whilst newspaper articles are absent from the corpus in their original form, many of the same genre were read online (with the exception of sports articles).  
-
-
-
-
-\til{Compare large-scale genres}
+Written material is more comprehensively covered, with 15 of 46 genres missing.  Whilst newspaper articles are absent from the corpus in their original form, many of the same genre were read online (with the exception of sports articles).  
 
 % ---
 As expected, the genres identified within the personal corpus are an imperfect subset of those featured in the BNC.  Following Lee's index, there are no magazines, religious texts, newspapers, dramatic scripts, school or university essays, texts on the subject of commerce/economics or academic texts in many fields.  Newspapers alone comprise 9.9\% of the BNC, implying that caution should be exercised before applying any findings from the BNC to any single subject. % However, another criticism could be that the BNC is 100 times the size...
+
+Any comparison should also take into account the size differential---the BNC is roughly 100 times the size, and it is reasonable to presume that many of these genres would be covered by a 100-person replication of the two-week sampling procedure.  The strength of this assumption is something the current experimental design is incapable of evaluating.
+
+
+% Though 100 times larger, the BNC purports to cover a significantly larger population (some 60-million times larger).  Since there are obvious deficiencies in the representativeness of the personal corpus, with its deliberately restricted coverage, it seems unreasonable to expect that the BNC is a high-quality proportional sample.  Its individual genres may be capable of covering a genre of text sufficiently, but the thing as a whole isn't sufficient.
+
+
+% ----
+%  TODO
+For a more thorough comparison, the personal corpus genres were summarised to align with 
+
+
+
+
+
+
+
+
+
+
+% ---------------------------------------------------------------------------
+\subsubsection{Demographic Changes}
+A number of these genre differences are specifically down to the demographic coverage of the corpus (or lack thereof).  Though these differences are to be expected (desired?) due to differences in corpus design, they illustrate the fallacy of applying results obtained for a population to any individual therein without qualification.
+
+These categories have been selected because they are not only missing from the personal corpus, but are likely to remain missing for the subject, regardless of the sampling duration used.
+
+% Missing: 
+%
+%  - school work
+%  - Anything religious (sermon, religious texts)
+%  - Business-oriented things
+%  - medical stuff
+%  - Many of the academic subjects
+%  - 
+
+
+
+
+
+
+% ---------------------------------------------------------------------------
+\subsubsection{Temporal Changes}
+The BNC is now aging, and some changes are expected that likely generalise to enough of the BNC's population to make a significant difference to its representativeness.  Clearly, the personal corpus described here does not rigorously explore these, rather it is a heuristic for how such changes may affect the representativeness of a larger corpus in real-world terms.
+
+
+Since the BNC pre-dates ubiquitous technology such as smartphones (and, largely, the web), it clearly omits what has been shown to be the largest single source of data in the personal corpus.  The severity of this impact is doubtless effected by the extreme technical demographic of the subject, who is both relatively young and technically capable, compared to the wider population, however, this trend is widely acknowledged and set to continue.
+
+Arguable is the extent to which other genres have been co-opted by the web, suggesting that it is being used more as a transmission medium than a conventional genre.  The depth of this analysis is defined by one's purpose, though it is notable that the breakdown of text genres from web sources in the personal corpus extends Lee's `email' category into 8 sub-categories, all of which overlap significantly with those used elsewhere.  This pattern is repeated for the web (the personal corpus' largest source of data), which yields 68 genres with over 5 entries\footnote{I have excluded genres with low counts as these are unlikely to deserve their own category in Lee's classification}.
+
+Some genres have arisen that do not so easily map onto the original BNC design.  Email spam is one, presumably contained within the 'email' category.  Another is the use of social networks, which has no direct correspondence in the BNC genre listing, and could be thought of as a form of very informal news, or very informal social interaction in line with public debate (pub\_debate) or conversation(conv).
+
+
+
+
+
+
+
+% ----------- outro for this subsection
+
 
 It is unfortunate that the BNC, even with Lee's annotation, lacks sufficient detail to create a demographic subset focused around the status of the subject covered here.
 
