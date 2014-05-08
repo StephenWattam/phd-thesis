@@ -12,12 +12,12 @@
 
 These results describe data collected during the third iteration of sampling, which lasted roughly two weeks during April 2013.  Table~\ref{figure:personal:dataoverview}\td{make into a table} describes the availability of data per-day.
 
-The period marked from Friday the 5th to Friday the 19th (inclusive) forms the sampling period described herein (with exceptions to this noted where made).  This was the period for which the on-line notebook was maintained along with other intrusive data collection techniques, though notably some methods continued due to their ease-of-use.
+The period marked from Friday the 5th to Friday the 19th (inclusive) forms the sampling period described herein (with exceptions to this noted where made).  This was the period for which the on-line notebook was maintained along with other intrusive data collection techniques, though notably some methods continued afterwards due to their ease-of-use.
 
 Audio data is missing for the 19th as sampling was initially intended to end the day before, however, for producing estimated word counts this was not used as other recording methods cover the data sources.  Though attempts were made to use the audio data, difficulties in automated processing meant that transcription (or precise word counts) were only possible using manual review (something only the subject could legally perform).  Word counts were instead based on an estimated words-per-minute.
 
 
-This fifteen-day recording period covers 8,619 linguistic events, encompassing an estimated 980,000 words.  In total 3.4GB of data were collected, though the majority of this figure (2.3GB, 67\%) of this is audio data.  This is roughly in line with other life-logging studies \td{cite magazine article on mylifebits where they discuss storage sizes}.
+This fifteen-day recording period covers 8,619 linguistic events, encompassing an estimated 980,000 words.  In total 3.4GB of data were collected, though the majority of this figure (2.3GB, 67\%) of this is audio data.  This is roughly in line with other life-logging studies\cite{gemmell2006mylifebits}.
 
 The overall word count is changed massively by disabling the attention model, rising to roughly 5 million words.  As we shall see later, this is largely because the data sources and genres which dominate the data set are particularly heavily adjusted.  This raises the question of how we may ensure accuracy of attention models, something that shall be addressed in the discussion section below.
 
@@ -29,8 +29,6 @@ The overall word count is changed massively by disabling the attention model, ri
 Variables recorded on each linguistic event are based heavily on Lee's BNC index, augmented to take into account the attention index and word count estimates.  A summary of these is provided in Table~\ref{table:personal:variables}.  The \variable{missing} column describes the proportion of rows missing this field, either because it is not applicable, or because insufficient data was recorded to complete it with confidence.
 
 The variables \variable{source2} and \variable{duration} have missing values exclusively due to non-applicability.  As such they have been integrated into (complete) summary variables for analysis, forming the computed words and computer genre in an effort to unify measurement of spoken and written material, and increase the specificity of the data source recorded.
-
-Though part of the initial purpose 
 
 
 \begin{table}[hp]
@@ -95,9 +93,10 @@ During the sampling period, work on the personal corpus project was stopped.  Ot
 \end{figure}
 
 
-Figure~\ref{fig:personal:eventcountbyday} shows the number of events recorded each day.  It shows event counts between 124 and 969, with much of the variation being expressed in terms of written data.  \td{a large amount of that 969 is terminal stuff from developing lwac all day}.
+Figure~\ref{fig:personal:eventcountbyday} shows the number of events recorded each day.  Event counts ranging from 124 to 969, with much of the variation being expressed in terms of written data.
 
-Contrary to expectations, and in part due to large aomunts of terminal and web use during software development work, the majority of daily language use is written.  This is contrasted by Figure~\ref{fig:personal:wordcountbyday}, which indicates that spoken events are likely to expunge greater amounts of words in a single event (spoken median is 128 words, vs. 27 words for written).  This is largely explainable by a penchant for consuming broadcast media (especially spoken radio), which have large amounts of ongoing spoken content.
+Contrary to expectations, and in part due to large amounts of terminal and web use during software development work, the majority of daily language use is written.  This is contrasted by Figure~\ref{fig:personal:wordcountbyday}, which indicates that spoken events are likely to expunge greater amounts of words in a single event (spoken median is 128 words, vs. 27 words for written).  This is largely explainable by a penchant for consuming broadcast media (especially spoken radio), which have large amounts of ongoing spoken content.
+
 
 % > mean(dat[which(dat$mode == 's'),]$computed_words)
 % [1] 307.464
@@ -137,10 +136,6 @@ Figure~\ref{fig:personal:prodcountbyday} shows the breakdown of words used by th
 
 
 
-\til{More fun breakdowns.  Show the distribution plots from the presentation (Zipfianness stuff).
-Take some plots from presentation. plot and comment on the distribution of some larger features throughout the data}
-
-
 
 
 
@@ -165,7 +160,6 @@ Take some plots from presentation. plot and comment on the distribution of some 
 % Events have a median size of 28 words (further information is available in Table~\ref{fig:personal:eventsizedist}).
 
 
-\til{Plot event by source, bar plot}
 \begin{figure}[hp]
     \centering
     \includegraphics[width=0.8\textwidth]{personal/ebysource}
@@ -179,9 +173,9 @@ Take some plots from presentation. plot and comment on the distribution of some 
     \label{fig:personal:eventsbysource}
 \end{figure}
 
-The proportions described in Figure~\ref{fig:personal:eventsbysource} are likely a very individual trait of the subject, affected not only by daily routine, but also the specific work being undertaken at the time of the sample (the implications of this on scientific validity are discussed below in section~\ref{}\td{ref}).
+The proportions described in Figure~\ref{fig:personal:eventsbysource} are likely a very individual trait of the subject, affected not only by daily routine, but also the specific work being undertaken at the time of the sample (the implications of this on scientific validity are discussed below in section~\ref{sec:personal:discussion:ethics}.
 
-Particularly curious is the large number of terminal, web (squid), and music events.  These are partially explainable by the work being completed at the time of the study, as the subject was developing software, listening to music whilst doing so and using many web references as documentation.  The subject also uses a GUI on his computer that mandates use of terminals for many tasks (this is doubtless atypical).
+Particularly curious is the large number of terminal, web (squid), and music events.  These are partially explainable by the work being completed at the time of the study, as the subject was developing software, listening to music whilst doing so and using many web references as documentation.  The subject also uses a GUI on his computer that mandates use of terminals for many tasks (this is doubtless atypical of many populations).
 
 
 
@@ -572,7 +566,7 @@ Table~\ref{table:personal:eventcountbygenre} shows a breakdown of event frequenc
     \item Any of the above that are particularly surrounding personal interests of the subject
 \end{itemize}
 
-Clearly, the last of these is the most obvious and desirable effect of building a corpus using this method.  The overwhelming prevalence of \texttt{web/entertainment/social} events may be explained (rather embarrassingly) by one website, which displays a single image per page (along with socially-contributed captions), and thus demands a lot of page reloads for relatively little content.
+Clearly, the last of these is the most obvious and desirable effect of building a corpus using this method.  The overwhelming prevalence of \texttt{web/entertainment/social} events may be explained (rather embarrassingly) by one website, \url{imgur.com}, which displays a single image per page (along with socially-contributed captions), and thus demands a lot of page reloads for relatively little content.
 
 
 \begin{table}[ht]
@@ -657,7 +651,7 @@ Clearly, the last of these is the most obvious and desirable effect of building 
     \caption{Log word count by genre and table of mean word count per genre (for all 66 genres with over 5 occurrences)}
 \end{table}
 
-The mean words-per-event for each genre is listed in Table~\ref{fig:personal:genreworddist}.  The embedded graph shows a log-distribution of the word count for each, displaying the usual Zipfian distribution but with an unusually fat tail (that drops off sharply at the 5 word level).  This would seem to indicate the minimum word length necessary to convey information without presupposing context, (i.e. branding, packaging and signage).
+The mean words-per-event for each genre is listed in Table~\ref{fig:personal:genreworddist}.  The embedded graph shows a log-distribution of the word count for each, displaying a typical Zipfian distribution but with an unusually fat tail (that drops off sharply at the 5 word level).  This would seem to indicate the minimum word length necessary to convey information without presupposing context, (i.e. branding, packaging and signage).
 
 
 
@@ -714,7 +708,7 @@ A less compelling difference is exhibited between the rate of spoken conversatio
 
 Arguments for the diversity of texts within corpora are driven only vaguely by the quantitative findings of this study due to its restricted inter-person relevance.  Nonetheless, some trends were identified which could reasonably be expected to extend to many others in a similar culture.
 
-Inspecting the selection of genres yields a diversity not covered in many corpora.  Though notably the BNC is quite good at this, covering many brochures and other indicental texts such as unpublished letters or school essays, it hardly represents the amount of times thanks were exchanged for holding a door open, bottles, cans and other labels were read (particularly addresses on mail), or a tax disc was checked.  It would seem that a corpus purporting to cover a large population would be awash with weirder texts, especially as those less academic than the subject here are likely to have relatively higher proportions of them in their corpora.
+Inspecting the selection of genres yields a diversity not covered in many corpora.  Though notably the BNC is quite good at this, covering many brochures and other incidental texts such as unpublished letters or school essays, it hardly represents the amount of times thanks were exchanged for holding a door open, bottles, cans and other labels were read (particularly addresses on mail), or a tax disc was checked.  It would seem that a corpus purporting to cover a large population would be awash with weirder texts, especially as those less academic than the subject here are likely to have relatively higher proportions of them in their corpora.
 
 A particularly compelling argument is made for the inclusion of song lyrics.  These are a large portion of the corpus collected here \td{how big}, and often spawn sayings, memes and linguistic affectations that can last decades in popular culture (\textit{will you do the Fandango?}).  It's also notable that this is one of the easier things to sample and music use by the population is meticulously documented and studied by the industry already (often in publicly available lists).  In the case of music, use of English as a lingua franca would see its influence spread far beyond the bounds of a national corpus (as well as absorbing influences from other national flavours of the language% Gasolina or Shakira's spanish singing?
 ).
@@ -731,7 +725,7 @@ A particularly compelling argument is made for the inclusion of song lyrics.  Th
 \subsubsection{Genres Absent from the Corpora}
 There are a number of genres absent from the corpus that are listed in the BNC.  Examples of this that are unlikely to change if the sampling period is extended indicate lifestyle differences and, in sum, indicate the likely representativeness of the BNC relative to the subject.  Where a genre is seen as likely to be represented given sufficient time, they are evidence that the sampling period was insufficient (something that the BNC's breadth mitigates).
 
-Comparisons were performed between the list of composite source/genres given in Table~\ref{table:personal:wordsperevent} and Lee's genre listings.  Where any overlap was seen, a genre was discounted entirely.
+Comparisons were performed between the list of composite source/genres given in Table~\ref{table:personal:wordsperevent} and Lee's genre listings.  Where any overlap was judged to have occurred, a genre was discounted entirely.
 
 
 \begin{table}[ht]
@@ -780,9 +774,9 @@ Any comparison should also take into account the size differential---the BNC is 
 
 % ----
 %  TODO
-For a more thorough comparison, the personal corpus genres were summarised to align with 
+For a more thorough comparison, the personal corpus genres were summarised to align with... 
 
-
+\til{ Possible TODO: recode events in line with Lee's BNC index and display relative frequencies. }
 
 
 
@@ -797,6 +791,8 @@ A number of these genre differences are specifically down to the demographic cov
 
 These categories have been selected because they are not only missing from the personal corpus, but are likely to remain missing for the subject, regardless of the sampling duration used.
 
+
+\til{ Identify genre-related missing categories }
 % Missing: 
 %
 %  - school work
@@ -816,9 +812,9 @@ These categories have been selected because they are not only missing from the p
 The BNC is now aging, and some changes are expected that likely generalise to enough of the BNC's population to make a significant difference to its representativeness.  Clearly, the personal corpus described here does not rigorously explore these, rather it is a heuristic for how such changes may affect the representativeness of a larger corpus in real-world terms.
 
 
-Since the BNC pre-dates ubiquitous technology such as smartphones (and, largely, the web), it clearly omits what has been shown to be the largest single source of data in the personal corpus.  The severity of this impact is doubtless effected by the extreme technical demographic of the subject, who is both relatively young and technically capable, compared to the wider population, however, this trend is widely acknowledged and set to continue.
+Since the BNC pre-dates ubiquitous technology such as smartphones (and, largely, the web), it clearly omits what has been shown to be the largest single source of data in the personal corpus.  The severity of this impact is doubtless effected by the extreme technical experience/interests of the subject, who is both relatively young and technically capable, compared to the wider population, however, this trend is widely acknowledged and set to continue.
 
-Arguable is the extent to which other genres have been co-opted by the web, suggesting that it is being used more as a transmission medium than a conventional genre.  The depth of this analysis is defined by one's purpose, though it is notable that the breakdown of text genres from web sources in the personal corpus extends Lee's `email' category into 8 sub-categories, all of which overlap significantly with those used elsewhere.  This pattern is repeated for the web (the personal corpus' largest source of data), which yields 68 genres with over 5 entries\footnote{I have excluded genres with low counts as these are unlikely to deserve their own category in Lee's classification}.
+Arguable is the extent to which other genres have been co-opted by the web, suggesting that it is being used more as a transmission medium than a conventional genre.  The depth of this analysis is defined by one's purpose, though it is notable that the breakdown of text genres from web sources in the personal corpus extends Lee's `email' category into 8 sub-categories, all of which overlap significantly with those used elsewhere.  This pattern is repeated for the web (the personal corpus' largest source of data), which yields 68 genres with over 5 entries\footnote{I have excluded genres with low counts as these are unlikely to deserve their own category in Lee's classification, though a suitably scaled general purpose corpus is likely to include many.}.
 
 Some genres have arisen that do not so easily map onto the original BNC design.  Email spam is one, presumably contained within the 'email' category.  Another is the use of social networks, which has no direct correspondence in the BNC genre listing, and could be thought of as a form of very informal news, or very informal social interaction in line with public debate (pub\_debate) or conversation(conv).
 
@@ -837,7 +833,7 @@ It is unfortunate that the BNC, even with Lee's annotation, lacks sufficient det
 
 Particularly interesting are instances where the hierarchical categorisation of the BNC indicates that both corpora have sampled from the same sources, yet the resulting within-category proportions differ.  
 
-\til{recode data along lee's lines and pick these out}
+\til{Identify these instances, either with recoded data or just from manual inspection.}
 
 
 
