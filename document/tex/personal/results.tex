@@ -10,14 +10,14 @@
 \end{figure}
 
 
-These results describe data collected during the third iteration of sampling, which lasted roughly two weeks during April 2013.  Table~\ref{figure:personal:dataoverview}\td{make into a table} describes the availability of data per-day.
+These results describe data collected during the third iteration of sampling, which lasted roughly two weeks during April 2013.  Table~\ref{figure:personal:dataoverview} describes the availability of data per-day.
 
 The period marked from Friday the 5th to Friday the 19th (inclusive) forms the sampling period described herein (with exceptions to this noted where made).  This was the period for which the on-line notebook was maintained along with other intrusive data collection techniques, though notably some methods continued afterwards due to their ease-of-use.
 
 Audio data is missing for the 19th as sampling was initially intended to end the day before, however, for producing estimated word counts this was not used as other recording methods cover the data sources.  Though attempts were made to use the audio data, difficulties in automated processing meant that transcription (or precise word counts) were only possible using manual review (something only the subject could legally perform).  Word counts were instead based on an estimated words-per-minute.
 
 
-This fifteen-day recording period covers 8,619 linguistic events, encompassing an estimated 980,000 words.  In total 3.4GB of data were collected, though the majority of this figure (2.3GB, 67\%) of this is audio data.  This is roughly in line with other life-logging studies\cite{gemmell2006mylifebits}.
+This fifteen-day recording period covers 8,619 linguistic events, encompassing an estimated 980,000 words.  In total 3.4GB of data were collected, though the majority of this figure (2.3GB, 67\%) of this is audio data.  This is roughly in line with other life-logging studies~\cite{gemmell2006mylifebits}.
 
 The overall word count is changed massively by disabling the attention model, rising to roughly 5 million words.  As we shall see later, this is largely because the data sources and genres which dominate the data set are particularly heavily adjusted.  This raises the question of how we may ensure accuracy of attention models, something that shall be addressed in the discussion section below.
 
@@ -76,7 +76,7 @@ This meant that the bulk of each day was taken up with terminal output events, a
 Mornings and evenings also usually featured the radio, and often some form of TV (either streamed online or broadcast).
 
 \til{ 
-    An outline of the two weeks (review journals)
+    Do I need a day-by-day outline of the two weeks (review journals)?
 }
 % TODO: more about general life in that period
 
@@ -373,6 +373,7 @@ Particularly curious is the large number of terminal, web (squid), and music eve
     \caption{Event frequency by computed genre}
     \label{table:personal:eventcountbygenre} 
 \end{table}
+\FloatBarrier
 
 
 
@@ -561,7 +562,7 @@ Particularly curious is the large number of terminal, web (squid), and music eve
 % % \end{table}
 
 
-Table~\ref{table:personal:eventcountbygenre} shows a breakdown of event frequencies by computed genre \td{probably exclude hapaxes to shorten the table?} (which includes the source).  This shows a somewhat predictable zipfian distribution of genres surrounding a number of themes:
+Table~\ref{table:personal:eventcountbygenre} shows a breakdown of event frequencies by computed genre (which includes the source).  This shows a somewhat predictable zipfian distribution of genres surrounding a number of themes:
 
 \begin{itemize}
     \item Daily events, such as reading social media websites
@@ -653,6 +654,7 @@ Clearly, the last of these is the most obvious and desirable effect of building 
     \label{fig:presonal:genreworddist}
     \caption{Log word count by genre and table of mean word count per genre (for all 66 genres with over 5 occurrences)}
 \end{table}
+\FloatBarrier
 
 The mean words-per-event for each genre is listed in Table~\ref{fig:personal:genreworddist}.  The embedded graph shows a log-distribution of the word count for each, displaying a typical Zipfian distribution but with an unusually fat tail (that drops off sharply at the 5 word level).  This would seem to indicate the minimum word length necessary to convey information without presupposing context, (i.e. branding, packaging and signage).
 
@@ -666,27 +668,28 @@ The mean words-per-event for each genre is listed in Table~\ref{fig:personal:gen
 \begin{table}[ht]
     \centering
 
-    % TODO: make this into a graph
-
-
-    \begin{tabular}{rrrrrrrr}
-        \hline
-        & 5\% & 10\% & 20\% & 50\% & 70\% & 90\% & 95\% \\ 
-        \hline
-        1 & 0.00 & 0.00 & 8.90 & 27.85 & 74.00 & 217.00 & 354.88 \\ 
-        \hline
+    \begin{tabular}{ | r | r | r | r | r | r | r | r | }
+         \hline
+         & 5\% & 10\% & 20\% & 50\% & 70\% & 90\% & 95\% \\ 
+         \hline
+         1 & 0.00 & 0.00 & 8.90 & 27.85 & 74.00 & 217.00 & 354.88 \\ 
+         \hline
     \end{tabular}
+
     \caption{Percentiles for words-per-event.}
     \label{table:personal:wordsperevent}
 \end{table}
 
-Word counts were established either directly, or by assuming an 80 word-per-minute speech rate\td{cite where this figure was pulled from, mention that song lyric estimates also back it up}.  Table~\ref{table:personal:wordsperevent} shows that the distribution of word count per event is heavily skewed towards the lower end, with the median being 27 words per event.
+Word counts were established either directly, or by assuming an 80 word-per-minute speech rate.  This rate is a conservative estimate according to some literature---\cite{yuan2006towards} estimate almost twice this, however, they do so for continuous conversation, and much of the corpus' spoken data comes from media with interruptions such as TV or music.  The music included in the corpus typically has speech rates falling between $40$ and $70$ WPM.  
+
+Table~\ref{table:personal:wordsperevent} shows that the distribution of word count per event is heavily skewed towards the lower end, with the median being 27 words per event.
 
 This figure also reflects the degree to which the attention model affects results---disabling calculations for this, the median word count is affected significantly by the largest source of data, web pages, becoming 442 words.  Most pages are, even compared to other types of event in the corpus, read only partially (often graphical clues indicate which portions to read, especially since most people revisit websites more than they visit new ones).
 
+\til{ Production/ consumption info ? }
 
 
-% TODO: Add production/consumption info
+
 
 
 
@@ -694,9 +697,7 @@ This figure also reflects the degree to which the attention model affects result
 
 % ---------------------------------------------------------------------------
 \subsection{Comparisons}
-\til{Table of high-level genres for the two (align them).
-
-This could be done by re-coding existing genres or by fitting both to higher-level ones (the latter might be clearer and less work)}
+% \til{Table of high-level genres for the two (align them). This could be done by re-coding existing genres or by fitting both to higher-level ones (the latter might be clearer and less work)}
 
 
 
@@ -713,7 +714,7 @@ Arguments for the diversity of texts within corpora are driven only vaguely by t
 
 Inspecting the selection of genres yields a diversity not covered in many corpora.  Though notably the BNC is quite good at this, covering many brochures and other incidental texts such as unpublished letters or school essays, it hardly represents the amount of times thanks were exchanged for holding a door open, bottles, cans and other labels were read (particularly addresses on mail), or a tax disc was checked.  It would seem that a corpus purporting to cover a large population would be awash with weirder texts, especially as those less academic than the subject here are likely to have relatively higher proportions of them in their corpora.
 
-A particularly compelling argument is made for the inclusion of song lyrics.  These are a large portion of the corpus collected here \td{how big}, and often spawn sayings, memes and linguistic affectations that can last decades in popular culture (\textit{will you do the Fandango?}).  It's also notable that this is one of the easier things to sample and music use by the population is meticulously documented and studied by the industry already (often in publicly available lists).  In the case of music, use of English as a lingua franca would see its influence spread far beyond the bounds of a national corpus (as well as absorbing influences from other national flavours of the language% Gasolina or Shakira's spanish singing?
+A particularly compelling argument is made for the inclusion of song lyrics.  These are a large portion of the corpus collected here  ($163,288 words$), and often spawn sayings, memes and linguistic affectations that can last decades in popular culture (\textit{will you do the Fandango?}).  It's also notable that this is one of the easier things to sample and music use by the population is meticulously documented and studied by the industry already (often in publicly available lists).  In the case of music, use of English as a lingua franca would see its influence spread far beyond the bounds of a national corpus (as well as absorbing influences from other national flavours of the language% Gasolina or Shakira's spanish singing?
 ).
 
 
@@ -777,9 +778,9 @@ Any comparison should also take into account the size differential---the BNC is 
 
 % ----
 %  TODO
-For a more thorough comparison, the personal corpus genres were summarised to align with... 
+% For a more thorough comparison, the personal corpus genres were summarised to align with... 
 
-\til{ Possible TODO: recode events in line with Lee's BNC index and display relative frequencies. }
+% \til{ Possible TODO: recode events in line with Lee's BNC index and display relative frequencies. }
 
 
 
@@ -842,12 +843,6 @@ It is unfortunate that the BNC, even with Lee's annotation, lacks sufficient det
 
 %---
 
-Particularly interesting are instances where the hierarchical categorisation of the BNC indicates that both corpora have sampled from the same sources, yet the resulting within-category proportions differ.  
-
-\til{Identify these instances, either with recoded data or just from manual inspection.}
-
-
-
-
+Particularly interesting are instances where the hierarchical categorisation of the BNC indicates that both corpora have sampled from the same sources, yet the resulting within-category proportions differ.  This is true of many of the news sources, where there was a strong bias towards tech. news, and academic sources, which were focused on a single area.  We might reasonably expect this effect to be true for many sub-populations, who may prefer a given religion or set of recreational activities.  
 
 

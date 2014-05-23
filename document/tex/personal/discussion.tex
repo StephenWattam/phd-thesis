@@ -10,7 +10,6 @@ Moreover, since the purpose of the study is to assess the viability of methods, 
 
 
 % ---------------------------------------------------------------------------
-% TODO: move this somewhere appropriate
 \subsection{Types of data}
 The form each corpus takes is also rather variable due to the different sampling methods used.  For some sources, e.g. books, the personal corpus is likely to contain more partial samples (as books are seldom read in entirety within one `linguistic event').  Those sources that are read piecemeal are also likely to occur multiple times, something that would not be tolerated in conventional corpus designs.
 % ---------------------------------------------------------------------------
@@ -31,7 +30,7 @@ Some sources of data proved significantly easier to normalise into a workable fo
 
 SQUID logs proved particularly difficult to process largely due to technical reasons, as extensive whitelists and multiple manual inspection phases were necessary to disregard advertising and AJAX requests.  A possible solution to this would be to rely on sampling of web data closer to where it is consumed, for example through the use of a browser plugin.
 
-Initial plans were to use Voice Activity Detection (or full automated transcription) to estimate word counts from verbatim audio recordings.  In practice the diversity of unwanted noise effects (background noise, positioning of microphone, overheard conversations) rendered this practically impossible.  Even rudimentary VAD algorithms work with frequency detection strategies, and many were liable to detect things such as music as continuous speech.  \td{say more on this}
+Initial plans were to use Voice Activity Detection (or full automated transcription) to estimate word counts from verbatim audio recordings.  In practice the diversity of unwanted noise effects (background noise, positioning of microphone, overheard conversations) rendered this practically impossible.  Even rudimentary VAD algorithms work with frequency detection strategies, and many were liable to detect things such as music as continuous speech.  %\td{say more on this}
 
 
 
@@ -146,8 +145,6 @@ These limits on comparison to others are both lifted by restriction of the data 
 \label{sec:personal:discussion:ethics}
 
 
-
-
 The increased resolution of data pertaining to a single individual renders the methods discussed here ethically sensitive.  This sensitivity is increased further if continuous recording of audio or video are used, though, as mentioned above, this data was not integrated into my analysis.
 
 There are a number of arguments justifying covert research in the social sciences, and ...
@@ -155,20 +152,19 @@ There are a number of arguments justifying covert research in the social science
 
 Further, future developments in the methods described may use questionnaires or other less-invasive methods as sources of auxiliary data.  These would be targeted to a particular study design and need not cover the full set of language uses, mitigating any ethical concerns by limiting the descriptive power of the raw data itself.
 
-A number of technical measures are also possible that may assist this issue---some of these have been developed by \td{who} working on the Machine Listening project, who irreversably scramble their audio recordings in such a way that VAD algorithms may still run.  A further option is streaming of data to a remote server, which can process, summarise, and discard verbatim data on-the-fly to prevent any possible information security breaches.
+A number of technical measures are also possible that may assist this issue---some of these have been developed by Ellis \& Lee working on the Machine Listening project~\cite{ellis2004audiolog}, who irreversably scramble their audio recordings in such a way that VAD algorithms may still run.  A further option is streaming of data to a remote server, which can process, summarise, and discard verbatim data on-the-fly to prevent any possible information security breaches.
 
 
-
-\til{STUFF FROM NOTES}
-Certain sources of data raise various ethical and legal issues. These are generally centred around the presumption of privacy, which applies to most direct personal interaction, as well as some more formal communications (such as email).
+Particular sources of data raise various ethical and legal issues. These are generally centred around the presumption of privacy, which applies to most direct personal interaction, as well as some more formal communications (such as email).  This relationship is described by Herrera~\cite{herrera1999covert}:
 
 \begin{quote}
-The fieldworker has an ulterior motive of which his subjects are not aware when they kindly invite him to tea or shower him with Christmas cards
+Covert research is also not, on reflection, so much like the conversations that we casually engage in. On the contrary, covert research raises a unique problem: those closest and most vital to the ‘conversation’ are valuable only so long as they know less about it than anyone else.
+% The fieldworker has an ulterior motive of which his subjects are not aware when they kindly invite him to tea or shower him with Christmas cards\td{Find the source of this quote, it seems to have vanished!}
 \end{quote}
 
 Many of the ethical objections posited in sociological texts apply to the misrepresentation of a field worker, leading to an asymmetric relationship between him and other participants, and necessitating various abrogations of personal and professional ethics. These issues are essentially of no relevance to a simple and private recording process that does not entail entering any situations contrary to the researcher’s normal behaviour.
 
-Use of covert methods, it seems, should always be justified in terms of the importance of the research, lack of alternatives, and sensitivity of the data to be gathered. Clearly, recording audio will require a higher standard of justification upon each of these, and the list below is written with both approximate (recording genre, setting etc) and verbatim methods in mind.
+Use of covert methods, it seems, should always be justified in terms of the importance of the research, lack of alternatives, and sensitivity of the data to be gathered. Clearly, recording audio will require a higher standard of justification upon each of these, and the counterarguments below are written with both approximate (recording genre, setting etc) and verbatim methods in mind:
 
 \begin{itemize}
     \item Eliciting consent would disrupt linguistic content, something that is minor for large interactions but makes representation of shorter utterances and conversations impossible. Since the purpose of the study is to assess the importance of this influence on corpora, any attempts to elicit consent must be less disruptive than those used to build other corpora.
@@ -179,11 +175,14 @@ Use of covert methods, it seems, should always be justified in terms of the impo
 \end{itemize}
 
 
-\til{/STUFF FROM NOTES}
+The BNC, when building its speech corpus, followed a procedure whereby consent was sought but only after each conversation:
+\begin{quote}
+All conversations were recorded as unobtrusively as possible, so that the material gathered approximated closely to natural, spontaneous speech. In many cases the only person aware that the conversation was being taped was the person carrying the recorder. ...
 
+For each conversational exchange the person carrying the recorder told all participants they had been recorded and explained why. Whenever possible this happened after the conversation had taken place. If any participant was unhappy about being recorded the recording was erased. During the project around 700 hours of recordings were gathered.
+\end{quote}
 
-
-
+Though this is a higher standard of consent than sought for this study, we feel this is offset by the fact that our data is private and  reviewed only by the subject himself.  This is a justification reinforced by the human rights act, which guarantees privacy to prevent release of unsolicited recordings, but makes no restriction on the use of such data by a participant in the original conversation.
 
 
 
