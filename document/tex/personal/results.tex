@@ -8,9 +8,9 @@
     \caption{The availability of data from various sources}
     \label{fig:personal:dataoverview}
 \end{figure}
+\FloatBarrier
 
-
-These results describe data collected during the third iteration of sampling, which lasted roughly two weeks during April 2013.  Table~\ref{figure:personal:dataoverview} describes the availability of data per-day.
+These results describe data collected during the third iteration of sampling, which lasted roughly two weeks during April 2013.  Table~\ref{fig:personal:dataoverview} describes the availability of data per-day.
 
 The period marked from Friday the 5th to Friday the 19th (inclusive) forms the sampling period described herein (with exceptions to this noted where made).  This was the period for which the on-line notebook was maintained along with other intrusive data collection techniques, though notably some methods continued afterwards due to their ease-of-use.
 
@@ -71,13 +71,10 @@ The variables \variable{source2} and \variable{duration} have missing values exc
 \subsection{Activities}
 During the sampling period, all work surrounding the personal corpus case study was stopped, in favour of other, ongoing, projects.  Other than this intervention, work continued as normal, which for this period involved significant amounts of development on the LWAC downloader tool.
 
-This meant that the bulk of each day was taken up with terminal output events, and editing files.  Part of this work involved documenting the tool, which required production of longer textual documents (rather than code).  During work, the subject listened either to the radio, or to music, accounting for the large volume of broadcast media and music in the corpus.
+This meant that the bulk of each day was taken up with terminal output events, and editing files.  Part of this work involved writing ruby code, diffs from which were used to construct token counts of the `code/ruby'\td{monospace using whatever} type.  Another significant portion of this time was spent documenting the tool, which required production of longer textual documents (rather than code).  During work, the subject listened either to the radio, or to music, accounting for the large volume of broadcast media and music in the corpus.
 
 Mornings and evenings also usually featured the radio, and often some form of TV (either streamed online or broadcast).
 
-\til{ 
-    Do I need a day-by-day outline of the two weeks (review journals)?
-}
 % TODO: more about general life in that period
 
 
@@ -562,7 +559,7 @@ Particularly curious is the large number of terminal, web (squid), and music eve
 % % \end{table}
 
 
-Table~\ref{table:personal:eventcountbygenre} shows a breakdown of event frequencies by computed genre (which includes the source).  This shows a somewhat predictable zipfian distribution of genres surrounding a number of themes:
+Table~\ref{table:personal:eventcountbygenre} shows a breakdown of event frequencies by computed genre (which includes the source).  This shows a somewhat predictable Zipfian distribution of genres surrounding a number of themes:
 
 \begin{itemize}
     \item Daily events, such as reading social media websites
@@ -651,7 +648,7 @@ Clearly, the last of these is the most obvious and desirable effect of building 
     \end{tabular}
     
 
-    \label{fig:presonal:genreworddist}
+    \label{fig:personal:genreworddist}
     \caption{Log word count by genre and table of mean word count per genre (for all 66 genres with over 5 occurrences)}
 \end{table}
 \FloatBarrier
@@ -686,7 +683,7 @@ Table~\ref{table:personal:wordsperevent} shows that the distribution of word cou
 
 This figure also reflects the degree to which the attention model affects results---disabling calculations for this, the median word count is affected significantly by the largest source of data, web pages, becoming 442 words.  Most pages are, even compared to other types of event in the corpus, read only partially (often graphical clues indicate which portions to read, especially since most people revisit websites more than they visit new ones).
 
-\til{ Production/ consumption info ? }
+Figure~\ref{fig:personal:prodcountbyday} shows that the vast majority of all words are consumed, either passively as the result of receiving broadcast media or in part of a conversation.  The vast majority of the `produced' word count is covered by writing documentation for LWAC, and it would seem likely that most people would non-interactively use spoken words.
 
 
 
@@ -791,7 +788,7 @@ Any comparison should also take into account the size differential---the BNC is 
 
 % ---------------------------------------------------------------------------
 \subsubsection{Demographic Changes}
-A number of these genre differences are specifically down to the demographic coverage of the corpus (or lack thereof).  Though these differences are to be expected (desired?) due to differences in corpus design, they illustrate the fallacy of applying results obtained for a population to any individual therein without qualification.
+A number of these genre differences are specifically down to the demographic coverage of the corpus (or lack thereof).  Though these differences are to be expected due to differences in corpus design, they illustrate the fallacy of applying results obtained for a population to any individual therein without qualification.
 
 These categories have been selected because they are not only missing from the personal corpus, but are likely to remain missing for the subject, regardless of the sampling duration used.
 
@@ -839,7 +836,7 @@ Some genres have arisen that do not so easily map onto the original BNC design. 
 % ----------- outro for this subsection
 
 
-It is unfortunate that the BNC, even with Lee's annotation, lacks sufficient detail to create a demographic subset focused around the status of the subject covered here.
+It is unfortunate that the BNC, even with Lee's annotation, lacks sufficient demographic detail to identify where the subject falls within the BNC sampling frame.  This would allow approximate weights to be applied in order to rebalance the BNC as an augmentation of the personal corpus.
 
 %---
 
