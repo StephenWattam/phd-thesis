@@ -78,7 +78,14 @@
 \usepackage{rotating}
 
 % Multi-page tables
-\usepackage{longtable}
+% Used in tex/persona/results.tex only, commented out there.
+% \usepackage{longtable}
+
+% Two-column spanned tables
+% \usepackage{supertabular}
+
+% Two column blocks
+% \usepackage{multicol}
 
 % Restrictions on figure movement
 \usepackage{placeins}
@@ -87,9 +94,11 @@
 % ------------------------------------------------------------------------------
 %  Stuff to remove after drafting 
 % ------------------------------------------------------------------------------
-\usepackage{todonotes}
-\newcommand{\td}[1]{\todo[fancyline,size=\tiny,color=yellow!20]{#1}}
-\newcommand{\til}[1]{\todo[inline,size=\small,color=yellow!20]{#1}}
+\ifdraft {
+    \usepackage{todonotes}
+    \newcommand{\td}[1]{\todo[fancyline,size=\tiny,color=yellow!20]{#1}}
+    \newcommand{\til}[1]{\todo[inline,size=\small,color=yellow!20]{#1}}
+}
 % ------------------------------------------------------------------------------
 
 
