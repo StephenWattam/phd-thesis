@@ -1,7 +1,7 @@
 CC=
 FLAGS=
 
-LATEX= pdflatex
+LATEX= pdflatex -interaction=nonstopmode -halt-on-error
 BIBTEX= bibtex
 DVIPS= dvips
 PS2PDF= ps2pdf

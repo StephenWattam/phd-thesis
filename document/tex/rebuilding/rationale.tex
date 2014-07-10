@@ -1,0 +1,51 @@
+
+
+Existing methods of study in Corpus Linguistics centre themselves around re-use of large, known datasets.  This, as detailed in chapters \td{3 and lit review}, is the cause of many potential errors---replication is unlikely to use a comparable dataset, and many studies test their hypotheses on the same dataset from which they derived the initial idea.
+
+This re-use of data is common to many other fields (such as sociology and computer vision) where raw data is fundamentally difficult to acquire, however, this needn't be the case: the internet offers a source of new text with little barrier to retrieval, offering access to a model closer to that used by many other sciences, where datasets are built with a specific research question in mind, and may be replicated from the original population without relying on the same verbatim data.
+
+Corpora built from online sources are (as we have seen in previous chapters), nothing new, and they are largely constructed with ease by automated tools that are able to emulate existing corpus proportions.  
+
+Where the `conventional' method of sampling data is to specify external parameters which are (with the exception of the relationship specified in the alternate hypothesis) uncorrelated with this content.  Relating these specifications to the location of documents to be selected (and identifying $\pi$, the probability of selection) is performed through expert opinion and per-source information.
+
+This has lead web corpus sampling tools to largely use an intensive query system, providing values for internal variables and returning 'similar' documents through the use of search engines (either pre-existing consumer ones such as Google or Yahoo, or specifically-built linguistic ones).  Where a study is interested in frequencies that are correlated with these examplars (something that is often difficult to establish even hypothetically), this approach is statistically fallacious.  The value of this approach is in the high dimensionality of the input data---it is deemed unlikely that any one variable of interest is `truly` correlated.
+
+
+In order to apply sampling of external variables to the web, it is necessary to algorithmically approximate the process expert corpus builders follow in translating a desired document's properties (``from genre x, of length y'') into its location (``genre x is found in libraries, transcribe random extract'').  This process is particularly difficult online due to the inconsistent nature of metadata, and the limited scope of indexes available, however, there is great value in moving the assumptions of expert opinion into the sampling tool:
+
+\begin{itemize}
+    \item Each assumption need only work in one dimension at once.  This means that the policies of approaching various different sources for varying types of document may be encoded.
+    \item Algorithmic representations can be precisely repeated.  Though it may be necessary to change and improve heuristics over time (in much the same manner any body of expert opinion is likely to iteratively improve) it is possible to identify and evaluate these changes to place samples in historical context.
+    \item Documentation.  Because of the above, the use of each script becomes a source of documentation for the corpus, detailing not just what is in it (and the sampling proportions of each) but also the policies used to decide that.  This level of documentation allows for comparison against the research question for which the corpus is to be used at a much more useful level.
+    \item Distribution---Codification of expert opinion allows contribution from around the world in an open-source model.  This essentially democratises the expert portions of corpus building by parameterising them.
+\end{itemize}
+
+
+One of the reasons the parameterisation of expert opinion has not been attempted is because of the high dimensionality of many corpora---it is difficult to usefully specify the contents of a corpus and retrieve them without conforming to a very complex set of interactions.  This is a well-known problem in Bayesian statistics, and is often solved by the application of Markov-chain Monte-Carlo (MCMC) techniques.
+
+MCMC sampling methods iteratively construct a markov chain of samples from easy-to-determine distributions, the sum of which (and thus the result of the chain) approximates the desired distribution.  This approach can be used to reduce the dimensionality of requests for web data whilst ensuring that the overall corpus still approaches the desired properties.
+     
+ % ---
+
+
+\section{Common Tasks}
+Definition of a corpus using external metadata permits manual adaptation of the corpus parameters in a way that is (usually) more meaningful to the end user, allowing it to operate as a construction method as well as an intermediate process between a 'seed corpus' and the resultant target corpus.
+
+
+\begin{itemizeTitle}
+    \item[Construction] Manually specifying the distributions of each external variable allows the corpus to be built from scratch according to a given sampling policy.
+
+    \item[Distribution] Distribution only of the corpus description document simplifies copyright issues and vastly reduces the amount of data transferred, relying on the end user to reconstruct a corpus and allowing known bounds of variance in the properties to be measured.
+
+    \item[Rescaling] A corpus may be profiled and rebuilt or augmented to resize it whilst retaining the same sampling policy.  This is especially valuable where a corpus needs to be augmented with new data, but where there is no reason to discard the original documents.
+
+    \item[Replication] Replication studies are able to use the same corpus description but operate on new data.
+
+    \item[Repair] It is possible to repair a corpus that has missing documents by resampling them to augment the corpus until the overall distribution is similar.
+
+    \item[Anonymisation] Distribution of metadata only allows otherwise-sensitive corpora to be disseminated.
+\end{itemizeTitle}
+
+
+
+
