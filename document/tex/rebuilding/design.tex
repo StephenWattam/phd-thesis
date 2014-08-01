@@ -108,14 +108,141 @@ Instead of sampling a corpus \textsl{of} the web, we are sampling one \textsl{fr
 % ---
 \paragraph{}
 
-There are multiple possible approaches to this retrieval task, which mirror the web corpus building approaches of searching and sorting.  Though only one was selected for implementation, a few are provided here as counterparts to the conventional bootstrap approach, and to serve as suggestions for further research.
+There are multiple possible approaches to this retrieval task, which mirror the web corpus building approaches of searching and sorting.  Each type of metadata may use one or many of these, depending on their relationship to the structure of the web.  They are listed here in descending order of 'direct applied expert opinion': the first item in the list relatively dispassionately seeks similarity, and the last uses human judgement directly to identify documents.
+
+
+
+\paragraph{Searching}
+Using similar methods to BootCaT and other seed-based corpora, it is possible to identify documents conforming to certain metadata values by using a search engine.  This encounters minor difficulties in that it is often necessary to transform an ostensive definition (e.g. the domain from which a text is drawn) into an intensional one (i.e. some keywords or other features typifying the domain) in order to fit the format desired by search engines.
+
+If the method detailed here is used only for metadata types which are retrieved by example (the intensional definition above), then this technique for document-seeking is functionally identical to BootCaT's approach.
+
+
+
+\paragraph{Directed Crawling}
+Another technique widely used in existing tools is crawling.  When downloading documents using a spider, it is common to identify the next set of links (the `fringe') and then select from the fringe using a suitability metric.
+
+The problem of directing a spider is then one of relating the features visible about a link (link text, url features, position in text, etc.) to the value of a document that will be gathered.  This will often involve similar issues to the searching method: it is necessary to examine document content and compare it to some ideal of each metadata value in order to form the link.
+
+Many spiders currently focus on document `goodness' by simple definitions of information content or URL features~\td{cite BildHauer+shaffer directed crawling, UKWAC, Sharoff's russian corpus}---These produce samples that are designed to approach simple random samples (SRS) in order to approximate the population of sites over which they run whilst exploiting the hyperlinked structure of the web.  The approach required to deliberately skew this search is arguably easier than this: a spider may follow rules based on keywords or site features, rather than modelling the content of documents in great detail.
+
+The starting point of each spider may itself be determined by using a search engine.  This is common practice, used to direct spiders to relevant starting points, however, the ratio of crawling/searching used for any given selection may greatly change the output.
+
+
+
+\paragraph{Existing Indices}
+The use of existing indices for certain types of metadata is a main technique used in conventional corpus construction.  Online, however, this avenue is often neglected (except for WebCorp~\td{cite}) despite the existence of many subject-specific indices and general-purpose manually-curated web directories.
+
+By aligning the taxonomies used in metadata to those in an existing web directory, it becomes possible to use the contents of the directory to access documents authoritatively categorised by humans (or to start crawling from these).
+
+This method is subject to errors regarding the age of content on web directories (whose popularity is waning in favour of search engine technology), as well as those introduced by human categorisers whose aims may not be aligned to the definitions required for a given research question.  Additionally, the granularity of each category is fixed and cannot reasonably be changed.
+
+Nonetheless, this method offers an approach that is closest to the approach used in conventional corpora and is easily defended providing that the directory is well trusted.
+\til{Note that 'best of the web' has a specific blog directory and is used by search engines}
+
+\paragraph{Crowdsourcing}
+Crowdsourcing services offer a cheap mechanism for retrieving documents by requesting that humans manually seek a document fitting the prototype metadata.  This method has severe volume and speed limitations not present in the others, however, the accuracy of a human search is likely to be far greater, minimising overdispersion in the output set.
+
+Where a corpus must be duplicated as accurately as possible (yet there is less importance placed on scale or speed of rebuilding), this is most likely a good choice for almost all metadata properties.
+
+The major disadvantage of this method is that the speed of lookup is greatly reduced, bringing the corpus building process closer to that used by a conventional corpus.  The main difference here is that the weight of expertise required to select documents is handed off to those constructing the corpus definition, rather than those searching the indices.
+
+
+
+
+
+
+
+\subsection{Candidate Selection}
+The process of running heuristics will return a set of candidate documents, each of which will be returned under the condition that it satisfies the metadata property that each heuristic is designed for.  The size of this set is dependent on the probability of error, and is discussed below in Section~\ref{sec:rebuilding:design:minerr}.
+
+Since each retrieved document may be missing metadata in some dimensions, it is necessary to infer the values for these from the document itself.  This process may use external variables such as HTTP headers/meta-tags in the header of the document, or internal ones that are assessed using some measure unrelated to the variables of interest to those constructing the corpus.  This process is heuristic-dependent, and may be thought of as an inverse function to the above.
+
+
+
+
+
+\subsection{Iterating to Minimise Error}
+\label{sec:rebuilding:design:minerr}
+It is necessary to iterate an arbitrary number of times to retrieve a full corpus.  If each prototype document is matched closely, a simple repetition of the above will return a corpus that converges to the desired distribution, however, as mentioned in~\ref{?}, this approach may incorporate bias from the population.
+
+There are two possible approaches to working with biased populations:
+
+\begin{itemizeTitle}
+    \item[Feedback from output to target distribution] Adjust the target distribution to reduce the probability for those documents already selected.
+    \item[Rejection sampling]  Select a large number of candidate documents and then identify the document (or subset of documents) that best fits the prototype
+\end{itemizeTitle}
+
+The former of these approaches may seem ideal, however, it will only be effective if sufficient documents have already been selected for each conditional distribution, and if the population distribution is only slightly biased.  It will also slow down the seeking stage of each document and, in the event that the population yields no perfect documents, stop it completely.  It is a stricter and more reliable approach, but also vastly reduces the practicality of any system using it.
+
+Variations on this theme form the basis of many MCMC methods, particularly Metropolis-Hastings.  MCMC algorithms are generally used where it is difficult to estimate marginals, however, this is not the case for our corpus data.
+
+\til{Check that there isn't some way these can be used... [DL]}
+
+The latter, rejection sampling, is much more viable, as the clustered and hyperlinked nature of the internet makes retrieval of many similar documents only slightly more difficult than retrieval of just one.
+
+The [hyper-]volume of the search space increases greatly as dimensions are added.  This is largely mitigated by the directed document hunting approach above, which seeks to minimise the distance between each dimension's sampling distribution and the target.  Simply, the better the heuristics are (measured in terms of precision/recall), the more tractable any selection is and the fewer documents that need selecting.  The number of documents that needs selecting is proportional to the ratio of the areas under the joint ditstributions of the PDF of the heuristics' selections over those of the target distribution.
+
+$$
+numdocs \propto \int{\prod{heuristics}} / \int{\prod{target}}
+$$
+\til{revise the above to be more rigorous}
+
+Where a target is defined in terms only of its marginals (as is likely when constructing a corpus from scratch), the interactions observed will be defined by the population of documents online, and the sample will exhibit conditional distributions that are peculiar to the internet regardless of its marginal distributions.  This approach relaxes the original sampling criteria applied to the seed corpus too, making replication far simpler at the expense of any best-effort approach to minimising bias across multiple dimensions.\td{ahrg}
+
+As the population distribution for each heuristic is unknown (especially if they include interactions), it is impossible to know to what degree it is being undersampled.  This is another source of bias, however, it is one that is clearly labelled as such: those using a heuristic would do well to know its theoretical underpinnings and the methods it uses to select data (just as any corpus user should read the manual).
+
+The main benefit of rejection sampling is that we are able to degrade the performance of the algorithm gracefully.  If, having sampled $n$ documents, we wish to relax the conditions of a match with the prototype, this will have only a minor effect on the corpus (increasing its variance and applying a small bias in the direction of the difference between the population and target modes).  
+
+The degree to (and conditions under) which this relaxation occurs must be determined according to the particular demands of the application for which a sample is being built.
+
+
+
+\section{Measuring Fit}
+A system built with contingency for accepting certain levels of error is of very little use without some method for measuring it in operationalisable terms.
+
+A number of properties of the system are measurable, each yielding information that is useful under different circumstances:
+
+
+\paragraph{Heuristic Quality}
+The quality of each heuristic may be measured according to its ability to return documents satisfying the one metadata value it is seeking.  This may be expressed in terms of precision and recall, or an aggregate thereof such as an F score.
+
+\til{Blather on defining those things?}
+
+The choice of evaluation metric will vary according to the type of metadata and its availability online.  Heuristics operating in particularly large search spaces (such as those primarily using search engines) will desire a greater weight on precision, whereas those seeking rare (online) data will favour recall.  Since heuristics are, ideally, already the results of well-established methods in linguistics, this score and its desirable range should be established empirically prior to use.
+
+The F score may also be generated only for the best documents returned, providing a score for the whole `batch' of documents returned by a heuristic.  This measure is likely to be more representative of stateful heuristics (i.e. those that crawl), however, it conflates the statistics used for measuring document similarity with those used to retrieve them.
+
+Ideally, heuristics form pluggable, reliable modules with known degrees of error that may be ignored when using the method as a source of linguistic data.\td{yeah, right}
+
+
+
+\paragraph{Document Distance}
+It is necessary to identify differences between documents' metadata values both in order to select them from the set returned by each heuristic and to identify overall deviance from the target distribution.  The former is computed after documents have been retrieved by a heuristic but prior to their selection; the latter after selection.
+
+Binary selection criteria (are the metadata in this document the same as another) offer a way to guarantee convergeance to the target distribution.  They are an ideal case which will be tractable in only certain circumstances.
+
+Relaxing the similarity requirement requires a finer-grained distance metric for each metadata value.  The distance for each candidate document may then be measured and a `best fit' selection made.  Alternatively, upper bounds may be set on suitable distances from the prototype for each metadata type, leading to selection of all documents which satisfy those criteria.
+
+Having selected candidate documents using heuristics, it is possible to estimate and then sum the distance each has to its intended value from the prototype.  The sum of squares of each of these will result in the overall error for the target distribution, being analogous to the mean squared error:
+
+$$
+MSE = 1/n\sum_{i=1}^{n}\sum_{d \in D}^{d}{(P_i^d - C_i^d)}
+$$ 
+
+Where $P_i^d$ is the value of metadata type $d \in D$ of prototype document $i$, with $C$ being the equivalent selected document that was ultimately added to the results set.  $n$ is the number of documents selected.
+
+
+
+
+\sepline
+
+
+
+
+
 
 \til{
- * Search for keywords, then take documents on trust
- * Search as seeds, spider, sort fringe by heuristics
- * Scrape links from a web directory or other specific site (i.e. news)
- * Ask people using AMT
-
 
  ---
  * Break into dimensions, search, use rejection sampling
@@ -124,6 +251,9 @@ There are multiple possible approaches to this retrieval task, which mirror the 
  * Send to AMT for manual selection of a document
  (* Use PCA to derive similarity score)
 }
+
+
+
 
 
 

@@ -20,3 +20,26 @@
 
 
 
+%% Define Separators
+% Thanks to Stefan K on http://www.latex-community.org/forum/viewtopic.php?f=5&t=2874
+\newcommand*\sepline{%
+  \begin{center}
+    \rule[1ex]{.5\textwidth}{.5pt}
+  \end{center}}
+%
+\newcommand*\sepdots{%
+  \begin{center}
+    $\bullet\bullet\bullet$
+  \end{center}}%
+%
+
+
+
+%% Whole paragraph indent
+% Thanks to Pauline Anthonysamy
+\newenvironment{indentpar}[1]%
+{\begin{list}{}%
+        {\setlength{\leftmargin}{#1}}%
+    \item[]%
+    }%
+{\end{list}}%
