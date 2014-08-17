@@ -113,6 +113,7 @@ There are multiple possible approaches to this retrieval task, which mirror the 
 
 
 \paragraph{Searching}
+\label{sec:rebuilding:design:searching}
 Using similar methods to BootCaT and other seed-based corpora, it is possible to identify documents conforming to certain metadata values by using a search engine.  This encounters minor difficulties in that it is often necessary to transform an ostensive definition (e.g. the domain from which a text is drawn) into an intensional one (i.e. some keywords or other features typifying the domain) in order to fit the format desired by search engines.
 
 If the method detailed here is used only for metadata types which are retrieved by example (the intensional definition above), then this technique for document-seeking is functionally identical to BootCaT's approach.
@@ -158,8 +159,7 @@ The process of running heuristics will return a set of candidate documents, each
 
 Since each retrieved document may be missing metadata in some dimensions, it is necessary to infer the values for these from the document itself.  This process may use external variables such as HTTP headers/meta-tags in the header of the document, or internal ones that are assessed using some measure unrelated to the variables of interest to those constructing the corpus.  This process is heuristic-dependent, and may be thought of as an inverse function to the above.
 
-
-
+Documents may be ranked by similarity in vector space only after normalising each metadata distance metric (otherwise, distance metrics liable to output large numbers would be apportioned a larger importance in overall fit).  This method also allows imposition of weights to specify which dimensions must fit more accurately.
 
 
 \subsection{Iterating to Minimise Error}
@@ -213,8 +213,9 @@ The choice of evaluation metric will vary according to the type of metadata and 
 
 The F score may also be generated only for the best documents returned, providing a score for the whole `batch' of documents returned by a heuristic.  This measure is likely to be more representative of stateful heuristics (i.e. those that crawl), however, it conflates the statistics used for measuring document similarity with those used to retrieve them.
 
-Ideally, heuristics form pluggable, reliable modules with known degrees of error that may be ignored when using the method as a source of linguistic data.\td{yeah, right}
+Ideally, heuristics form pluggable, reliable modules with known degrees of error that may be ignored when using the method as a source of linguistic data.\td{yeah, right}  The degree to which this applies is defined by how well each is aligned with a source of data: Keyword-based heuristics, for example, are well aligned with the search systems of search engines, but poorly aligned with the strengths and weaknesses of humans seeking a document type.
 
+The value a heuristic yields is a trade-off between how closely it describes the document and how accurately it is possible to retrieve a document from the source. \td{perhaps remove, poorly worded}
 
 
 \paragraph{Document Distance}
