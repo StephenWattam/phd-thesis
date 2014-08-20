@@ -13,48 +13,10 @@
 % \text and more in math mode
 \usepackage{amsmath}
 
-% hyperref
-\usepackage[pdfauthor={Stephen Wattam},pagebackref]{hyperref}
-\hypersetup{
-    hidelinks=true,
-    unicode=true,   % Enable the 21st century
-    pdfborder={0,0,0,[]},
-    pdfauthor={Stephen Wattam},
-    linkbordercolor={0 0 0},
-    citebordercolor={0 0 0},
-    urlbordercolor={0 0 0},
-    urlcolor=blue,
-    filecolor=black,
-    citecolor=blue,
-    linkcolor=black,
-    colorlinks=true,
-    bookmarks=true
-}
-
 % Merging table cells.
 \usepackage{multirow}
-
-% PDF bookmarks
-\usepackage{bookmark}
-
 % Remove me after drafting
 \usepackage{ifdraft}
-
-% Watermark if in draft mode
-\ifdraft{
-    \usepackage{draftwatermark}
-    \SetWatermarkScale{1.5}
-    \SetWatermarkLightness{0.95}
-}{}
-
-% Page layout (margins)
-\ifdraft{
-    % inline layout
-    \usepackage[left=38mm,top=25mm,right=38mm,bottom=25mm]{geometry}
-}{
-    % book layout (asymmetric)
-    \usepackage[left=38mm,top=25mm,right=25mm,bottom=25mm]{geometry}
-}
 
 % Code Listings
 \usepackage{listings}
@@ -69,7 +31,6 @@
 \linespread{1.45}    % double spacing is 1.6, half is 1.3
 % \onehalfspacing
 % \doublespacing
-
 
 % configure graphics
 \setkeys{Gin}{draft=false}  % Graphics show in draft mode
@@ -90,13 +51,57 @@
 % Two column blocks
 % \usepackage{multicol}
 
+% Subliminal text position hints
+% Requires PdfTeX, XeTeX or LuaTeX
+\usepackage{microtype}
+
 % Restrictions on figure movement
 \usepackage{placeins}
 
+% hyperref
+\usepackage{hyperref}
+\hypersetup{
+    pagebackref=true,
+    final=true,     % Show even when doc is in draft mode
+    hidelinks=true,
+    unicode=true,   % Enable the 21st century
+    pdfborder={0,0,0,[]},
+    pdfauthor={Stephen Wattam},
+    linkbordercolor={0 0 0},
+    citebordercolor={0 0 0},
+    urlbordercolor={0 0 0},
+    urlcolor=blue,
+    filecolor=black,
+    citecolor=blue,
+    linkcolor=black,
+    colorlinks=true,
+    bookmarks=true
+}
+
+% PDF bookmarks
+% \usepackage{bookmark}
+
 
 % ------------------------------------------------------------------------------
-%  Stuff to remove after drafting 
+%  Drafting 
 % ------------------------------------------------------------------------------
+%
+% Watermark if in draft mode
+\ifdraft{
+    \usepackage{draftwatermark}
+    \SetWatermarkScale{1.5}
+    \SetWatermarkLightness{0.95}
+}{}
+
+% Page layout (margins)
+\ifdraft{
+    % inline layout
+    \usepackage[left=38mm,top=25mm,right=38mm,bottom=25mm]{geometry}
+}{ % else
+    % book layout (asymmetric)
+    \usepackage[left=38mm,top=25mm,right=25mm,bottom=25mm]{geometry}
+}
+
 \ifdraft {
     \usepackage{todonotes}
     \newcommand{\td}[1]{\todo[fancyline,size=\tiny,color=yellow!20]{#1}}
@@ -154,11 +159,13 @@
 
 
 \chapter{Introduction}
+\label{sec:introduction}
 \input{tex/introduction}
 
 
 
 \chapter{Review of Literature}
+\label{sec:litreview}
 \input{tex/litreview}
 % The lit review ends with a discussion of WaC issues.
 % It's possible that this discussion is best held within its own chapter,
@@ -166,10 +173,12 @@
 
 
 \chapter{Web Sampling Issues}
+\label{sec:webissues}
 \input{tex/webissues}
 
 
 \chapter{Proportionality: A Case Study}
+\label{sec:personal}
 \input{tex/personal}
 
 
@@ -179,9 +188,11 @@
 
 
 \chapter{Describing, Building and Rebuilding}
+\label{sec:personal}
 \input{tex/rebuilding}
 
 \chapter{Evaluation/Discussion}
+\label{sec:evaluation}
 \input{tex/evaluation}
 
 \chapter{Conclusions \& Review}
@@ -194,7 +205,7 @@
 \pagebreak%
 \bibliographystyle{swBibStyle}%
 \backmatter%
-\bibliography{../bib/PhilScience,../bib/CorpusDesign,../bib/Representativeness,../bib/Sampling,../bib/PersonalCorpora,../bib/WebAsCorpus}
+\bibliography{../bib/PhilScience,../bib/CorpusDesign,../bib/Representativeness,../bib/Sampling,../bib/PersonalCorpora,../bib/WebAsCorpus,../bib/Methods}
 % }
 
 

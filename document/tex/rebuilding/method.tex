@@ -9,10 +9,10 @@ In order to test the design outlined in Section~\ref{?}, a software tool was pro
 This forms one of the scenarios detailed above, as well as covering a superset of the features required for some simpler workflows (such as repairing a corpus).  This section details the design and architecture of the solution produced.
 
 
-\section{Architecture/overview of iterative algorithm}
+\subsection{Architecture/overview of iterative algorithm}
 The tool, named `ImputeCaT', is a small collection of command-line tools written using the Ruby programming language\footnote{\url{https://www.ruby-lang.org/en/}}. It is structured around two main executables: the former of these is called the Corpus ProfileR (hereafter `cpr'), and is responsible to reading a corpus, extracting its metadata, and serialising the resultant distribution to disk.  The latter reads, resamples, and attempts to retreive documents matching an existing corpus---as it is seeking a gold standard, it is named the Golden [standard] Retriever (or simply `gr').
 
-The separation of the tools at that stage offers many advantages: firstly the serialised corpus distribution acts as a file format, allowing a corpus to be pased between users, and secondly it offers a `DMZ' approach to information security: there is no mechanism for any (potentially sensitive or confidential) information from the original corpus to be used by the retrieval tool, except that which has been explicitly extracted.  Finally, this approach permits easy parallel execution of tools using a corpus description for read-only tasks.
+The separation of the tools at that stage offers many advantages: firstly the serialised corpus distribution acts as a file format, allowing a corpus to be passed between users, and secondly it offers a `DMZ' approach to information security: there is no mechanism for any (potentially sensitive or confidential) information from the original corpus to be used by the retrieval tool, except that which has been explicitly extracted.  Finally, this approach permits easy parallel execution of tools using a corpus description for read-only tasks.
 
 
 Currently, both tools read descriptions of metadata type (and other resources) from a `profile' file.  This provides corpus-design-specific configuration data that would otherwise be impractical to enter through the command-line (for example, mappings from field names to metadata types).
@@ -20,7 +20,7 @@ Currently, both tools read descriptions of metadata type (and other resources) f
 
 
 
-\subsection{Document Description}
+\subsubsection{Document Description}
 Documents are the sampling unit of ImputeCaT, and are used as atoms in sampling algorithms.  Each document is represented as a key-value store of metadata `names' (assigned using the profile description) and their respective values, along with the content that is being represented in the form of a plain text string.
 
 This structure is used even where a document lacks text: building a corpus description from metadata will create a corpus with many documents, yet these will be populated solely by metadata fields and will have empty content elements.  Documents are mutable, and as they pass through the system they are liable to be edited in order to refine and change their contents according to a number of processes.
@@ -28,7 +28,7 @@ This structure is used even where a document lacks text: building a corpus descr
 
 
 
-\subsection{Corpus Description}
+\subsubsection{Corpus Description}
 
 
 \begin{figure}[h]
@@ -77,7 +77,7 @@ It is possible to design a corpus that has no documents, and is simply a descrip
 It is also possible to import a corpus from text only, by running classifiers and heuristics to extract important metadata during the import.  This method requires access to the full text of the input corpus, but has the benefit of making any errors symmetric with those of the rejection sampling phase of the retrieval tool.
 
 
-\subsection{Resampling}
+\subsubsection{Resampling}
 
 \lstset{language=,caption={Output from the conditional resampler, run on the BNC corpus.},label=lst:rebuilding:condsampler}
 \begin{lstlisting}
@@ -109,7 +109,7 @@ The `gr' tool uses the full conditional sampler exclusively: this provides the m
 % ----------------------------------------------------------------------------------
 
 
-\section{Document Search \& Retrieval}
+\subsection{Document Search \& Retrieval}
 After loading the corpus description and profile from disk, the process of iteratively retrieving documents begins.  There are a number of different approaches to this task (as detailed in Section~\ref{sec:rebuilding:design:searching}): `gr' uses one that is designed to minimise interactivity during execution, in order to permit construction of arbitrarily large corpora with little effort.
 
 The process of rebuilding a corpus is one of iterating the algorithm below until the size requirements are met:
@@ -129,7 +129,7 @@ Output is in the form of plaintext, along with stand-off documentation providing
 
 
 
-\subsection{Search Methods}
+\subsubsection{Search Methods}
 Methods used for searching as implemented as pluggable objects that accept a document to search for (and the names of any metadata field types they respect) and follow some procedure for retrieving candidate documents.
 
 Search methods need not retrieve documents by searching for all metadata fields (though ideal, this is essentially not possible online or anywhere else), however, they should maximise variation in dimensions which they do not deliberately target in order to increase the coverage over the search space.  Use of multiple overlapping search strategies in construction of each candidate set ensures that each dimension of metadata is given an equal chance of being selected correctly.
@@ -164,7 +164,7 @@ The hybrid approach uses a search term or directory entry as a set of seed URLs 
 
 The most na\"ive implementation, implemented here, simply spiders a certain depth from each search URL.  It is also possible to select URLs to follow based on the prototype's values, either to seek a document directly or to maximise variation across non-controlled-for dimensions.
 
-
+In his examination of different sources of URLs, Barbaresi identifies a lack of diversity in search engine results relative to sources such as DMOZ~\cite[p.~5]{barbaresi2014finding}, whilst also noting that such directories underperform when applied to certain languages.  The prototype-seeking behaviour detailed here has the benefit of being able to switch between such approaches depending on language, maximising coverage for a given URL source.
 
 
 
@@ -184,7 +184,7 @@ Boilerplate removal is performed by justext~\footnote{\url{http://code.google.co
 
 
 
-\subsection{Heuristics}
+\subsubsection{Heuristics}
 Hailing from multiple sources, documents are unlikely to be annotated with sufficient metadata to permit comparison to the prototype.  It is thus often necessary to impute the values of metadata from what external variables are available (for example, meta-tags or HTTP headers) and the document content itself.
 
 Unlike search strategies, heuristics need not consider the practical concerns of data sources, and are thus easier, simpler algorithms, often comprising simple classifiers or counts.  Nonetheless, error in these routines sums with other sources of dispersion: mechanisms for measuring the overall error of corpus documents (detailed below in Section~\ref{sec:rebuilding:method:errormeasure}) conflate these two sources.
@@ -197,7 +197,7 @@ Genres are imputed through the use of a keyword-based classifier.  This is one o
 
 \til{Go on about taxonomy choice, cite Sharoff 'Classifying Web corpora into domain and genre using automatic feature identification'}
 
-The classifier in ImputeCaT is tasked with accurate identification of classes taken from Lee's BNC index.  These proved to be difficult to classify accurately, resisting na\"ive bayes and latent semantic indexing approaches.  One possible reason for this is their tendency to conflate topic with form: \variable{W\_email} and \variable{W\_hansard} are largely stylistic differentiations compared to \variable{W\_religion} and \variable{W\_ac\_medicine}.
+The classifier in ImputeCaT is tasked with accurate identification of classes taken from Lee's BNC index~\cite{lee2001genres}.  These proved to be difficult to classify accurately, resisting na\"ive bayes and latent semantic indexing approaches.  One possible reason for this is their tendency to conflate topic with form: \variable{W\_email} and \variable{W\_hansard} are largely stylistic differentiations compared to \variable{W\_religion} and \variable{W\_ac\_medicine}.
 
 Currently, ngram lists for each category are compared to the target document: the list with the greatest rank correlation is scored as the most likely category.  This technique is susceptible to the word count of the document to be classified, with accuracy falling greatly when applied to below 1000 words.  \td{make graph, talk more}
 
@@ -206,29 +206,35 @@ Currently, ngram lists for each category are compared to the target document: th
 The difficulty with which genre is classified makes a case for careful selection of metadata, and illustrates a compromise: often, the most operationalisable and useful metadata selection will not be easily understood by computers, and yet more synthetic features extracted from texts are often difficult to seek in an online environment that is designed specifically for human use.
 
 
-\paragraph{Reading Ease}
+\paragraph{Audience Level}
 
 \begin{table}[h]
     \center
-    \begin{tabular}{|c|c|}
+    \begin{tabular}{|c|c|c|}
         \hline 
-        Flesch-Kincaid Reability score & BNC Audience level \\
+        Flesch-Kincaid Reability score & BNC Audience level & Standard Deviation \\
         \hline 
-        80 & Low \\
-        55 & Med \\
-        30 & High \\
+        63 & Low & 14.4\\
+        55 & Med & 12.7 \\
+        47 & High & 12.4\\
+        82 & (unclassified, speech) & 20.6 \\
         \hline
     \end{tabular}
     \caption{Target Flesh-Kincaid scores and their equivalent BNC categorisation.}
     \label{tab:rebuilding:method:fkscore}
 \end{table}
+%Readability ranks: 
+% -  low: 664  items, mean = 62.95293871760397, sd = 14.424512199650604, var = 208.06655219786907
+% -  med: 1651 items, mean = 55.44412267430666, sd = 12.76812426643693,  var = 163.02499728317557
+% - high: 820  items, mean = 47.70965585209567, sd = 12.445956325065204, var = 154.90182884543054
+% -  ---: 914  items, mean = 82.02288020623476, sd = 20.6424573733852,   var = 426.111046412025
 
-Reading ease metrics are used to estimate the `Audience Level' classification provided by Lee.  This takes the form of the Flesh-Kincaid readability score, quantised through selection of the `nearest target value as in Table~\ref{tab:rebuilding:method:fkscore}.
 
-Distance is normalised on this score by dividing the distance between classifications by the maximum distance possible between all classifications.
+Reading ease metrics are used to estimate the `Audience Level' classification provided by Lee.  This takes the form of the Flesch-Kincaid readability score~\cite{kincaid1975derivation}, quantised through selection of the `nearest target value as in Table~\ref{tab:rebuilding:method:fkscore}.
 
-\til{Find an authoritative source for the exact levels used before proper testing}
+Distance is normalised on this score by dividing the distance between classifications by the maximum distance possible between all classifications.  The score is thus output in terms of distance between categories: comparison of any `low' score to any `high' one will be equal regardless of the degree to which the original value is low or high.
 
+Note that this categorisation is a design choice on behalf of the corpus builder: it is also possible to code the reading ease measure as a continuous value, which would offer more nuanced measurement of similarity.
 
 
 \paragraph{Word Count}
@@ -239,7 +245,7 @@ Whilst this imputation algorithm is trivial, normalising the distance metric is 
 
 
 
-\subsection{Measurement of Error}
+\subsubsection{Measurement of Error}
 \label{sec:rebuilding:method:errormeasure}
 Notably, by scoring each document according to its target, it is possible to measure overall error for each metadata property as the corpus is being built.  In a unidimensional context this greatly simplifies the process of minimising error (since it is possible to adjust the seed distribution to compensate for errors on-the-fly), however, such comparisons would be intractable when applied to the intricate conditional distributions found in real-world corpora.
 

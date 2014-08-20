@@ -1,15 +1,14 @@
 
-
-The system is designed as two complementary components:
+The method proposed here is built around two processes, each of which may be implemented in a number of ways (including through manual processing).
 
 \begin{enumerate}
     \item A corpus profiling tool, which produces a metadata-only description of the corpus as a multivariate distribution;
     \item A targeted retrieval tool, that attempts to produce a corpus with the same distribution.
 \end{enumerate}
 
+The former of these is analogous to a conventional bootstrapping technique, using Markov-chain Monte Carlo methods to sample from a conditional distribution.  The latter may be accomplished a number of ways, including through manual (or crowdsourced) selection of documents, or use of existing search tools.
 
-
-\section{Profiling}
+\subsection{Profiling}
 The process of constructing a corpus description may be started either from a seed corpus, or from direct user design.
 
 \begin{figure}[h]
@@ -31,7 +30,7 @@ Those specifying variables to describe must, as with all sampling, be mindful of
 
 % ---
 
-\section{Retrieval}
+\subsection{Retrieval}
 Retrieval in accordance with the complex distributions specified in a corpus description is challenging in two ways:
 
 \begin{itemize}
@@ -43,7 +42,7 @@ The former of these is difficult because many seed corpora may lack sufficient d
 
 
 
-\subsection{Resampling}
+\subsubsection{Resampling}
 
 \td{cite this}
 \begin{figure}[h]
@@ -75,7 +74,7 @@ The former of these, whilst faster and simpler, will fail to take into account a
 
 
 
-\subsection{Seeking the Prototype}
+\subsubsection{Seeking the Prototype}
 The main practical problem of sampling according to the original corpus' distribution is now framed as an information retrieval task.
 
 This retrieval task is challenging on its own, but errors in performing it have specific ramifications for this sampling process:
@@ -125,20 +124,20 @@ Another technique widely used in existing tools is crawling.  When downloading d
 
 The problem of directing a spider is then one of relating the features visible about a link (link text, url features, position in text, etc.) to the value of a document that will be gathered.  This will often involve similar issues to the searching method: it is necessary to examine document content and compare it to some ideal of each metadata value in order to form the link.
 
-Many spiders currently focus on document `goodness' by simple definitions of information content or URL features~\td{cite BildHauer+shaffer directed crawling, UKWAC, Sharoff's russian corpus}---These produce samples that are designed to approach simple random samples (SRS) in order to approximate the population of sites over which they run whilst exploiting the hyperlinked structure of the web.  The approach required to deliberately skew this search is arguably easier than this: a spider may follow rules based on keywords or site features, rather than modelling the content of documents in great detail.
+Many spiders currently focus on document `goodness' by simple definitions of information content or URL features~cite{schafer2014focused,ferraresi2008introducing}\td{cite 'big and diverse is beautiful'}---These produce samples that are designed to approach simple random samples (SRS) in order to approximate the population of sites over which they run whilst exploiting the hyperlinked structure of the web.  The approach required to deliberately skew this search is arguably easier than this: a spider may follow rules based on keywords or site features, rather than modelling the content of documents in great detail.
 
 The starting point of each spider may itself be determined by using a search engine.  This is common practice, used to direct spiders to relevant starting points, however, the ratio of crawling/searching used for any given selection may greatly change the output.
 
 
 
 \paragraph{Existing Indices}
-The use of existing indices for certain types of metadata is a main technique used in conventional corpus construction.  Online, however, this avenue is often neglected (except for WebCorp~\td{cite}) despite the existence of many subject-specific indices and general-purpose manually-curated web directories.
+The use of existing indices for certain types of metadata is a main technique used in conventional corpus construction.  Online, however, this avenue is often neglected (with the notable exception of WebCorp~\td{renouf2003webcorp} and Barbaresi's examination of indices as seed URL sources~\cite{barbaresi2014finding}) despite the existence of many subject-specific indices and general-purpose manually-curated web directories.
 
 By aligning the taxonomies used in metadata to those in an existing web directory, it becomes possible to use the contents of the directory to access documents authoritatively categorised by humans (or to start crawling from these).
 
 This method is subject to errors regarding the age of content on web directories (whose popularity is waning in favour of search engine technology), as well as those introduced by human categorisers whose aims may not be aligned to the definitions required for a given research question.  Additionally, the granularity of each category is fixed and cannot reasonably be changed.
 
-Nonetheless, this method offers an approach that is closest to the approach used in conventional corpora and is easily defended providing that the directory is well trusted.
+Nonetheless, such an approach is close to that used in conventional corpora and is easily defended providing that the directory is well trusted.
 \til{Note that 'best of the web' has a specific blog directory and is used by search engines}
 
 \paragraph{Crowdsourcing}
@@ -154,7 +153,7 @@ The major disadvantage of this method is that the speed of lookup is greatly red
 
 
 
-\subsection{Candidate Selection}
+\subsubsection{Candidate Selection}
 The process of running heuristics will return a set of candidate documents, each of which will be returned under the condition that it satisfies the metadata property that each heuristic is designed for.  The size of this set is dependent on the probability of error, and is discussed below in Section~\ref{sec:rebuilding:design:minerr}.
 
 Since each retrieved document may be missing metadata in some dimensions, it is necessary to infer the values for these from the document itself.  This process may use external variables such as HTTP headers/meta-tags in the header of the document, or internal ones that are assessed using some measure unrelated to the variables of interest to those constructing the corpus.  This process is heuristic-dependent, and may be thought of as an inverse function to the above.
@@ -162,7 +161,7 @@ Since each retrieved document may be missing metadata in some dimensions, it is 
 Documents may be ranked by similarity in vector space only after normalising each metadata distance metric (otherwise, distance metrics liable to output large numbers would be apportioned a larger importance in overall fit).  This method also allows imposition of weights to specify which dimensions must fit more accurately.
 
 
-\subsection{Iterating to Minimise Error}
+\subsubsection{Iterating to Minimise Error}
 \label{sec:rebuilding:design:minerr}
 It is necessary to iterate an arbitrary number of times to retrieve a full corpus.  If each prototype document is matched closely, a simple repetition of the above will return a corpus that converges to the desired distribution, however, as mentioned in~\ref{?}, this approach may incorporate bias from the population.
 
@@ -198,7 +197,7 @@ The degree to (and conditions under) which this relaxation occurs must be determ
 
 
 
-\section{Measuring Fit}
+\subsection{Measuring Fit}
 A system built with contingency for accepting certain levels of error is of very little use without some method for measuring it in operationalisable terms.
 
 A number of properties of the system are measurable, each yielding information that is useful under different circumstances:
