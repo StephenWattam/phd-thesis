@@ -1,0 +1,40 @@
+
+
+The overall method used in this evaluation is one of treating the system to be tested as a method of replicating the features of a corpus, passing statistical properties of the input corpus through to the output.
+
+The capacity of any system using auxiliary data to do this is dependent on the nature of the population, and how it relates to the input.  The data used for evaluation must then be a subset of the population of documents accessible using the search heuristics chosen---if testing with another seed corpus, one must change the search strategy modules to fit, changing the overall results of the tool.  Essentially, this is a manifestation of 'garbage in, garbage out': moving search strategies into the implementation merely makes this more explicit.
+
+One method of testing this is to see the output corpus as a model of the input, given certain assumptions that include the selection of metadata types and search strategies: providing those assumptions hold, much of the variation in the input corpus ought to be explained by variation in the output.  Measuring deviance between the two allows us to identify specific areas of poor fit, which can then be improved either by altering the pluggable modules to fit the ground truth.
+
+The purpose of this evaluation is to test both the search modules used for the particular corpora given, and the overall method: if no set of reasonable assumptions can be found, this is an indication either that the population of documents online is fundamentally different to that of the input corpora tested, or the method presented here is incapable \textsl{by design} of identifying appropriate documents.
+
+% --
+
+Research questions surrounding this method run to:
+
+\begin{itemizeTitle}
+
+    \item[Components] How valid are the assumptions of each of the retrieval methods and heuristics selected?
+
+    \item[Overall Application] For general-purpose input corpora, to what extent (and in what manner) does the output corpus resemble the input `seed' corpus?
+
+    \item[Feature Correlation] Do the differences between two input corpora match those between two corpora built using them as seeds?
+
+    \item[Residual Variance] What consistent features remain variable between the output and input corpora, i.e. what data cannot be sought online using the heuristics/search methods selected.
+
+\end{itemizeTitle}
+
+The accuracy of each heuristic component is constributory to the excess dispersion in the output corpus.  By design these modules are unambitious, relying on existing methods and tools already tested in the literature, however, their performance upon the data used here will be evaluated in order to better explain sources of error.  As this system remains a proof of concept, the selection of these modules is limited.
+
+
+
+
+
+
+\til{put in discussion: this restriction already exists for tools like bootcat, but without the explicit control over search mechanisms provided using the method being evaluated here.  Since there is no theoretical way around the `garbage in garbage out' problem, providing easy operationalisation to users is one approach to reducing overall methodological errors}
+
+---notably, selecting a wildly different input corpus without changing the sources of data will result in wildly different 
+
+
+
+

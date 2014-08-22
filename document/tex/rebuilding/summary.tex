@@ -4,7 +4,7 @@ This section has detailed the design and implementation of a system that is desi
 
 This approach is beneficial compared to more conventional bootstrapping as it permits inspection and adjustment of metadata at a level relevant to the use a corpus is likely to be put to: the external metadata.  This also allows us to inspect and manage bias somewhat, under the assumption that we are able to translate the meaning of metadata in the context of the seed corpus to another source of documents (such as a search engine).
 
-This mechanism is an approach to defeating Moravec's paradox~\cite{moravec1988mind}: a compromise between the low-level, unambiguous features needed to represent a corpus accurately to a computer and the high-level, biased mechanisms of selection online, which are oriented towards providing a commercial service to humans.  Careful selection of said metadata is thus crucial to ensure that this balance is respected in the resultant corpus, particularly with respect to any aspects that should be studied.  It is the intention of the design detailed here to make that process explicit, replicable, and repeatable: where this is not possible, the sources of error are documented.
+This mechanism is a workaround for Moravec's paradox~\cite{moravec1988mind}: a compromise between the low-level, unambiguous features needed to represent a corpus accurately to a computer and the high-level, biased mechanisms of selection online, which are oriented towards providing a commercial service to humans.  Careful selection of said metadata is thus crucial to ensure that this balance is respected in the resultant corpus, particularly with respect to any aspects that should be studied.  It is the intention of the design detailed here to make that process explicit, replicable, and repeatable: where this is not possible, the sources of error are documented.
 
 The implementation detailed herein constitutes a single workflow, the dissemination and replication of a corpus.  This workflow was selected as it is largely a superset of the others, demanding accurate description and automated identification/retrieval/assessment of potential documents in a `turnkey' manner.
 
@@ -22,5 +22,3 @@ The use of searching and keyword lists in document retrieval bears comparison to
 In addition to these, the framing of an input corpus in terms of human-usable metadata means that a measure of retrieval error is possible for ImputeCaT, something that must be performed from the resultant keywords in those systems working bottom-up\footnote{Though ultimately these constitute the same process, there is value in translating it through a human-reable lens.}.
 
 
-\subsection{Further Work}
-\til{ Generalised form.  Tools for each of the different operations (repairing a corpus?).  Error-based biasing for retrieval. }

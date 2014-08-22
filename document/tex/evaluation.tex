@@ -1,43 +1,53 @@
-\section{Introduction}
-Assessing the degree to which a sample represents the ground truth is an inherently difficult task, and one which is typically performed by comparison against `known good' data, or through the use of heuristics and checks involving reasoning about the world.
-
-These strategies are particularly challenging for corpora, as linguistic data is both high in dimension and complexity, and the population being sampled may be vast.  In addition to this, corpora are so large that they are not practicably readable by a single person, and are difficult to qualitatively summarise or observe in an overview context.
-
-Approaches available to corpus linguists centre around feature extraction and comparison, or evaluation for a given task.  
-
-\til{ more, cover human comparison using sampling / triadic stuff }
+\section*{Introduction}
+\label{sec:evaluation:introduction}
+\input{tex/evaluation/introduction}
 
 
+
+
+
+\section{Objectives/Research Questions}
+\label{sec:evaluation:rqs}
+\input{tex/evaluation/research_questions}
 
 
 
 \section{Method}
-\subsection{Assessing Bias}
-\til{The problem of establishing a measure for bias, especially in such hugely-dimensioned data}
-
-\subsection{Similarity Measures}
-\til{Discuss the problem of evaluating a sample that has a gazillion dimensions, outline why a linguistic approach was chosen (and which one[s]).
-
-Cover literature comparing corpora in various dimensions.
-
-Triadic design and crowdsourcing.
-}
+\label{sec:evaluation:}
+Discuss the two approaches
+\subsection{Partial/white box}
+each component can be appraised here
+\subsection{Complete/black box}
+The whole lot also need looking at.
 
 
+\section{Data}
+\label{sec:evaluation:method}
+Discuss which corpora were chosen and why
+
+\section{Results}
+\label{sec:evaluation:}
+Provide quantitative measures for the two evaluation methods
+\subsection{Partial/white box}
+Show how well classifiers and heuristics behave
+\subsection{Complete/black box}
+Show how well the whole system works
 
 
+\section{Discussion}
+\label{sec:evaluation:discussion}
+Talk about the various strengths/weaknesses w.r.t. the original RQs and the goals in ch5.
+\subsection{Choice of submodules}
+talk about which heuristics seem good, and what needs improving
 
 
-
-\til{The below are aligned with habeas' use cases outlined in `repeating'}
-\section{Corpus Dissemination}
-Homogeniety of corpora built from the same CDL across various likely conditions, such as [web] location and time.
-
-
-\section{Corpus Construction}
-Similarity of a corpus to its CDL, as determined by humans.  This is, in a way, also a test of the ability to construct personal corpora (such that the proportions and CDL properties are taken from a 'seed' corpus).
+\section{Summary}
+How well does the system work w.r.t. chapter 5 aims and objectives, and how well does this chapter 
+answer its own RQs.
 
 
+\section{Further Work}
+\label{sec:evaluation:furtherwork}
+Cover the heuristics and modules that need making, and possible tweaks to the error feedback mechanism.  Also comment on the knowledge we have of various populations online and how this impacts inherited bias.
 
-
-
+Link to an appendix with the generalised form of the proxy corpus thingy?
