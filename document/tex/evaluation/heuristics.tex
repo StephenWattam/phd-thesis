@@ -1,0 +1,29 @@
+The heuristics selected for this evaluation are formed around Lee's BNC World index~\cite{lee2001genres}.  This selection was chosen because of their alignment to operationalisable, human-level metadata and the existence of multiple corpora with this level of annotation.
+
+
+
+There are two main approaches to populating the corpus description using these heuristics: either read the seed corpus' contents and classify each data point, or read a list of metadata from an existing index.  The latter approach is used in this evaluation, since it is applicable to corpora with partially-missing data (such as the personal corpus data resulting from data gathering in Chapter~\ref{5}).
+
+The accuracy of the classifiers listed here is responsible for minimising excess dispersion relative to the input corpus.  The nature of their residual error is also going to apply bias to the resulting data set.
+
+Since many of these heuristics surround operationalising a corpus, a large body of research exists for classifying and extracting useful dimensions from texts.  The heuristics presented here are proof-of-concept only, and it is expected that the design of the heuristics used for a study is selected to match the theoretical basis of any analysis.
+
+The heuristics presented here are document-level.  In most corpus designs, word count would be considered a measure of the size of the corpus (rather than a property of its constituents).  The method evaluated here is capable of retrieving truly IID samples at different levels, and demands a different selection of heuristics and metadata when operating at the word or sentence level.  Document level metadata are both high-level enough to be distributed for confidential corpora and descriptive enough to enable accurate retrieval (by contrast, word or part-of-speech frequencies would reveal much of the contents of the original corpus, which may not be desirable).
+
+\subsection{Audience Level}
+* Reading level used as an estimator
+* Means, standard deviations computed from BNC
+* Accuracy test with nearest-mean classifier
+
+\subsection{Word Count}
+* Compare word counts to BNC files
+* Talk about boilerplate removal
+
+\subsection{Genre}
+* Classifier description
+* Talk about rationality of errors
+* Talk about how difficult this is
+* Evaluate unigram, ngram, naive bayes
+* Comment on the choice of genres, how artificial or simple ones might be better (perhaps aligned with data source such as DMOZ?)
+
+
