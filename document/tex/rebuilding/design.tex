@@ -2,14 +2,14 @@
 The method proposed here is built around two processes, each of which may be implemented in a number of ways (including through manual processing).
 
 \begin{enumerate}
-    \item A corpus profiling tool, which produces a metadata-only description of the corpus as a multivariate distribution;
-    \item A targeted retrieval tool, that attempts to produce a corpus with the same distribution.
+    \item Corpus profiling, which produces a metadata-only description of the corpus as a multivariate distribution;
+    \item Targeted retrieval, attempting to produce a corpus with the same distribution.
 \end{enumerate}
 
-The former of these is analogous to a conventional bootstrapping technique, using Markov-chain Monte Carlo methods to sample from a conditional distribution.  The latter may be accomplished a number of ways, including through manual (or crowdsourced) selection of documents, or use of existing search tools.
+The latter of these may be accomplished most easily by a process of bootstrapping: using Markov-chain Monte Carlo methods to sample from a conditional distribution.  These samples can then be sought a number of ways, such as manual (or crowdsourced) selection of documents, or use of existing search tools.
 
 \subsection{Profiling}
-The process of constructing a corpus description may be started either from a seed corpus, or from direct user design.
+The process of constructing a corpus description is outlined in~\ref{fig:rebuilding:profiling}.  This may be started either from a seed corpus, or from direct user design.
 
 \begin{figure}[h]
     \centering
@@ -19,14 +19,13 @@ The process of constructing a corpus description may be started either from a se
 \end{figure}
 
 
-The process of building a corpus description is outlined in~\ref{fig:rebuilding:profiling}.  For direct use, the user would specify their salient dimensions, and the distribution for each.  This is essentially a description of the sampling policy---where variables are discrete and nominal (such as genre labels), this would take the form of a table with desired proportions against each.  Where variables are continuous, a probability density function is defined.  Note that this method does not, without prohibitive complexity, allow for specification of interactions between variables\td{return to this and comment on it later}.
+For direct use, the user would specify their salient dimensions, and the distribution for each.  This is essentially a description of the sampling policy---where variables are discrete and nominal (such as genre labels), this would take the form of a table with desired proportions against each.  Where variables are continuous, a probability density function is defined.  Note that this method does not, without prohibitive complexity, allow for specification of interactions between variables, leaving it unable to represent, for example, differing genres within spoken and written portions of a corpus\td{c,o,m,m,a,s}\td{return to this and comment on it later}.
 
 Profiling through the use of a `seed' corpus begins with specifications of the salient dimensions, the data for which are then read from the seed (by $f()$ and $g()$ functions in the figure).  As each document is read, the corpus description may contain information not only on marginal distributions for each variable, but also the effects of conditioning on one or more value.
 
-Note that, whichever method is used, this stage is merely a metadata description task.  The corpus description document itself contains no more information than the metadata of the corpora from which is it built---indeed, where all variables are both external and nominal, this reduces to a simple table of frequencies for each desired value.  
+Note that, whichever method is used, this stage is merely a metadata description task.  The corpus description document itself contains no more information than the metadata of the corpora from which is it built---for specifications involving full data on interactions this reduces to a list of points in vector space.  For a corpus designed only by specifying marginal distributions, it consistitues a distribution for each.
 
-Those specifying variables to describe must, as with all sampling, be mindful of their potential systematic correlations with variables of interest to any given research question.  The value of this approach is in documentation---it is possible for a researcher to eyeball the variables (and potentially their distributions) and determine whether or not a corpus is correctly conditioned for use inferring about a given variable.  This cannot be said for bootstrapping systems that use internal variables, which seek to copy corpus contents at the risk of varying their metadata.
-
+Those specifying variables to describe must, as with all sampling, be mindful of their potential systematic correlations with variables of interest to any given research question.  The value of the approach presented here is in documentation---it is possible for a researcher to eyeball the variables (and potentially their distributions) and determine whether or not a corpus is correctly conditioned for use inferring about a given variable.  This cannot be said for bootstrapping systems that use internal variables, which seek to copy corpus contents at the risk of varying their metadata.
 
 % ---
 
@@ -38,11 +37,13 @@ Retrieval in accordance with the complex distributions specified in a corpus des
     \item Any combination of variables sampled from the distribution must then be sought based on its metadata alone.
 \end{itemize}
 
-The former of these is difficult because many seed corpora may lack sufficient data to specify their distributions, and because of the high dimensionality of the distributions in question.  These issues may be addressed using techniques such as Gibbs, slice, or rejection sampling.  
+The former of these is difficult because many seed corpora may lack sufficient data to specify their distributions, and because of the high dimensionality of the distributions in question.  These issues may be addressed using techniques such as Gibbs, slice, or rejection sampling.
 
+The sampling of `prototype' documents from the metadata distribution is possible regardless of the manner of its construction (however, those specified as marginal distributions will lack any interactions).  Here we assume a full specification, since this method is the more comprehensive case.
 
+The following subsections will describe these processes in more detail.
 
-\subsubsection{Resampling}
+\subsubsection{Sampling Metadata}
 
 % \begin{figure}[h]
 %     \centering
@@ -51,16 +52,13 @@ The former of these is difficult because many seed corpora may lack sufficient d
 %     \label{fig:rebuilding:resampling}
 % \end{figure}
 
-
-
-Resampling from the original corpus produces a `prototype' document, which has values of metadata fields that, over time, hold the same distribution as those in the seed corpus.
+Sampling from the seed corpus' profile produces a `prototype' document, which has values of metadata fields that, over time, hold the same distribution as those in the seed corpus.
 
 The process of constructing a new corpus is one of continually producing these `prototypes' conditional on the values of metadata already sampled, and then retrieving texts matching each.
 
 To perform this resampling, we must be able to sample from a distribution proportional to that of each variable conditional on all of the others, requiring that the corpus description contains information on interactions between values.  As such it is only possible if the original corpus description document contains this information, something that is only practically a product of describing an existing set of documents (as manually filling in the values would be prohibitively expensive).
 
-
-There are a number of methods by which this prototype document may be selected.  For the purposes of this study, two were implemented:
+Two methods were implemented for selection of the prototype, representing two of the most popular use-cases.  
 
 \begin{itemize}
     \item Simple selection from marginals.  This is the best case possible where a corpus lacks interaction information, and follows the joint distribution of the metadata properties across the whole corpus.  Despite its relative simplicity it may be suitable for some corpus designs, and is analogous to the BNC's balancing of spoken corpora \td{check this, cite the page where they describe their balancing}.
@@ -69,12 +67,13 @@ There are a number of methods by which this prototype document may be selected. 
 
 \til{Does this need the algorithm for both here?  It's terribly simple}
 
+It is additionally possible to sample conditioning on fewer variables (yet randomly selecting them each time) in order to emulate the behaviour of a `blocked' Gibbs' sampler\td{cite}.
+
 The former of these, whilst faster and simpler, will fail to take into account any interactions between metadata and is included since it is the only method capable of running on a very simply specified corpus description.  The experiments in this thesis use full conditional selection, as they have the luxury of using a corpus description built from a full seed corpus.
 
 
-
-\subsubsection{Seeking the Prototype}
-The main practical problem of sampling according to the original corpus' distribution is now framed as an information retrieval task.
+\subsubsection{Seeking the Prototype Document}
+The main practical problem of sampling according to the original corpus' distribution is now framed as an information retrieval task---seeking a document that has the same metadata as the one we sampled from seed corpus' profile.  Repeating this `sample and seek' behaviour forms the bootstrapping portion of the method, converging on the input distribution as the output size grows.
 
 This retrieval task is challenging on its own, but errors in performing it have specific ramifications for this sampling process:
 

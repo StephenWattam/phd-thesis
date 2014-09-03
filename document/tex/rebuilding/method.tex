@@ -212,7 +212,7 @@ The difficulty with which genre is classified makes a case for careful selection
     \center
     \begin{tabular}{|c|c|c|}
         \hline 
-        Flesch-Kincaid Reability score & BNC Audience level & Standard Deviation \\
+        Flesch reability score & BNC Audience level & Standard Deviation \\
         \hline 
         63 & Low & 14.4\\
         55 & Med & 12.7 \\
@@ -220,8 +220,8 @@ The difficulty with which genre is classified makes a case for careful selection
         82 & (unclassified, speech) & 20.6 \\
         \hline
     \end{tabular}
-    \caption{Target Flesh-Kincaid scores and their equivalent BNC categorisation.}
-    \label{tab:rebuilding:method:fkscore}
+    \caption{Target Flesch reading ease scores and their equivalent BNC categorisation.}
+    \label{tab:rebuilding:method:fscore}
 \end{table}
 %Readability ranks: 
 % -  low: 664  items, mean = 62.95293871760397, sd = 14.424512199650604, var = 208.06655219786907
@@ -230,7 +230,7 @@ The difficulty with which genre is classified makes a case for careful selection
 % -  ---: 914  items, mean = 82.02288020623476, sd = 20.6424573733852,   var = 426.111046412025
 
 
-Reading ease metrics are used to estimate the `Audience Level' classification provided by Lee.  This takes the form of the Flesch-Kincaid readability score~\cite{kincaid1975derivation}, quantised through selection of the `nearest target value as in Table~\ref{tab:rebuilding:method:fkscore}.
+Reading ease metrics are used to estimate the `Audience Level' classification provided by Lee.  This takes the form of the Flesch readability ease score~\cite{flesch1948new}, quantised through selection of the `nearest target value as in Table~\ref{tab:rebuilding:method:fscore}.
 
 Distance is normalised on this score by dividing the distance between classifications by the maximum distance possible between all classifications.  The score is thus output in terms of distance between categories: comparison of any `low' score to any `high' one will be equal regardless of the degree to which the original value is low or high.
 

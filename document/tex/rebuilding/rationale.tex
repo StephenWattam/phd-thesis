@@ -1,12 +1,12 @@
 
 
-Existing methods of study in Corpus Linguistics centre themselves around re-use of large, known datasets.  This, as detailed in chapters \td{3 and lit review}, is the cause of many potential errors---replication is unlikely to use a comparable dataset, and many studies test their hypotheses on the same dataset from which they derived the initial idea.
+Existing methods of study in Corpus Linguistics centre themselves around re-use of large, known datasets.  This, as detailed in chapters \td{3 and lit review}, is potentially the cause of many errors---replication is unlikely to use a comparable dataset, and many studies test their hypotheses on the same dataset from which they derived the initial idea.
 
-This re-use of data is common to many other fields (such as sociology and computer vision) where raw data is fundamentally difficult to acquire, however, this needn't be the case: the internet offers a source of new text with little barrier to retrieval, offering access to a model closer to that used by many other sciences, where datasets are built with a specific research question in mind, and may be replicated from the original population without relying on the same verbatim data.
+This re-use of data is common to many other fields (such as sociology and computer vision) where raw data is fundamentally difficult to acquire, however, this need not be the case: the internet offers a source of new text with little barrier to retrieval, offering access to a model closer to that used by many other sciences, where datasets are built with a specific research question in mind, and may be replicated from the original population without relying on the same verbatim data.
 
 Corpora built from online sources are (as we have seen in previous chapters), nothing new, and they are largely constructed with ease by automated tools that are able to emulate existing corpus proportions.  
 
-Where the `conventional' method of sampling data is to specify external parameters which are (with the exception of the relationship specified in the alternate hypothesis) uncorrelated with this content.  Relating these specifications to the location of documents to be selected (and identifying $\pi$, the probability of selection) is performed through expert opinion and per-source information.
+The `conventional' method of sampling data is to specify parameters external to the text which are (with the exception of the relationship specified in the alternate hypothesis) uncorrelated with this content.  The process of relating these specifications to the location of documents to be selected (and identifying $\pi$, the probability of selection) is performed through expert opinion and per-source information such as library loan records.
 
 This has lead web corpus sampling tools to largely use an intensive query system, providing values for internal variables and returning 'similar' documents through the use of search engines (either pre-existing consumer ones such as Google or Yahoo, or specifically-built linguistic ones).  Where a study is interested in frequencies that are correlated with these examplars (something that is often difficult to establish even hypothetically), this approach is statistically fallacious.  The value of this approach is in the high dimensionality of the input data---it is deemed unlikely that any one variable of interest is `truly` correlated.
 
@@ -18,20 +18,21 @@ In order to apply sampling of external variables to the web, it is necessary to 
     \item Algorithmic representations can be precisely repeated.  Though it may be necessary to change and improve heuristics over time (in much the same manner any body of expert opinion is likely to iteratively improve) it is possible to identify and evaluate these changes to place samples in historical context.
     \item Documentation.  Because of the above, the use of each script becomes a source of documentation for the corpus, detailing not just what is in it (and the sampling proportions of each) but also the policies used to decide that.  This level of documentation allows for comparison against the research question for which the corpus is to be used at a much more useful level.
     \item Distribution---Codification of expert opinion allows contribution from around the world in an open-source model.  This essentially democratises the expert portions of corpus building by parameterising them.
-    \item Repetition---Reducing the human input required to take a sample allows faster repetition, which in turn allows samples with different sampling units.  Fast heuristics would allow for a virtual implementation of the library metaphor~\cite{evert2006random}, and eliminate the need to account for dispersion in corpus analyses.
+    \item Repetition---Reducing the human input required to take a sample allows faster repetition, which in turn allows samples with different sampling units.  Fast heuristics would allow for a virtual implementation of the library metaphor~\cite{evert2006random}, retrieving a unique document for each word (or any other sub-document sampling unit) and eliminating the need to account for dispersion in corpus analyses.
 \end{itemize}
 
 
 One of the reasons the parameterisation of expert opinion has not been attempted is because of the high dimensionality of many corpora---it is difficult to usefully specify the contents of a corpus and retrieve them without conforming to a very complex set of interactions.  This is a well-known problem in Bayesian statistics, and is often solved by the application of Markov-chain Monte-Carlo (MCMC) techniques.
 
-MCMC sampling methods iteratively construct a markov chain of samples from easy-to-determine distributions, the sum of which (and thus the result of the chain) approximates the desired distribution.  This approach can be used to reduce the dimensionality of requests for web data whilst ensuring that the overall corpus still approaches the desired properties.
+MCMC sampling methods iteratively construct a markov chain of samples from easy-to-determine distributions, the sum of which (and thus the result of the chain) converges towards the desired distribution.  This approach can be used to reduce the dimensionality of requests for web data whilst ensuring that the overall corpus still approaches the desired properties.
      
  % ---
 
 
-\section{Common Tasks}
-Definition of a corpus using external metadata permits manual adaptation of the corpus parameters in a way that is (usually) more meaningful to the end user, allowing it to operate as a construction method as well as an intermediate process between a 'seed corpus' and the resultant target corpus.
+\section{Use Cases}
+The use of external metadata in description of a corpus allows a number of different uses for the method described here:
 
+% Definition of a corpus using external metadata permits manual adaptation of the corpus parameters in a way that is (usually) more meaningful to the end user, allowing it to operate as a construction method as well as an intermediate process between a 'seed corpus' and the resultant target corpus.
 
 \begin{itemizeTitle}
     \item[Construction] Manually specifying the distributions of each external variable allows the corpus to be built from scratch according to a given sampling policy.
