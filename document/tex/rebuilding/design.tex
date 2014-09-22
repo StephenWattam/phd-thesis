@@ -73,6 +73,7 @@ The former of these, whilst faster and simpler, will fail to take into account a
 
 
 \subsubsection{Seeking the Prototype Document}
+\label{sec:rebuilding:design:seekprototype}
 The main practical problem of sampling according to the original corpus' distribution is now framed as an information retrieval task---seeking a document that has the same metadata as the one we sampled from seed corpus' profile.  Repeating this `sample and seek' behaviour forms the bootstrapping portion of the method, converging on the input distribution as the output size grows.
 
 This retrieval task is challenging on its own, but errors in performing it have specific ramifications for this sampling process:
@@ -96,9 +97,12 @@ The retrieval of a prototype, then, is limited to approaches that take into acco
 \end{figure}
 
 
-In such a case that the retrieved document is a perfect match to the prototype, the output set of documents will converge to the target distribution.  If it is imperfect but randomly so, there will be an increase in variance in the output distribution.  If it is imperfect and the population is biased (or, in the worst case, does not overlap even slightly with the target), then the results will converge to a distribution with bias following the population distribution.  On Figure~\ref{fig:rebuilding:population-bias}, we rely on the black distribution falling within the red one.
+In such a case that the retrieved document is a perfect match to the prototype, the output set of documents will converge to the target distribution.  If it is imperfect but randomly so, there will be an increase in variance in the output distribution.  If it is imperfect and the population is not a superset of the input distribution (or, in the worst case, does not overlap even slightly with the target), then the results will converge to a distribution with bias following the population distribution.  On Figure~\ref{fig:rebuilding:population-bias}, we rely on the blue distribution falling entirely within the red one.
 
-The last of these is the product of an attempt to do something fundamentally impossible: the design of the system is such that this bias is measurable (and may thus be seen to be above some subjective threshold) rather than that it is eliminated for every scenario.  This bias is also evident in existing bootstrapping tools such as BootCaT~\cite{baroni2004bootcat}, however, they seek a looser form of coupling between input and output distributions so this bias often goes un-noticed (or, perhaps, desired\footnote{The comparison of distribution of seed terms to resultant type frequencies yields information about the search method and population, though these are conflated in the process}).
+
+It is unlikely that the search space for documents in the population will \textsl{always} encompass the range of the input corpus.  In such cases the population will bias the output corpus, something that is also evident in existing bootstrapping tools such as BootCaT~\cite{baroni2004bootcat}.  The rejection sampling approach used here, however, makes it possible to measure the difference between the document selected for output and the prototype; providing a measure of error for the sampling method in a manner inaccessible to conventional bootstrapping.  This is essentially controlling for population and search engine effects that are otherwise conflated with the distribution of the input data.
+
+%The last of these is the product of an attempt to do something fundamentally impossible: the design of the system is such that this bias is measurable (and may thus be seen to be above some subjective threshold) rather than that it is eliminated for every scenario.  This bias is also evident in existing bootstrapping tools such as BootCaT~\cite{baroni2004bootcat}, however, they seek a looser form of coupling between input and output distributions so this bias often goes un-noticed (or, perhaps, desired\footnote{The comparison of distribution of seed terms to resultant type frequencies yields information about the search method and population, though these are conflated in the process}).
 
 Instead of sampling a corpus \textsl{of} the web, we are sampling one \textsl{from} it, on assumption that the web is already a poorly-indexed supercorpus of documents that are diverse enough to satisfy the majority of research questions.  In terms of Figure~\ref{fig:rebuilding:population-bias}, we assume that the distribution in red has a very high variance (not just in one dimension as illustrated, but also in interaction with other metadata.  Clearly, the case in which this assumption is least strong is the replication of web corpora, and it is perhaps most strong for speech or other particularly specialist sources such as medical notes.
 
@@ -109,7 +113,7 @@ There are multiple possible approaches to this retrieval task, which mirror the 
 
 
 
-\paragraph{Searching}
+\paragraph{i. Searching}
 \label{sec:rebuilding:design:searching}
 Using similar methods to BootCaT and other seed-based corpora, it is possible to identify documents conforming to certain metadata values by using a search engine.  This encounters minor difficulties in that it is often necessary to transform an ostensive definition (e.g. the domain from which a text is drawn) into an intensional one (i.e. some keywords or other features typifying the domain) in order to fit the format desired by search engines.
 
@@ -117,7 +121,7 @@ If the method detailed here is used only for metadata types which are retrieved 
 
 
 
-\paragraph{Directed Crawling}
+\paragraph{ii. Directed Crawling}
 Another technique widely used in existing tools is crawling.  When downloading documents using a spider, it is common to identify the next set of links (the `fringe') and then select from the fringe using a suitability metric.
 
 The problem of directing a spider is then one of relating the features visible about a link (link text, url features, position in text, etc.) to the value of a document that will be gathered.  This will often involve similar issues to the searching method: it is necessary to examine document content and compare it to some ideal of each metadata value in order to form the link.
@@ -128,8 +132,8 @@ The starting point of each spider may itself be determined by using a search eng
 
 
 
-\paragraph{Existing Indices}
-The use of existing indices for certain types of metadata is a main technique used in conventional corpus construction.  Online, however, this avenue is often neglected (with the notable exception of WebCorp~\td{renouf2003webcorp} and Barbaresi's examination of indices as seed URL sources~\cite{barbaresi2014finding}) despite the existence of many subject-specific indices and general-purpose manually-curated web directories.
+\paragraph{iii. Existing Indices}
+The use of existing indices for certain types of metadata is a main technique used in conventional corpus construction.  Online, however, this avenue is often neglected (with the notable exception of WebCorp~\cite{renouf2003webcorp} and Barbaresi's examination of indices as seed URL sources~\cite{barbaresi2014finding}) despite the existence of many subject-specific indices and general-purpose manually-curated web directories.
 
 By aligning the taxonomies used in metadata to those in an existing web directory, it becomes possible to use the contents of the directory to access documents authoritatively categorised by humans (or to start crawling from these).
 
@@ -138,7 +142,7 @@ This method is subject to errors regarding the age of content on web directories
 Nonetheless, such an approach is close to that used in conventional corpora and is easily defended providing that the directory is well trusted.
 \til{Note that 'best of the web' has a specific blog directory and is used by search engines}
 
-\paragraph{Crowdsourcing}
+\paragraph{iv. Crowdsourcing}
 Crowdsourcing services offer a cheap mechanism for retrieving documents by requesting that humans manually seek a document fitting the prototype metadata.  This method has severe volume and speed limitations not present in the others, however, the accuracy of a human search is likely to be far greater, minimising overdispersion in the output set.
 
 Where a corpus must be duplicated as accurately as possible (yet there is less importance placed on scale or speed of rebuilding), this is most likely a good choice for almost all metadata properties.
@@ -161,7 +165,7 @@ Documents may be ranked by similarity in vector space only after normalising eac
 
 \subsubsection{Iterating to Minimise Error}
 \label{sec:rebuilding:design:minerr}
-It is necessary to iterate an arbitrary number of times to retrieve a full corpus.  If each prototype document is matched closely, a simple repetition of the above will return a corpus that converges to the desired distribution, however, as mentioned in~\ref{?}, this approach may incorporate bias from the population.
+It is necessary to iterate an arbitrary number of times to retrieve a full corpus.  If each prototype document is matched closely, a simple repetition of the above will return a corpus that converges to the desired distribution, however, as mentioned in Section~\ref{sec:rebuilding:design:seekprototype}, this approach may incorporate bias from the population.
 
 There are two possible approaches to working with biased populations:
 
@@ -196,21 +200,17 @@ The degree to (and conditions under) which this relaxation occurs must be determ
 
 
 \subsection{Measuring Fit}
-A system built with contingency for accepting certain levels of error is of very little use without some method for measuring it in operationalisable terms.
-
-A number of properties of the system are measurable, each yielding information that is useful under different circumstances:
+A system built with contingency for accepting certain levels of error is of very little use without some method for measuring it in operationalisable terms. A number of properties of the system are measurable, each yielding information that is useful under different circumstances:
 
 
 \paragraph{Heuristic Quality}
 The quality of each heuristic may be measured according to its ability to return documents satisfying the one metadata value it is seeking.  This may be expressed in terms of precision and recall, or an aggregate thereof such as an F score.
 
-\til{Blather on defining those things?}
-
 The choice of evaluation metric will vary according to the type of metadata and its availability online.  Heuristics operating in particularly large search spaces (such as those primarily using search engines) will desire a greater weight on precision, whereas those seeking rare (online) data will favour recall.  Since heuristics are, ideally, already the results of well-established methods in linguistics, this score and its desirable range should be established empirically prior to use.
 
 The F score may also be generated only for the best documents returned, providing a score for the whole `batch' of documents returned by a heuristic.  This measure is likely to be more representative of stateful heuristics (i.e. those that crawl), however, it conflates the statistics used for measuring document similarity with those used to retrieve them.
 
-Ideally, heuristics form pluggable, reliable modules with known degrees of error that may be ignored when using the method as a source of linguistic data.\td{yeah, right}  The degree to which this applies is defined by how well each is aligned with a source of data: Keyword-based heuristics, for example, are well aligned with the search systems of search engines, but poorly aligned with the strengths and weaknesses of humans seeking a document type.
+Ideally, heuristics form pluggable, reliable modules with known degrees of error that may be ignored when using the method as a source of linguistic data.  The degree to which this applies is defined by how well each is aligned with a source of data: Keyword-based heuristics, for example, are well aligned with the search systems of search engines, but poorly aligned with the strengths and weaknesses of humans seeking a document type.
 
 The value a heuristic yields is a trade-off between how closely it describes the document and how accurately it is possible to retrieve a document from the source. \td{perhaps remove, poorly worded}
 

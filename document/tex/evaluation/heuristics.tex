@@ -125,14 +125,42 @@ This `sanity of error' is enforced by using a distance measure that is based on 
 
 The distinction between genres is often somewhat variable: some, such as \variable{w\_newsp\_brdsht\_nat\_*}, are made between the subject of texts, whereas others fall along lines of context or what others may term `text type' (\variable{W\_email} vs. \variable{W\_essay\_sch}).  This makes it particularly difficult to identify a model that linearises features within the dataset consistently enough for many classification algorithms to work well.
 
-Lee's taxonomy is partially hierarichical, with many of the more detailed categories harbouring both this `text type' distinction as well as one regarding topic.  Both were retained here as they align to two distinct processes when sampling: the text type is an indication of (roughly) where a document may be found, and the topic regards more which document to select.
+Lee's taxonomy is partially hierarchical, with many of the more detailed categories harbouring both this `text type' distinction as well as one regarding topic.  Both were retained here as they align to two distinct processes when sampling: the text type is an indication of (roughly) where a document may be found, and the topic regards more which document to select.
+
+
+
+
 
 % --
 
 \paragraph{}
-The problem of identifying BNC genre from free text is a simple 70-way classification task\footnote{Such that a 70-way classification task may be described as simple at all.}.  In practice, the subjective nature of the taxonomy and the large number of classes makes this a challenging endeavour.
+The problem of identifying BNC genre from free text is a simple 70-way classification task\footnote{Such that a 70-way classification task may be described as simple at all.}.  In practice, the subjective nature of the taxonomy and the large number of classes makes this a challenging endeavour.  This is a clear illustration of the difficulties encountered using the ImputeCaT method: whilst it may not be necessary to find documents online with great accuracy, there must exist \textsl{some} method of discriminating between them in a useful way.
 
-Each of the classifiers discussed here was cross-validated using an 80/20 training/testing scheme on the BNC data.  
+
+
+In his 2007 paper on web genres, Sharoff~\cite{sharoff2007classifying} fits a number of classifiers to the BNC, using a variety of genre taxonomies.  
+
+
+
+% FIXME: edit from here.
+
+
+
+
+
+In light of the poor accuracy of classifiers trained on the full BNC category set, this evaluation was instead performed on a sub-set of the BNC documents, aligned to the EAGLES genre categories.  Decisions such as this are impossible to comment on with regards to how they affect the value of the output corpus, except when used for a particular purpose.  Note also that it is possible to minimise the need for such compromises by careful selection of which metadata items are used to describe the corpus (though this is unlikely to be an area open to much choice).  For the purposes of evaluation, fewer categories with greater accuracy are, if anything, preferrable.
+
+This procedure was chosen to follow that used in Sharoff's 2007 study on classifying web documents for under-resourced languages~\cite{sharoff2007classifying}.  One key difference, however, is that there is no reason to restrict ourselves to limited resource usage.
+
+Even with a restricted parameter space, the problem of identifying genre is acknowledged as a difficult one:
+
+\begin{quote}
+The classification of texts into different genres seems to have been mostly achieved through external criteria rather than through internal, linguistic criteria.
+\end{quote}\td{ cite EAGLES, \url{http://www.ilc.cnr.it/EAGLES/texttyp/node9.html}}
+
+Interestingly, the manner of retrieval and the nature of the web offer some avenues for working with external data: It is firstly possible to retrieve documents according to an existing genre directory, all but guaranteeing a fit.  Further, HTML and HTTP metadata and stylistic properties of web documents (or those which are closely linked) may indicate genre as (or more) effectively as linguistic content.  These are all places where further research dovetails with the methods described here to increase overall accuracy.
+
+
 
 \paragraph{Na\"ive Bayes}
 This classifier basically doesn't work.
@@ -144,6 +172,8 @@ This classifier works if you do certain things.  Spearman correlation based (Man
 \paragraph{Ngram Frequency Rank Correlation}
 This classifier is particularly slow due to the large library of ngrams that are stored for each class, and the overhead required to read these from backing store.  In practice this makes document classification often slower than download.
 
+
+\paragraph{}
 
 
 
