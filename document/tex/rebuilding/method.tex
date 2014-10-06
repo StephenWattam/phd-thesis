@@ -197,13 +197,19 @@ Heuristics are also used to determine the `most similar' document to the prototy
 \paragraph{i. Genre}
 Genres are imputed through the use of a keyword-based classifier.  This is one of the more challenging dimensions to impute due to its complexity, the importance of accurate detection (and thus corpus replication), and the ambiguity of classifications in many genre taxonomies.
 
-\til{Go on about taxonomy choice, cite Sharoff 'Classifying Web corpora into domain and genre using automatic feature identification'}
+The representation of genre used within ImputeCaT was selected to align with human-usable taxonomies, and as such is largely aligned with the BNC index~\cite{lee2001genres}.  Selecting this taxonomy burdens any execution of the tool with various assumptions about the data and the desired output that therefore align with Lee's genre distinctions (and any inadequacies thereof).  This is a perfect example of the value of explicitly selecting and stating one's design through the corpus profiling tool.
 
-The classifier in ImputeCaT is tasked with accurate identification of classes taken from Lee's BNC index~\cite{lee2001genres}.  These proved to be difficult to classify accurately, resisting na\"ive bayes and latent semantic indexing approaches.  One possible reason for this is their tendency to conflate topic with form: \variable{W\_email} and \variable{W\_hansard} are largely stylistic differentiations compared to \variable{W\_religion} and \variable{W\_ac\_medicine}.
 
-Currently, ngram lists for each category are compared to the target document: the list with the greatest rank correlation is scored as the most likely category.  This technique is susceptible to the word count of the document to be classified, with accuracy falling greatly when applied to below 1000 words.  \td{make graph, talk more}
+The genre heuristic in this implementation uses keyword data to classify texts based on their content.  This is a rudimentary but reliable approach that doesn't require any consistency in web data retrieved (but also thus ignores any useful meta-information therein).
 
-\til{ more about the classifier.  F, ROC, probably some more whining about quality and linear separability of corpus classifications}
+
+Rather than simply assuming the taxonomy used elsewhere, it would be possible to represent genre arbitrarily, either as a set of entropy measures against certain features, or in a manner more fitting of the source data.  This approach is valuable where the source documents are less well defined, or where particular control is needed over the composition of a corpus (such as frequency profiles for certain words).
+
+One particular use of this approach would be the modelling of under-resourced languages using bottom-up detection of features, as in \cite{sharoff2007classifying}.  As with all such approaches, however, the reliance on automatic feature detection strips away a large portion of the utility of genre definitions, in that they are often less easily understood by humans.  
+
+
+There is some argument for this approach, however, when compared to the often context-based labels applied to the BNC.  The classifier in ImputeCaT is tasked with accurate identification of classes that are not particularly easy to separate by linguistic features.  One possible reason for this is their tendency to conflate topic with form: \variable{W\_email} and \variable{W\_hansard} are largely stylistic differentiations compared to \variable{W\_religion} and \variable{W\_ac\_medicine}.  The resultant classifier, following a multinomial Na\"ive Bayes approach~\ref{mccallum1998comparison}, is described in more detail in Chapter~\ref{sec:evaluation}.
+
 
 The difficulty with which genre is classified makes a case for careful selection of metadata, and illustrates a compromise: often, the most operationalisable and useful metadata selection will not be easily understood by computers, and yet more synthetic features extracted from texts are often difficult to seek in an online environment that is designed specifically for human use.
 
