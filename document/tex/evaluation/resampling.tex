@@ -101,15 +101,8 @@ The word count is binned irregularly due to the low frequency of files with more
 
 
 \begin{figure}[Ht]
-    % TODO: plot distributions for the other variables in a 4-up manner
-    %
-    % h = hist(b$Word.Total, breaks=c(0,5000,10000,15000,20000,25000,30000,35000,40000,45000,50000,55000,60000,65000,70000,75000,80000,45000));
-    % abline(a=5, b=0)
-    % plot(h, main="BNC index words count distribution", xlab="Word count", ylab="Density", col='8', xlim=c(0, 100000))
-    %
-
     \centering
-    \includegraphics[width=0.5\textwidth]{evaluation/bncwordhist}
+    \includegraphics[width=1\textwidth]{evaluation/4waybnchist}
     \caption{Word count distribution from the BNC index (n=4054, breaks at 5k < 80k, max=428248)}
     \label{fig:evaluation:resampling:bncwordhist}
 \end{figure}
@@ -123,14 +116,14 @@ A basic description of the bins used for each input metadata item is presented i
 \begin{table}[Ht]
     \centering
 
-    \begin{tabular}{ |l|c|c|c|c|c|c| }
+    \begin{tabular}{ |l|c|c|c|c|c| }
         \hline
-        Metadata & bins & $|n_{bin} < 10|$ & $median(n_{bin})$ & $IQR(n_{bin})$ & ID & CI(0.9) @ 1:1 \\
+        Metadata & bins & $|n_{bin} < 10|$ & $median(n_{bin})$ & $IQR(n_{bin})$ & ID  \\
         \hline
-        Genre & 71  & 16 (22.5\%)   & 26    & 49        & 1.88  &  \\
-        Words & 18  & 2 (11.1\%)    & 117.5 & 359.25    & 3.05  &  \\
-        AudLvl& 4   & 0 (0\%)       & 869   & 317.5     & 0.36  &  \\
-        Mode  & 2   & 0 (0\%)       & 2027  & 1117      & 0.55  &  \\
+        Genre & 71  & 16 (22.5\%)   & 26    & 49        & 1.88    \\
+        Words & 18  & 2 (11.1\%)    & 117.5 & 359.25    & 3.05    \\
+        AudLvl& 4   & 0 (0\%)       & 869   & 317.5     & 0.36    \\
+        Mode  & 2   & 0 (0\%)       & 2027  & 1117      & 0.55    \\
         \hline
     \end{tabular}
     \caption{Distributions of metadata dimensions in the input corpus (BNC index)}
@@ -176,10 +169,12 @@ The process of random resampling detailed here is in many ways uninteresting: af
     \item The distribution converged upon is arbitrary, and may be defined in the absence of an input corpus (or as a modification thereof).  This allows relaxation of a corpus description's requirements to reduce the necessary oversampling ratio above, or the addition of specific metadata items where the source of documents is particularly easy to sample according to certain properties.
     \item Halting the resampling process at any stage, due to the random selection method used, leads to an unbiased output corpus (though it may well be imprecise to the point of irrelevance).
     \item After resampling of candidate documents through a process of resampling (which has known bounds of error), the process of retrieving documents can be compared against a gold standard.
+    \item When starting with a manually-designed corpus (which has bin sizes only relevant to one another), convergeance can only be achieved where the output corpus size is greater than or equal to that of the input corpus\td{I can do this experimentally by varying n for the same distribution.  It should converge at the same absolute 'n'.  Might be worth testing?}.  Aside from fitting issues where bin sizes are small, corpora fit using the same distribution shape should converge at the same size (i.e. \textsl{not} relative to the input corpus size).
 \end{itemize}
 
 
-% TODO: linear models for each, comment on confidence
+% TODO: Experiment on convergion point by input n, and/or autocorrelation
+% linear models for each, comment on confidence
 
 
 
