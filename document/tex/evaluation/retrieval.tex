@@ -1,6 +1,37 @@
-The value in the resampling process above largely lies in the ability to present well-defined document prototypes to a resampling process.  There are many potential sources for document retrieval according to this prototype, including the original input corpus, a separate `super-corpus', or, ideally a separate population (that is itself not a sample).
+The value in the resampling process above largely lies in the ability to present well-defined document prototypes to a retrieval stage.  There are many potential sources for document retrieval according to this prototype, including the original input corpus, a separate `super-corpus', or, ideally a separate population (that is itself not a sample).
 
-The proof-of-concept evaluated here implements a number of web-based retrieval mechanisms that are designed around search methods already used in tools such as BootCaT~\td{cite}.  As with the original sample design, these retrieval methods are designed to be selectable by the end user: in the simplest case, using only the `Bing' search engine~\td{cite/footnote} would result in a very similar sampling method to that used in BootCaT itself, yet also yield statistics regarding the error of the retrieval mechanism.  This is analogous to being able to gauge measurement error.
+The proof-of-concept evaluated here implements a mechanism similar to that of BootCaT~\td{cite}, using a search engine to retrieve results based on key n-grams.  This mechanism was selected due to the pertinence of its method to other corpus building efforts --- there is no technical limitation imposed by the software tool, and users are free to select any other source of data or mechanism of retrieval.
+
+The similarity of the retrieval system described here to BootCaT, along with the use of concrete prototype documents, allows us to inspect the `measurement error' of using search engines to retrieve data based on key terms.  This evaluation is, therefore, primarily a qualitative assessment of that bias and a preliminary assessment of its sources.
+
+% ---
+
+The retrieval process is performed iteratively using the components evaluated in the previous sections:
+
+\begin{enumerate}
+    \item Sample a prototype document from the corpus profile
+    \item Retrieve candidate links using the Microsoft Bing web service~\footnote{\url{https://datamarket.azure.com/dataset/bing/searchweb}}.
+    \item Download, remove boilerplate (using justext~\td{cite}), and classify each document using heuristics from the corpus profile.
+    \item Measure distance in the resulting vector space according to each heuristic's value.
+\end{enumerate}
+
+This results in a collection that has at best a superset of the prototype selection's metadata.
+
+For this evaluation, the written portions of the BNC were used as the seed corpus.  Keywords used for search were generated using log likelihood scores, and no cutoff was used: instead, the random selection algorithm was weighted by the resulting score.
+
+The spoken and \texttt{w\_Misc} categories were omitted for a number of reasons.  Spoken data was omitted on the conjecture that it is difficult to find online~\footnote{Retrieval of transcriptions may be facilitated by searching for genre-specific features in addition to keywords, and this form of specialism is a potential avenue for improving the accuracy of all genres.}, leading to a predictable gap in the resulting corpus.  \texttt{W\_misc} was omitted due to the need for an accurate classification step, and because keyword-based retrieval requires that said keywords are highly representative of a given genre.  Both of these issues are potentially solvable in future work, yet lie outside the scope of this thesis.
+
+
+The retriever must, as far as possible, retrieve documents according to \textsl{all} prototype metadata dimensions, that is, it must perform the equivalent to an agglomerative query.  This is a particular challenge for search engines due to their generality.  Since the Bing API lacks tools to filter by any of the three dimensions used in this evaluation, the primary focus was on genre --- word count and reading ease were both free to vary.  Language was specified as \texttt{en\_GB}.
+
+% TODO: Write in discussion about how this is challenging but that a hybrid system might work best, say retrieve from scholar if it's a paper.
+
+
+
+
+
+
+
 
 This process is deliberately agnostic of any internal variables: the \textsl{content} of the retrieved texts is also affected by the choice of retrieval mechanism, however, this is part of the variance desired in the dataset, and should form part of any motivating research question.
 
