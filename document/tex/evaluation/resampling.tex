@@ -9,7 +9,7 @@ The accuracy of the resampling process depends lagely on two user-controlled pro
 
 The intricacy of the input distribution largely defines the necessary size of the input corpus: an input corpus that is defined only in terms of simple marginal distributions is simpler to reproduce, that is it contains \textit{less information}, than one built using the full conditional distribution of a large, general corpus such as the BNC.
 
-The question of when to stop sampling documents is related to the problem of corpus size in general: the output corpus is conceptually a model of the input corpus, and should contain enough data to be representative of the relationships therein whilst following the same guide.  This is best assessed by measuring the uniformality of residuals.  A suitable end condition for many uses of the output would thus be a combination of corpus size and residual uniformity (notably it is possible to constantly balance the uniformity of residuals during the rejection sampling phase too).
+The question of when to stop sampling documents is related to the problem of corpus size in general: the output corpus is conceptually a model of the input corpus, and should contain enough data to be representative of the relationships therein whilst following the same guide.  This is best assessed by measuring the uniformity of residuals.  A suitable end condition for many uses of the output would thus be a combination of corpus size and residual uniformity (notably it is possible to constantly balance the uniformity of residuals during the rejection sampling phase too).
 
 The evaluation here establishes the resampling algorithms' ability to produce copies of the input corpus with uniform residuals, and establishes a 'best case' baseline against which the results of document retrieval may be compared.
 
@@ -27,13 +27,13 @@ Evaluation of the selection method is possible separately to document retrieval 
 
 \begin{figure}[Ht]
     \centering
-    \includegraphics[width=0.8\textwidth]{evaluation/resample-overview}
+    \includegraphics[width=0.9\textwidth]{evaluation/resample-overview}
     \caption{Data flow for evaluation of the sampler.}
     \label{fig:evaluation:resampling:overview}
 \end{figure}
 
 
-The data flow outlined in Figure~\ref{fig:evaluation:resampling:overview} is identical to that used for the final selection, with the omission of a retrieval stage at \textsl{\color{red} x}.  The operation performed by the evaluator is essentially a comparison between two distributions, and may be performed using any number of algorithms with the one requirement being that it can practically be executed after each document is retrieved (note that for the purposes of this evaluation, such a requirement is less critical).
+The data flow outlined in Figure~\ref{fig:evaluation:resampling:overview} is identical to that used for the final selection, with the omission of a retrieval stage at \textsl{\color{red} x}.  This means the evaluation will be performed under the assumption that the retrieval process is always able to find a suitable document.  The operation performed by the evaluator is essentially a comparison between two distributions, and may be performed using any number of algorithms with the one requirement being that it can practically be executed after each document is retrieved (note that for the purposes of this evaluation, such a requirement is less critical).
 
 Evaluation methods provided in the prototype implementation are:
 
@@ -49,41 +49,19 @@ Evaluation methods provided in the prototype implementation are:
 For the purposes of this evaluation, a distribution comparison method, Log-likelihood, was selected due to its known statistical bounds and wide use in corpus linguistics\footnote{It it worth noting that the log-likelihood statistic is just one of a large number of valid goodness-of-fit tests, the main contender being two-sample Kolmogorov-Smirnov}.  The major disadvantage of using this method, that it is harder to directly relate to the content of each text, is not relevant at this stage of analysis.
 
 
-Log likelihood comparison methods are already widely used in corpus linguistics for keywording and corpus comparison, and have the notable property of measuring significance (using Wilks' theorem), Rather than effect size (as with many information-theory-based deviance measures such as MI and Jaccard).  This evaluation makes use of such properties in that we desire to know at what point the output distribution is, to a given standard of probability, the same as the input: as we do not control the size of the input distribution we are unable to control the ultimate power of the test and thus the effect size.
+Log likelihood comparison methods are already widely used in corpus linguistics for keywording and corpus comparison, and have the notable property of measuring significance (using Wilks' theorem), rather than effect size (as with many information-theory-based deviance measures such as MI and Jaccard).  This evaluation makes use of such properties in that we desire to know at what point the output distribution is, to a given standard of probability, the same as the input: as we do not control the size of the input distribution we are unable to control the ultimate power of the test and thus the effect size.
 
-This comparison of the output and input distributions was repeated as documents are re-sampled, the point at which the two cease to be significantly different noted.  This process should establish both RQs.
+This comparison of the output and input distributions was repeated as documents are re-sampled, the point at which the two cease to be significantly different noted.  This process should establish both RQs:
 
 \begin{enumerate}
-    \item Load input corpus
-    \item Repeatedly sample from the input corpus, inserting documents into the output corpus
-    \item After each document, compare the output distribution to the input
+    \item Load input corpus;
+    \item Repeatedly sample from the input corpus, inserting documents into the output corpus;
+    \item After each document, compare the output distribution to the input.
 \end{enumerate}
 
 
 Note that this method treats each metadata dimension of the input corpus as an independent distribution, effectively evaluating the joint distribution of the sample.  This was done to permit comparison where obtaining a sample large enough to provide sufficient statistical power is largely impossible --- even in the BNC, there are seldom many documents that share \textsl{all} metadata values.  This has the effect of weakening the test such that the `Conditional' sampler is indistinguishable from the `Marginal' sampler (as mentioned in Section~\ref{sec:rebuilding:method:retrieval:resampling}).
 
-
-\til{
-
-
-HOW.
-
-So, start with an input corpus, probably the BNC.
-
-Resample it to produce an output corpus of a given size.
-
-Compare the two distributions:
- * residuals = output - input
- * fit linear model residual = output + input for each dimension
- * If linear model shows significant influence, then stuff's broken.
-
- -- OR --
-
- * Two-sample Kolmogorov-Smirnov test
-
-For conditional distributions, the linear model will include interactions.  For joint distributions, it need not.  Simples.
-
-}
 
 
 \subsection{Results}
@@ -92,7 +70,7 @@ The evaluation here focuses on categorical values with over five members due to 
 
 \begin{itemizeTitle}
     \item[Genre]  The genre category, as fit using the classifier heuristic mentioned elsewhere, only using all 70 categories;
-    \item[Words]  The word count, binned to form bins with no fewer than 5 texts in each;
+    \item[Words]  The word count, binned to form bins with no fewer than five texts in each;
     \item[AudLvl] Audience level, categorised as `high', `med', and `low';
     \item[Mode]   \textbf{S}poken or \textbf{W}ritten.
 \end{itemizeTitle}
@@ -108,9 +86,9 @@ The word count is binned irregularly due to the low frequency of files with more
 \end{figure}
 
 
-The convergeance rate of each of the variables is, as mentioned above, dependent on the information content of the input bins' frequencies (due to the complexity of the sample) and the number of bins with fewer than 5 members (due to log-likelihood converging slowly to the $\chi^2$ distribution).  Each variable's convergeance may thus be appropriately expressed in terms of how long the average bootstrapping process takes to converge upon the distribution to a given confidence value, relative to the size of the input.
+The convergeance rate of each of the variables is, as mentioned above, dependent on the information content of the input bins' frequencies (due to the complexity of the sample) and the number of bins with fewer than five members (due to log-likelihood converging slowly to the $\chi^2$ distribution).  Each variable's convergeance may thus be appropriately expressed in terms of how long the average bootstrapping process takes to converge upon the distribution to a given confidence value, relative to the size of the input.
 
-A basic description of the bins used for each input metadata item is presented in Table~\ref{table:evaluation:resampling:inputdist}.  Medians and interquartile ranges were used as centrality and deviance measures due to the Zipfian nature of the bin distributions (a feature expected to manifest in most corpora).  The `SNR' column gives the `index of dispersion' --- a normalised measure of the variability in the distribution's bins computed by dividing the centrality measure (median) by the centrality measure (median).
+A basic description of the bins used for each input metadata item is presented in Table~\ref{table:evaluation:resampling:inputdist}.  Medians and interquartile ranges were used as centrality and deviance measures due to the Zipfian nature of the bin distributions (a feature expected to manifest in most corpora).  The `ID' column gives the `index of dispersion' --- a normalised measure of the variability in the distribution's bins computed by dividing the centrality measure (median) by the centrality measure (median).
 
 % TODO: table with variable, bin count, num<10, stdev, mean, convergeance mean, convergeance confint@95%
 \begin{table}[Ht]

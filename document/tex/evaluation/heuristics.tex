@@ -8,7 +8,7 @@ The accuracy of the classifiers listed here is responsible for minimising excess
 
 Since many of these heuristics surround operationalising a corpus, a large body of research exists for classifying and extracting useful dimensions from texts.  The heuristics presented here are proof-of-concept only, and it is expected that the design of the heuristics used for a study is selected to match the theoretical basis of any analysis.
 
-The heuristics presented here are document-level.  In most corpus designs, word count would be considered a measure of the size of the corpus (rather than a property of its constituents).  The method evaluated here is capable of retrieving truly IID samples at different levels, and demands a different selection of heuristics and metadata when operating at the word or sentence level.  Document level metadata are both high-level enough to be distributed for confidential corpora and descriptive enough to enable accurate retrieval (by contrast, word or part-of-speech frequencies would reveal much of the contents of the original corpus, which may not be desirable).
+The heuristics presented here are document-level.  In most corpus designs, word count would be considered a measure of the size of the corpus (rather than a property of its constituents).  The method evaluated here is capable of retrieving truly IID\td{elaborate} samples at different levels, and demands a different selection of heuristics and metadata when operating at the word or sentence level.  Document level metadata are both high-level enough to be distributed for confidential corpora and descriptive enough to enable accurate retrieval (by contrast, word or part-of-speech frequencies would reveal much of the contents of the original corpus, which may not be desirable).
 
 
 
@@ -140,6 +140,8 @@ The problem of identifying BNC genre from free text is a simple 70-way classific
 
 In his 2007 paper on web genres, Sharoff~\cite[p. 5]{sharoff2007classifying} fits a number of classifiers to the BNC, using a variety of genre taxonomies.  Therein he reports success using a supervised learning approach to classify `grouped' versions of the BNC taxonomy: one aligned to the EAGLES~\cite{EagTcwgCtypeaglespreliminary} text typology recommendations, and one 10-way grouping based on unsupervised methods.
 
+\til{Mention Biber et. al, perhaps}
+
 Since part of the intent here is to retain a parsimonious corpus profile document, this heuristic makes use of the original categories from the BNC taxonomy.  Nonetheless, Sharoff's study was used as a starting point for the methodology, in line with the goal of using established methods for heuristics.
 
 The ambiguity and external nature of some of the distinctions drawn in the BNC index causes problems here, and represents a common dichotomy in linguistics: a human-readable and intuitive classification is not necessarily easy to model (to the point where we are often simply unable).
@@ -155,6 +157,8 @@ As ever, the classifier performance reveals as much about the taxonomy of the in
     \item[BNC69a] This classifier omits \texttt{S\_conv}, which was deemed unreasonably general in its content and thus difficult to retrieve.
     \item[BNC69b] The BNC70 classifier, omitting \texttt{W\_misc} due to the breadth of said category.
     \item[BNC68] Omitting Both \texttt{W\_misc} and \texttt{S\_conv}.
+    \item[BNC46] Written portions of the BNC, containing \texttt{W\_misc}.
+    \item[BNC45] Written portions of the BNC, without \texttt{W\_misc}.
 \end{itemizeTitle}
 
 The decision to omit sections of the BNC was deemed a necessary trade-off to achieve functional performance: for the purposes of this evaluation, the actual subset used is only of importance to the generality of the results (rather than their veracity).  Likewise, the priority is not to produce a genre classifier, but merely to use one within the larger method: simply, it is more important that the classifier is functional than that it is general.
@@ -167,6 +171,8 @@ The decision to omit sections of the BNC was deemed a necessary trade-off to ach
         \hline 
         Corpus & Accuracy & Precision & AUC \\
         \hline
+        BNC45  &  70.7\%  &  .721  &  .901 \\
+        BNC46  &  63.7\%  &  .666  &  .877 \\
         BNC68  &  71.5\%  &  .715  &  .913 \\
         BNC69a &  65.9\%  &  .685  &  .893 \\
         BNC69b &  72.1\%  &  .732  &  .918 \\
@@ -176,6 +182,8 @@ The decision to omit sections of the BNC was deemed a necessary trade-off to ach
     \caption{Weighted mean performance (per class) for each classifier.}
     \label{table:evaluation:heuristics:classifieraccuracy}
 \end{table}
+
+\til{Comments on 45 and 46 were lost when the HDD went, but the models remain.  Comment below}
 
 Table~\ref{table:evaluation:heuristics:classifieraccuracy} shows the resultant accuracy figures for the models trained on the BNC subsets mentioned.  10-way crossvalidation was used to estimate the above statistics, in an effort to reduce the potential for overfitting to a fixed test/training set.  The statistics are formed from a weighted mean of each classes performance against all others.
 
@@ -206,9 +214,7 @@ One final note should cover the generality of the methods used here.  As with al
 The classification of texts into different genres seems to have been mostly achieved through external criteria rather than through internal, linguistic criteria.
 \end{quote}
 
-The manner of retrieval and the nature of the web offer some avenues for working with external data and closing this gap: It is firstly possible to retrieve documents according to an existing genre directory, all but guaranteeing a fit.  Further, HTML and HTTP metadata and stylistic properties of web documents (or those which are closely linked) may indicate genre as (or more) effectively as linguistic content.  These are all places where further research dovetails with the methods described here to increase overall accuracy.
-
-Further work would be necessary to validate methods of reliably extracting and using this data, especially where it is patchy or difficult to extract.  Such efforts would prove particularly fruitful, however, where the seed corpus originates online, allowing the profiling and heuristic classification stages to operate using the same implementation.
+The manner of retrieval and the nature of the web offer some avenues for working with external data and closing this gap: It is firstly possible to retrieve documents according to an existing genre directory, all but guaranteeing a fit.  Further, HTML and HTTP metadata and stylistic properties of web documents (or those which are closely linked) may indicate genre as (or more) effectively as linguistic content.  These are all places where further research dovetails with the methods described here to increase overall accuracy.  Further work would be necessary to validate methods of reliably extracting and using this data, especially where it is patchy or difficult to extract.  Such efforts would prove particularly fruitful, however, where the seed corpus originates online, allowing the profiling and heuristic classification stages to operate using the same implementation.
 
 
 

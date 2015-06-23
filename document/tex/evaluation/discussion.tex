@@ -47,6 +47,12 @@ Keyword-based search engine retrieval is shown, in the case of the BNC, to have 
 Of greater concern is the systematic over-representation online of certain genres.  This implies that automated retrieval must advance significantly in order to sample many corpus designs, or that it must be complemented by manual methods where documents are difficult to locate.  The exact thresholds of `difficulty' there must be determined on operational grounds of cost and time --- for large-scale corpus building operations, a largely manual approach may be the best method of ensuring quality whilst still leveraging the benefits of the quantitative profiling and resampling approaches.
 
 
+
+% --
+% \paragraph{}
+
+
+\til{Compare more to RQs...}
 \noindent\makebox[\linewidth]{\rule{\paperwidth}{0.4pt}}
 
 
@@ -57,10 +63,26 @@ Of greater concern is the systematic over-representation online of certain genre
  % ---
 %
 %
-The performance of each component within the system is, as we have seen above, variable.  For certain classes of corpus, such as those originating from web data themselves, replication and rebuilding promise to be relatively straight-forward and easily automated.  For corpora such as the BNC, however, a number of practical issues are particularly difficult to dodge.
+% The performance of each component within the system is, as we have seen above, variable.  For certain classes of corpus, such as those originating from web data themselves, replication and rebuilding promise to be relatively straight-forward and easily automated.  For corpora such as the BNC, however, a number of practical issues are particularly difficult to dodge.
 
 
 
+
+\subsection{Future Work}
+
+There are a number of areas with clear opportunities for future work.
+
+Firstly, heuristics must be sought that are able to properly classify variables of interest.  These already exist due to great utility in other areas, and their properties are well understood.  Nonetheless, some may require modification or further study until proven useful for a particular corpus building task.
+
+Much further work is also possible evaluating the resampling process, and producing estimates of required sample size.  This will never form an authoritative guide to sample size due to the lack of knowledge about experimental power and the dependence on the `seed' corpus, however, it may act as a guideline for corpus builders.
+
+Finally, the retrieval process must be improved significantly if it is to be an acceptable alternative to manual construction.  Since error is known for each document returned, it is likely that search-based retrieval can be improved significantly by better targeting of search terms and document sources.  One promising avenue here would be hybrid retrieval: using automated means to gather most documents and then passing difficult-to-find terms and criteria to a person for manual additions.
+
+Additionally, the utility of the method when applied to different sample designs is of particular importance: when analysing the corpus using a bag-of-words model, for example, one would be able to sample only individual words from the web.
+
+
+% Link to an appendix with the generalised form of the proxy corpus thingy?
+% Cover the heuristics and modules that need making, and possible tweaks to the error feedback mechanism.  Also comment on the knowledge we have of various populations online and how this impacts inherited bias.
 
 
 
