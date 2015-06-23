@@ -52,8 +52,7 @@ It is possible at this stage to select distributions that artificially manipulat
 
 The selection of distributions is performed using the profile file, in a human-readable format.  This section of the profile currently maps CSV field names to instances of the distribution objects in question, as shown in Listing~\ref{lst:rebuilding:profile-lst}.  The parameter passed to the SmoothedGaussianDistribution constructor defines the standard deviation of the Gaussian distributions used, causing slight variation in sampling around each point.
 
-\lstset{language=Ruby,caption={Field mappings in the BNC World corpus profile.},label=lst:rebuilding:profile-lst}
-\begin{lstlisting}
+\begin{lstlisting}[language=Ruby,caption={Field mappings in the BNC World corpus profile.},label=lst:rebuilding:profile-lst]
 PROFILE = {
 
   # ...
@@ -67,7 +66,6 @@ PROFILE = {
   },
 }
 \end{lstlisting}
-\til{Fix the lstlisting package for fig 5.1}
 
 This approach allows the application of weights and control over the resampling process in a manner that is explicit and more efficient than implementing a different sampling algorithm for each modification.
 
@@ -81,15 +79,13 @@ It is also possible to import a corpus from text only, by running classifiers an
 \subsubsection{Resampling}
 \label{sec:rebuilding:method:retrieval:resampling}
 
-\lstset{language=,caption={Output from the conditional resampler, run on the BNC corpus.},label=lst:rebuilding:condsampler}
-\begin{lstlisting}
+\begin{lstlisting}[language=,caption={Output from the conditional resampler, run on the BNC corpus.},label=lst:rebuilding:condsampler]
 Selecting random document from #<Corpus:4:9506908>...
  - dims: 4, docs: 4054
  - dims: 3, docs: 1652 (Aud Level == med)
  - dims: 2, docs: 51 (GENRE == W\_newsp\_brdsht\_nat\_arts)
  - dims: 1, docs: 1 (Word Total == 1335)
 \end{lstlisting}
-\til{Fix the lstlisting package for fig 5.2}
 
 Resampling is the process of producing a document with metadata values that are in some way related to an existing corpus object's distribution of documents.
 
