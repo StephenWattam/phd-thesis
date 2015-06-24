@@ -8,25 +8,36 @@ UKWaC~\cite{ferraresi2008introducing}).
 
 Though initial efforts in web-as-corpus (WaC) focused on the former method %, in part due to concerns over the balance of samples returned, 
 many projects are now constructing supercorpora, which may themselves be searched with greater precision than the `raw' web, in line with Kilgarriff's vision of linguistic search engines~\cite{kilgarriff2003linguistic}.  This has led to the proliferation of crawlers such as those used in~\cite{schafer8building} and WebCorp\footnote{\url{http://www.webcorp.org.uk/live/
-}}.%~\cite{renouf2003webcorp}.
+}}~\cite{renouf2003webcorp}.
 
 % diachronic work with webcorp.
 % \cite{kehoe2006diachronic}
 % \cite{kehoe2009weaving}
 
-This approach, with its base in a continually-growing supercorpus, parallels the strategy of a monitor corpus%~\cite{sinclair1982monitor}
-, and is applicable to linguistic inquiry concerned with diachronic properties%~\cite{kehoe2006diachronic}
-.
+This approach, with its base in a continually-growing supercorpus, parallels the strategy of a monitor corpus~\cite{sinclair1982monitor}, and is applicable to linguistic inquiry concerned with diachronic properties~\cite{kehoe2006diachronic}.
 %Even for informal searches, tools for date-based lookup are increasingly (e.g. Google).
 
 
-Repeated sampling by crawling, whilst balanced linguistically, omits subtler technical aspects that govern consumption of data online, most notably the user's impression of its location, as defined by the URI.  Low publishing costs online, paired with increasing corporate oversight and reputation management (both personal %~\cite{ICT4DBibliography1650} 
-and professional%~\cite{Malaga2000repman})
-), have lead to a situation where this content is being revised frequently, often without users even noticing.
+Repeated sampling by crawling, whilst balanced linguistically, omits subtler technical aspects that govern consumption of data online, most notably the user's impression of its location, as defined by the URI.  Low publishing costs online, paired with increasing corporate oversight and reputation management (both personal ~\cite{ICT4DBibliography1650} 
+and professional~\cite{Malaga2000repman})), have lead to a situation where this content is being revised frequently, often without users even noticing.
 
-The nature of within-URI change have been studied from a technical perspective by those interested in managing network infrastructure, compiling digital libraries%~\cite{tyler2003librarians}
-, and optimising the maintenance of search engine databases%~\cite{koehler2004longitudinal}
-.  The needs of these parties are quite aside from those of corpus researchers, however, since they focus around a best-effort database of information, rather than a dependable longitudinal sample with known margins for error.
+The nature of within-URI change have been studied from a technical perspective by those interested in managing network infrastructure, compiling digital libraries~\cite{tyler2003librarians}, and optimising the maintenance of search engine databases~\cite{koehler2004longitudinal}.  The needs of these parties are quite aside from those of corpus researchers, however, since they focus around a best-effort database of information, rather than a dependable longitudinal sample with known margins for error.
+
+% ---
+Current methods for sampling language change online include:
+
+\begin{itemizeTitle}
+
+    \item[Crawlers/Revisiting] Continuously crawl pages, adding new ones as links are updated and revisiting old ones according to heuristics;
+    \item[Diachronic corpora] Build two separate corpora using the same sample design at different points in time;
+    \item[Monitor corpora] Continuously add new material to a corpus as it is created, agnostic of change;
+    \item[Subsampling supercorpora] Build a large corpus and select documents from it according to a bimodal distribution of document age;
+    \item[Feed corpora] Crawl pages on publication date (a form of monitor corpus).
+
+\end{itemizeTitle}
+
+
+Each of these methods is subject to a number of downsides, making them difficult to use for many scientific purposes, or requiring significant resources and forward-planning (thus putting them out of the hands of most researchers).  Some issues, such as irregular revisiting of pages and the lack of detail stored about network-level metadata, complicate the process of analysis.  Most corpus formats are also not annotated by time, meaning that analysis often requires repeated export and comparison --- tools for which must be produced on a case-by-case basis.
 
 % 
 % \begin{itemize}
@@ -38,7 +49,7 @@ The nature of within-URI change have been studied from a technical perspective b
 % 
 
 
-We present here a tool, LWAC, for this form of longitudinal sampling, designed to maximise the comparability of documents downloaded in each sample in terms of their URI rather than content.  To accomplish this, we use a batch-mode sampling strategy, as illustrated in Figure~\ref{fig:longitudinal:lwac:samples}, to get full coverage over a list of URIs, at the expense of sampling new content.
+We present here a tool, LWAC, for this form of longitudinal sampling, designed to maximise the comparability of documents downloaded in each sample in terms of their URI rather than content.  To accomplish this, we use a cohort sampling strategy, as illustrated in Figure~\ref{fig:longitudinal:lwac:samples}, to get full coverage over a list of URIs, at the expense of sampling new content.
 
 \begin{figure}[Ht]
     \centering
@@ -47,6 +58,9 @@ We present here a tool, LWAC, for this form of longitudinal sampling, designed t
     \label{fig:longitudinal:lwac:samples}
 \end{figure}
 
+This approach allows for reliable re-visits to each member of the sample, and thus the construction of vertically comparable data points, whilst making short-term effects visible by revisiting each link.  Such a sample design should repeat each individual sample as quickly as possible, so as to minimise the time differences between documents within.
+
+\til{Continue writing up `LWAC' slides from here}
 
 
 \section{Applications}
