@@ -39,6 +39,9 @@
 % \onehalfspacing
 % \doublespacing
 
+% Ability to include PDFs
+\usepackage{pdfpages}
+
 % configure graphics
 \setkeys{Gin}{draft=false}  % Graphics show in draft mode
 \usepackage{graphicx}
@@ -213,6 +216,8 @@
 % =============================================================================
 \pagebreak
 \appendix
+\addcontentsline{toc}{chapter}{Appendices}
+\renewcommand{\thesubsection}{\Alph{subsection}}
 \pagenumbering{Roman}
 
 
