@@ -1,0 +1,27 @@
+
+\subsection{Summary}
+\til{This summary was originally part of the LWAC section, but with additions re. DA it probably belongs here.}
+
+Temporal effects, particularly the loss of content over time, have been well documented for web data.  The effects of this are relatively well understood relative to common technical variables, and this is widely used to improve crawling for search engine creation.
+
+Though link rot (and other page content changes) are evident in web corpora, the effect document attrition has upon the contents of web corpora is far less known, as few studies have focused on the content of documents.
+
+LWAC is a web corpus construction tool that takes a novel approach to retrieving data across time, using a cohort sampling design.  Far more regressor variaibles are retained than existing systems, allowing for more in-depth regression.
+
+The performance of the tool is sufficient for longitudinal sampling of large, general-purpose corpora in the gigaword range.  This ability can be scaled during runtime by addition of worker nodes, if necessary.
+
+Data is presented by LWAC in formats that are designed primarily for quantitative analysis --- this is well suited to the large volumes of data produced, which for many tasks will swamp human evaluators.  A large number of regressor variables are also stored, making the resultant corpus suitable for studying not only questions regarding the content of pages, but also network issues such as latency and reliability of web resources.
+
+A large-scale longitudinal analysis of web page content changes should be a first priority, in order to establish whether or not link rot is correlated with linguistically-interesting variables.  This has ramifications for the validity of existing corpora, as well as impacting on the design of future construction methods that are resistant to document change online.
+
+
+
+
+\subsubsection{Further Work}
+Currently, workers in LWAC do not evaluate JavaScript or build a DOM (though they do send and receive cookies) --- increasingly these features are used by websites to display content, and extending workers to handle them broadens the set of pages it's possible to retrieve meaningfully.  Such an extension is expected to incur a heavy performance penalty, however, as it massively increases the work done by each client during downloads, and complicates the resulting data.
+
+The field of survival analysis offers a large number of techniques for studying the change in a cohort over time, however, this is largely focused on the existence of simple regressor variables.  This is suitable for technical properties such as those focused on by search engine designers, but less approproiate for digesting large quantities of text.  Techniques for time-series analysis of large corpora are developing, but are usually not based around a cohort-based design.
+
+The distributed nature of LWAC makes it possible to study geographical effects --- this is something that would require only modest outlay as virtualised infrastructure becomes cheaper.
+
+
