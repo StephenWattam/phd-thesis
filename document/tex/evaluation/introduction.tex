@@ -4,17 +4,17 @@ The evaluation of corpus construction is a particularly tricky area: without a g
 
 The way seed-based methods work offers an ideal source of gold standard data, nonetheless, only experience and repeated use can reveal the manner of the differences identified, and its impact on experimental results.  This evaluation will use this reflexive method to identify overall responsiveness to the seed corpus, along with an examination of individual components of the system as a method for revealing specific strengths and weaknesses.
 
-This evaluation is based around one of tasks identified in Chapter~\ref{?}---that of rebuilding a corpus from scratch based upon a seed's proportions.  This task is effectively a super-task of reconstructing or repairing a corpus, and is equivalent to many scenarios involving disseminating sensitive corpora with minor restrictions on the metadata dimensions used.
+This evaluation is based around one of tasks identified in Chapter~\ref{tex/rebuilding}---that of rebuilding a corpus from scratch based upon a seed's proportions.  This task is effectively a super-task of reconstructing or repairing a corpus, and is equivalent to many scenarios involving disseminating sensitive corpora with minor restrictions on the metadata dimensions used.
 
 
 
 This chapter begins with a description of the use cases covered, and a detailed rationale of how these form testable, objective research questions.
 
-Section~\ref{sec:evaluation:method} details the two main approaches to evaluation: those applied to individual components, and those applied to the results of running the implementation as a whole.
+Section~\ref{sec:evaluation:rqs} details the two main approaches to evaluation: those applied to individual components, and those applied to the results of running the implementation as a whole.
 
+Following that, each stage of the corpus building process is evaluated in a white-box fashion, starting with the heuristics used to classify documents (Section~\ref{sec:evaluation:heuristics}) and moving on to the process of identifying `target' prototype documents in vector space (Section~\ref{sec:evaluation:resampler}), and then retrieving documents from the web itself (Section~\ref{sec:evaluation:retrieval}).
 
-\til{Signposting.}
-
+Finally, the implications of each component's functionality to the final process, and what the results tell us about the state of the web as a document source for resampling BNC-like corpora, are discussed in Section~\ref{sec:evaluation:discussion}.
 
 
 

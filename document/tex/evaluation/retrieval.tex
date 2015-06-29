@@ -5,7 +5,7 @@ The value in the resampling process above largely lies in the ability to present
 \subsection{Method}
 \label{sec:evaluation:method}
 
-The proof-of-concept evaluated here implements a mechanism similar to that of BootCaT~\td{cite}, using a search engine to retrieve results based on key n-grams.  This mechanism was selected due to the pertinence of its method to other corpus building efforts --- there is no technical limitation imposed by the software tool, and users are free to select any other source of data or mechanism of retrieval.
+The proof-of-concept evaluated here implements a mechanism similar to that of BootCaT~\cite{baroni2004bootcat}, using a search engine to retrieve results based on key n-grams.  This mechanism was selected due to the pertinence of its method to other corpus building efforts --- there is no technical limitation imposed by the software tool, and users are free to select any other source of data or mechanism of retrieval.
 
 The similarity of the retrieval system described here to BootCaT, along with the use of concrete prototype documents, allows us to inspect the `measurement error' of using search engines to retrieve data based on key terms.  This evaluation is, therefore, primarily a qualitative assessment of that bias and a preliminary assessment of its sources.
 
@@ -25,13 +25,13 @@ The retrieval process (as summaried in Figure~\ref{fig:evaluation:retrieval:outl
 \begin{enumerate}
     \item Sample a prototype document from the corpus profile
     \item Retrieve candidate links using the Microsoft Bing web service~\footnote{\url{https://datamarket.azure.com/dataset/bing/searchweb}}.
-    \item Download, remove boilerplate (using justext~\td{cite}), and classify each document using heuristics from the corpus profile.
+    \item Download, remove boilerplate (using justext~\cite{pomikalek2013justext}), and classify each document using heuristics from the corpus profile.
     \item Measure distance in the resulting vector space according to each heuristic's value.
 \end{enumerate}
 
 For this data set, both the direct links from Bing and the first level of hyperlinks in each document were downloaded.  This is done in order to ensure that the sampled area of metadata is a supersample of the desired distribution, as well as to maximise the chances of finding suitable points in other, uncontrolled, dimensions.
 
-Documents with fewer than 100 words were discarded as they were unlikely to be classified accurately.
+Documents with fewer than 100 words were discarded as they were unlikely to be classified accurately.  This could be worked around by selecting 100-word samples from larger texts if necessary.
 
 For this evaluation, the written portions of the BNC were used as the seed corpus.  Keywords used for search were generated using log likelihood scores, and no cutoff was used: instead, the random selection algorithm was weighted by the resulting score.
 
@@ -74,10 +74,10 @@ The retriever must, as far as possible, retrieve documents according to \textsl{
 
 
 
-\subsection{Results and Discussion}
+\subsection{Results}
 \label{sec:evaluation:results}
 
-In total, $72540$ documents were downloaded after $6510$ requests to Bing.  After boilerplate removal using JusText~\td{cite} and discarding of short documents, $55790$ documents remained in the corpus.
+In total $72,540$ documents were downloaded after $6,510$ requests to Bing.  After boilerplate removal using JusText~\cite{pomikalek2013justext} and discarding of short documents, $55,790$ documents remained in the corpus.
 
 
 This sample size is $\approx 21$ times the input corpus.  Estimating using graphical methods (as in Section~\ref{sec:evaluation:resampler}, this should be sufficient to provide an appropriately distributed sample of genres.  The worst case is that each Bing search returns very few documents with the desired genre, for example, if each search returns only a single document of interest then this ratio is reduced to $\approx 3N$.
@@ -87,7 +87,7 @@ This sample size is $\approx 21$ times the input corpus.  Estimating using graph
 % \subsubsection{Univariate Properties}
 Before inspecting the results from the retriever, the limitations of this method should be noted.  Firstly, the ideal retrieval mechanism should target all dimensions of the prototype document provided, in this case Genre, reading ease, and word count).  Bing does not index the latter of these two, leaving them to vary naturally.
 
-This variation is in interaction with the genre itself, and so it is not possible to generalise from the observations here to the wider web.  The distributions shown in Figures~\ref{fig:evaluation:retrieval:flesh} and \ref{fig:evaluation:retrieval:words} are, however, indicative of the documents found on Bing when searching for BNC terms.  Upholding the assumption that the written BNC represents general-purpose language use, this is an indication of users' exposure to documents online\footnote{This is a distinction drawn strongly amongst WaC, where many efforts attempt to describe the web itself rather than usage thereof.}.
+This variation is in interaction with the genre itself, and so it is not possible to generalise from the observations here to the wider web.  The distributions shown in Figures~\ref{fig:evaluation:retrieval:flesh} and \ref{fig:evaluation:retrieval:words} are, however, indicative of the documents found via Bing when searching for BNC terms.  Upholding the assumption that the written BNC represents general-purpose language use, this is an indication of users' exposure to documents online\footnote{This is a distinction drawn strongly amongst WaC, where many efforts attempt to describe the web itself rather than usage thereof.}.
 
 From the point of view of one sampling documents to form a supercorpus, it is desirable that the uncontrolled dimensions are widely and evenly dispersed across the vector space, such that any subsequent rejection sampling is simplified.
 
@@ -108,15 +108,10 @@ From the point of view of one sampling documents to form a supercorpus, it is de
     \label{fig:evaluation:retrieval:words}
 \end{figure}
 
-Figure~\ref{fig:evaluation:retrieval:flesh} shows the distribution of reading ease scores across the collected documents, the $y$ axis showing the values as downloaded from the web.  The red line is plotted with a gradient of $0.5$.
+Figure~\ref{fig:evaluation:retrieval:flesh} shows the distribution of reading ease scores across the collected documents, the $y$ axis showing the values as downloaded from the web.  The red line is plotted with a gradient of $0.5$, and shows the ideal zone where documents should lie if retrieved perfectly.
 
 
-The readability dimension (Figure~\ref{fig:evaluation:retrieval:flesh}) is fairly well dispersed, indicating that there are no  of document fundamentally unreachable using the search engine method.  Though this dimension is the simplest, both the prototype and retrieved documents have similar standard deviations ($16.2$ and $17.9$ respectively) and means ($57.5$ and $57.4$ respectively).  There is very little correlation between prototype and retrieved values: with a PMCC of just $0.06$.  Generally, this indicates that most distributions of readability are `covered' online, and the one used in the BNC is easily represented.
-
-
-Word counts are altogether more complex.  The word count is distributed in the BNC in a far more complex manner \td{need a plot?}, and the method of sampling can be reasonably expected to impact this more than readability.  Figure~\ref{fig:evaluation:retrieval:words} shows that the distribution of word counts online (conditioned on genre) is far from that in the BNC.
-% TODO
-
+The readability dimension (Figure~\ref{fig:evaluation:retrieval:flesh}) is fairly well dispersed, indicating that there are no documents fundamentally unreachable using the search engine method.  Though this dimension is the simplest, both the prototype and retrieved documents have similar standard deviations ($16.2$ and $17.9$ respectively) and means ($57.5$ and $57.4$ respectively).  There is very little correlation between prototype and retrieved values: with a PMCC of just $0.06$.  Generally, this indicates that most distributions of readability are `covered' online, and the one used in the BNC is easily represented.
 
 \begin{figure}[Ht]
     % ./analysis/
@@ -126,11 +121,14 @@ Word counts are altogether more complex.  The word count is distributed in the B
     \label{fig:evaluation:retrieval:words-dist}
 \end{figure}
 
-The distribution plots in Figure~\ref{fig:evaluation:retrieval:words-dist} display the obvious missing portion of the word count target distribution.  This is a clear example of the bias of online documents, which tend to be paginated even where the content is particularly long (a trend that is exacerbated by advertising-based funding models).
+Word counts are altogether more complex.  The word count is distributed in the BNC in a far more complex manner (Figure~\ref{fig:evaluation:retrieval:words-dist}), and the method of sampling can be reasonably expected to impact this more than readability.  This shows that the distribution of word counts online (conditioned on genre) is far from that in the BNC: the line of intended fit failing to intersect with longer documents.
+% TODO
 
-\til{
-In the discussion section, mention that this bias can be worked around for most analysis by not sampling whole texts, but that it is an interesting finding that the web can't do long texts.  Perhaps refer to this in the keyword bit later.
-}
+The distribution plots in Figure~\ref{fig:evaluation:retrieval:words-dist} display the obvious missing portion of the word count target distribution.  This is a clear example of the bias of online documents, which tend to be paginated even where the content is particularly long (a trend that is exacerbated by advertising-based funding models).  The bimodal distribution of the BNC's word counts can be attributed to interactions with `domain'\td{define domain re. lee}\footnote{CHECK LEE's BNC COMMENTS ON DOMAIN}: with \texttt{W\_world\_affairs} and \texttt{W\_imaginative} forming the bulk of the longer texts.
+
+% \til{
+% In the discussion section, mention that this bias can be worked around for most analysis by not sampling whole texts, but that it is an interesting finding that the web can't do long texts.  Perhaps refer to this in the keyword bit later.
+% }
 
 
 
@@ -215,20 +213,63 @@ In the discussion section, mention that this bias can be worked around for most 
 
 Genre was the only parameter explicitly controlled-for by the search engine retrieval method.  Precise counts for each of the prototype and retrieved genres are provided in Table~\ref{table:evaluation:retrieval:words-dist}.  
 
-Figure~\ref{fig:evaluation:retrieval:genres-corr} shows the prototype genre frequency plotted against the downloaded.  When selecting a full corpus using the search engine lookup method, differences between the prototype and downloaded document classes should be minimal --- when selecting a supercorpus, it is desirable only that they fall into the shaded region of the plot.  The evidence here is not compelling for oversampling: just $19$ of the $44$ categories have been "over-sampled".
+Figure~\ref{fig:evaluation:retrieval:genres-corr} shows the prototype vs. downloaded genre frequencies.  Those genres above the line are under-represented in the downloaded documents, relative to the prototype documents\footnote{This measure is distinct from precision/recall in that it does not care which individual documents account for the frequencies, only that the search has retrieved appropriate proportions of each}.
+When selecting a full corpus using the search engine lookup method, differences between the prototype and downloaded document classes should be minimal --- when selecting a supercorpus, care must be taken to ensure that items in the top-left of the plot have sufficient frequencies for the intended purpose.
+% In the ideal casejust $19$ of the $44$ categories have been "over-sampled".
 
-Evidence for the "directedness" of genre-based retrieval using ngrams is slightly stronger.  Rank correlation between prototype and retrieved documents is $0.45$, and a Mann-Whitney test is not significant ($U = 786.5; p \approx 0.13 > 0.05$), indicating that errors in retrieval are centred around the prototype's frequencies.  This is reinforced by inspecting the density plot for differences between category frequencies, shown in Figure~\ref{fig:evaluation:retrieval:genres-diffdist}
+Evidence for the "directedness" of genre-based retrieval using ngrams is given by the dispersion of data around the red line.  Rank correlation between prototype and retrieved documents is $0.45$, and a Mann-Whitney test is not significant ($U = 786.5; p \approx 0.13 > 0.05$), indicating that errors in retrieval are centred around the prototype's frequencies.  This is reinforced by inspecting the density plot for differences between category frequencies, shown in Figure~\ref{fig:evaluation:retrieval:genres-diffdist}.  This is evidence that retrieval using search terms produces documents similar to those searched for.
 
 % --
 
-Treating the searching process as a classifier allows us to examine the expectation of retrieving a genre successfully.  $7355$ documents were returned with the desired genre, leading to a true positive rate of $13.2\%$.  This implies retrieval results close to the worst case of one relevant document per search, and explains the low correlation between predicted and resultant class types.
+Treating the searching process as a classifier allows us to examine the expectation of retrieving a genre successfully.  $7,355$ documents were returned with the desired genre, leading to a true positive rate of $13.2\%$.  This implies retrieval results close to the worst case of one relevant document per search, and explains the low correlation between predicted and resultant class types.
 
 Per-class retrieval rates are displayed in the right-most column of Table~\ref{table:evaluation:retrieval:words-dist}.  There is no correlation between the size of a genre and its true positive rate ($\rho = 0.84$), and inspection of the table indicates that performance is better predicted by the `linguistic specificity' of a given category (with religion, medicine and tech leading the recall rate statistics).
 
+Though it is not possible to separate classifier error from retrieval error without construction of a gold standard corpus (something that lies beyond the scope of this work), earlier evaluations of the classifier used (Section~\ref{sec:evaluation:heuristics:genre}) show that classifier error is not strongly biased.  This allows us to conclude that evidence of significant bias in the resultant data is largely a product of the searching process, rather than document classification.
 
-\til{ It's possible to investigate interactions between dimensions or genres here, but I think it might not add much to the discussion.  Perhaps might give a handle on some of the bing behaviour, but also might just reflect the classifier}
 
 % -- 
+
+
+
+\begin{table}[Htb]
+    \centering
+    \begin{tabular}{@{}llll||llll@{}}
+        \hline
+        \multicolumn{4}{c||}{{\bf Over-sampled}}                       & \multicolumn{4}{c}{{\bf Under-sampled}}                         \\ 
+        {\bf term} & {\bf original} & {\bf retrieved} & {\bf loglik} & {\bf term}    & {\bf original} & {\bf retrieved} & {\bf loglik} \\ \hline
+        p          & 29217          & 8839489         & 1977900.5    & she'd         & 7338           & 4050            & -17407.3     \\
+        s          & 17778          & 1903037         & 357245.2     & darlington    & 5559           & 1521            & -16657.0     \\
+        she        & 290860         & 916731          & 136365.1     & ec            & 6091           & 5531            & -11220.7     \\
+        gt         & 111            & 535127          & 134335.1     & solicitors    & 2135           & 1086            & -5237.0      \\
+        com        & 172            & 465891          & 116044.3     & swindon       & 2182           & 1409            & -4825.7      \\
+        www        & 2              & 448772          & 113981.6     & kinnock       & 1375           & 264             & -4466.7      \\
+        amp        & 668            & 432633          & 102780.7     & theda         & 838            & 32              & -3297.3      \\
+        lt         & 792            & 425436          & 99921.8      & nizan         & 756            & 6               & -3146.1      \\
+        had        & 359670         & 1439973         & 94877.1      & cnaa          & 742            & 1               & -3140.1      \\
+        h          & 8094           & 555374          & 90772.7      & guil          & 755            & 43              & -2886.5      \\
+        t          & 9078           & 557616          & 87217.1      & maastricht    & 1165           & 593             & -2856.9      \\
+        her        & 277189         & 1070672         & 80897.8      & oesophageal   & 957            & 279             & -2820.0      \\
+        2015       & 25             & 293434          & 74145.0      & lexical       & 1106           & 514             & -2809.1      \\
+        2014       & 16             & 254997          & 64517.4      & robyn         & 1200           & 707             & -2767.5      \\
+        he         & 523177         & 2629585         & 59109.8      & lamont        & 1184           & 708             & -2712.6      \\
+        was        & 722425         & 3866921         & 58399.0      & risc          & 1013           & 416             & -2689.4      \\
+        cent       & 34353          & 44410           & 49457.4      & knitting      & 1509           & 1463            & -2668.9      \\
+        the        & 5021789        & 33346038        & 47673.9      & athelstan     & 1060           & 516             & -2645.3      \\
+        be         & 524709         & 2771036         & 45819.9      & privatisation & 1104           & 665             & -2521.1      \\
+        it         & 727487         & 4058706         & 45306.4      & leapor        & 626            & 18              & -2502.2      \\ \hline
+    \end{tabular}
+
+    \caption{The 20 most over- and under-represented terms relative to the BNC.}
+    \label{table:evaluation:retrieval:keywords}
+
+\end{table}
+
+
+
+
+
+
 
 Finally, keywords were computed relative to the original input corpus using log likelihood.  These offer insight into the specific biases of the data source and a handle on qualitative differences between sampling processes.  
 
@@ -236,25 +277,25 @@ Finally, keywords were computed relative to the original input corpus using log 
 % Should a 'fake' BNC be generated by rejection sampling the supercorpus too?  The comparison would arguably be fairer.
 
 
-The top 200 keywords were inspected for the whole supercorpus relative to the seed corpus. Overrepresented tokens were scored separately to under-represented ones in accordance with \cite{}\td{cite Rayson et al}, and the lists were free-coded for prominent themes.
+The top 200 keywords were inspected for the whole supercorpus relative to the seed corpus. Overrepresented tokens were scored separately to under-represented ones in accordance with \cite{}\td{cite Rayson et al}, and the lists were free-coded for prominent themes.  The 20 most over- and under-represented terms are displayed in Table~\ref{table:evaluation:retrieval:keywords}.  The full lists are included in Appendix~\ref{sec:appx:keywords}.
 
-\til{Include in appendix?}
+Overrepresented terms may be grouped into a number of obvious salient categories.  The first of these is technical terms: those that are side-effects of the tokeniser or otherwise are related specifically to the web.  This includes features such as protocols (\textsl{http}), and features of URLs (\textsl{co}, \textsl{org}), as well as terms such as \textsl{email} and \textsl{posted} which have simply become more prevalent since the BNC was produced.  It's difficult to say whether or not a more recent seed corpus would eliminate most of these from the keyword list.
 
-Overrepresented terms may be grouped into a number of obvious salient categories.  The first of these is technical terms: those that are side-effects of the tokeniser or otherwise are related specifically to the web.  This includes features such as protocols (`http'), and features of URLs (`co', `org'), as well as terms such as `email' and `posted' which have simply become more prevalent since the BNC was produced.  It's difficult to say whether or not a more recent seed corpus would eliminate most of these from the keyword list.
+Temporal features dominate the rest of the list, with many terms related to date or proper nouns (\textsl{Obama}, \textsl{Nike}).  Dates feature prominently: \textsl{2001}-\textsl{2012} are all mentioned, along with \textsl{1991} and \textsl{1988}.  Genetics is also mentioned (\textsl{gene}, \textsl{mutation}), along with education (\textsl{university}, \textsl{pupils}) and government (\textsl{government}, \textsl{council}).
 
-Temporal features dominate the rest of the list, with \td{N} terms related to date or proper nouns (`Obama', `Nike').  Dates feature prominently: 2001-2012 are all mentioned, along with `1991' and `1988'.  Genetics is also mentioned (`gene', `mutation'), along with education (`university', `pupils') and government (`government', `council').
+The remaining terms are pronouns or function words.  These, along with the large number of quantities and references to time/date imply consistency with other WaC studies, that is, an overrepresentation of news online.
 
-The \td{N} remaining terms are pronouns or function words.  These, along with the large number of quantities and references to time/date imply consistency with other WaC studies, that is, an overrepresentation of news online.
+This central theme is interesting to contrast against the BNC, which contains a large quantity of news material already, indicating that news genres are even more prevalent online, or that news media (or perhaps just online news) has become more extreme (that is, less like other written genres) than the bulk of the BNC data.
 
-This central theme is interesting to contrast against the BNC, which contains a large quantity of news material already, indicating that news genres are even more prevalent online, or that online news is ``newsier'' than the bulk of the BNC data.
+Features that are significantly under-represented prodominantly fall into the category of proper nouns, and these are mostly political and from the UK (\textsl{kinnock}, \textsl{gummer}, \textsl{heseltine}).  Since the search engine was instructed to search the `GB' marketplace, many of these are most likely explained by temporal effects --- the prevalence of these keywords also points at the strength of news within the BNC, along with places and organisations that featured in the news at the time (\textsl{TUC}, \textsl{Maastricht}, \textsl{DTI}).
 
-Features that are significantly under-represented prodominantly fall into the category of proper nouns, and these are mostly political and from the UK (`kinnock', `gummer', `heseltine').  Since the search engine was instructed to search the `GB' marketplace, many of these are most likely explained by temporal effects --- the prevalence of these keywords also points at the strength of news within the BNC, along with places and organisations that featured in the news at the time (`TUC', `Maastricht', `DTI').
+There is also a strong theme of legal terms (\textsl{offeror}, \textsl{solicitor}, \textsl{arbitrage}), which points at a clear under-representation of legal documents returned by search engines.  This is likely a technical limitation of the retriever, which avoids \texttt{\.pdf} files.
 
-There is also a strong theme of legal terms (`offeror', `solicitor', `arbitrage'), which points at a clear under-representation of legal documents returned by search engines.  This is likely a technical limitation of the retriever, which avoids \.pdf files.
+Some technical terms are also presented in the keyword list due to the speed of progress in that field: \textsl{80486} and \textsl{microcomputer} both showing their age.
 
-Some technical terms are also presented in the keyword list due to the speed of progress in that field: `80486' and `microcomputer' both showing their age.
+Finally, there are a number of gastric terms (\textsl{oesophegeal}, \textsl{pylori}, \textsl{dueodenal}), which point to a very specific set of documents missing in the returned data.  These terms are from an academic context that, like legal documents, is under-represented for technical reasons, however, it is also likely that the specificity of this category indicates an over-representation within the BNC to some degree.
 
-Finally, there are a number of gastric terms (`oesophegeal', `pylori', `dueodenal'), which point to a very specific set of documents missing in the returned data.  These terms are from an academic context that, like legal documents, is under-represented for technical reasons, however, it is also likely that the specificity of this category indicates an over-representation within the BNC to some degree.
+The relative obscurity of the under-represented terms and the predictable, largely temporal, nature of the over-represented ones is particularly encouraging, indicating that the web is a suitable source for many general-purpose (or current-affairs-focused) applications.
 
 
 % TODO: Comparison of keywords from data (should be no sig. differences!)

@@ -2,25 +2,25 @@ The heuristics selected for this evaluation are formed around Lee's BNC World in
 
 
 
-There are two main approaches to populating the corpus description using these heuristics: either read the seed corpus' contents and classify each data point, or read a list of metadata from an existing index.  The latter approach is used in this evaluation, since it is applicable to corpora with partially-missing data (such as the personal corpus data resulting from data gathering in Chapter~\ref{5}).
+There are two main approaches to populating the corpus description using these heuristics: either read the seed corpus' contents and classify each data point, or read a list of metadata from an existing index.  The latter approach is used in this evaluation, since it is applicable to corpora with partially-missing data (such as the personal corpus data resulting from data gathering in Chapter~\ref{sec:rebuilding}).
 
 The accuracy of the classifiers listed here is responsible for minimising excess dispersion relative to the input corpus.  The nature of their residual error is also going to apply bias to the resulting data set.
 
 Since many of these heuristics surround operationalising a corpus, a large body of research exists for classifying and extracting useful dimensions from texts.  The heuristics presented here are proof-of-concept only, and it is expected that the design of the heuristics used for a study is selected to match the theoretical basis of any analysis.
 
-The heuristics presented here are document-level.  In most corpus designs, word count would be considered a measure of the size of the corpus (rather than a property of its constituents).  The method evaluated here is capable of retrieving truly IID\td{elaborate} samples at different levels, and demands a different selection of heuristics and metadata when operating at the word or sentence level.  Document level metadata are both high-level enough to be distributed for confidential corpora and descriptive enough to enable accurate retrieval (by contrast, word or part-of-speech frequencies would reveal much of the contents of the original corpus, which may not be desirable).
+The heuristics presented here are document-level.  In most corpus designs, word count would be considered a measure of the size of the corpus (rather than a property of its constituents).  The method evaluated here is capable of retrieving IID (independent and identically distributed) samples at different levels, and demands a different selection of heuristics and metadata when operating at the word or sentence level.  Document level metadata are both high-level enough to be distributed for confidential corpora and descriptive enough to enable accurate retrieval (by contrast, word or part-of-speech frequencies would reveal much of the contents of the original corpus, which may not be desirable).
 
 
 
 
 \subsection{Audience Level}
-The BNC User's Reference Guide~\cite{CITE} describes audience level thus:
+The BNC User's Reference Guide~\cite{burnard1995users}\td{page} describes audience level thus:
 
 \begin{quote}
 ...a subjective assessment of the text's technicality or difficulty.
 \end{quote}
 
-This is expanded upon slightly by Lee~\cite{lee2003bnc}, saying:
+This is expanded upon slightly by Lee~\cite{lee2003bnc}\td{page}, saying:
 
 \begin{quote}
     \textsl{Audience level}, on the other hand, is an \textbf{estimate} (by the compilers) of the \textbf{level of difficulty} of the text, or the amount of background knowledge of its subject matter which is assumed.
@@ -99,7 +99,7 @@ The former of these pertains to metadata and other boilerplate within files.  Fi
 
 Secondly, it is necessary to normalise deviance measures when comparison documents: this poses a particular challenge as word counts are open-ended.  The method used here was to enforce an arbitrary limit, above which any distances in the word count dimension register as $1$.  Because the sampling method does not primarily rely on gradient descent, this is fairly safe, however, selection of the threshold does impact the importance assigned to word count (vs. some other metadata dimension): too high and it will undervalue differences in word count.
 
-The arbitrarly limit selected for the BNC was \td{limit from config file}.  This is sufficiently large that it encompasses the word counts for all BNC files, allowing for at least \td{n\%} excess.  In practice (as we shall discuss later~\td{where}) most documents fall short, and this limit could be reduced.
+The arbitrarly limit selected for the BNC was $10,000$.  This is sufficiently large that any difference greater than it may be considered `absolute', that is, if there is a difference in length of over $10,000$ words, we can reasonably conclude that the lengths differ enough to be describing different types of text.  In practice (as we shall discuss in Section~\ref{sec:evaluation:retrieval}) most documents fall short, and this limit could be reduced.
 
 % --- 
 It is worth noting the difference in philosophy this method embodies compared to many corpus studies: the word count here is a property of each document, and not a measure of corpus size.  Unlike many methods, we are sampling at the same level we are presuming analysis at (though this level is variable due to the ease with which documents may be selected).
@@ -112,7 +112,7 @@ It is worth noting the difference in philosophy this method embodies compared to
 \subsection{Genre}
 Genre is arguably the most important single stratification applied to a general-purpose corpus (even forming the bulk of the definition of its name), yet it remains one of the more nebulous terms.  Here we follow Lee's definitions once more, commensurate with the BNC index that serves as the source of much of the metadata for our corpus definition file.
 
-Due to the complexity of genre taxonomies (and thus the relative difficulty of classifying documents therein), there is significant motive to take the same approach as audience level above: using a self-defined or simpler taxonomy to simplify imputation or selection.  On the other hand, the BNC classification is well-known and likely to be used in any corpus augmentation task (``I want this subset of the BNC, but \textsl{more} of it.'').  We describe here an approach using the existing BNC classifications for this reason, with a detailed discussion of the implications of other options below\td{where}.
+Due to the complexity of genre taxonomies (and thus the relative difficulty of classifying documents therein), there is significant motive to take the same approach as audience level above: using a self-defined or simpler taxonomy to simplify imputation or selection.  On the other hand, the BNC classification is well-known and likely to be used in any corpus augmentation task (e.g. ``I want this subset of the BNC, but \textsl{more} of it.'').  We describe here an approach using the existing BNC classifications for this reason, with a discussion of the implications of other options below.
 
 
 As this is a proof-of-concept system, the accuracy of the classifiers used need not be cutting-edge.  This relaxed requirement is reinforced by the notion that any errors are `sane', falling along such ambiguities as identified by Lee~\cite[p.~11]{lee2003bnc}:
@@ -123,7 +123,7 @@ It may be the case that the actual content/topic of these linguistics-related te
 
 This `sanity of error' is enforced by using a distance measure that is based on rank correlation of token type frequencies, allowing two categories to be judged on a scale more meaningful than simple boolean equality.  This luxury may not be available for all potential discrete classification systems (such as those read from external indices), and is not a requirement of convergeance to the input distribution.
 
-The distinction between genres is often somewhat variable: some, such as \variable{w\_newsp\_brdsht\_nat\_*}, are made between the subject of texts, whereas others fall along lines of context or what others may term `text type' (\variable{W\_email} vs. \variable{W\_essay\_sch}).  This makes it particularly difficult to identify a model that linearises features within the dataset consistently enough for many classification algorithms to work well.
+The distinction between genres is often somewhat variable: some, such as \variable{W\_newsp\_brdsht\_nat\_*}, are made between the subject of texts, whereas others fall along lines of context or what others may term `text type' (\variable{W\_email} vs. \variable{W\_essay\_sch}).  This makes it particularly difficult to identify a model that linearises features within the dataset consistently enough for many classification algorithms to work well.
 
 Lee's taxonomy is partially hierarchical, with many of the more detailed categories harbouring both this `text type' distinction as well as one regarding topic.  Both were retained here as they align to two distinct processes when sampling: the text type is an indication of (roughly) where a document may be found, and the topic regards more which document to select.
 
@@ -140,7 +140,7 @@ The problem of identifying BNC genre from free text is a simple 70-way classific
 
 In his 2007 paper on web genres, Sharoff~\cite[p. 5]{sharoff2007classifying} fits a number of classifiers to the BNC, using a variety of genre taxonomies.  Therein he reports success using a supervised learning approach to classify `grouped' versions of the BNC taxonomy: one aligned to the EAGLES~\cite{EagTcwgCtypeaglespreliminary} text typology recommendations, and one 10-way grouping based on unsupervised methods.
 
-\til{Mention Biber et. al, perhaps}
+An alternative method would be to use entirely ground-up techniques such as factor analysis or LDA.  These mechanisms will extract maximally homogenous groupings from text, but at the expense of predictable alignment with human understanding (and thus any research questions or search engine designs).
 
 Since part of the intent here is to retain a parsimonious corpus profile document, this heuristic makes use of the original categories from the BNC taxonomy.  Nonetheless, Sharoff's study was used as a starting point for the methodology, in line with the goal of using established methods for heuristics.
 
@@ -183,11 +183,10 @@ The decision to omit sections of the BNC was deemed a necessary trade-off to ach
     \label{table:evaluation:heuristics:classifieraccuracy}
 \end{table}
 
-\til{Comments on 45 and 46 were lost when the HDD went, but the models remain.  Comment below}
-
 Table~\ref{table:evaluation:heuristics:classifieraccuracy} shows the resultant accuracy figures for the models trained on the BNC subsets mentioned.  10-way crossvalidation was used to estimate the above statistics, in an effort to reduce the potential for overfitting to a fixed test/training set.  The statistics are formed from a weighted mean of each classes performance against all others.
 
-These figures reveal that {\textsl spoken conversation} ({\texttt{S\_conv}) has the most deleterious effect on classifier accuracy, indicating that it overlaps most with other categories.  Whilst it was expected that \texttt{W\_misc} would also do this, the performance improvement shown in BNC69b over BNC68 indicates that \texttt{W\_misc} contains some distinct features that are best retained.  Though using a different design of classifier, overall performance is roughly in-line with Sharoff's BNC-based classifiers\footnote{Notably, attempts to fit SVM-based models lead to lower performance than multinomial na\"ive Bayes.  I believe this to be a result of the high number of classes}~\cite[ibid.]{sharoff2007classifying}.
+These figures reveal that {\textsl spoken conversation} ({\texttt{S\_conv}) has the most deleterious effect on classifier accuracy, indicating that it overlaps most with other categories.  Whilst it was expected that \texttt{W\_misc} would also do this, the performance improvement shown in BNC69b over BNC68 indicates that \texttt{W\_misc} contains some distinct features that are best retained.  Though using a different design of classifier, overall performance is roughly in-line with Sharoff's BNC-based classifiers\footnote{Attempts to fit SVM-based models lead to lower performance than multinomial na\"ive Bayes.  I believe this to be a result of the high number of classes}~\cite[ibid.]{sharoff2007classifying}.  The $45$ and $46$ class models are written-only equivalents, and are listed here due to their use in the retrieval task below.
+
     
 
 \begin{figure}[Ht]
@@ -201,9 +200,7 @@ These figures reveal that {\textsl spoken conversation} ({\texttt{S\_conv}) has 
 
 There are also potential arguments for the omission of many other categories from the taxonomy used here, however.  Figure~\ref{fig:evaluation:heuristics:bnc68bconfusion} shows the confusion matrix for the BNC69b classifier---note that some jitter has been applied to the plot to accentuate the overplotted items.  This shows a rough smattering of difficult-to-classify classes, though a more detailed inspection of the per-class tests on the model indicates that only two of these perform with AUC values below 0.7: \texttt{W\_fict\_drama} and \texttt{W\_essay\_univ}, which are classified in a way indistinguishable from chance.  Some classes with distinct lexical features (such as \texttt{W\_email} and \texttt{S\_sermon}) are classified particularly accurately.
 
-The error surface described in Figure~\ref{fig:evaluation:heuristics:bnc68bconfusion} will contribute to the resulting error of the system, and as such further increase the variance of the output corpus.  Again, this is analogous to the coding stage of any conventional corpus building project, but with the distinct advantage that the propensity for classification error is well-known.
-
-\til{ Insert the full accuracy data into an appendix and refer to it here }
+The error surface described in Figure~\ref{fig:evaluation:heuristics:bnc68bconfusion} will contribute to the resulting error of the system, and as such further increase the variance of the output corpus.  Again, this is analogous to the coding stage of any conventional corpus building project, but with the distinct advantage that the propensity for classification error is well-known.  As shown, there are no instances where a genre is consistently mis-classified, indicating that errors will not systematically bias any output.  The full accuracy data is presented in Appendix~\ref{sec:appx:bayesianbnc68}.
 
 % -- 
 \paragraph{}

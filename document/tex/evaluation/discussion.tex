@@ -2,7 +2,7 @@
 
 
 
-The evaluation above is a white-box exploration of the characteristics of each component in a context similar to many real-world demands.  It displays variable performance.
+The evaluations above form a white-box exploration of the characteristics of components in a context similar to many real-world demands.  Overall, performance is encouraging: though there are significant challenges to the accuracy of classification and retrieval, combination of the three main stages is able to retrieve a corpus with only minor changes from its target input.
 
 Firstly, the performance of classifiers when operating on text must be established relative to the research question.  In this case, that was particularly tricky for a number of practical reasons which shadow the classical manual corpus construction issues:
 
@@ -11,12 +11,12 @@ Firstly, the performance of classifiers when operating on text must be establish
     \item The complexity of some sampling criteria requires the use of black-box models that are themselves unpredictable, and require training using auxiliary data.
 \end{itemize}
 
-Both of these are common cases when dealing with `human', research-aligned sampling criteria, and both are rightly recognised as key areas for improvement in text processing.  The deficiencies in real-world performance of this classification process must be assessed on a case-by-case basis: for certain sampling criteria, classification is made trivial by the existence of metadata (for example the recipient fields in emails) or existing mechanisms online for directed retrieval.  
+Both of these are common cases when dealing with `human', research-aligned sampling criteria, and both are rightly recognised as key areas for improvement in text processing.  Any deficiencies in real-world performance of this classification process must be assessed on a case-by-case basis: for certain sampling criteria, classification is made trivial by the existence of metadata (for example the recipient fields in emails) or existing mechanisms online for directed retrieval.  
 
-This limited classification capacity comes with a silver lining, however: unlike other bootstrapping approaches, it is possible to separate and independently evaluate the performance of any classifier used.  In turn this makes it possible to re-use others' research in this area and make incremental improvements over time.  Secondly, classification accuracy is improved by application to well-specified problems of limited scope: a priority that aligns well with the core values of a good sampling scheme.
+This limited classification capacity comes with a silver lining, however: unlike other bootstrapping approaches, it is possible to separate and independently evaluate the performance of any classifier used.  In turn this makes it possible to re-use others' research in this area and make incremental improvements over time.  Secondly, classification accuracy is improved by application to well-specified problems of limited scope: a priority that aligns well with the core values of a good sampling scheme.  Finally, the evaluation shown above indicates that error in the models chosen here are largely unbiased, meaning they only minimally impact on the utility of a supercorpus.
 
 
-Examination of the BNC categories used here also reveals the loose nature of classification therein: many categories are defined according to fairly fluid concepts of varying specificity, and many overlap significantly.  This is evidenced by the relative performance of classifiers built with minor changes to their classes, and by the keywords used by the Bayesian models.  
+Examination of the BNC categories used here also reveals the loose nature of classification therein: many categories are defined according to fairly fluid concepts of varying specificity, and many overlap significantly.  This is evidenced by the relative performance of classifiers built with minor changes to their classes, and by the keywords used by the Bayesian models.  Further work is required to define a useful yet strictly-defined set of genre categories---this may be best performed by those creating corpora if no community-wide agreement can be made on salient categorisation schemes.
 
 
 % -- 
@@ -24,36 +24,43 @@ Examination of the BNC categories used here also reveals the loose nature of cla
 
 The bootstrapping process, separated into a process of building a prototype corpus, has been shown to converge within a timeframe that is compatible with automated retrieval.
 
-For the BNC example outlined here, roughly $12$ times the input corpus size is required to converge with 95\% confidence.  This is an impediment to use of these techniques, except where:
+For the BNC example outlined here, roughly $12$ times the input corpus size is required to converge with 95\% confidence.  This coefficient is based on the complexity of the input corpus, making the technique better suited to smaller corpora, or those with lower variance parameter spaces (such as special-purpose corpora, or corpora built primarily around small numbers of parameters).
 
-\begin{itemize}
-    \item The input corpus is fairly small and low-variance, such as in the case of special-purpose corpora;
-    \item Retrieval of documents is automatic and fast.
-\end{itemize}
+The more complex each document, the more difficult it is to retrieve.  This relationship is unfortunate, as it is more likely that a greater number of documents will be required in order to construct a corpus.
 
-The former of these weakens any requirement for the latter and vice versa: the example presented here is an example of speeding up retrieval to allow for large-scale corpora, something that places particular focus on the quality of the retrieval process.
+One way around this is to sample using a different sampling unit.  The method presented here is capable of word-, paragraph-, and sentence-level retrieval, something that also brings significant methodological benefits by reducing or eliminating the need for statistical corrections to compensate for the dependent nature of words\footnote{Indeed, I consider this approach to be far better than factoring in measures of dispersion.}.
 
-\til{Unfortunately, retrieval is the dodgiest bit :-(}
+
 
 % --
 \paragraph{}
 
-Automated retrieval is the part of the method with the greatest number of practical challenges. The method used here is deliberately comparable to the bootstrapping approach used by BootCaT\td{cite?}, in part to use the prototype corpus approach for an evaluation of search engine retrieval methods.
+Automated retrieval is the part of the method with the greatest number of practical challenges. The method used here is deliberately comparable to the bootstrapping approach used by BootCaT\cite{baroni2004bootcat}, in part to use the prototype corpus approach for an evaluation of search engine retrieval methods.
 
-The evaluation here focuses on genre-based retrieval.  This is of particular salience to many linguistic research questions, and is well aligned to search engine indexing behaviour --- an ideal automated retriever would go far beyond this to use document metadata and different sources of text (such as academic repositories).
+The evaluation here focuses on genre-based retrieval.  This is of particular salience to many linguistic research questions, and is well aligned to search engine indexing behaviour---an ideal automated retriever would go far beyond this to use document metadata and different sources of text (such as academic repositories).
 
-Keyword-based search engine retrieval is shown, in the case of the BNC, to have roughly central error --- this is encouraging, though it is unclear how well this holds for other corpora.  Of particular interest is the application of the method to special-purpose corpora, which are (by design) strongly biased.
+Keyword-based search engine retrieval is shown, in the case of the BNC, to have roughly central error---this is encouraging, though it is unclear how well this holds for other corpora.  Of particular interest is the application of the method to special-purpose corpora, which are (by design) strongly biased.  It should be possible to use the evaluation methods presented here to gradually reduce this retrieval error, refining search based techniques in the process.
 
-Of greater concern is the systematic over-representation online of certain genres.  This implies that automated retrieval must advance significantly in order to sample many corpus designs, or that it must be complemented by manual methods where documents are difficult to locate.  The exact thresholds of `difficulty' there must be determined on operational grounds of cost and time --- for large-scale corpus building operations, a largely manual approach may be the best method of ensuring quality whilst still leveraging the benefits of the quantitative profiling and resampling approaches.
+We have also observed the systematic over-sampling of certain genres.  This implies that automated retrieval must advance in order to sample many corpus designs, or that it must be complemented by manual methods where documents are difficult to locate.  The exact thresholds of `difficulty' there must be determined on operational grounds of cost and time: for large-scale corpus building operations, a partially manual approach may be the best method of ensuring quality whilst still leveraging the benefits of the quantitative profiling and resampling approaches.
 
-
+This method provides a mechanism for inspecting and evaluating these biases, and repetition with different corpus designs would reveal how pervasive they are.  This is a key difference between the method presented here and existing web-based corpus retrieval, which is largely monolithic.
 
 % --
-% \paragraph{}
+\paragraph{}
+
+Ultimately, this evaluation has shown the method to be largely suitable for constructing general purpose corpora online, in a manner similar to existing tools.  Insights gleamed from the examination of each component indicate that it is also suitable for certain special-purpose corpora, and that its output may be generalisable to subsamples of the BNC.
+
+Quite how far it is possible to ``push the envelope'' of genre distribution is unclear, though this must be established through repetition and comparison to many known targets.  Currently, the ability to do that is hampered by the state of classification and retrieval technology, though neither of those are intractably difficult to improve, and both yield value to many users.
+
+Ultimately, even if a semi-manual document selection method is used for the final stage, this method is still significantly faster and easier than full manual selectionm.  The BNC-based corpus sampled here, for example, was retrieved automatically over the course of roughly a week, with minimal user interaction.
+
+The primary value of this method is the decoupling of retrieval and resampling mechanisms from the underlying data.  This allows proportions of data to be designed manually without providing a `seed corpus', meaning it is possible to construct corpora automatically simply from a sample design.
 
 
-\til{Compare more to RQs...}
-\noindent\makebox[\linewidth]{\rule{\paperwidth}{0.4pt}}
+
+
+% \til{Compare more to RQs...}
+% \noindent\makebox[\linewidth]{\rule{\paperwidth}{0.4pt}}
 
 
 

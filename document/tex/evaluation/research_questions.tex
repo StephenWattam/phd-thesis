@@ -2,7 +2,7 @@
 
 The approach used in this evaluation is one of treating the system to be tested as a method of replicating the features of a corpus, passing statistical properties of the input corpus through to the output.
 
-The success of this method is dependent on the structure of the input corpus, and the structure of the population new documents are drawn from, and as such this evaluation is just a single datapoint in the space of possible research questions.  If testing with another seed corpus, one must change the search strategy modules to fit, changing the overall results of the tool.  Essentially, this is a manifestation of 'garbage in, garbage out': moving search strategies into the implementation merely makes this more explicit.  For that reason, this evaluation uses an extremely popular corpyus, the BNC, to ensure some degree of transferrability.
+The success of this method is dependent on the structure of the input corpus, and the structure of the population new documents are drawn from, and as such this evaluation is just a single datapoint in the space of possible research questions.  If testing with another seed corpus, one must change the search strategy modules to fit, changing the overall results of the tool.  Essentially, this is a manifestation of 'garbage in, garbage out': moving search strategies into the implementation merely makes this more explicit.  For that reason, this evaluation uses an extremely popular corpus, the BNC, to ensure some degree of transferrability.
 
 One method of testing this is to see the output corpus as a model of the input, given certain assumptions that include the selection of metadata types and search strategies: providing those assumptions hold, much of the variation in the input corpus ought to be explained by variation in the output.  Measuring differences between the two allows us to identify specific areas of poor fit, which can then be improved either by altering the pluggable modules to fit the ground truth.
 
@@ -28,15 +28,4 @@ Research questions surrounding this method run to:
 \end{itemizeTitle}
 
 The accuracy of each heuristic component is contributory to the excess dispersion in the output corpus.  By design these modules are unambitious, relying on existing methods and tools already tested in the literature, however, their performance upon the data used here will be evaluated in order to better explain sources of error.  As this system remains a proof of concept, the selection of these modules is limited.
-
-
-
-
-
-
-\til{put in discussion: this restriction already exists for tools like bootcat, but without the explicit control over search mechanisms provided using the method being evaluated here.  Since there is no theoretical way around the `garbage in garbage out' problem, providing easy operationalisation to users is one approach to reducing overall methodological errors}
-
-
-
-
 
