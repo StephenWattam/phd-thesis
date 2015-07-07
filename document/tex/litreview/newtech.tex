@@ -1,15 +1,84 @@
 
+\subsection{Web Corpora}
+The rise in popularity of the web introduced a significant new source of text for linguists.  Whilst computerised text has been included in many conventional corpora (in the form of email and other direct communications), the ubiquity of the wev offers a source of digital-format documents that now cover many subjects and genres.
 
-\subsection{New Sources of Text}
-Cover the gradual digitisation of documents that would normally require heavy processing to acquire, and the implication of this.  Though many sources will be easier to integrate with a corpus, many more are not designed for automated processing.  Further to this, digitisation has led to a tighter, more explicit focus on intellectual property rights and re-use, including the use of DRM to block access in some instances.
+The first efforts to construct corpora from web data\cite{kilgarriff2001web} focused on the production of tools and resources to download, clean, and index web data at large enough scales to be used in general purpose corpora.  Many of these problems have now been solved to some degree, with the WaC movement producing a number of web-specific corpus tools:
 
-\subsubsection{Documents of Digital Origin}
-With the rise of the paperless office (ha!), even documents typically accessed in physical form are authored and stored digitally.  This has now extended to almost every form of textual information *(with some notable exceptions, of course, like all my damn notes).
+
+\begin{itemizeTitle}
+    
+    \item[Crawlers] WaC-specific crawlers have been produced that are able to control their behaviour according to linguistic properties\cite{schafer2014focused}, and with the intent to provide an overview of proportions online.
+
+    \item[Boilerplate removal tools] Tools such as JusTexT\cite{pomikalek2013justext} and BoilerPipe\td{cite} are able to remove the `boilerplate' of websites in order to leave just the content areas.
+
+    \item[Genre classification schemes] Taxonomies have been produced that include the new genres found online, or those new forms of text such as blogs.  Some of this work has come from search engine designers, eager to improve their results\cite{genreclassification2004}, as well as from linguistics proper\cite{sharoff2007classifying,santini10genreintro}.
+
+    \item[Retrieval tools] Tools such as BootCaT\cite{baroni2004bootcat} and search engines such as WebCorp\cite{renouf2003webcorp} allow access to increasingly large-scale web resources.
+
+\end{itemizeTitle}
+
+The ease with which users may access web data is of particular value: this has allowed for corpora of unprecedented scale such as the WaCky\cite{baroni2009wacky} and COW corpora (which contain tens of billions of words), as well as for near-instant corpus building and replication.
+
+
+\subsubsection{Crawling and Searching}
+Many WaC efforts focus on sampling the web itself, in order to represent users' experience thereof.  This approach leads to sample designs that focus on uniform coverage of top-level domains, or particular types of web resource, in a manner similar to that of search engine crawlers.
+
+Performing this task in a robust manner is particularly challenging due to the lack of any central index for websites at this level.  As such, it is common to oversample and then select documents after-the-fact using scoring techniques\cite{schafer2013web}.
+
+A contrasting approach is that of using existing indices to retrieve data, usually by using commercial search engines.  This is the approach taken by the BootCaT tool, which relies on repeatedly requesting URLs from the Microsoft Bing search engine conforming to a number of seed terms.
+
+This could be seen either as an attempt to construct a corpus in the image of the seed (hence the ``bootstrapping'' in the name), or, under conditions of sufficiently general input, one to represent the web itself, using the search engine as a `lens' through which to view web documents.  This is a distinction drawn by the source of variation (the seed terms themselves, or the web's ability to return the desired data).
+
+This performance was examined by Kilgariff and Grefenstette\cite{kilgarriff2003introduction}, stating w.r.t. representativeness:
+
+\begin{quote}
+The Web is not representative of anything else. But neither are other corpora, in any
+well-understood sense.
+\end{quote}
+
+This distinction is something I will revisit in Chapters~\ref{sec:longitudinal} and \ref{sec:evaluation}.
+
+
+
+\subsection{Intellectual Property}
+The legality of releasing large volumes of text has always been an issue for corpus builders, however, much of the time this issue has been handled by an intermediary: the publisher, able to provide rights to many documents at once.  WaC methods access content by many publishers, often where rights are poorly-stated or belong to owners which cannot be contacted (especially in bulk).  This issue is complicated further by the international nature of the web, and the style of hyperlinking and content embedding.  
+
+One approach to this is to limit access to end users, providing an interface which still permits some level of inquiry whilst restricting large-scale access to the whole volume of data.  This is the approach taken by BE06\cite{baker2009be06}, which is available through CQPWeb even though it contains data that is nominally copyright to other parties.
+
+A second approach is to provide lists of URLs from which the original data may be retrieved.  This approach is less legally troublesome than that taken by BE06, yet also requires a significant amount of work on behalf of any replication.
+
+I consider that both of these approaches miss the point, as the ease of retrieval WaC brings make it possible to perform full scientific replication: retrieving new data conforming to the same sampling policy, rather than repeating the data verbatim.
+
+
+
+\subsection{Sample Design}
+The web, and its ease-of-access, also enables new sample designs.
+
+The most obvious of these is the automation of monitor corpus maintenance --- this is analogous to the problem of maintaining search engine indices, and as such there is significant literature from that area focused on the scheduling revisits to pages and ensuring coverage across domains.  These techniques are now widely used in lexicography to keep dictionary resources up-to-date.
+
+The availability of translated documents online also provides easy sources of data for constructing parallel corpora, a task that can be almost completely automated due to web page markup\cite{resnik2003web}.
+
+The ability to automate retrieval also means that diachronic designs can be automated to some extent.  This is explored and developed further in Chapter~\ref{sec:longitudinal}.
+
+ % parallel corpora
+ % diachronic corpora
+
+
+
+
+
+% Further to this, digitisation has led to a tighter, more explicit focus on intellectual property rights and re-use, including the use of DRM to block access in some instances.
+
+\section{Documents of Digital Origin}
+With the rise of the paperless office (ha!), even documents typically accessed in physical form are authored and stored digitally.  This has now extended to almost every form of textual information.
 
 This has two main advantages: firstly there is greater coverage of conventional formats such as books.  Secondly there are entirely new opportunities to sample and meaningfully process things that have never been available before, like flyers, video with overlays, etc.
 
-It's also worth linking this section to multi-modal corpora.
+The realisation of increasing quantities of data as native-digital objects means that it is possible to take copies with relatively low costs, and without depriving the original owner of the resource for any great length of time.
 
+The increased breadth of use also lends itself to mulit-modal corpus designs, effectively expanding the coverage of a corpus to better suit its population.  This is a technique already seen in speech corpora.
+
+% mention OCR and word lens?
 
 
 \subsubsection{Life-Logging}
@@ -21,30 +90,21 @@ Life-logging is an activity that is focused around gathering, organising, and us
 \end{itemize}
 
 
-With the availability of powerful portable devices such as tablets and phones (and especially Google Glass), life-logging techniques that have conventionally been restricted to only a few individuals worldwide due to technical requirements or practical limitations are becoming increasingly viable as sources of information for many people. \todo{ugly}
+With the availability of powerful portable devices such as tablets and phones (and especially Google Glass), life-logging techniques that have conventionally been restricted to only a few individuals worldwide due to technical requirements or practical limitations are becoming increasingly viable as sources of information for many people.
 
 These techniques offer an approach to sampling that, whilst explored by many other fields, is typically seen as expensive and involved.  One's own logged history may be a useful source of data for systems that interact using NLP techniques (in order to mimic one's dialect and idiomatic language use more closely), or the language proportions of social groups may be more accurately determined for scientific study.  The value of such personalisation is already proven in many contexts with more limited interaction methods, for example speech recognition (personalised phonetic models) and web search (Google and others' personalised results).  Further to the benefits of being able to gather real data more easily, life-logging allows us to peer further into social contexts with less disruption, yielding higher quality data.
 
-Where language metadata is needed (rather than verbatim text), many life-logging technologies support discarding of any identifiable information on-the-fly---there are techniques for storing only irreversably scrambled audio such that the characteristics of speakers may still be identified (Voice Activity Detection in Personal Audio Recordings, Lee+Ellis)% CITE
-, or devices with sufficient power can simply store summaries of the events they observe, discarding the data itself.
+Where language metadata is needed (rather than verbatim text), many life-logging technologies support discarding of any identifiable information on-the-fly---there are techniques for storing only irreversably scrambled audio such that the characteristics of speakers may still be identified
+\cite{lee2006voice}, or devices with sufficient power can simply store summaries of the events they observe, discarding the data itself.
 The decrease in ethical sensitivity associated with such measures further reduces the boundaries to wider sampling of a population, something that may be used to improve and adapt existing languages resources.
 
 
-\til{By analogy, Google maps obscuring people's faces using face recognition tech}
+% \til{By analogy, Google maps obscuring people's faces using face recognition tech}
 
+Such life-logs, even heavily anonymised, offer new opportunities for balancing corpus strata, as well as providing a perspective on use that is more richly annotated with contextual metadata.
 
-\til{stress further the ability to use stuff as auxiliary data for balancing, rather than comprising, a corpus.  link forward to personal corpus stuff.}
-\til{ Perhaps a lit review belongs here, but the structure falls too deeply to do it in a structured, logical way...}
-
-
-\subsubsection{WaC}
-The item on this list for which most effort has been expended already, using the web as a source of text has been a routine part of corpus methods for a number of years now.
-
-WaC offers a way to access a parallel world of documents covering almost all purposes and forms, and the technical implementation of the web means that most of this data is freely accessible (if only for private use).
-
-The breadth of the data that may be found online has led to a number of efforts in creating tools for those building special-purpose corpora, as well as some attempts to create authoritative GP ones.
-
-The vast size of the internet has also served to sidestep many of the practical issues with sampling large volumes of data, something that has fuelled the big data movement.  \td{mention Princeton?'s colossal web corpus that's entirely illegal :-)}
+% \til{stress further the ability to use stuff as auxiliary data for balancing, rather than comprising, a corpus.  link forward to personal corpus stuff.}
+% \til{ Perhaps a lit review belongs here, but the structure falls too deeply to do it in a structured, logical way...}
 
 
 
@@ -53,55 +113,25 @@ The vast size of the internet has also served to sidestep many of the practical 
 Miniaturisation of technology, and increases in computing power, gradually unveils new opportunities to sample data.  At one level, this may make possible voice recognition and transcription of multiple subjects, or analysis of data in-place, without transcription.  At another, computationally-expensive techniques such as MCMC become increasingly applicable to samples large enough to be used for linguistic purposes.
 
 
-\subsubsection{Population Access}
-The ubiquity of technology also offers opportunities in accessing a diverse popuilation of languiage speakers with little concern for geographic limitations.  Submissions of textual data may quickly be acquired via the intetnet, and populations of people otherwise unrepresented in corpora may be sampled this way.
+\subsubsection{Access to Technology}
+The ubiquity of technology makes accessing a diverse popuilation of languiage speakers with little concern for geographic limitations.  Submissions of textual data may quickly be acquired via the intetnet, and populations of people otherwise unrepresented in corpora may be sampled this way.
 
-[This has also had other effects, such as the tendency for a single conversation online to include speakers from many countries, cultures and demographics (often without even being aware of that fact).  Also, certain subcultures use various specialised language forms online that can squirrel off into their own little thing with little reference back to 'everyday' forms.]
 
-\til{mention AMT!}
+This has also had other effects, such as the tendency for a single conversation online to include speakers from many countries, cultures and demographics (often without even being aware of that fact).  Also, certain subcultures use various specialised language forms online that can squirrel off into their own little thing with little reference back to 'everyday' forms.
+
+One effect of this has been the ability to recruit study participants from across the world at relatively little cost through the use of crowdsourcing platforms such as Amazon AMT\cite{ipeirotis2010analyzing} or Crowdflower\td{cite}.  This widespread ability brings with it a significant number of analytical challenges, many of which are still being worked upon, and many of which, such as the problem of managing inter-annotator agreement with many participants, apply nicely to the problem of sampling quality corpus data in a distributed manner.
+
+  
 
 
 \subsubsection{Indexing and Access}
-The improved power and utilisation of large-scale computing machinery opens up possibilities for more complex examination and extraction of data from existing lists.  A prime example of this is Google, which has become a source all of its own for many WaC researchers [sooo many citations..]
+The improved power and utilisation of large-scale computing machinery opens up possibilities for more complex examination and extraction of data from existing lists.  A prime example of this is the pooling of data in and around search engines such as Google, which have become a source all of its own for many researchers.
 
 Once data is acquired, data warehousing techniques open possibilities for examination using many more covariates than has previously been possible, allowing very complex research questions to construct meaningful subcorpora with relatively little effort or time overhead.
 
-
-\subsubsection{Big Data}
-Due in part to the above items [iew], 'big data' techniques allow us to extend sample sizes and significantly improve upon representations of smaller and more select sub-populations.  This may be used either to increase the specificity of findings, analyse existing features with increased confidence, or perform statistically-defensible analyses of increasingly complex linguistic features.
-
-\til{mention biber's "only the weird bits are interesting" point, find some big data introductory refs}
+This bulk analysis of heterogenous data is regarded as a growth area in many circles, though seems to have been under-utilised in academia due to its low quality compared to traditional scientific samples, and the low replicability that implies.  Whether 'big enough' big data is ever useful in a scientific context remains to be seen, however, this is arguably something WaC already embraces.
 
 
+% ccil{mention biber's "only the weird bits are interesting" point, find some big data introductory refs}
 
 
-
-
-% Old as of 02-02-13
-% 
-% \til{New technologies have "fixed" many issues surrounding the availability of data, but introduced their own intricacies.  Things such as text to speech, life corpora and the web will be introduced here, after which the web will be focused on.  The intent is to frame web corpora in terms of their emerging nature w.r.t. other sources of data, and to state that we wish to exceed, rather than emulate, the quality of existing corpora.}
-% 
-% 
-% \subsection{Text Sources}
-% \subsubsection{Web Corpora}
-% \til{This section will cover, in general, web-related concerns.  The aim is to provide a comprehensive overview of the challenges to good scientific practice and representative samples.
-% 
-% I envisage this section having a subsection for each issue, for example, attrition, cleaning of data, identification of documents, etc.}
-% 
-% \subsubsection{Life-Logging}
-% Cover the possibility of using low-impact audio recording or web proxies for corpus collection.
-% 
-% \subsubsection{Digital Documents}
-% Documents that start off and remain digital.
-% 
-% 
-% % ---------------------------------------------------------------------------------------------------------------------
-% \subsection{Sampling Methods}
-% 
-% \subsubsection{Access}
-% Explain how this greatly improves methods of sampling through access to people.  Systems such as AMT are a boon especially to special purpose corpus builders.
-% 
-% \subsubsection{Indexing and Retrieval}
-% Systems such as search engines (private ones or google), data warehousing and noSQL all offer advantages in retrieval that may be used to resample and retrieve data from existing corpora in an efficient and practical manner.
-% 
-% %CITATION: "Googleology is bad science", kilgarriff
