@@ -1,6 +1,99 @@
 % This will be a review of more formal sampling theory, comparing it to methods for acquiring language.
 
 
+Corpus building methods are largely based on sampling methods from the social sciences.  These methods are well developed, and their formal frameworks specify a number of design choices that must be made whilst designing a sample.  These decisions largely affect the suitability of a corpus for different forms of analysis, and the frameworks they are based on may be used to motivate design of the sampling process itself.
+
+The goal of any sample is to represent variation in a population.  Before discussing the implication of various approaches, it's therefore important to draw a distinction between variables which are controlled by an experimentor (indendent) and those that remain free to vary (dependent).  In the case of sampling documents, I will refer to these as external and internal respsectively, simply because it is the common case to select documents based on (external) metadata and analyse (internal) linguistic content.
+
+The ideal sampling scheme for a given population and selection of variables, then, contains variables as controlled specifically for the research question about which one wishes to infer, and maximises coverage of internal document content (and uncontrolled-for metadata values).
+
+Taking this principle to extremes yields the maximally-representative census sample: 100\% of the population of interest.  At this point, any inference is mere observation, and the only potential pitfalls are ones related to whether or not the question itself is worth asking, rather than the validity of its answer.
+
+
+At the high level, samples may be classified into two main groups: \textsl{probability}, and \textsl{nonprobability} samples.  The former of these has a sampling frame defined by random selection, and the latter is primarily guided by a systematic or subjective choice.
+
+% For statistical analysis, probability sampling is necessary, with the simplest case being simple random sampling (SRS).  In practice such a thing is seldom possible, and methods such as weighting and stratification may be used.
+
+Three main form of nonprobability sampling are identified in\cite{}\td{cite barnett, sample survey principles and methods}:
+
+\begin{itemizeTitle}
+
+    \item[Availability] This approach simply takes the most easily available data points.  This may be appropriate if very large effect sizes and homogenous populations are expected, or for exploratory purposes.
+
+    \item[Purposive] Purposive sampling describes the case where those constructing the sample make a deliberate and systematic choice of inclusion, based on expert opinion.
+        
+    \item[Quota] This is a two-stage design, with a number of sub-populations being identified and then selected on a purposive/availability basis.
+
+\end{itemizeTitle}
+
+Corpus sampling methods described above already closely resemble quota sampling, using a lot of expert opinion to define the quotas.  Nonprobability sampling, however, is particularly ill suited to statistical analysis and inference, which relies on random selection over uncontrolled variables.  Simply, nonprobability sampling techniques are very easy to bias:
+
+\td{cite barnett, p19}
+\begin{quote}
+...there is no yardstick against which to measure `representativeness' or to assess the propriety or accuracy of estimators based on such a sampling principle.
+\end{quote}
+
+This opacity leads to limitations in corpus analysis, where the goal is to use large volumes of data as objectively as possible.  For any quantitative analysis to be scientifically defensible, probability sampling is required.
+
+There are many probability-based designs available, and the choice of them is largely dependent on the methods of inquiry that are to be applied to the resulting data.  In all cases, the goal is to allow the dependent variables to vary randomly:
+
+\begin{itemizeTitle}
+
+    \item[Simple Random] This approach selects members of a population entirely at random.  Each member of the population has a probability of selection that is simply $sample~size/population~size$.
+
+    \item[Stratified] Stratification is the process of breaking a random sample into a set of bins, with sizes weighted according to some policy.  In the case that the strata are selected in an unbiased manner, this should yield the same sample as simple random sampling (SRS).
+
+    \item[Multi-stage] Data from a first round of sampling is to guide retrieval of a final set of data points.
+
+\end{itemizeTitle}
+
+Simple random sampling is often seen as the ideal probability sampling design, in that it yields high quality results using statistical methods, without the need for weighting and adjustment of results.  It is also by far the hardest method to apply to text due to its incompatbility with the process of accessing the data.
+
+Stratified sampling is arguably simpler, in that it allows for testing and definition of strata prior to retrieval of texts, and stratum sizes may be computed from existing corpora in a multi-stage design.  Another benefit of stratified approaches is the ability to examine and adjust the distribution of strata according to expert opinion, offering a hybrid design that is able to compensate for known practical issues.  This is often used to artificially boost the stratum sizes of minor groups within the population in order to ensure that they are over-represented in the final sample --- something that may be desirable if their influence is particularly important to a research question.
+
+Cluster sampling is also worth a mention as a form of multi-stage sampling that takes advantage of existing structures such as organisations or collections of data.  This may be seen as particularly applicable to web sampling, where documents are often stored in academic repositories or simply under the same domain, or to sampling from different publishing houses.
+
+
+
+\subsection{Sample Size Estimation}
+\til{
+    effect size
+    zipfianness
+    
+    CL is too mixed method, generally
+    If the sample is shit, these measures mean nothing
+}
+
+\subsection{Sample Design}
+\til{
+
+    - rq definition
+
+    - unit
+    - size 
+    - variables
+    - population definition
+    - use of auxiliary data
+
+}
+
+\subsection{Sources of Error}
+\til{from bartlett book}
+
+\til{Include section from 2.1.3}
+
+
+
+
+
+
+
+
+
+
+
+\sepline
+% Below is old as of 12-07-15 
 Many of the problems listed in section~\ref{sec:litreview-corpora} may be mitigated with careful sampling.  There are a great number of available sampling strategies, and the purpose of this section is to review those which are suitable for use with text data.
 
 
@@ -265,111 +358,4 @@ Methods for evaluating and comparing corpora
 \end{itemize}
 
 
-
-
-
-% Below is OLD as of 02/02/13
-% 
-% As we have seen in section~\ref{sec:sampling-corpus-linguistics}, corpus building efforts generally seek to solve a number of practical problems with quantitative linguistics, namely:
-% \begin{enumerate}
-%     \item Defining a finite and reliable linguistic resource (one that is static and entirely accessible);
-%     \item Replicating, comparing, and disseminating results.
-% \end{enumerate}
-% 
-% As such, the focus of many corpus building efforts \td{which corpus building efforts?}
-% has been largely on problems of procuring texts, selecting sufficiently broad categories of texts to be useful to many researchers, and managing the practicalities of text selection (i.e. by taking snippets of published and copyright works rather than their whole inclusion).
-% 
-% The use of corpora availed many statistical quantitiative techniques, each bringing a series of assumptions regarding not only the internal nature of the corpus, but also its relation to the larger population.  Whilst the validity of internal models has been discussed at length\td{where discussed?}
-% , little has been done to address the problems of external validity in this regard.
-% 
-% Therefore, in order to improve (and to assess) the value of a corpus to the wider field, it is necessary to inspect not only its empirical advantages (now well-determined for many frequently-used corpora) but also the potential value any given corpus building stratgy may yield in the ideal case.
-% 
-% In this section, I will be offering a critical description of how linguistic data may be sampled using existing, conventional, statistical techniques.  This comparison shall act as a gold standard against which existing (and future) efforts may be judged, as well as offering a stance from which to assess the successes and failings of current corpus-building efforts.
-% 
-% 
-% 
-% \subsection{The ideal Corpus}
-% \label{sec:sub:ideal-corpus}
-% \til{Based on current usage, but notably not restricted by methods and practicalities, review 2.1 with a view to extracting what we want from a corpus---address size, randomness, validity (internal + external), replicability, reliability, and flexibility.}
-% 
-% \subsubsection{Nature of Sample}
-% \til{Conventional corpora are guided by experts.  Do we want pure random corpora?  What does this even mean, what would the population be? language use or language exposure?  Defer some of these until the later sections of the thesis.}
-% \subsubsection{Validity}
-% \til{Following on from the above.  What does external validity become for a general/specific purpose corpus?  Do common corpora have any claim to external validity when used for qualitative/quantitative analyses of varying types?}
-% \subsubsection{Replication and Reliability}
-% \til{Corpora are hailed as being a basis for collaboration.  This is true of the most broken corpus, but a shared and accepted broken sample is worse than everyone sampling from the same population.  Address subsampling problems and issues of 're-usable bias' for very popular corpora.  To what extent are studies based on the same corpus comparable when using massively  different methodologies?}
-% \subsubsection{Size}
-% \til{How many words should a piece of string have in it?}
-% \subsubsection{Flexibility}
-% \til{Selection of data for qualitative research, or subsampling for quantitative, has the potential to undo all of the balancing above if not done properly.  How can this risk be minimised (guidelines for researchers, corpus size, specific corpus design, distributing tools with corpora)?}
-% % ---
-% \subsubsection{Summary}
-% \til{A simple, short and refer-able list of important things to work for in the below section.  Really, this might section up to here might be a good paper for CL or something.}
-% 
-% % \subsection{Paradigms for Sampling Language} % Kuhnian
-% % \til{The aim in this section is to draw out prominent linguistic concepts and justify sampling methods examined above in terms of their suitability to the theory of how we use language.  This is the tie to the personal corpus stuff, but will mention other ideas of what language is.}
-% 
-% 
-% 
-% \subsection{Comparison of Methods}
-% \til{Here I'll draw parallels between sampling methods and comment critically on their value.}
-% \subsubsection{Population}
-% \til{This is a largely linguistic issue of external validity, and will point back at section 2.1 a lot}
-% Linguistic issues (p'raps best taken from 2.1?):
-% \begin{itemize}
-%     \item How can we select a population closest to that discussed in section~\ref{sec:sub:ideal-corpus}?
-% \end{itemize}
-% Statistical theory:
-% \begin{itemize}
-%     \item How other fields with very complex parameter spaces do sampling
-%     \item Methods for population estimation given constraints from section~\ref{sec:sub:ideal-corpus}
-% \end{itemize}
-% \subsubsection{Sampling Frame}
-% \til{This is largely an issue of internal validity and reliability.}
-% Enumeration or bounding of a population:
-% \begin{itemize}
-%     \item General and special purpose corpora
-%     \item Sources of data (web, books)
-%     \item Time
-% \end{itemize}
-% Issues surrounding subsampling [general purpose corpora], and how this ought to be done
-% 
-% Sources of valid auxiliary information for sampling
-% \subsubsection{Sampling Methods}
-% \til{An overview of statistical sampling methods relevant to ling.}
-% Nonrandom methods, primarily included to compare against current ones:
-% \begin{itemizeTitle}
-%     \item[Purposive] Compare against current techniques.  Critique use of inferential stats on such corpora.  Big data perhaps illustrates flaws?
-%     \item[Snowball Sampling] Relevant due to web crawlers
-% \end{itemizeTitle}
-% Random sampling methods, as possible approaches
-% \begin{itemizeTitle}
-%     \item[Simple Random] Ideal case.  Focus on what makes it hard for linguistics.  Attempt to identify ways around this (empirical estimates of P()). Detasil practical issues with selection relative to stats.  
-%     \item[Stratified] How to select strata (w/ling. relevance)? Multi-dimensional strata. Inverse probability weighting.  PPS possibilities with web/offline.
-%     \item[Multistage ~and~] IPW, how to balance samples and...
-%     \item[Cluster] Website-wide clusters.  Relate to the structure of data, with publishers/websites forming clusters.
-%     \item[Adaptive] Perhaps too nonrandom for this section?  Offers a way to balance corpora with linguistic sampling frame.  Select frame using multistage sampling?
-% \end{itemizeTitle}
-% 
-% \subsubsection{Size and Power}
-% \til{Methods for selecting size and power.}
-% Linguistic criteria for selecting sizes (relate to ling. lit above) [common models, sufficient representation of odd features, breadth of coverage].
-% 
-% Existing corpora's approach (refer to 2.1 mainly).  Focus on the rise of big data+simple models showing that p'raps small data is biased ("bad smells").
-% \subsubsection{Reweighting}
-% \til{Multistage sampling and bias estimating with and without using auxiliary data.}
-% For multistage designs, how large should the initial corpora be? Is it small enough to be driven by the user's data or selection of medoid items?
-% 
-% Auxiliary Data:
-% \begin{itemize}
-%     \item Sources of valid auxiliary data (without inheriting the bias of existing corpora, ideally)
-%     \item How broken manual resampling of corpora is at the moment, and how people *want* to do it.
-% \end{itemize}
-% \subsubsection{Bias Estimating}
-% \til{This covers the problem of evaluation, how do we know that a corpus is better than another without a gold standard?  Does a gold standard actually exist, but we are not using it as such?  How can we ensure change goes in the correct direction?}
-% Repeated resampling and benchmarking.
-% 
-% Comparison to auxiliary data, suitable distance metrics, and criteria for acceptance.
-% 
-% 
 
