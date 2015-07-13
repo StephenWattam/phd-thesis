@@ -3,49 +3,63 @@
 
 Corpus building methods are largely based on sampling methods from the social sciences.  These methods are well developed, and their formal frameworks specify a number of design choices that must be made whilst designing a sample.  These decisions largely affect the suitability of a corpus for different forms of analysis, and the frameworks they are based on may be used to motivate design of the sampling process itself.
 
-The goal of any sample is to represent variation in a population.  Before discussing the implication of various approaches, it's therefore important to draw a distinction between variables which are controlled by an experimentor (indendent) and those that remain free to vary (dependent).  In the case of sampling documents, I will refer to these as external and internal respsectively, simply because it is the common case to select documents based on (external) metadata and analyse (internal) linguistic content.
+The goal of any sample is to present a scaled-down population, containing individuals that represent all variation within the population.  Before discussing the implication of various approaches, it's therefore important to draw a distinction between variables which are controlled by an experimentor (indendent) and those that remain free to vary (dependent).
+
+This distinction has a large impact on sample design, as it is impossible to draw conclusions about the population by inspecting independent variables.  Further, the selection of documents according to these controls often leads to systematic bias in dependent variables.  In order to come to conclusions about representativeness and sample quality, it is thus necessary to identify these variables ahead of time.
+% It is this that leads me to stress the importance of corpus documentation
+
+In the case of sampling documents, I will be presuming that users of corpora are primarily interested in inspecting `internal' text features, which are described in terms of `external' document metadata.  This guiding principle mirrors the metadata/data dichotomy seen in corpus tools, and should be uncontroversial\footnote{Note that many definitions of genre, text type, etc. make this circular, as they are defined by document content.}.  I this thesis, I will often label variables as internal or external based on these criteria, with the implication that external variables are independent.
 
 The ideal sampling scheme for a given population and selection of variables, then, contains variables as controlled specifically for the research question about which one wishes to infer, and maximises coverage of internal document content (and uncontrolled-for metadata values).
 
-Taking this principle to extremes yields the maximally-representative census sample: 100\% of the population of interest.  At this point, any inference is mere observation, and the only potential pitfalls are ones related to whether or not the question itself is worth asking, rather than the validity of its answer.
+Taking this principle to extremes yields the maximally-representative census sample: 100\% of the population of interest.  At this point, any inference is mere observation, and the only potential pitfalls are ones related to whether or not the question itself is worth asking, rather than the validity of its answer.  A census still contains theory-laden assertions, however, in the form of its population definition.
 
 
 At the high level, samples may be classified into two main groups: \textsl{probability}, and \textsl{nonprobability} samples.  The former of these has a sampling frame defined by random selection, and the latter is primarily guided by a systematic or subjective choice.
 
 % For statistical analysis, probability sampling is necessary, with the simplest case being simple random sampling (SRS).  In practice such a thing is seldom possible, and methods such as weighting and stratification may be used.
+\subsection{Nonprobability Sampling}
+The selection of data points in a nonprobability sample is performed either by an objective system, subjective reasoning, or some combination of the two.  Factors influencing selection are often situational or theoretical, meaning that samples require a greater understanding of the subject to avoid accidental biases.  
 
-Three main form of nonprobability sampling are identified in\cite{}\td{cite barnett, sample survey principles and methods}:
+% Because a number of  there are often nonprobability elements that creep into larger samples.
 
-\begin{itemizeTitle}
+Three main forms of nonprobability sampling are identified by Barnett\cite{barnett1991sample}:
 
-    \item[Availability] This approach simply takes the most easily available data points.  This may be appropriate if very large effect sizes and homogenous populations are expected, or for exploratory purposes.
+\subsubsection{Availability Sampling}
+This approach simply takes the most easily available data points.  This may be appropriate if very large effect sizes and homogenous populations are expected, or for exploratory purposes.
+\subsubsection{Purposive Sampling}
+Purposive sampling describes the case where those constructing the sample make a deliberate and systematic choice of inclusion, based on expert opinion.
+\subsubsection{Quota Sampling}
+This is a two-stage design, with a number of sub-populations being identified and then selected on a purposive/availability basis.
 
-    \item[Purposive] Purposive sampling describes the case where those constructing the sample make a deliberate and systematic choice of inclusion, based on expert opinion.
-        
-    \item[Quota] This is a two-stage design, with a number of sub-populations being identified and then selected on a purposive/availability basis.
 
-\end{itemizeTitle}
+Corpus sampling methods described above already closely resemble quota sampling, using a lot of expert opinion to define the quotas.  Nonprobability sampling, however, is particularly ill suited to statistical analysis and inference, which relies on random selection over uncontrolled variables.  Simply, nonprobability sampling techniques are very easy to bias\cite[p.19]{barnett1991sample}:
 
-Corpus sampling methods described above already closely resemble quota sampling, using a lot of expert opinion to define the quotas.  Nonprobability sampling, however, is particularly ill suited to statistical analysis and inference, which relies on random selection over uncontrolled variables.  Simply, nonprobability sampling techniques are very easy to bias:
-
-\td{cite barnett, p19}
 \begin{quote}
 ...there is no yardstick against which to measure `representativeness' or to assess the propriety or accuracy of estimators based on such a sampling principle.
 \end{quote}
 
-This opacity leads to limitations in corpus analysis, where the goal is to use large volumes of data as objectively as possible.  For any quantitative analysis to be scientifically defensible, probability sampling is required.
+This opacity leads to limitations in corpus analysis, where the goal is to use large volumes of data as objectively as possible.  For any quantitative analysis to be scientifically defensible on empirical (rather than rational) grounds, probability sampling is \textsl{required}.
+
+
+
+
+
+\subsection{Probability Sampling}
 
 There are many probability-based designs available, and the choice of them is largely dependent on the methods of inquiry that are to be applied to the resulting data.  In all cases, the goal is to allow the dependent variables to vary randomly:
 
-\begin{itemizeTitle}
 
-    \item[Simple Random] This approach selects members of a population entirely at random.  Each member of the population has a probability of selection that is simply $sample~size/population~size$.
+\subsubsection{Simple Random Sampling}
+This approach selects members of a population entirely at random.  Each member of the population has a probability of selection that is simply $sample~size/population~size$.
+\subsubsection{Stratified Sampling}
+Stratification is the process of breaking a random sample into a set of bins, with sizes weighted according to some policy.  In the case that the strata are selected in an unbiased manner, this should yield the same sample as simple random sampling (SRS).
+\subsubsection{Multi-stage Sampling}
+Data from a first round of sampling is to guide retrieval of a final set of data points.
 
-    \item[Stratified] Stratification is the process of breaking a random sample into a set of bins, with sizes weighted according to some policy.  In the case that the strata are selected in an unbiased manner, this should yield the same sample as simple random sampling (SRS).
 
-    \item[Multi-stage] Data from a first round of sampling is to guide retrieval of a final set of data points.
 
-\end{itemizeTitle}
+
 
 Simple random sampling is often seen as the ideal probability sampling design, in that it yields high quality results using statistical methods, without the need for weighting and adjustment of results.  It is also by far the hardest method to apply to text due to its incompatbility with the process of accessing the data.
 
