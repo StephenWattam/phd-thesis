@@ -23,16 +23,59 @@ The selection of data points in a nonprobability sample is performed either by a
 
 % Because a number of  there are often nonprobability elements that creep into larger samples.
 
-Three main forms of nonprobability sampling are identified by Barnett\cite{barnett1991sample}:
+Three main forms of nonprobability sampling are identified by Barnett\cite{barnett1991sample} and Teddlie\cite{Teddlie01012007}:
 
 \subsubsection{Availability Sampling}
-This approach simply takes the most easily available data points.  This may be appropriate if very large effect sizes and homogenous populations are expected, or for exploratory purposes.
+Also known as convenience sampling, this approach simply takes the most readily available data points.
+
+This method has been widely used in the social sciences, with experimenters often using students from their affiliated instutitions (an approach used for some very famous studies\cite{zimbardo1971stanford}.
+
+Convenience sampling is rightly regarded as extremely unrepresentative of wider populations, particularly in fields (such as psychology) where there are a great number of covariates.  If corpus linguists were to work with data sampled as conveniently as those in the Stanford prison experiment, they would merely be reading books from their own bookshelves.
+
+There are a number of methods that are designed to adjust for these biases.  
+
+Birnbaum \& Munroe\cite{birnbaum1950munroe} present a model of the bias resulting from unavailable population members after random selection.  This approach is difficult to operationalise in a linguistic context as they require enumeration of data points prior to determining whether or not they are available, rather than the more haphazard approach of true convienenince sampling.
+
+Farrokhi\cite{farrokhi2012rethinking} approaches the problem of constructing two groups: a control and treatment group, using a series of predetermined criteria to assign membership.  This approach mirrors the comparative nature of many corpus linguistic methods, but does not directly offer a way to produce a more representative corpus for `general use' aside from the principles of using heuristics to guide design.
+
+Despite the drawbacks of conveinence sampling, such an approach may be appropriate for populations where it is agreed that there is little variation between individuals for the variables of interest: for example, a study which seeks to establish the modal number of eyes humans have might be well served with a very small sample.  Smaller linguistic features such as unigram frequencies are likely to be similarly easy to represent.
+
+
+
 \subsubsection{Purposive Sampling}
 Purposive sampling describes the case where those constructing the sample make a deliberate and systematic choice of inclusion, based on expert opinion.
+
+This approach is primarily effective against well-known sources of bias, and the validity of any sample built using it is entirely dependent on identification of these.  Where the expert design encompasses all variables of interest to a study, and where selection has been performed in such a way as to encompass individual data points from across the population, such an approach may result in a high-quality and defensible data set.
+
+The main difficulty is in avoiding previously-unknown correlations between the theoretical selection criteria and the study variables.  As selection criteria are based on domain knowledge, and heavily theory-laden, it is often difficult to anticipate their interactions with other variables of interest.  As theories improve over time, this may also to lead to the effect of samples being considered more biased as knowledge of an area improves, gradually reducing the perceived validity of any results.
+
+Criteria for selection generally accomplish differing goals, and will suit varying goals of study\cite{advice2000study} (for example, some of these may be very useful for exploring rare features):
+
+\begin{itemizeTitle}
+    \item[Heterogeneous] An attempt to cover as much of the population as possible, by selecting data points that are unlike ones already in the sample.
+    \item[Homogenous] Data points are selected to be as similar as possible according to given variables.  This is suited to in-depth qualitative analysis, being somewhat analogous to merely controlling for more variables (i.e. reducing the population).
+    \item[Typical Case] Data points are selected according to a theoretical/rational idea of typicality.  This is distinct from statistical representativeness (which relies on the central limit theorem).
+    \item[Extreme Case] Only those data points regarded as atypical are sampled.  May be used to explore reasons for atypicality.
+    \item[Critical Case] Data points are selected based on previous theories, such that they explain certain hypotheses.
+    \item[Total Population] An entire sub-population is sampled, due to its ease of access (for example, all members of an organisation, or all publications by a certain author).  If no other items are sampled, this merely becomes a census with a very tight population.
+    \item[Expert] Expert opinion is used to determine inclusion in the sample.
+\end{itemizeTitle}
+
+From a corpus construction perspective, where the sampling body is often distinct from the analyst, the complexity of sample inclusion criteria brings with it the need for extensive documentation: without awareness of the expert's choices, it becomes very difficult to defend any use of the sample.  Due to this nuanced validity purposive samples are valid only for qualitative analyses, where interactions with the study design are able to be rationalised and explained in context.
+
+In fields which lack a cohesive, quantitative model of their population, it is often necessary to start from an expert-defined base.  Ideally, information from this sample may then yield methodological improvements, and, eventually, an unbiased mechanism for retrieving a statistically representative sample.
+% cite: http://dissertation.laerd.com/purposive-sampling.php
+
+
 \subsubsection{Quota Sampling}
-This is a two-stage design, with a number of sub-populations being identified and then selected on a purposive/availability basis.
+This is a two-stage design, with a number of sub-populations being identified and then selected on a purposive/availability basis.  It is essentially a nonprobabilistic form of stratified sampling: the population is split into mutually exclusive groups, into which data points are placed until each group is `full'.
+
+This approach is often used to control convenience sampling variation for some important variables, for example, controlling for sex and age whilst performing market research.  The BNC's spoken portion was `balanced' using this method, with a number of bins being allocated by context and speaker information.
 
 
+
+
+\subsubsection{Summary of Nonprobability Methods}
 Corpus sampling methods described above already closely resemble quota sampling, using a lot of expert opinion to define the quotas.  Nonprobability sampling, however, is particularly ill suited to statistical analysis and inference, which relies on random selection over uncontrolled variables.  Simply, nonprobability sampling techniques are very easy to bias\cite[p.19]{barnett1991sample}:
 
 \begin{quote}
@@ -44,52 +87,110 @@ This opacity leads to limitations in corpus analysis, where the goal is to use l
 
 
 
-
 \subsection{Probability Sampling}
+There are many probability-based designs available, and the choice of them is largely dependent on the methods of inquiry that are to be applied to the resulting data.  In all cases, the goal is to allow the dependent variables to vary randomly, ultimately allowing for statistical inference if sample sizes are sufficient.
 
-There are many probability-based designs available, and the choice of them is largely dependent on the methods of inquiry that are to be applied to the resulting data.  In all cases, the goal is to allow the dependent variables to vary randomly:
+Random selection of data points provides both a mechanism for unbiased estimation of parameters such as means, as well as knowledge of variation.  The latter of these is the key difference between a probability-based sample and a well-chosen nonprobability one, and is vital to basic hypothesis testing procedures.  Further, notions of sample size are entirely based on these measures: power analysis demands some knowledge of variance and effect size, both of which are only meaningful under conditions of random selection.
 
+Random sampling methods identified by Lohr, Barnett, and Teddlie include\cite{lohr2009sampling,barnett1991sample,Teddlie01012007}:
 
 \subsubsection{Simple Random Sampling}
 This approach selects members of a population entirely at random.  Each member of the population has a probability of selection that is simply $sample~size/population~size$.
+
+SRS is free of any errors that stem from classification, reducing the importance of potentially circular genre definitions and taxonomies.
+
+The main disadvantage is that it requires a complete sampling frame: that is, all individuals in the population must be known in order to be randomly selected from.  Though desirable, simple random sampling is essentially infeasable in linguistics due to this limitation.
+
+
+
 \subsubsection{Stratified Sampling}
-Stratification is the process of breaking a random sample into a set of bins, with sizes weighted according to some policy.  In the case that the strata are selected in an unbiased manner, this should yield the same sample as simple random sampling (SRS).
+Stratification is the process of breaking a random sample into a set of bins, with sizes weighted according to some policy.  In the case that the strata are selected in an unbiased manner, this should yield the same sample as SRS.
+
+This method ensures that at least one invdividual is selected from each stratum: something that may be used to improve representation for populations with highly heterogenous distributions.  This adjustment can be tweaked to allow comparison of low-incidence and high-incidence effects by deliberately increasing the proportion of the population sampled for infrequent strata (for example, selecting more people from areas with low population density).
+
+Stratum selection should be along real-world subpopulation boundaries, and is usually selected in order to maximise representativeness (by ensuring that strata are sized according to the population) or statistical power (by ensuring that strata are sized according to the amount of variance in the population).
+
+All stratification requires the ability to exhaustively separate the population into mutually exclusive categories, and sample from these categories in a random manner.  Both of these are a challenge in corpus linguistics, as removing the first level of `no indexing' often leads to another.  Nonetheless, where information silos exist (such as in academic publishing) then this approach is particularly suited.
+
+Where auxiliary data exists, statistical benchmarking may be performed by adjusting sample weights according to the proportions seen in this data.  This may be applied after sampling itself (otherwise said auxiliary data is simply used to determine the initial strata sizes), and so is often referred to as `post-stratification'.  This approach is applicable where ordinary stratification is impossible, for example, where the variables on which to stratify are unknowable at the time of sampling.
+
+
+
 \subsubsection{Multi-stage Sampling}
-Data from a first round of sampling is to guide retrieval of a final set of data points.
+Multi-stage sampling involves multiple rounds of random sampling with progressively diminishing sampling units.  It is analogous to Evert's library metaphor\cite{evert2006random}.
 
+It is particularly applicable in cases where \textsl{all} of the data points in the population are accessible through a hierarchical structure.  This is clearly the case for smaller linguistic features, but much less so for whole documents (or large extracts).
 
+This approach often significantly speeds up the process of enumerating and selecting from a population, and reduces the need to classify things compared to stratified approaches.  The increased structure may also be of use to some models, allowing for multi-level modelling approaches during analysis.  Because the method relies on excluding large areas at once, it is less representative than SRS for the same sample size, and this may complicate analysis.
 
+Cluster sampling, a form of multi-stage sampling that relies on existing organisation of data, has particular applicability to web sampling, where documents are often stored in academic repositories or simply under the same domain, or to sampling from different publishing houses.
 
-
+\subsubsection{Probability Sampling Summary}
 Simple random sampling is often seen as the ideal probability sampling design, in that it yields high quality results using statistical methods, without the need for weighting and adjustment of results.  It is also by far the hardest method to apply to text due to its incompatbility with the process of accessing the data.
 
 Stratified sampling is arguably simpler, in that it allows for testing and definition of strata prior to retrieval of texts, and stratum sizes may be computed from existing corpora in a multi-stage design.  Another benefit of stratified approaches is the ability to examine and adjust the distribution of strata according to expert opinion, offering a hybrid design that is able to compensate for known practical issues.  This is often used to artificially boost the stratum sizes of minor groups within the population in order to ensure that they are over-represented in the final sample --- something that may be desirable if their influence is particularly important to a research question.
 
-Cluster sampling is also worth a mention as a form of multi-stage sampling that takes advantage of existing structures such as organisations or collections of data.  This may be seen as particularly applicable to web sampling, where documents are often stored in academic repositories or simply under the same domain, or to sampling from different publishing houses.
-
 
 
 \subsection{Sample Size Estimation}
-\til{
-    effect size
-    zipfianness
-    
-    CL is too mixed method, generally
-    If the sample is shit, these measures mean nothing
-}
+Questions of sample size are primarily based on presumptions of randomness, and power analysis requires the specification of a study design in order to formally establish limits.
+
+Any hypothesis test is defined by four parameters\cite{ellis2010essential}:
+
+\begin{itemizeTitle}
+    \item[Probability of Type I Error ($\alpha$)] The probability of falsely rejecting the null hypothesis.
+    \item[Power ($1 - \beta$)] The probability of correctly rejecting the null hypothesis.
+    \item[Effect Size ($d$)] The observed change in a parameter necessary to identify an effect with probability $a$.
+    \item[Sample Size ($n$)] The number of individual units in the sample.
+\end{itemizeTitle}
+
+These properties are related thus:
+
+$$
+n = \frac{Z^2p(1-p)}{d^2}
+$$
+
+Where $Z$ is selected according to the area under the population distribution according to $\alpha$, and $p$ is the parameter value within the population (often estimated as $\hat{p}$).  This implies that a reduction in any effect size we wish to detect increases the required sample size (and vice versa), as do increases in the confidence we wish to reject $H_0$ at.  This general trend applies to all sample types above.
+
+Current methods for computing sample size are reliant on assumptions of independence, often phrase in that members of the sample must be `independent and identically distributed' (IID).  This assumption is violated massively by conventional corpus construction: corpora are sampled at an extract or document level, 
+
+In the absence of IID samples, sample size calculations are reduced to what Cohen\cite[p. 145]{cohen1977statistical} termed ``non-rational bases'' such as past experience or rules-of-thumb.  The process of building a corpus that is IID for a given research question is so theory-laden as to be inapplicable to those building general-purpose corpora using the current model (where many users all share a large corpus for diverse tasks).
+
+The reliance of corpus linguistics (and to some degree NLP) on qualitative methods and rational definitions of parameters such as population and sampling frame make application of existing power analysis to corpus construction challenging.
+
+An alternative method, suited to qualitative and mixed-methods approaches (and thus less reliant on the randomness assumptions violated by document-level sampling) is presented by Glaser\cite{glaser1965qualitative}, who suggests that those performing experiments should be guided by `saturation': the point at which no (or negligable) new information is presented by adding new data points to the sample.  This mirrors the methods of Good-Turing frequency estimation\cite{GOOD01121953}, as used by Biber in his 1993 assessment of representativeness\cite{biber1993representativeness}.
+
+Saturation-based measures offer a less-formal mechanism for assessing the adequacy of sample sizes, however, they still require definition of a study design prior to assessment of sample size sufficiency.  Such methods are also particularly lacking when sampling is nonrandom, as they rely on the discovery rate of new information being unbiased.  Both of these are strong assumptions in the corpus building sphere.
+
+
+
+\sepline
 
 \subsection{Sample Design}
-\til{
+The design of a sample can be broken into a number of stages, each of which informs the next.  As we have seen, many of these require theoretical justification or analysis based on the final study design.
 
-    - rq definition
+\subsubsection{Research Question Definition}
+The definition of a research question is an important first stage to selecting a sample.  This is in order to define any theoretical assumptions and the analysis design, both of which have significant impact on the size and form of any sample.
 
-    - unit
-    - size 
-    - variables
-    - population definition
-    - use of auxiliary data
+\subsubsection{Sample Unit Specification}
+The unit of analysis should be in agreement with the aims of the research question above, and ideally should match the sampling unit.  Where disagreement occurs, this is likely to abrogate the quality of any analysis based on IID assumptions, including power analysis for sample size estimation below.
 
-}
+\subsubsection{Variable Selection}
+Dependent and independent variables should be specified unambiguously, and any relationships between the two should be examined from past experience and existing literature, in order to reduce unanticipated correlations causing bias.  Where the research question and intended analysis are already rigorously designed, this task should be fairly transparent to any circularity, however, this becomes more challenging as qualitative elements are included.
+
+\subsubsection{Population Definition}
+The bounds of the sampling frame must be defined in terms of the variables to be sampled, such that any retrieval efforts can unambiguously use these.  A population definition is, in effect, definition of an independent variable which is controlled prior to sampling, and as such its relationship to dependent variables and to the original research question is similar to that of any other variable.
+
+\subsubsection{Sample Design}
+The manner of sample must be decided based on practical issues, and on the various properties specified above.
+
+\subsubsection{Sample Size}
+Depending on the design and analysis method proposed, this may take the form of a quantitative power analysis, or a plan to implement qualitative controls during construction of the sample.  Some a-priori objective criteria should be defined, particularly when a sample is based on qualitative assessment, in order to avoid data dredging (or `dredging' of variables correlated with those to be studied).
+
+\paragraph{}
+The existence of previous studies, literature, and datasets may guide all of the above stages, and the progression from expert-opinion-based sampling to a more quantitative understanding of population variance is made possible by iterating the above: something that happens naturally as a field progresses.
+
+
 
 \subsection{Sources of Error}
 \til{from bartlett book}
@@ -104,272 +205,6 @@ Cluster sampling is also worth a mention as a form of multi-stage sampling that 
 
 
 
-
-
-\sepline
-% Below is old as of 12-07-15 
-Many of the problems listed in section~\ref{sec:litreview-corpora} may be mitigated with careful sampling.  There are a great number of available sampling strategies, and the purpose of this section is to review those which are suitable for use with text data.
-
-
-%- *NB: I don't wish for this to get too prescriptive.  It's intended as an overview of an idealised procedure, rather than a "how to", which will basically come later in a far more practical form*
-
-\subsection{Population Definition}
-The population covered by a corpus is likely to be defined in terms of social demographics, linguistic features, or media type.  The manner in which each of these may be estimated, enumerated, and sampled is highly variable mainly due to the availability of auxiliary data.
-
-An accurate population definition is necessary for two purposes.  At one level, specification of this will define the bounds of external validity, guiding use of the corpus and defining the set of problems for which it is useful.  A second reason for accurate population specification lies in estimation of its size, which is necessary for power analysis and sample size calculation.
-
-% Discuss justification of external validity, how this must be strict for use with general-purpose corpora
-Ultimately, any statement of population coverage will be unique to the corpus being built.  In the case of general-purpose corpora, documentation of this population is particularly important, as the corpus is likely to be reused and possibly subsampled.  Further, the relationship each sample point within the corpus has to the overall population should be annotated, so that any resampling is defensible.
-
-% Discuss causal theories of language, and how these must inform a choice
-If sampling from linguistic features, the population items are taken from may be purely theoretical.  This initially would seem to violate the principles of corpus linguistics sampling language `as it is used', however, each example is necessarily also covered by a demographic population from which those data were taken.  It is particularly important that both are documented, especially given disagreements between theories regarding language use (for example, some researchers may consider two features related where others do not)\td{examples}.
-
-
-\til{p'raps examples of how corpora do this right now, and other others do this?}
-
-\til{mention external nature of definition, homogeniety of population (though the latter might be less important given the purpose comments in the corpus section)}
-
-
-
-% 
-% \begin{itemize}
-%  \item Applications to language (not sure of any in the abstract, todo: find some.)
-%  \item Applications to the web (google/yahoo estimation papers from DA bibtex)
-% \end{itemize}
-
-
-
-
-
-
-
-
-\subsection{Sampling Frame}
-Definition of a sampling frame is a very similar problem to the population definition above, except that, where a population definition may relate to the aspects being studied, definition of a sampling frame is necessarily performed in terms of texts themselves.
-
-One significant challenge here is that a well defined population may yield a very poorly defined sampling frame (or one which only matches under certain strong assumptions).  The difficulty of acquiring texts from many different sources means this is a particularly pertinant issue to corpus validity.
-
-\til{say what a sampling frame is :-)}
-
-\til{Enumeration of sampling frame, is it necessary for each sampling method?}
-
-
-
-\subsubsection{Sampling Unit and Linguistic Dispersion}
-\label{sec:sampling-unit-and-dispersion}
-One of the key problems in determining an agreed-upon structure for general-purpose corpora is the selection of a sampling unit.  The sampling unit for many studies is self-evident: a cross-sectional sample of heights would, for example, be done on a person-by-person basis.  In such a case, there are obvious theoretical reasons to select the individual for study.
-
-Linguistics is faced with a particular challenge in this regard, on a number of theoretical points that would seem to defy answers for the forseeable future:
-
-\begin{itemize}
-    \item Many studies of language require wildly different spans of text: those using lexical collocations have decided upon a 5-word limit\td{cite sinclair?}, whereas those studying sentence structure will demand more data, and some require whole documents in order to examine narrative and discourse.
-    \item There is no agreement upon the human limits of perception for linguistic features, and so the above is unlikely to be answered by an authoritative model.
-    \item Due to copyright concerns and the overheads associated with digitising and normalising the format of texts, sampling smaller portions of text is often easier, except that:
-    \item There is an overhead associated with looking up each text, making sampling of particularly small units from many texts difficult.
-\end{itemize}
-
-
-These issues, and the dearth of any immediate solution thereto, has led to a situation where corpus sizes are commonly measured in words.  This, in turn, has raised some severe issues for corpus methods, since they must handle the lack of consistent inter-word variation when performing word-level variation.
-
-The disparity between the unit of sampling (word) and the unit of analysis (often text, author, etc.) has led to much criticism aimed at statistical methods (which buy their validity from assumptions of randomness) when applied to corpus data\td{cite kilgarriff's h0 questioning paper, others}.  This criticism is well-placed, and has led to a large amount of reseach into methods that are able to model and compensate for the nonrandom (but stochastic) `dispersion' of a linguistic feature throughout a corpus\td{massive string of cite}.
-
-This approach may be seen as a way of ensuring that the practical limitations mentioned above are respected whilst extracting maximum value from the data gathered therefrom.  This is undoubtedly a valuable endeavour for some uses of such corpora, however, it is no substitute for sampling using the correct unit to begin with.  This argument becomes particularly salient when one sees that each category within a popular corpus such as the BNC may hold only tens of texts, rendering a sample of authors, for example, low enough to damage the validity of even very unambitious study designs.
-
-\paragraph{}
-An alternative viewpoint is extolled by Evert's `library metaphor' paper, in which he posits that the source of randomness comes from sampling:
-
-\begin{quote}
-Something about getting a random word, then getting another random word etc.
-\end{quote}
-
-Though he goes on to publish a number of times on the subject of applying dispersion measures in linguistics (curiously contradicting a number of his arguments by implication), this publication serves to hint at the purist approach to sampling unit selection.
-
-For the purposes of this thesis I shall be attempting to steer clear of the theoretical basis of sampling unit selection, except to note that the policy of applying dispersion measures after sampling is a poor substitute for appropriate initial selection of data.  As we shall see in later sections, the availability of WaC methods allows us to mitigate some of the practical barriers to ensuring measurement- and sampling-unit coordination.
-
-
-
-
-\subsubsection{Auxiliary Information}
-Auxiliary information may be used from a wide variety of sources to inform the specification both of a population and of a sampling frame.  The source of this information will vary depending on the focus of the corpus, however, there are some obvious sources of authoritative data:
-
-\begin{itemize}
-    \item Social surveys (for demographic, attitudinal information)
-    \item Previous corpus building efforts
-    \item Smaller-scale research on specific issues
-\end{itemize}
-
-
-
-\til{ More detail.  Methodological stuff.
-    use of auxiliary information iteration to inform selection of texts}
-
-
-
-
-
-
-
-
-
-% Much of this list belongs in the sampling methods bit below.
-% \begin{itemize}
-%     \item Subsampling with/without weights
-%     \item Using auxiliary information to weight strata
-%     \item artificial inflation of interesting sections of the population (modelling, stratification)
-% \end{itemize}
-
-\subsection{Sampling Method}
-
-\til{A discussion of what each does, and where it seems to be used, split up into nonrandom:}
-
-\til{Difficulties in random sampling due to the above problems with specifying a sampling frame}
-
-\til{Opportunities in nonrandom sampling.  Cover nonrandom sampling used elsewhere where similar problems exist}
-
-
-\subsubsection{Random}
-
-
-\begin{itemize}
-    \item SRS (more special purpose focus, mention use in re-sampling)
-    \item Stratified (focus on this, mention IPW, use of external data to find proportions, primary dimensions of variation and link to taxonomic stuff)
-    \item Multi-stage (link to above, perhaps belongs in that section)
-    \item Cluster (may simplify some practical issues)
-    \item Adaptive (possibly introduce later since it's a plausible solution to some issues, but not currently used.  Some parallels with the iterative method)
-\end{itemize}
-
-\subsubsection{NonRandom}
-
-\begin{itemize}
-    \item Snowball sampling (web crawlers)
-    \item 'Purposive' in general (applies slightly to many things, perhaps worth mentioning but not really labouring)
-\end{itemize}
-
-
-
-
-
-
-
-
-
-
-
-
-\subsection{Size and Power}
-\til{Perhaps go over hypothesis testing/types of error?  Is that too simple to put here?}
-Methods for selecting sample sizes, (stratum sizes), sampling unit sizes [last of these is mainly linguistic, but might be worth mentioning].
-
-\subsubsection{Population Size Estimation}
-\til{Write up notes, cover various methods and assess suitability.  Cover existing efforts from SE literature (perhaps later in web stuff)}
-% http://www.healthknowledge.org.uk/public-health-textbook/health-information/3a-populations/methods-population-estimation-projection
-% http://www.jstor.org/discover/10.2307/3797301?uid=3738032&uid=2&uid=4&sid=21102138383343
-% http://en.wikipedia.org/wiki/German_tank_problem
-% http://www.cals.ncsu.edu/course/fw353/Estimate.htm
-
-
-\subsection{Sample Size and Power}
-The process of selecting an appropriately large sample for a given test, and ensuring that its results afford meaningful analysis, is called power analysis.  This is dependent upon four variables, each of which may be derived as a function of its bretherin:
-
-\begin{itemizeTitle}
-\item[Desired Effect Size] The minimum difference between the hypothesised value being tested and the null, that is, the smallest change we deem to be scientifically meaningful.  This may be difficult to determine when working with complex reductions of the dimensions within corpora, but should be related back to the original data in order to be interpreted anyway. \td{"The degree to which the null hypothesis is false" Cohen "Statistical power analysis for the behavioural sciences"}
-\item[Probability of Type I Error] The confidence we wish to have in any result rejecting the null hypothesis, that is, the probability we will correctly reject the null hypothesis and state that there is a difference between the groups we have identified.
-\item[Sample Size] The size of the sample.  Assuming it is taken without bias, this affects the amount of sampling error in the study---larger samples will exhibit less error (on top of the natural population variation).
-\item[Statistical Power] The probability that a test will correctly reject $H_0$.  Like $\alpha$ above, this is conventionalised and should be chosen to fit the circumstances.
-\end{itemizeTitle}
-
-A test that is specified so as to be higher powered will be likely to detect smaller effects, to the point where it may detect effect sizes that no longer have ramifications for the real world.  Conventionally, this is warned against for practical and ethical reasons: the overheads required in gathering the data impose a practical disadvantage on the study.  This is less of an argument, however, for shared resources such as corpora, for which we may be tempted to say ``the more data the better'' if it were not for the insane complexity of larger portions of language, implying that more will never be enough for some anyway.  The question here is who those some are, and what portion of those wishing to use a corpus they comprise.  We shall revisit this conundrum later.
-
-Where data is as dimensional as linguistic data (and formal statistics often explain very small proportions of variance), the detection of very small changes in a parameter of interest is also likely to represent spurious influence, evidencing not the alternative hypothesis presented, but instead some correlational quirk that may not be relied upon.  Philosophical purists may at this point be objecting to the implication that rejection of the null hypothesis implies acceptance of the alternate given.  They are right, of course, but in practice the distinction is respected less than it perhaps ought to be.
-
-
-
-Underpowered tests suffer an altogether more familiar failure, in that they are unlikely to detect an effect where one actually exists.  Where this is the case it is largely impossible to determine if any observed effect is down to meaningful variation in the sample used (which should warrant further study) or simply due to the sample size being too small (which should [ideally] not).
-
-This would seem to be of epidemic proportions in linguistics, especially where larger features are studied, with researchers often noting that an effect is interesting but statistically unconfirmable:
-\begin{quote}
-QUOTE STUFF FROM PEOPLE
-\end{quote}
-\til{Quote a load of things where people say "There's not enough data to prove it, but this effect looks interesting"}
-
-
-
-
-
-
-
-
-
-Where a corpus is built in a special-purpose manner, the desirable sample size may be authoritatively calculated a priori, on conditions defined by the intended study design.\td{note how rarely this is done}  Where general-purpose corpora are defined, however, this is unlikely to be accurate due to the disparate study designs used after sampling is complete (see~\ref{sec:sampling-unit-and-dispersion} above).
-
-It would seem that general-purpose corpora in their current form, as large shared pre-built repositories of text, are doomed to one of two fates: either they will be so large as to be difficult-to-process (containing enough text to satisfy power requirements of studies focusing on large units of text), or they will be incapable of offering valid insight into larger features due to insufficient sample sizes.
-
-
-
-
-
-
-\subsubsection{Methods for Sample Size Calculation}
-
-\til{Discuss methods for estimating sample size.}
-\til{Debate suitability for various uses, esp. for general purpose corpora.  Focus on Zipfianness.}
-\til{Cover saturation measures, 'new information' approaches}
-
-% \begin{itemize}
-%     \item Criteria for selection
-%     \begin{itemize}
-%         \item purpose-based models [should be big enough for x]
-%         \item sufficiency/internal measures [should contain n xs]
-%         \item breadth/variation [should contain n types of x]
-%     \end{itemize}
-%     \item Big data's approach
-%     \item Size of auxiliary data for multi-stage designs
-% \end{itemize}
-
-
-
-
-
-
-
-
-
-% TODO: this section might not belong, or it might be best off later
-\til{ The section below is probably best off being placed later, or at least where its focus is more well-defined}
-\subsection{Post-hoc/Reweighting(/representation)}
-\til{this seems to conflate the stratification stuff, restructure}
-Methods for upping weights in line with auxiliary data, even of existing corpora.
-
-\begin{itemize}
-    \item Establishing weights using auxiliary data
-    \begin{itemize}
-        \item possible sources of valid data
-        \item existing manual resampling by selection of categories (compare to above method)
-    \end{itemize}
-\end{itemize}
-
-
-
-
-
-
-
-
-
-
-
-
-\subsection{Bias Estimation and Evaluation}
-Methods for evaluating and comparing corpora
-
-% http://en.wikipedia.org/wiki/Mean_signed_difference ?
-% http://en.wikipedia.org/wiki/Mean_absolute_error
-
-\begin{itemize}
-    \item Bootstrapping
-    \item Comparison to other corpora (validity, meaning, can we trust previous corpus to be a gold standard?)
-    \item Comparison to humans (heuristics, summarising, "getting to know your corpus")
-\end{itemize}
 
 
 
