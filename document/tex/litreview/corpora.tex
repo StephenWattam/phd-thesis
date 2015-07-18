@@ -28,7 +28,8 @@ This revival, often termed the `modern era' of corpus linguistics, has yielded w
 
 Corpus studies are now widely relied upon across linguistics, and are often the method chosen to test theories derived from structuralist approaches.  This may be seen as a validation of their methods, as the two complementary philosophies of scientific inference are once more able to use one another without methodological suspicion.
 
-For the purposes of this section I will be focusing on the design of `modern' corpora with respect to their use in validating linguistic theories, and for training automated Natural Language Processing (NLP) and information retrieval systems.  For this reason I will be covering mainly general purpose corpora: those that purport to represent such a large population as to cover a whole language.  This `style' of corpus is built so as to be useful to many research questions and researchers, in part to dilute practical issues surrounding sampling.  The latter type is the special-purpose corpus, which is designed to represent a restricted context.  These special-purpose corpora may be selected according to demographic or linguistic properties, and are typically much smaller.  Because of this, they are often built for a given study, or by re-sampling a general-purpose corpus.
+For the purposes of this section I will be focusing on the design of `modern' corpora with respect to their use in validating linguistic theories, and for training automated Natural Language Processing (NLP) and information retrieval systems.  For this reason I will be covering mainly general purpose corpora: those that purport to represent such a large population as to cover a whole language.  This `style' of corpus is built so as to be useful to many research questions and researchers, in part to dilute practical issues surrounding sampling.  This is in contrast to special-purpose corpus, which are designed to represent a restricted context.  Special-purpose corpora may be selected according to demographic or linguistic properties, and are typically much smaller.  Because of this they are often built for a given study, or by re-sampling a general-purpose corpus.
+
 
 % \til{More focus on sampling/representativeness}
 
@@ -61,8 +62,8 @@ For the purposes of this section I will be focusing on the design of `modern' co
 
 \subsection{A Brief History of Modern Corpora}
 The Brown Corpus of Standard American English~\cite{francis1961brown}% http://icame.uib.no/brown/bcm.html
-is widely regarded as the first of the modern age of corpora.  Built in the 60's, Brown's corpus was the first electronic-format general purpose corpus and was roughly one megaword in size.% 1,014,312
-It contains 500 samples, each roughly 2000 words in size, that were taken to represent a cross-section of works published in the United States in 1961.  The proportions and sizes of samples were selected in order to trade off pragmatic concerns with the possible kinds of analysis that could be performed at the time.
+is widely regarded as the first of the modern age of corpora.  Built in the 60's, Brown's corpus was the first electronic-format general purpose corpus and was roughly one megaword in size.  % 1,014,312
+It contains 500 samples, each roughly $2,000$ words in size, that were taken to represent a cross-section of works published in the United States in 1961.  The proportions and sizes of samples were selected in order to trade off pragmatic concerns with the possible kinds of analysis that could be performed at the time.
 
 The `Standard' in its name referred to Kucera and Francis' intent that it become a regular feature across corpus linguistics---this was quickly realised, as Brown became a \textsl{de facto} standard for American English.  In order to maximise the value of comparisons within studies, other general purpose corpora chose to mirror Brown's sampling policies.
 
@@ -114,6 +115,7 @@ Table~\ref{table:litreview:corpora:lobdist} shows the proportions of texts in ea
 %  The corpus consists of 100 texts, each of 5000 words, totalling 500.000 running words of spoken British English. Information about the compilation of the corpus and explanation of the symbols (prosodic, phonetic, etc.
 The London-Lund Corpus~\cite{greenbaum1990london} was released in 1990, and contains transcribed spoken text, annotated with a number of different markers to indicate intonation, timing and other extra-textual information.  
 The corpus consists of $100$ texts, each of $5,000$ words, totalling $500,000$ running words of spoken British English.
+The annotation scheme used in LLU is much more in-depth than that in many written corpora, reflecting the different nature of research questions for speech.
 
 
 
@@ -124,7 +126,7 @@ The approach taken by the BoE opens many possibilities for analysis of language 
 
 
 % ---
-The de-facto standard of the day is currently the British National Corpus, which comprises $100$ million words of British English.  The BNC's design was influenced heavily by discussions on corpus building that centred around creating a standard, reliable approach to taxonomy, sampling and annotation that occurred around the early nineties.
+The de-facto standard of the day is currently the British National Corpus, which comprises $100$ million words of British English\cite{leech1993100}.  The BNC's design was influenced heavily by discussions on corpus building that centred around creating a standard, reliable approach to taxonomy, sampling and annotation that occurred around the early nineties.
 
 The BNC aims at being a synchronic `snapshot' of British English in the early 1990s.  It consists of samples of text up to $45,000$ words each, and is deliberately general-purpose, containing a wide range of genres as well as a sizable spoken portion.  It was released in 1994, but has since been re-coded and augmented, particularly notably by Lee~\cite{lee2003bnc}, who constructed a significantly more detailed (and principled) taxonomy for its texts in 2003.
 
