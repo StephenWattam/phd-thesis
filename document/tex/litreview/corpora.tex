@@ -65,13 +65,12 @@ The Brown Corpus of Standard American English~\cite{francis1961brown}% http://ic
 is widely regarded as the first of the modern age of corpora.  Built in the 60's, Brown's corpus was the first electronic-format general purpose corpus and was roughly one megaword in size.  % 1,014,312
 It contains 500 samples, each roughly $2,000$ words in size, that were taken to represent a cross-section of works published in the United States in 1961.  The proportions and sizes of samples were selected in order to trade off pragmatic concerns with the possible kinds of analysis that could be performed at the time.
 
-The `Standard' in its name referred to Kucera and Francis' intent that it become a regular feature across corpus linguistics---this was quickly realised, as Brown became a \textsl{de facto} standard for American English.  In order to maximise the value of comparisons within studies, other general purpose corpora chose to mirror Brown's sampling policies.
+The `Standard' in its name referred to Kucera and Francis' intent that the corpus represents their judgement of `standard' english use.  Brown became a \textsl{de facto} standard for American English, and the design was carried forward into many other corpora, mostly regional versions designed to be comparable to Brown\cite{hundt1999manual,johansson1986tagged,hundt1998manual,shastri1988kolhapur,collins1988australian,bauer1993manual,mcenery2004lancaster}.  In order to maximise the value of comparisons within studies, other general purpose corpora chose to mirror Brown's sampling policies.
 
 % --- 
 
 \begin{table}[Ht]
     \centering
-
 
     \begin{tabular}{llcc}
     \hline
@@ -130,6 +129,9 @@ The de-facto standard of the day is currently the British National Corpus, which
 
 The BNC aims at being a synchronic `snapshot' of British English in the early 1990s.  It consists of samples of text up to $45,000$ words each, and is deliberately general-purpose, containing a wide range of genres as well as a sizable spoken portion.  It was released in 1994, but has since been re-coded and augmented, particularly notably by Lee~\cite{lee2003bnc}, who constructed a significantly more detailed (and principled) taxonomy for its texts in 2003.
 
+
+The prominence and ``whole population'' coverage of the BNC's sampling frame spawned many compatible corpora, though these often show more variation in sample design than the Brown clones.  Xiao, in his survey of influential corpora, notes the existence of national reference corpora for American, Polish, Czech, Hungarian, Russian, Hellenic, German, Slovak, Chinese, Croation, Irish, Norwegian, Kurdish, and many more\cite{}%\td{cite \url{http://www.lancaster.ac.uk/staff/xiaoz/papers/corpus survey.htm#_Toc92298862}}.  
+
 % 1.2 General definitions ( from http://www.natcorp.ox.ac.uk/docs/URG/BNCdes.html )
 % 
 % The British National Corpus is:
@@ -145,7 +147,7 @@ The rise of electronic communications has led to a reduction in the effort requi
 
 % Move? [These corpora are often less widely used, and serve to illustrate one extreme discussed below, that the purpose of a corpus is important to its construction]
 
-This thesis is focused on sampling using automated, technical mechanisms to oversome some of the challenges facing conventional methods, and as such focuses on web-based methods (known as `Web as Corpus'.  WaC is concerned with sampling the web itself, as well as constructing samples that are representative of other data, yet are retrieved primarily from the web.
+This thesis is focused on sampling using automated, technical mechanisms to oversome some of the challenges facing conventional methods, and as such focuses on web-based methods (known as `Web as Corpus'.  WaC is concerned with sampling the web itself, as well as constructing samples that are representative of other data, yet are retrieved primarily from the web.  This approach, and those using similar methods, are covered below in Section~\ref{sec:litreview-newtech}.
 
 % In this thesis, I will be focusing on a specific (though popular) form of these corpora based on `web-as-corpus' (WaC) methods.  Please see Section~\ref{sec:litreview-newtech} REF for more.
 
@@ -175,7 +177,6 @@ The use of general purpose corpora as large monoliths, reused in many studies an
 
 This section exists primarily to define a corpus as used by the author: it is unlikely that the definition derived below is universal, however, it is designed to reflect most use-cases, across corpus linguistics and NLP.
 
-\til{signpost?}
 % This discussion is separated to cover a number of properties of corpora, and their parameters.  These 
 
 
@@ -187,10 +188,10 @@ Corpora provide limited solutions to both of these issues.  In the former case, 
 
 %------
 \paragraph{}
-At its most basic level a corpus is a sample of text.  This is reflected by some definitions:
+At its most basic level a corpus is a sample of text.  This is reflected by some definitions\cite[p.29]{mcenery2001corpus}:
 
 \begin{quote}
-A corpus is any body of text\td{cite}
+...a corpus may be defined as any body of text.
 \end{quote}
 
 The definition used above is true if one presumes that any given research questions surround said body of text.  It is perhaps more useful to restrict this, and many authors choose to do so, stipulating that a corpus must be sampled with a known population:
@@ -217,20 +218,8 @@ This review, then, shall start with the most basic of definitions, that of `a bo
 
 
 
-% The definition of a corpus is one which has been oft-discussed with little agreement, indeed, as the field of corpus linguistics has progresssed its definition has gradually changed to suit the methodology of the day.  The Brown Corpus of Standard American English %CITE
 
-% Examining the reasons why linguists first chose to use corpus methods reveals a number of important traits.  The first of these should be seen as its reliability---one of the major problems with assessing linguistic features by interrogation or directed research is that is it hard to establish known bounds of variability.  This inherent `fuzziness' in the method of inquiry, coupled with the context-dependent complexity of language itself, makes replication difficult.
-
-
-% ----
-% Brown's unique status afforded it status as a {\sl de facto} standard, and many subsequent corpora were built with similar foci.  Though the design of corpora has moved on significantly since those first efforts, this standard persists in its principles, and Brown's influence may be felt in the building and coding efforts of many general purpose corpora, to the point that many linguists are tempted to define corpora in terms of them. % TODO: move this elsewhere, but it's a good point
-
-% Brown is widely regarded as the first of the modern age of corpora: its scale and electronic format differentiating it from previous collections and allowing automated analysis on a scale never before practical.
-
-
-
-
-\subsubsection{Representativeness and Transferability}
+\subsubsection{Representativeness} % and Transferrability
 Representativeness is, in effect, the goal of any sample.  It is the property that I chose to use as the loose starting condition above, and it is to be maximised by selection of those properties covered below.  By virtue of this holism, it is also dependent upon enough factors to be poorly defined in the literature.
 % (by virtue of the difficulty of doing so).
 
