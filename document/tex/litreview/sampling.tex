@@ -347,8 +347,9 @@ Some topics and contexts that ought to be represented are difficult to sample du
 \paragraph{Ephemera}
 Many documents encountered in everyday life are designed to be discarded. This means that many are difficult to obtain after-the-fact.  Also, the presumption that out-of-date ephemera are difficult to obtain forms a significant part of the privacy people take for granted, raising further ethical concerns (indeed, this concept is enshrined in law in germany, who have `the right to be forgotten').
 
+These issues are particularly pertinent to verbatim recordings in natural settings, such as those used in many spoken corpora.  Such recordings, even if taken in public places, may be subject to laws such as the Human Rights Act 1998\td{cite?} which, through guarantees of privacy, may restrict the release of such data to those not present at the time.
 
-\sepline
+The issues surrounding large-scale covert research are discussed in more detail in Chapter~\ref{sec:personal}, Section~\ref{sec:personal:discussion:ethics}.
 
 
 
@@ -479,8 +480,13 @@ Evert's (zipfr) LNRE models offer possibly the most advanced generative method f
 
 In spite of the practicality of the techniques surrounding measures of internal feature saturation, few currently do such analyses.  This is perhaps because the linguistic researcher himself must usually perform the analyses in terms of his own study criteria, rather than the corpus builder.
 
-\til{notably, [someone, ahrg, mentioned in greis 'exploring variability' iirc], has looked into applying these methods to corpus stuff... find+review paper.}
+The problem of quantifying variation was tackled by Gries\cite{gries2006exploring}, where he presents a method for estimating confidence intervals for small-scale features, and uses these to explore the homogeniety of corpora and their internal distinctions.  Therein he focuses not on simply frequency variation, but on grammatical properties that, he claims, are more representative of the sort of inquiry made using corpora.  He starts by using the $Z-score$ centrality measure, noting the limitation of existing partitioning schemes\cite[p.123]{gries2006exploring}:
 
+\begin{quote}
+In order to measure the homogeneity of a corpus with respect to some parameter, it is of course necessary to have divided the corpus into parts whose similarity to each other is assessed. 
+\end{quote}
+
+He then goes on to augment this method by way of bootstrapping, in order to identify regions of maximum homogeniety within a corpus in a ground-up fashion.  These mechanisms have the promise to minimise and objectify the role of expert opinion in corpus construction, both where a pre-existing taxonomy is used, and where the population is relatively unknown.
 
 
 % \paragraph{ no multi-phase/iwp design}

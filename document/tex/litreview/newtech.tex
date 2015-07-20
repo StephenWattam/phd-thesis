@@ -1,6 +1,8 @@
 
 \subsection{Web Corpora}
-The rise in popularity of the web introduced a significant new source of text for linguists.  Whilst computerised text has been included in many conventional corpora (in the form of email and other direct communications), the ubiquity of the wev offers a source of digital-format documents that now cover many subjects and genres.
+The rise in popularity of the web introduced a significant new source of text for linguists.  Whilst computerised text has been included in many conventional corpora (in the form of email and other direct communications), the ubiquity of the web offers a source of digital-format documents that now cover many subjects and genres.
+
+Due to widespread and diverse use of the web, such corpora span many populations---some efforts focus on describing the web itself, and representing the population of documents online as its own population.  Others are able to focus on more general representation, or offer metadata sufficient to retrieve special-purpose corpora.  It is certainly the case that any modern corpus claiming to be representative of production or reception should include web data.
 
 The first efforts to construct corpora from web data\cite{kilgarriff2001web} focused on the production of tools and resources to download, clean, and index web data at large enough scales to be used in general purpose corpora.  Many of these problems have now been solved to some degree, with the WaC movement producing a number of web-specific corpus tools:
 
@@ -17,13 +19,11 @@ The first efforts to construct corpora from web data\cite{kilgarriff2001web} foc
 
 \end{itemizeTitle}
 
-The ease with which users may access web data is of particular value: this has allowed for corpora of unprecedented scale such as the WaCky\cite{baroni2009wacky} and COW corpora (which contain tens of billions of words), as well as for near-instant corpus building and replication.
+The ease with which users may access web data is of particular value: this has allowed for corpora of unprecedented scale such as the WaCky\cite{baroni2009wacky} and COW\cite{schafer2012building} corpora (which contain tens of billions of words), as well as for near-instant corpus building and replication.
 
-
-\subsubsection{Crawling and Searching}
 Many WaC efforts focus on sampling the web itself, in order to represent users' experience thereof.  This approach leads to sample designs that focus on uniform coverage of top-level domains, or particular types of web resource, in a manner similar to that of search engine crawlers.
 
-Performing this task in a robust manner is particularly challenging due to the lack of any central index for websites at this level.  As such, it is common to oversample and then select documents after-the-fact using scoring techniques\cite{schafer2013web}.
+Performing this task in a robust manner is particularly challenging due to the lack of any central index for websites at this level.  As such, it is common to oversample and then select documents after-the-fact using scoring techniques\cite{schafer2013web,schafer2014focused}.
 
 A contrasting approach is that of using existing indices to retrieve data, usually by using commercial search engines.  This is the approach taken by the BootCaT tool, which relies on repeatedly requesting URLs from the Microsoft Bing search engine conforming to a number of seed terms.
 
@@ -47,7 +47,10 @@ One approach to this is to limit access to end users, providing an interface whi
 
 A second approach is to provide lists of URLs from which the original data may be retrieved.  This approach is less legally troublesome than that taken by BE06, yet also requires a significant amount of work on behalf of any replication.
 
-I consider that both of these approaches miss the point, as the ease of retrieval WaC brings make it possible to perform full scientific replication: retrieving new data conforming to the same sampling policy, rather than repeating the data verbatim.
+Finally, corpora such as the Google Books corpus\cite{goldberg2013dataset} and the COW corpora\cite{schafer2012building} are offered in a jumbled form, designed to retain frequency information without the ability to recover full texts.  Both corpora mentioned here are particularly large, implying that they are unlikely to be used by researchers reading the text directly due to the large number of results for even very specific queries.
+
+
+I consider that these approaches miss the point somewhat, as the ease of retrieval WaC brings make it possible to perform full scientific replication: retrieving new data conforming to the same sampling policy, rather than repeating the data verbatim.
 
 
 
@@ -119,7 +122,7 @@ The ubiquity of technology makes accessing a diverse popuilation of languiage sp
 
 This has also had other effects, such as the tendency for a single conversation online to include speakers from many countries, cultures and demographics (often without even being aware of that fact).  Also, certain subcultures use various specialised language forms online that can squirrel off into their own little thing with little reference back to 'everyday' forms.
 
-One effect of this has been the ability to recruit study participants from across the world at relatively little cost through the use of crowdsourcing platforms such as Amazon AMT\cite{ipeirotis2010analyzing} or Crowdflower\td{cite}.  This widespread ability brings with it a significant number of analytical challenges, many of which are still being worked upon, and many of which, such as the problem of managing inter-annotator agreement with many participants, apply nicely to the problem of sampling quality corpus data in a distributed manner.
+One effect of this has been the ability to recruit study participants from across the world at relatively little cost through the use of crowdsourcing platforms such as Amazon AMT\cite{ipeirotis2010analyzing} or Crowdflower\cite{Finin:2010:ANE:1866696.1866709}.  This widespread ability brings with it a significant number of analytical challenges, many of which are still being worked upon, and many of which, such as the problem of managing inter-annotator agreement with many participants, apply nicely to the problem of sampling quality corpus data in a distributed manner.
 
   
 
