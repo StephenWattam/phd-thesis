@@ -185,7 +185,7 @@ The last of these implies gradual degradation of performance as links rot.  Perf
     \label{fig:longitudinal:lwac:parallelrate}
 \end{figure}
 
-Figure~\ref{fig:longitudinal:lwac:parallelrate} shows the download rate for 140KiB HTML files served over 100Mbit ethernet using the Nginx web server\footnote{``According to Netcraft, nginx served or proxied 21.64\% busiest sites in May 2015.'' -- \url{http://nginx.org/en/}}.  This server configuration was designed to offer high-performance yet still be representative of common web deployments.
+Figure~\ref{fig:longitudinal:lwac:parallelrate} shows the download rate for 140KiB HTML files served over 100Mbit ethernet using the Nginx web server.  This server configuration was designed to offer high-performance yet still be representative of common web deployments\footnote{Nginx is known for its ability to serve many users at once, and ``[a]ccording to Netcraft, nginx served or proxied 21.64\% busiest sites in May 2015.'' -- \url{http://nginx.org/en/}}.
 
 The performance of parallel downloads is largely constrained by the platform, in this case the Linux 2.6 kernel.  Downloads are reliable until roughly 700 parallel connections are used, beyond which requests are dropped locally as half-open sockets are closed.  Until this point performance is roughly log-linear, with 100,000 requests taking just 100 seconds with 500 parallel connections.
 
