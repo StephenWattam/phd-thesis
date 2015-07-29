@@ -1,7 +1,9 @@
 % This will be a review of more formal sampling theory, comparing it to methods for acquiring language.
 
 
-Corpus building methods are largely based on sampling methods from the social sciences.  These methods are well developed, and their formal frameworks specify a number of design choices that must be made whilst designing a sample.  These decisions largely affect the suitability of a corpus for different forms of analysis, and the frameworks they are based on may be used to motivate design of the sampling process itself.
+Corpus building methods are largely based on sampling methods from the social sciences.  These methods are well developed, and their formal frameworks specify a number of design choices that must be made whilst designing a sample.  
+These decisions largely affect the suitability of a corpus for different forms of analysis, and the frameworks they are based on may be used to motivate design of the sampling process itself.
+Re-examining the original principles of sample selection allows us to use some of the formalisms developed elsewhere to inform judgements on the properties of linguistic samples.
 
 The goal of any sample is to present a scaled-down population, containing individuals that represent all variation within the population.  Before discussing the implication of various approaches, it's therefore important to draw a distinction between variables which are controlled by an experimentor (indendent) and those that remain free to vary (dependent).
 
@@ -23,18 +25,17 @@ The selection of data points in a nonprobability sample is performed either by a
 
 % Because a number of  there are often nonprobability elements that creep into larger samples.
 
-Three main forms of nonprobability sampling are identified by Barnett\cite{barnett1991sample} and Teddlie\cite{Teddlie01012007}:
+Three main forms of nonprobability sampling are identified by Barnett\cite{barnett1991sample} and Teddlie\cite{Teddlie01012007}: \textsl{availability sampling}, \textsl{purposive sampling}, and \textsl{quota sampling}.
 
 \subsubsection{Availability Sampling}
 Also known as convenience sampling, this approach simply takes the most readily available data points.
 
-This method has been widely used in the social sciences, with experimenters often using students from their affiliated instutitions (an approach used for some very famous studies\cite{zimbardo1971stanford}.
+This method has been widely used in the social sciences, with experimenters often using students from their affiliated instutitions.
+(an approach used for some very famous studies.
 
-Convenience sampling is rightly regarded as extremely unrepresentative of wider populations, particularly in fields (such as psychology) where there are a great number of covariates.  If corpus linguists were to work with data sampled as conveniently as those in the Stanford prison experiment, they would merely be reading books from their own bookshelves.
+Convenience sampling is rightly regarded as extremely unrepresentative of wider populations, particularly in fields (such as psychology) where there are a great number of covariates.  If corpus linguists were to work with data sampled as conveniently as those in the Stanford prison experiment \footnote{"The participants were respondents to a newspaper advertisement, which asked for male volunteers to participate in a psychological study of ‘prison life’ in return for payment of \$15 per day."}\cite{zimbardo1971stanford}, they would merely be reading books from their own bookshelves.
 
-There are a number of methods that are designed to adjust for these biases.  
-
-Birnbaum \& Munroe\cite{birnbaum1950munroe} present a model of the bias resulting from unavailable population members after random selection.  This approach is difficult to operationalise in a linguistic context as they require enumeration of data points prior to determining whether or not they are available, rather than the more haphazard approach of true convienenince sampling.
+There are a number of methods that are designed to adjust for these biases.  Birnbaum \& Munroe\cite{birnbaum1950munroe} present a model of the bias resulting from unavailable population members after random selection.  This approach is difficult to operationalise in a linguistic context as they require enumeration of data points prior to determining whether or not they are available, rather than the more haphazard approach of true convienenince sampling.
 
 Farrokhi\cite{farrokhi2012rethinking} approaches the problem of constructing two groups: a control and treatment group, using a series of predetermined criteria to assign membership.  This approach mirrors the comparative nature of many corpus linguistic methods, but does not directly offer a way to produce a more representative corpus for `general use' aside from the principles of using heuristics to guide design.
 
@@ -61,7 +62,9 @@ Criteria for selection generally accomplish differing goals, and will suit varyi
     \item[Expert] Expert opinion is used to determine inclusion in the sample.
 \end{itemizeTitle}
 
-From a corpus construction perspective, where the sampling body is often distinct from the analyst, the complexity of sample inclusion criteria brings with it the need for extensive documentation: without awareness of the expert's choices, it becomes very difficult to defend any use of the sample.  Due to this nuanced validity purposive samples are valid only for qualitative analyses, where interactions with the study design are able to be rationalised and explained in context.
+From a corpus construction perspective, where the sampling body is often distinct from the analyst, the complexity of sample inclusion criteria brings with it the need for extensive documentation: without awareness of the expert's choices, it becomes very difficult to defend any use of the sample.  Due to the nuanced nature of their validity, purposive samples are valid only for qualitative analyses, where interactions with the study design are able to be rationalised and explained in context.
+
+This is especially the case where a study's purposive design is borrowed for use in other contexts: for example, the Brown corpus explicitly states its aim to represent "standard" English, yet its sample design has been widely copied\cite{hundt1999manual,shastri1988kolhapur,mcenery2004lancaster}.
 
 In fields which lack a cohesive, quantitative model of their population, it is often necessary to start from an expert-defined base.  Ideally, information from this sample may then yield methodological improvements, and, eventually, an unbiased mechanism for retrieving a statistically representative sample.
 % cite: http://dissertation.laerd.com/purposive-sampling.php
@@ -92,16 +95,20 @@ There are many probability-based designs available, and the choice of them is la
 
 Random selection of data points provides both a mechanism for unbiased estimation of parameters such as means, as well as knowledge of variation.  The latter of these is the key difference between a probability-based sample and a well-chosen nonprobability one, and is vital to basic hypothesis testing procedures.  Further, notions of sample size are entirely based on these measures: power analysis demands some knowledge of variance and effect size, both of which are only meaningful under conditions of random selection.
 
-Random sampling methods identified by Lohr, Barnett, and Teddlie include\cite{lohr2009sampling,barnett1991sample,Teddlie01012007}:
+Random sampling methods identified by Lohr, Barnett, and Teddlie include\cite{lohr2009sampling,barnett1991sample,Teddlie01012007}: \textsl{simple random sampling}, \textsl{stratified sampling}, and \textsl{multi-stage sampling}.
 
 \subsubsection{Simple Random Sampling}
 This approach selects members of a population entirely at random.  Each member of the population has a probability of selection that is simply $sample~size/population~size$.
 
 SRS is free of any errors that stem from classification, reducing the importance of potentially circular genre definitions and taxonomies.
 
-The main disadvantage is that it requires a complete sampling frame: that is, all individuals in the population must be known in order to be randomly selected from.  Though desirable, simple random sampling is essentially infeasable in linguistics due to this limitation.
+The main disadvantage is that it requires a complete sampling frame: that is, all individuals in the population must be known in order to be randomly selected from.
 
+Though corpora often contain randomly sampled portions, for example, where data is enumerated by a publisher's list or online directory, the lack of a central authoritative index that covers the whole population is usually an impediment to retrieval of a truly representative sample.  Essentially, simple random sampling is unsuitable for larger samples in linguistics due to this limitation.
 
+Once a corpus has been constructed, it is often possible to use SRS in subsampling approaches.  Its unbiased properties also make it useful in bootstrapping, allowing methods to use the full distributional information contained within the corpus.  These techniques serve to avoid introduction of further bias, but don't sidestep any representativeness issues with the original corpus.
+
+\til{examples from CL?}
 
 \subsubsection{Stratified Sampling}
 Stratification is the process of breaking a random sample into a set of bins, with sizes weighted according to some policy.  In the case that the strata are selected in an unbiased manner, this should yield the same sample as SRS.
@@ -114,16 +121,20 @@ All stratification requires the ability to exhaustively separate the population 
 
 Where auxiliary data exists, statistical benchmarking may be performed by adjusting sample weights according to the proportions seen in this data.  This may be applied after sampling itself (otherwise said auxiliary data is simply used to determine the initial strata sizes), and so is often referred to as `post-stratification'.  This approach is applicable where ordinary stratification is impossible, for example, where the variables on which to stratify are unknowable at the time of sampling.
 
+\til{examples from CL?}
 
 
 \subsubsection{Multi-stage Sampling}
-Multi-stage sampling involves multiple rounds of random sampling with progressively diminishing sampling units.  It is analogous to Evert's library metaphor\cite{evert2006random}.
+Multi-stage sampling involves multiple rounds of random sampling with progressively diminishing sampling units.
 
-It is particularly applicable in cases where \textsl{all} of the data points in the population are accessible through a hierarchical structure.  This is clearly the case for smaller linguistic features, but much less so for whole documents (or large extracts).
+Multi-stage sampling is particularly applicable in cases where \textsl{all} of the data points in the population are accessible through a hierarchical structure.  This is clearly the case for smaller linguistic features, but much less so for whole documents (or large extracts).
 
 This approach often significantly speeds up the process of enumerating and selecting from a population, and reduces the need to classify things compared to stratified approaches.  The increased structure may also be of use to some models, allowing for multi-level modelling approaches during analysis.  Because the method relies on excluding large areas at once, it is less representative than SRS for the same sample size, and this may complicate analysis.
 
 Cluster sampling, a form of multi-stage sampling that relies on existing organisation of data, has particular applicability to web sampling, where documents are often stored in academic repositories or simply under the same domain, or to sampling from different publishing houses.
+
+Evert provides a library metaphor for sampling in which he explains random selection of individual words using a multi-stage approach\cite{evert2006random}, selecting progressively smaller units at random before returning a single word and repeating the process.  Though he focuses on randomness, it would be possible to use this approach with stratification at each level---this mechanism is well suited to situations where auxiliary data may be available, but not at the level of the desired sampling unit.
+
 
 \subsubsection{Probability Sampling Summary}
 Simple random sampling is often seen as the ideal probability sampling design, in that it yields high quality results using statistical methods, without the need for weighting and adjustment of results.  It is also by far the hardest method to apply to text due to its incompatbility with the process of accessing the data.
@@ -138,10 +149,10 @@ Questions of sample size are primarily based on presumptions of randomness, and 
 Any hypothesis test is defined by four parameters\cite{ellis2010essential}:
 
 \begin{itemizeTitle}
-    \item[Probability of Type I Error ($\alpha$)] The probability of falsely rejecting the null hypothesis.
-    \item[Power ($1 - \beta$)] The probability of correctly rejecting the null hypothesis.
-    \item[Effect Size ($d$)] The observed change in a parameter necessary to identify an effect with probability $a$.
-    \item[Sample Size ($n$)] The number of individual units in the sample.
+    \item[Probability of Type I Error ($\alpha$)] The probability of rejecting the null hypothesis when no effect exists in the population.  Forms the threshold for the oft-quoted `p-value'.
+    \item[Power ($1 - \beta$)] The probability of rejecting the null hypothesis when an effect exists in the population..
+    \item[Effect Size ($d$)] The observed change in a parameter necessary to identify an effect with probability $1 - \beta$.
+    \item[Sample Size ($n$)] The number of individual units in the sample that are free to vary.
 \end{itemizeTitle}
 
 These properties are related thus:
@@ -152,7 +163,9 @@ $$
 
 Where $Z$ is selected according to the area under the population distribution according to $\alpha$, and $p$ is the parameter value within the population (often estimated as $\hat{p}$).  This implies that a reduction in any effect size we wish to detect increases the required sample size (and vice versa), as do increases in the confidence we wish to reject $H_0$ at.  This general trend applies to all sample types above.
 
-Current methods for computing sample size are reliant on assumptions of independence, often phrase in that members of the sample must be `independent and identically distributed' (IID).  This assumption is violated massively by conventional corpus construction: corpora are sampled at an extract or document level, 
+In addition to sample size, the power of a test is also affected by the method used to perform the hypothesis test.  Tests which are excessively conservative further increase the probability of missing an effect, lowering power, as does violation of assumptions upon which parameter estimates are based.
+
+Current methods for computing sample size are reliant on assumptions of independence, often phrased such that members of the sample must be `independent and identically distributed' (IID).  This assumption is violated massively by conventional corpus construction: corpora are sampled at an extract or document level, 
 
 In the absence of IID samples, sample size calculations are reduced to what Cohen\cite[p. 145]{cohen1977statistical} termed ``non-rational bases'' such as past experience or rules-of-thumb.  The process of building a corpus that is IID for a given research question is so theory-laden as to be inapplicable to those building general-purpose corpora using the current model (where many users all share a large corpus for diverse tasks).
 
