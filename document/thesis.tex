@@ -41,6 +41,10 @@
 % \onehalfspacing
 % \doublespacing
 
+% Dropcaps
+% \usepackage{lettrine}
+% \newcommand{\dropcap}[2]{\lettrine[lraise=0.2,nindent=0.2em,slope=-.5em]{#1}{#2}}
+
 % Ability to include PDFs
 \usepackage{pdfpages}
 
@@ -108,7 +112,7 @@
 % Page layout (margins)
 \ifdraft{
     % inline layout
-    \usepackage[left=38mm,top=25mm,right=38mm,bottom=25mm,showframe=true]{geometry}
+    \usepackage[left=38mm,top=25mm,right=38mm,bottom=25mm]{geometry}
 }{ % else
     % book layout (asymmetric)
     \usepackage[left=38mm,top=25mm,right=25mm,bottom=25mm]{geometry}
@@ -211,7 +215,17 @@
 \bibliographystyle{plain}%
 % \bibliographystyle{swBibStyle}%
 \backmatter%
-\bibliography{../bib/PhilScience,../bib/CorpusDesign,../bib/Representativeness,../bib/Sampling,../bib/PersonalCorpora,../bib/WebAsCorpus,../bib/Methods,../bib/DocAttrLREC,../bib/DownloadTools}
+\bibliography{%
+../bib/PhilScience,%
+../bib/CorpusDesign,%
+../bib/Representativeness,%
+../bib/Sampling,%
+../bib/PersonalCorpora,%
+../bib/WebAsCorpus,%
+../bib/Methods,%
+../bib/DocAttrLREC,%
+../bib/DownloadTools%
+}
 % }
 
 
