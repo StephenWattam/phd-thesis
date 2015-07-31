@@ -10,7 +10,7 @@ The goal of any sample is to present a scaled-down population, containing indivi
 This distinction has a large impact on sample design, as it is impossible to draw conclusions about the population by inspecting independent variables.  Further, the selection of documents according to these controls often leads to systematic bias in dependent variables.  In order to come to conclusions about representativeness and sample quality, it is thus necessary to identify these variables ahead of time.
 % It is this that leads me to stress the importance of corpus documentation
 
-In the case of sampling documents, I will be presuming that users of corpora are primarily interested in inspecting `internal' text features, which are described in terms of `external' document metadata.  This guiding principle mirrors the metadata/data dichotomy seen in corpus tools, and should be uncontroversial\footnote{Note that many definitions of genre, text type, etc. make this circular, as they are defined by document content.}.  I this thesis, I will often label variables as internal or external based on these criteria, with the implication that external variables are independent.
+In the case of sampling documents, I will be presuming that users of corpora are primarily interested in inspecting `internal' text features, which are described in terms of `external' document metadata.  This guiding principle mirrors the metadata/data dichotomy seen in corpus tools, and should be uncontroversial\footnote{Note that many definitions of genre, text type, etc. make this circular, as they are defined by document content.}.  In this thesis, I will often label variables as internal or external based on these criteria, with the implication that external variables are independent.
 
 The ideal sampling scheme for a given population and selection of variables, then, contains variables as controlled specifically for the research question about which one wishes to infer, and maximises coverage of internal document content (and uncontrolled-for metadata values).
 
@@ -73,7 +73,7 @@ In fields which lack a cohesive, quantitative model of their population, it is o
 \subsubsection{Quota Sampling}
 This is a two-stage design, with a number of sub-populations being identified and then selected on a purposive/availability basis.  It is essentially a nonprobabilistic form of stratified sampling: the population is split into mutually exclusive groups, into which data points are placed until each group is `full'.
 
-This approach is often used to control convenience sampling variation for some important variables, for example, controlling for sex and age whilst performing market research.  The BNC's spoken portion was `balanced' using this method, with a number of bins being allocated by context and speaker information.  The COCA corpus was also constructed using this method using data from the web\cite[p. 163]{Davies20090601T0000001384}:
+This approach is often used to control convenience sampling variation for some important variables, for example, controlling for sex and age whilst performing market research.  The BNC's spoken portion was `balanced' using this method, with a number of bins being allocated by context and speaker information.  The COCA corpus was also constructed using this method using data from the web\cite[p. 163]{Davies20090601T0000001384-6655159}:
 
 \begin{quote}
 Using VB.NET (a programming interface and language), we created a script that would check our database to see what sources to query (a particular magazine, academic journal, newspaper, TV transcript, etc) and how many words we needed from that source for a given year.
@@ -220,7 +220,7 @@ It seems likely that these properties pose the biggest challenge to the classic 
 
 \subsection{Sources of Error in Corpus Construction}
 The validity of a sample is based not only on its representativeness for a given question, but also how well that question may be related to reality, and what limitations are imposed by the process of retrieving data.
-Corpus builders are not blind to these challenges---indeed, most literature on corpus construction devotes a large portion of its content to practical issues\cite{wynne2005developing,atkins1992corpus}\td{eagles}.
+Corpus builders are not blind to these challenges---indeed, most literature on corpus construction devotes a large portion of its content to practical issues\cite{wynne2005developing,atkins1992corpus,EagTcwgCtypeaglespreliminary}.
 
 % \til{from bartlett book}
 
@@ -282,7 +282,7 @@ This difference is identified by Leech~\cite{leech2006new}, and will be inspecte
 
 
 One source of ambiguity when defining a population is inherent `measurement error' in the classification scheme used to delineate the texts.
-Efforts such as EAGLES\td{cite EAGLES} identified this issue as a significant one, and much effort has since been spent on minimising the problem of classifying texts.  Nonetheless, the difficulty in identifying a widely-agreed-upon classification scheme means that this remains an important design decision.
+Efforts such as EAGLES\cite{EagTcwgCtypeaglespreliminary} identified this issue as a significant one, and much effort has since been spent on minimising the problem of classifying texts.  Nonetheless, the difficulty in identifying a widely-agreed-upon classification scheme means that this remains an important design decision.
 
 This manifests in two ways. The former being the problem of selecting texts according to external variables about which we may wish to infer findings, such as level of education of the author, nationality, target audience of text, etc.  Many of these factors are imposed by existing structures and systems of classification which were developed for some other use (e.g. search engines, library lists).  The latter of these issues is selection and stratification according to externally-imposed, but textual features such as genre, text type, medium, etc.  These two issues are likely to overlap somewhat: those distinctions useful for one research question may prove ambiguous for another.
 
