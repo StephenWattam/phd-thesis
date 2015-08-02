@@ -305,10 +305,13 @@ Copyright is one major problem with sampling large volumes of text from any sour
 
 This is stated in the original documentation for the Brown corpus as one reason for their choice of sampling unit, and often causes `black spots' in the sampling frame of a corpus, where certain publishers are known for their absolute declination in offering material.
 
-\til{there are various quotes about this, but are any on-the-record?}
+\til{Tony's talk at CL'11 had this mentioned but his abstract in the proceedings doesn't.\\
+Not quite sure which bits of BYU are worth mentioning---resale of data?  I think much of this topic is beyond the scope of the thesis but it might be worth a mention}
+% http://www.birmingham.ac.uk/documents/college-artslaw/corpus/conference-archives/2011/abs-5.pdf
+%
 
 The lack of a central index is also a significant impediment to use of the random sampling techniques detailed above.  
-Any indexes that do exist are heterogenous in purpose, form and extent. Digital indices such as those maintained by search engines are skewed by corporate forces and also only partially cover their indexed population.
+Any indices that do exist are heterogenous in purpose, form and extent (a library maintains a list of its books for different reasons than does a journal publisher or search engine administrator). Digital indices such as those maintained by search engines are skewed by corporate forces and also only partially cover their indexed population.
 
 Many indices conflate the concepts of production and consumption, and use their own metadata taxonomies that may be incompatible with one another.  Search engines are an ideal example of this, as their goal is not to return all results for a term, but to return the `most useful'.
 
@@ -318,9 +321,9 @@ For speech data, and written data that is not intended for public dissemination,
 
 Some topics and contexts that ought to be represented are difficult to sample due to the cultural taboo surrounding them. This is especially relevant for speech corpora, since speech is often used for informal transactions, and because it is difficult to separate the sampling procedure from the speaker himself.
 
-These issues are particularly pertinent to verbatim recordings in natural settings, such as those used in many spoken corpora.  Such recordings, even if taken in public places, may be subject to laws such as the Human Rights Act 1998\td{cite?} which, through guarantees of privacy, may restrict the release of such data to those not present at the time.
+These issues are particularly pertinent to verbatim recordings in natural settings, such as those used in many spoken corpora.  Such recordings, even if taken in public places, may be subject to laws such as the Human Rights Act 1998 which, through guarantees of privacy, may restrict the release of such data to those not present at the time.
 
-The issues surrounding large-scale covert research are discussed in more detail in Chapter~\ref{sec:personal}, Section~\ref{sec:personal:discussion:ethics}.
+Such ethical pressures pose a challenge to unbiased sampling, and one that cannot easily be worked around.  The issues surrounding large-scale covert research are discussed in more detail in Chapter~\ref{sec:personal}, Section~\ref{sec:personal:discussion:ethics}.
 
 Finally, though this is increasingly simple as the world moves towards digital storage, transcription and physical acquisition of data is often slow, difficult, and (thus) expensive.
 
@@ -457,8 +460,15 @@ Many of these biases are fairly minor, and scientific methods are designed to co
 
 Many of these concerns are difficult to address without fully quantifying or automating analysis stages that are currently performed manually, something that is often a technical challenge.  Though reduction of their incidence is the goal of a corpus builder, there is often little that can be done directly prior to analysis.
 
+The quantitative stages of corpus analysis are also not free from statistical challenge.  Many of these issues surround the use of models making flawed assumptions about variability\cite{kilgarriff2005language}, something that is a direct result of disagreements between sampling unit and analysis unit.
 
-\til{Add refs to those points made in CL'15's stats thingy}
+One approach to this is advocated by Wallis~\cite{wallis2013vexed}, who proposes using a baseline linguistic feature as a control.  This serves to normalise the frequency against which one is comparing during statistical tests, but remains subject to issues of low power due to use of samples that contain too few independent sources.
+
+Use of better-informed linguistic models in order to take account of non-orthogonal variation in linguistic features is also possible.  One method of doing this is to adjust for (or at least recognise qualitatively) the dispersion of features across samples\cite{gries2008dispersions,gries2010dispersions}.  Research is needed in order to best use these measures to adjust existing statistical procedures, however, and dispersion particularly is plotted for qualitative interpretation in some popular tools\cite{anthony2011antconc}.
+
+
+
+% \til{Add refs to those points made in CL'15's stats thingy}
 
 
 
