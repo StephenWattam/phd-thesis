@@ -1,5 +1,4 @@
 
-\subsection{Summary}
 \til{This summary was originally part of the LWAC section, but with additions re. DA it probably belongs here.}
 
 Temporal effects, particularly the loss of content over time, have been well documented for web data.  The effects of this are relatively well understood relative to common technical variables, and this is widely used to improve crawling for search engine creation.
@@ -17,11 +16,11 @@ A large-scale longitudinal analysis of web page content changes should be a firs
 
 
 
-\subsubsection{Further Work}
-Currently, workers in LWAC do not evaluate JavaScript or build a DOM (though they do send and receive cookies) --- increasingly these features are used by websites to display content, and extending workers to handle them broadens the set of pages it's possible to retrieve meaningfully.  Such an extension is expected to incur a heavy performance penalty, however, as it massively increases the work done by each client during downloads, and complicates the resulting data.
+% \subsection{Further Work}
+% Currently, workers in LWAC do not evaluate JavaScript or build a DOM (though they do send and receive cookies) --- increasingly these features are used by websites to display content, and extending workers to handle them broadens the set of pages it's possible to retrieve meaningfully.  Such an extension is expected to incur a heavy performance penalty, however, as it massively increases the work done by each client during downloads, and complicates the resulting data.
 
-The field of survival analysis offers a large number of techniques for studying the change in a cohort over time, however, this is largely focused on the existence of simple regressor variables.  This is suitable for technical properties such as those focused on by search engine designers, but less approproiate for digesting large quantities of text.  Techniques for time-series analysis of large corpora are developing, but are usually not based around a cohort-based design.
+% The field of survival analysis offers a large number of techniques for studying the change in a cohort over time, however, this is largely focused on the existence of simple regressor variables.  This is suitable for technical properties such as those focused on by search engine designers, but less approproiate for digesting large quantities of text.  Techniques for time-series analysis of large corpora are developing, but are usually not based around a cohort-based design.
 
-The distributed nature of LWAC makes it possible to study geographical effects --- this is something that would require only modest outlay as virtualised infrastructure becomes cheaper.
+% The distributed nature of LWAC makes it possible to study geographical effects --- this is something that would require only modest outlay as virtualised infrastructure becomes cheaper.
 
 

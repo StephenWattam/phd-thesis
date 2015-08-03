@@ -1,0 +1,121 @@
+
+% Summary
+
+This thesis has examined the problem of improving corpus sampling from a number of perspectives, offering modest novelty in each.  This chapter will serve to summarise these, before offering an overview of significant areas for further research.
+
+The first of these perspectives is that of sampling and representativeness in general-purpose corpora.  Each of the tools covered here offers a mechanism for investigating this within a larger linguistic context, and this restriction is primarily due to the theory-laden nature of the target: representativeness must ultimately be defined relative to a research question.
+
+This line of reasoning is the primary justification behind the explicit corpus description covered in Chapter~\ref{sec:rebuilding}---making the variables identified in research questions explicit and quantitative allows for systematic evaluation against them, either automatically or by other users of the corpus.  This mechanism generalises the approach taken by BootCaT to perform bootstrapping in terms of user-specified metadata dimensions.
+
+One important question to return to is how this fits with the problems associated with sampling general-purpose corpora.  If specification of research questions is important to any assessment of representativeness, then general-purpose corpora are doomed to fail.  The model I have presented here is one of ensuring that a corpus' coverage is similar to that of existing general-purpose ones, but relaxing requirements on features that are not of interest to a particular study.  It seems likely that there is a viable trade-off where a composite of many such `specific-purpose' corpora would form a widely-representative corpus.  Achieving this will require agreement on the underlying theories that generate such research questions though.
+
+Though Chapter~\ref{sec:personal}'s contribution may seem exclusively special-purpose, it is worth remembering that some of the main goals of proportional sampling are to represent variation across demographic values: something that is usually made difficult by sampling texts at such distance from their creators/consumers.  Repeated application of such inverted sampling methods yield valuable empirical information into the variance that can be observed in language taxonomies, allowing such data to be used to weight larger general-purpose sample designs.
+
+
+% \paragraph{}
+A second theme has been sampling from the web.  Each of the methods here is made possible only due to the existence of web data, and existing tools from WaC.
+
+Chapters~\ref{sec:longitudinal},~\ref{sec:rebuilding} and~\ref{sec:evaluation} cover tools and methods for retrieving web data according to novel sampling policies.  In the former case, this is performed at a scale and level of detail not currently possible, with the added dimension of time, but in a manner familiar with anyone currently using `open-source' corpora or URL-lists from other sources.
+
+The latter generalises this further at the expense of some detail, covering multiple research designs to form an extensible platform.  Ultimately, the success of such a general method is built upon the quality and pertinence of the heuristics it is using: the purpose of such a tool is to encode the expert opinion once injected by humans in an unambiguous, transparent, portable fashion\footnote{This is essentially the approach taken by all of technology, much to the chagrin of John Henry.}.
+
+This generalisation opens up something that is only recently being recognised by compilers of new corpora\td{cite bnc2014}---so much of modern life is now digitised (and available online), that we can use the web to build samples that tell us about more than the web as a separate entity.  This is a start on fixing Kilgarriff \& Grefenstette's issue with web corpora\cite[p. 343]{kilgarriff2003introduction}:
+
+\begin{quote}
+The Web is not representative of anything else. But neither are other corpora, in any well-understood sense.
+\end{quote}
+
+
+% \paragraph{}
+The third and final theme has been the provision of tools to simplify the methods presented here.  This is a tradition of corpus linguistics, which has always relied on automation to make possible the analysis of texts at a scale beyond human bounds.
+
+All three of the methods presented here are also only possible due to this automation: each relies on the speed and reliability of modern computing hardware.  In the case of Chapters~\ref{sec:longitudinal},~\ref{sec:rebuilding} and~\ref{sec:evaluation}, this is down to brute speed in retrieving and processing data.  For the data-gathering tools used in Chapter~\ref{sec:personal}, their value is in being able to transparently slip between the everyday tools of work and their data sources, or, in the special case of smartphones, being able to slip into any situation unnoticed.
+
+% \paragraph{}
+Ultimately, this thesis has presented three novel methods for sampling in corpus linguistics.  The first of these may be used in an already-rich area of investigation to aid our understanding of web publishing for the sake not only of linguistics, but also for time-sensitive NLP systems such as search and knowledge engines.
+
+The second method provides a perspective on existing sampling methods and a mechanism for construction of corpora annotated with metadata that are traditionally unavailable.  Lessons from this could be incorporated into future designs for new general-purpose corpora, or each personal corpus could be used as its own statistical baseline: both go some way to solving significant practical issues.
+
+Profile-guided corpus sampling offers a generalisation of existing WaC methods, and a system for unambiguously describing (and thus disseminating) sample designs.  Though the utility of such methods are in the hands of those imbuing them with expert knowledge, initial results indicate an ability to duplicate existing corpora with predictable bounds for error.  Such measures are the first steps towards being able to measure the bias of common sampling techniques.
+
+
+
+
+
+
+
+
+% Further Work
+\section{Further Work}
+As much of this thesis has been exploratory, there is a wealth of further work necessary to maximise the value therein.  Whereas each chapter contains numerous notes in context, this is a high-level summary of the major avenues of inquiry.
+
+
+% ====================================================================================
+% \subsection{Further Work}
+% Currently, workers in LWAC do not evaluate JavaScript or build a DOM (though they do send and receive cookies) --- increasingly these features are used by websites to display content, and extending workers to handle them broadens the set of pages it's possible to retrieve meaningfully.  Such an extension is expected to incur a heavy performance penalty, however, as it massively increases the work done by each client during downloads, and complicates the resulting data.
+
+% The field of survival analysis offers a large number of techniques for studying the change in a cohort over time, however, this is largely focused on the existence of simple regressor variables.  This is suitable for technical properties such as those focused on by search engine designers, but less approproiate for digesting large quantities of text.  Techniques for time-series analysis of large corpora are developing, but are usually not based around a cohort-based design.
+
+% The distributed nature of LWAC makes it possible to study geographical effects --- this is something that would require only modest outlay as virtualised infrastructure becomes cheaper.
+
+
+% Further sampling and analysis is necessary to confirm the issues highlighted above.  This paper comprises a preliminary look at data sampled in a longitudinal study, which will go on to relate the influences of extrinsic document features (which may be used to inform sampling strategies) to their linguistic content.  
+
+% This will involve, primarily, identifying the extent to which document attrition applies bias on linguistic content, rather than technical features, and how this varies through the sampling period.  Issues of particular interest include:
+
+%
+
+
+
+
+
+\subsection{Large-Scale Longitudinal Document Attrition Studies}
+A large-scale longitudinal sample of WaC sources is one obvious extension to this work\footnote{Indeed, one was underway, but due to technical failures the results were not ready for publication here.}.
+
+Such a study would be able to answer questions not only on the rate of decay (as has been addressed elsewhere), but also the shape of the decay curve: this is something that has often been presumed to follow exponential decay.
+
+Further to this, there are many web page changes that do not constitute `link rot' in that the original information may still be present, but are still interesting for various linguistic and social questions, for example how often documents are changed in response to news events, or have their boilerplate changed in order to affect the context in which documents are presented.
+
+Ultimately, developing a linguistic understanding of change through time will require significant work, however, a single large sample could provide useful information to those seeking to use large existing web or monitor corpora.
+
+\subsection{LWAC Distribution}
+LWAC's distributed design lends it particular powers in distinguishing web access issues from a geographical perspective.  With the low price of virtual machine rent, a network of LWAC clients could easily be constructed to access a number of websites from differing locations.
+
+Such a configuration would reveal geographical changes made by site administrators for reasons of editorial control, censorship, and interference by service providers (Phorm\cite{clayton2008phorm}, for example).  This would open an avenue for investigation of a number of social factors, particularly as the (time-series) results could be compared and correlated with many real-world regressors, such as the incidence of political events.  Such approaches are already being widely used in social media analysis\cite{achrekar2011predicting,bollen2011twitter}, though the high number of societal covariates renders such studies difficult to validate.
+
+\subsection{Slimmed-down Personal Corpora}
+A natural progression of the work in Chapter~\ref{sec:personal} is the repetition with more subjects.  This is troublesome in part due to the in-depth coverage of language sampled, something that is likely to be less than critical for many research questions (such as those primarily concerned with `standard' day-to-day interactions, or even simply those using a computer).
+
+There are many mechanisms which could be used to establish a provisional model of demographic linguistic variation based on partial sampling of each subject, perhaps elective using smartphone technology, down to the level of questionnaires.  This dataset could be added to gradually, and used to guide large diachronic sampling efforts as a form of auxiliary data.
+
+This would require work to formalise and proceduralise the data gathering methods presented, in order to discount those with the least `effort efficiency' and maximise automation.  The continuing ubiquity of smartphone technology offers a vehicle through which to distribute such methods and collect resulting data.
+
+Operationalising the results of such sampling is also an open question, though such work would largely require the application of existing stratification and re-weighting techniques.  This would allow an experimentor to select a small sample demographic, and then use a general-purpose corpus to augment it with larger quantities of linguistic information in a representative manner.  In order for these methods to be useful at a large scale, they should be informed by further work on power analysis, which is currently in its infancy in corpus linguistics.
+
+
+
+\subsection{Improved ImputeCaT Modules}
+The performance of the ImputeCaT corpus profile retrieval tool is currently constrained primarily by two factors:
+
+\begin{itemize}
+    \item The accuracy of classifiers used to identify document distributions and class membership during profile generation and candidate document selection;
+    \item The specificity of retrieval methods.
+\end{itemize}
+
+The former of these is the subject of much ongoing research, and can be expected to progress gradually due to its utility in many areas.  The design of ImputeCaT is such that this may be leveraged easily to provide continuing accuracy improvements.
+
+The latter is more challenging: though ultimately corpora can be retrieved manually (incurring only the error seen in inter-annotator scores for a given taxonomy\cite{sharoffs2015}), the scalability of automated corpus construction is born largely of its ability to retrieve documents online in an unsupervised manner.  This is currently limited by the search-engine-based retrieval mechanism demonstrated here.
+
+Many options exist for this, such as the use of web directories, supercorpora, semi-supervised topic modelling, or crowdsourcing.  Each of these should be evaluated relative to typical corpus construction tasks in order to determine its suitability for given study designs: indeed, it is likely that some exhibit biases such that they are unable to replicate some samples.
+
+
+\subsection{Bias Estimation}
+Finally, the convergeance-based design of profile-guided retrieval offers the first few avenues through which to explore the bias of sources.  Currently, bias in retrieval methods is conflated with classification error, something that is also far from negligable.
+
+The approach of seeking a series of known document properties, however, leads to the obvious method of simply measuring how `difficult'\footnote{Ideally measuring difficulty for a typical human.} it is to retrieve a document given certain parameters.  Differences between this difficulty-of-retrieval metric and an equivalent measured based on human performance should yield biases in online sources.
+
+Such a measure would be highly dependent on many unstable variables, however, such as the retrieval methods used, sample design, and temporal/contextual factors.  Nonetheless, this offers a real-world take on representativeness without reliance on variance and homogeniety measures.
+
+As ever, these methods are dependent upon finding a human analogue task that acts as a well-agreed-upon baseline: ultimately, without such a research question, the question of representativeness is unanswerable.
+
+
