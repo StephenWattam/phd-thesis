@@ -1,54 +1,73 @@
 
 % \dropcap{T}{he}
-The history of linguistics, as with most `soft' sciences, is one that illustrates a gradual methodological progression.  This progression has continually moved from the conceptual to the empirical, relying ever more on objective and quantitative methodologies.  During this time, many detractors [cough chomsky cough] were disproven by the valuable insights yielded by the approach, and it is a trend likely to continue as the field of linguistic inquiry becomes increasingly important to governmental, commercial, and consumer interests.
-
-
 
 Kuhn's view of scientific revolutions~\cite{kuhn1970structure}
-holds that only empirical evidence, well applied, may provide the agreement upon the theoretical framework required to progress a field; as the intricacy and accuracy of theoretical systems evolves, this necessarily requires more accurate data.  Like many of the younger sciences linguistics faces a difficult dilemma: it must have high-quality empirical data in order to further develop widely-agreed-upon theories, yet its ability to establish the quality of samples is directly dependent upon said theoretical systems.
-\til{I implicitly posit that linguistics is limited by its data}
+holds that only empirical evidence, well applied, may provide the theoretical framework required to progress a field; as the intricacy and accuracy of theoretical systems evolves, this necessarily requires more accurate data.  Like many of the younger social sciences, linguistics faces a difficult dilemma: it must have high-quality empirical data in order to further develop widely-agreed-upon theories, yet its ability to establish the quality of samples is directly dependent upon said theories.
+
+Current corpus resources are often fashioned around a small subset of exemplar corpora---these have become de-facto standards, and their sample designs are heavily re-used.
+Whilst this approach ensures compatibility and interoperability, it also leaves many sample design decisions unspoken or assumed.
+
+Many of these examplar corpora were built in the days before widespread use of technology such as the internet, and before widespread digital document creation.  As a result they are structured around designs intended to minimise practical issues surrounding retrieval, coding, and transcription that may not apply in a modern context.
+
+This thesis presents three explorations of this gap: identifying methods and techniques for sampling in hitherto-unconventional ways, and assessing their worth within the context of existing general-purpose samples for linguistic research.  For each, a generalisable method and supporting tools are produced, in order to make these efforts accessible to a wider linguistic audience.
+
+At its core is the notion of representativeness, the central argument being that the key to improving the validity of corpus-based scientific research (in linguistics or NLP), is the improvement of the sampling method.
+
+\section{Background\hfill{}Chapter~\ref{sec:litreview}}
+One significant issue, which remains a topic for debate, is what goals linguistic samples should have.  As the focus in this thesis is on larger, general-purpose corpora, this requires some understanding of common use, and existing practice.
+
+This chapter begins by reviewing the history of general-purpose corpus building, with a view to constructing a working definition using existing terminology from corpus linguistics.  These designs are then compared to a number of relevant `ideal' sample designs, and their similarities and limitations discussed.  The closing portion of the review forms a brief introduction to new technologies available.
 
 
-Achieving a higher level of validity in corpus studies (and [thus] a higher level of utility for NLP systems) requires the ability to assess and improve upon existing resources without recourse to a single as-yet-undeveloped theoretical system.
-One way of achieving this is iterative improvement of shared samples (indeed, if we are to solve the dilemma mentioned above this is a requisite part of evaluating any theoretical progression), something that has been advocated both by linguists and those who sample similarly awkward data in other fields.
+\section{Document Attrition\hfill{}Chapter~\ref{sec:longitudinal}}
+As corpora involving web data become more prevalent, the need to understand the temporal properties of web publishing become increasingly important to the external validity of any scientific claims made using them.  Many others have already observed these changes, though with limited resolution.
+
+This chapter presents a motivating investigation into sources of link rot within corpora distributed as lists of URLs.  It finds that many corpora suffer significant loss when retrieved using naive methods, across a timescale likely to affect users of current corpora (some widely-used corpora are now decades old).
+
+This motivates long-term and in-depth analyses, neither of which I am well placed to cover in this thesis: instead, a comprehensive tools was developed in order to perform longitudinal sampling of web data.  This tool offers a mechanism for investigating properties as yet unaddressed by the literature, such as changes through time that do not affect availability (such as the editing of articles according to political whim), and network-level properties (such as the response time and location of hosting providers).
+
+\paragraph{Contributions:}
+\begin{itemize}
+    \item A minor addition to existing literature on link rot, particularly in linguistic corpora
+    \item A publicly-accessible tool for longitudinal analysis of web resources, at a resolution and scale not possible with current software.
+\end{itemize}
+
+\section{Personal Corpora\hfill{}Chapter~\ref{sec:personal}}
+The issue of representativeness is examined here with respect to an unconventional research question: how representative is a general-purpose corpus of just one speaker's experience of a language?
+
+This question is valuable primarily because it inverts the sample design commonly used for larger corpora, which cover many people in many contexts but with a low resolution for each individual.
+Inverting the standard design allows for detection of a number of difficult-to-determine properties, such as what proportions of each genre are used at given times of day, or in different contexts.
+
+At the same time, many of the challenges faced when executing such a sample design are novel, or have only been seen outside corpus sampling.  Here, too, technological benefits such as the ubiquity of smartphones and speed of logging software yield results that would have been impossible just a few years ago.
+
+This section ends with a discussion of the potential uses of such a sample, both of itself (for use in special-purpose corpus construction) and at a wider scale to inform the sampling policy of future efforts.
+
+\paragraph{Contributions:}
+\begin{itemize}
+    \item A case-study relating general-purpose corpora to one person's idiolect; the practical and theoretical findings therefrom.
+    \item A semi-automated method for producing personal corpora, including supporting software.
+\end{itemize}
 
 
-Current corpus resources are often fashioned around a small subset of exemplar corpora---these have become a de-facto standard, and are thus often used as inspiration for new corpus designs.  This approach, whilst ensuring compatbility and interoperability, necessarily restricts the availability of revolution-causing data.
-\til{This relates to the Kuhnian view that people agree on the theory and so plateau with the same data/methods}
+\section{Profile-Guided Corpora\hfill{}Chapters~\ref{sec:rebuilding},~\ref{sec:evaluation}}
+A central theme of this thesis is the research-question-oriented nature of any sample.  Without a clear and objective research question, any claim to external validity is subject to the judgement of the reader.
+
+These two chapters detail the design and production of a system that is designed to unambiguously specify the important variables in a research design, and then retrieve corpora based upon these designs.  This serves to solve a number of significant practical issues with conventional corpus design, and takes sampling from the web in a new direction: away from a corpus of the web itself, and towards a general-purpose source of documents for all purposes.
+
+This is accomplished by the encoding of expert opinion into pluggable modules, that may be used to construct a corpus' sample design according to the whim of the user.  These designs may then be distributed free of any legal restriction and re-used at will.  The automated nature of the corpus retrieval process also serves to vastly speed up and simplify corpus construction.
+
+Because there is no reliance on a gold-standard corpus, evaluation for this method is particularly difficult.  This thesis relies on two mechanisms: a white-box examination of each of the stages of the corpus building process is presented, and its rationality confirmed.  A black-box examination against the source corpus is then performed, in order to identify any subjective unintended bias in the result.  Though the results of this evaluation are difficult to generalise to all corpus designs, these indicate a practical level of success for the common design used.
+
+\paragraph{Contributions:}
+\begin{itemize}
+    \item A method for quantitatively producing, reweighting, and describing corpora using a set of metadata distributions using bootstrapping.
+    \item Software tools to summarise corpora into freely-reusable profiles.
+    \item Software tools to construct corpora based upon said profiles, using fully-automated and semi-automated methods.
+\end{itemize}
 
 
-The easy availability of data online, coupled with the increasing ubiquity of technology in everyday life, offers a solution to many of the problems that shaped these examplars.  Though this has, to some extent, brought corpus construction more in line with a conventional scientific model (where each researcher would build a sample tailored to test his specific hypothesis), many such methods have merely formed their own widely-used corpora, and these opportunities have not yet been fully exploited.
+\section{Conclusions\hfill{}Chapter~\ref{sec:conclusions}}
+This thesis concludes with a review of the methods presented, and an examination of the contexts in which they may be used.
 
-
-Corpora constructed using these methods offer a way to depart from the traditional view of validity, yet this raises a significant epistemological issue: without comparison to existing standards, how may one ensure quality?
-%In order to answer this, I return to the original intent of sampling in the general case.
-
-
-The design decisions that shaped existing corpora were largely made in a non-digital era.  They contain abrogations of sampling theory that represent compromises between the ideal method and the original data format, as well as social and economic limitations.  Many of these limitations have become conventionalised, and in many cases damage the inferential power of studies, and the accuracy of systems built upon their findings.
-\til{i.e. The current practice of basing web corpora on their structure is likely to be lower quality than a first-principles approach.}
-
-
-I posit that the current practice of basing `modern' web corpora on their traditional counterparts discards the main value of the method---that it is \textit{not} limited by the practical concerns of the original designs.
-
-% ----
-\til{after this I forget which tense to write in, and it sort of becomes signposting without the signposts.}
-
-To illustrate this, I set about sampling from first principles, under the reasoning that an ideal sample is theory-neutral. \td{uhh, well, ish.  Probably remove this}
-
-
-The first stage in this is to identify the limitations of traditional corpus design, and assess the extent to which these pragmatic concerns apply to WaC methods.  This process is again helped significantly by the availability of technology---where once one would have to carry bulky recorders and perform extensive manual transcription, much language use is natively digital, or may be processed from simple records.
-
-
-Having established methods for assessing the ground truth of a corpus, the limitations of any new sampling technique must be identified, and the impact these have upon the sample itself must be assessed.
-\til{This takes the form of a review of other literature, and the DA study.}
-
-
-A sampling strategy is then devised that may mitigate these limitations, whilst ensuring that we remain as closely tied to the original theory as possible.  This takes the form of a series of tools which are able to build samples in response to a particular specification (one that is stated in theoretical terms familiar to those requiring the sample).
-
-
-Evaluation of resultant samples relates once more to the problem of establishing a ground truth.  Since the construction of a new sampling method is predicated upon the unacceptable bias of traditional corpora, simple comparison is rendered meaningless---the sources of bias affecting the newly constructed corpus are unlikely to match those from the conventional one, and it is thus not possible to simply assess the change in magnitude thereof.  The only available resource for establishing validity in this context is the `ground truth' of human understanding.  
-
-\til{i.e. we can't compare size of bias, we have to compare type too, like p values and effect sizes}
-
-
+\sepline
 

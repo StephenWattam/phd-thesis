@@ -17,6 +17,8 @@
 % \text and more in math mode
 \usepackage{amsmath}
 
+% Page refs in the bibliography
+% \usepackage{backref}
 
 % Merging table cells.
 \usepackage{multirow}
@@ -88,11 +90,13 @@
     urlbordercolor={0 0 0},
     urlcolor=blue,
     filecolor=black,
-    citecolor=blue,
+    citecolor=red,
     linkcolor=black,
     colorlinks=true,
-    bookmarks=true
+    bookmarks=true,
+    linktocpage=true
 }
+
 
 % PDF bookmarks
 % \usepackage{bookmark}
@@ -181,7 +185,7 @@
 
 
 
-\chapter{Review of Literature}
+\chapter{Background}
 \label{sec:litreview}
 \input{tex/litreview}
 % The lit review ends with a discussion of WaC issues.
@@ -200,11 +204,12 @@
 \label{sec:rebuilding}
 \input{tex/rebuilding}
 
-\chapter{Evaluation/Discussion}
+\chapter{Evaluation \& Discussion}
 \label{sec:evaluation}
 \input{tex/evaluation}
 
 \chapter{Conclusions \& Review}
+\label{sec:conclusions}
 \input{tex/conclusions}
 
 
@@ -212,6 +217,7 @@
 %  Bibliography
 % =============================================================================
 \pagebreak%
+\addcontentsline{toc}{chapter}{Bibliography}
 \bibliographystyle{plain}%
 % \bibliographystyle{swBibStyle}%
 \backmatter%
@@ -235,7 +241,7 @@
 \pagebreak
 \appendix
 \addcontentsline{toc}{chapter}{Appendices}
-\renewcommand{\thesubsection}{\Alph{subsection}}
+% \renewcommand{\thesubsection}{\Alph{subsection}}
 \pagenumbering{Roman}
 
 
@@ -243,6 +249,8 @@
 %  Appendices 
 % =============================================================================
 \input{tex/appendices}
+
+
 
 
 % =============================================================================
