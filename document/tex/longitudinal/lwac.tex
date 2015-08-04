@@ -63,6 +63,8 @@ This approach allows for reliable re-visits to each member of the sample, and th
 
 This allow a user to investigate how language may change in relation to technical and social events in a way that mimics the experience of many end users, and offers a useful perspective on many epistemic problems of WaC methods, to determine:
 
+\til{Integrate these as an extension of the previous section}
+
 \begin{itemize}
     \item The portions of web pages that typically change as main content regions;
         \vspace{-6pt}
@@ -121,7 +123,7 @@ root/files/sample\_id/1/2/3/456
 % A structure of directories describing link IDs, each of which has up to N files within it (as defined in the server config). This structure uses the first characters of the ID to nest directories in order to avoid filesystem limits on inode size and speed up random access, i.e.: 0/1/1 0/1/2 0/1/3 0/2/1 0/2/2 0/2/3 etc.
 
 
-Data storage in the system is split between metadata, stored in an SQL database, and website sample data itself, which is stored as raw HTTP response data in a versioned structure on disk.  The storage format is optimised for large samples, and is nested in order to avoid common filesystem limits (as shown in Appendix~\ref{sec:appx:fields}
+Data storage in the system is split between metadata, stored in an SQL database, and website sample data itself, which is stored as raw HTTP response data in a versioned structure on disk.  The storage format is optimised for large samples, and is nested in order to avoid common filesystem limits (as shown in Listing~\ref{lst:longitudinal:lwac:corpusformat}
 ).  LWAC does not enumerate URIs in memory, meaning there is no hard limit on corpus size --- instead it incrementally loads links as requested by the workers.  This means that memory usage is limited to the maximum batch size within the system.
 
 Workers are able to imitate the behaviour of end users' browsers as much as possible, so as to avoid search engine optimisation and user-agent detection tactics.  They are able to provide cookies and request headers commensurate with a web browser, and follow redirects to similar depths.  This behaviour is passed as part of the work unit itself, and so is configured centrally.
@@ -131,7 +133,8 @@ Workers are able to enforce limits on MIME type and file size, ensuring that doc
 After downloads have occurred, data may be retrieved for analysis in a variety of formats using the included export tool.  Export is possible at one of three levels: all data, individual samples (all datapoints at a given time), or individual datapoints (across all times).
 
 
-Metadata is stored about network-level properties such as timeouts and latencies, as well as URL properties (link length, etc.) and HTTP headers.  The original request parameters and sample design are also presented in the same structure, allowing corpora to be somewhat self-documenting.  Listing~\ref{lst:longitudinal:lwac:format} shows the object hierarchy of page data.
+Metadata is stored about network-level properties such as timeouts and latencies, as well as URL properties (link length, etc.) and HTTP headers.  The original request parameters and sample design are also presented in the same structure, allowing corpora to be somewhat self-documenting.  Appendix~\ref{sec:appx:fields} shows the object hierarchy of page data.
+
 
 Exports are performed by filtering data using a series of expressions.  These data are then passed to formatting expressions, which are able to normalise display formats for analysis, before calling a number of pluggable formatting modules.  Current formats supported are:
 
@@ -142,9 +145,6 @@ Exports are performed by filtering data using a series of expressions.  These da
     \item Arbitrary text output using the ERB template format.  Supports server, sample and datapoint level exporting;
     \item XML, transformed from the original input parameters using XSLT.
 \end{itemize}
-
-
-\til{implementation details?  Ruby/curl/parallelism/data flow?}
 
 
 
@@ -223,9 +223,9 @@ The 228,000 URLs used were sourced using BootCaT, making 4600 requests to the Bi
     \label{fig:longitudinal:lwac:realrate400}
 \end{figure}
 
-The throughput over time is shown in Figure~\ref{fig:longitudinal:lwac:realrateboth}.  This data was summarised by examining the logs of the storage manager, and thus represents rate calculated after each worker has checked in its batch --- hence the pattern of jagged increases followed by gradual decay.  Larger spikes are seen towards the left hand side due to synchronisation of the check-ins by clients: eventually variations in batch retrieval times cause these to disperse and smooth out.  This deployment can be seen to plateau at roughly 80 links per second (roughly 288,000 per hour), meaning the full 228,000 page corpus was retrieved in roughly 45 minutes.
+The throughput over time is shown in Figure~\ref{fig:longitudinal:lwac:realrate400}.  This data was summarised by examining the logs of the storage manager, and thus represents rate calculated after each worker has checked in its batch --- hence the pattern of jagged increases followed by gradual decay.  Larger spikes are seen towards the left hand side due to synchronisation of the check-ins by clients: eventually variations in batch retrieval times cause these to disperse and smooth out.  This deployment can be seen to plateau at roughly 80 links per second (roughly 288,000 per hour), meaning the full 228,000 page corpus was retrieved in roughly 45 minutes.
 
-Using this deployment would mean that retrieval of a corpus the size of the BNC is possible in around eight minutes; a ukWaC copy would take 2.5 hours (or 17 if using the pre-filtered url list), and DECOW2012 would take 24 hours. \td{cite these?}
+Using this deployment would mean that retrieval of a corpus the size of the BNC is possible in around eight minutes; a ukWaC\cite{ferraresi2008introducing} copy would take 2.5 hours (or 17 if using the pre-filtered url list), and DECOW2012\cite{schafer2012building} would take 24 hours. \td{cite these?}
 
 
 
