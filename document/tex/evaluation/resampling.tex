@@ -11,7 +11,7 @@ The intricacy of the input distribution largely defines the necessary size of th
 
 The question of when to stop sampling documents is related to the problem of corpus size in general: the output corpus is conceptually a model of the input corpus, and should contain enough data to be representative of the relationships therein whilst following the same guide.  This is best assessed by measuring the uniformity of residuals.  A suitable end condition for many uses of the output would thus be a combination of corpus size and residual uniformity (notably it is possible to constantly balance the uniformity of residuals during the rejection sampling phase too).
 
-The evaluation here establishes the resampling algorithms' ability to produce copies of the input corpus with uniform residuals, and establishes a 'best case' baseline against which the results of document retrieval may be compared.
+The evaluation here establishes the resampling algorithms' ability to produce copies of the input corpus with uniform residuals, and establishes a `best case' baseline against which the results of document retrieval may be compared.
 
 The research questions answered by the analysis here run to:
 
@@ -75,7 +75,7 @@ The evaluation here focuses on categorical values with over five members due to 
     \item[Mode]   \textbf{S}poken or \textbf{W}ritten.
 \end{itemizeTitle}
 
-The word count is binned irregularly due to the low frequency of files with more than 80,000 words listed in the index.  This results in a distribution shown by the historgram in Figure~\ref{fig:evaluation:resampling:bncwordhist}, with the minimum bin frequency being 8.  Other variables were left unmodified.
+The word count is binned irregularly due to the low frequency of files with more than 80,000 words listed in the index.  This results in a distribution shown by the histogram in Figure~\ref{fig:evaluation:resampling:bncwordhist}, with the minimum bin frequency being 8.  Other variables were left unmodified.
 
 
 \begin{figure}[Ht]
@@ -86,7 +86,7 @@ The word count is binned irregularly due to the low frequency of files with more
 \end{figure}
 
 
-The convergeance rate of each of the variables is, as mentioned above, dependent on the information content of the input bins' frequencies (due to the complexity of the sample) and the number of bins with fewer than five members (due to log-likelihood converging slowly to the $\chi^2$ distribution).  Each variable's convergeance may thus be appropriately expressed in terms of how long the average bootstrapping process takes to converge upon the distribution to a given confidence value, relative to the size of the input.
+The convergence rate of each of the variables is, as mentioned above, dependent on the information content of the input bins' frequencies (due to the complexity of the sample) and the number of bins with fewer than five members (due to log-likelihood converging slowly to the $\chi^2$ distribution).  Each variable's convergence may thus be appropriately expressed in terms of how long the average bootstrapping process takes to converge upon the distribution to a given confidence value, relative to the size of the input.
 
 A basic description of the bins used for each input metadata item is presented in Table~\ref{table:evaluation:resampling:inputdist}.  Medians and interquartile ranges were used as centrality and deviance measures due to the Zipfian nature of the bin distributions (a feature expected to manifest in most corpora).  The `ID' column gives the `index of dispersion' --- a normalised measure of the variability in the distribution's bins computed by dividing the centrality measure (median) by the centrality measure (median).
 
@@ -94,7 +94,7 @@ A basic description of the bins used for each input metadata item is presented i
 \begin{table}[Ht]
     \centering
 
-    \begin{tabular}{ |l|c|c|c|c|c| }
+    \begin{tabular}{|l|c|c|c|c|c|}
         \hline
         Metadata & bins & $|n_{bin} < 10|$ & $median(n_{bin})$ & $IQR(n_{bin})$ & ID  \\
         \hline
@@ -114,10 +114,10 @@ The figures in Table~\ref{table:evaluation:resampling:inputdist} represent commo
     \item `Mode' is a simple binary classification with very different group sizes.
     \item `AudLvl' is a simple classification with a very `flat' distribution.
     \item `Words' is a bimodally distributed measure with a large amount of variation but also very large numbers in each bin.  This is a good representation of the counts of many linguistic features.
-    \item `Genre' is moderately heterogenous, yet has a distribution with many low-frequency items in it.
+    \item `Genre' is moderately heterogeneous, yet has a distribution with many low-frequency items in it.
 \end{itemize}
 
-We may reason from the index of dispersion that convergeance will occur faster for `AudLvl' and `Mode' than for `Genre' and `Words' --- the ordering of the other two largely being determined by the conservative estimation of log-likelihood for low-frequency bins.
+We may reason from the index of dispersion that convergence will occur faster for `AudLvl' and `Mode' than for `Genre' and `Words' --- the ordering of the other two largely being determined by the conservative estimation of log-likelihood for low-frequency bins.
 
 
 \begin{figure}[Ht]
@@ -131,13 +131,13 @@ We may reason from the index of dispersion that convergeance will occur faster f
 
 Figure~\ref{fig:evaluation:resampling:4wayCI95} displays the log-likelihood score of the output distribution as it is built.  These graphs clearly illustrate the relative complexity of the input distributions, as well as the downsides of estimating log-likelihood measures for low-frequency results.  After an initial burn-in period (the end of which is marked when the output distribution size matches that of the input), all dimensions gradually converge upon the target distribution.  For any input distribution with low counts, the similarity measure will not be accurate until these lowest bins are filled---marked on the graph roughly as the point where the output distribution is equal in size to the input.%\td{though this is not entirely precise and I think is estimable using binomial}.
 
-The two simpler distributions, `Mode' and 'AudLvl', peak at levels well below the 95\% threshold chosen for the log-likelihood statistic.  In the case where the `target' input distribution is defined by profiling an existing corpus, this implies that we could properly build a corpus \textit{smaller} than the input (though unfortunately this is not rigorous without also know the relationship of the original input corpus to the population as it is itself generated from that sample).  The relatively confident estimates for these parameters at a 1:1 input:output ratio backs up the rational expectation that large numbers of documents in few bins will be easy to replicate.
+The two simpler distributions, `Mode' and `AudLvl', peak at levels well below the 95\% threshold chosen for the log-likelihood statistic.  In the case where the `target' input distribution is defined by profiling an existing corpus, this implies that we could properly build a corpus \textit{smaller} than the input (though unfortunately this is not rigorous without also know the relationship of the original input corpus to the population as it is itself generated from that sample).  The relatively confident estimates for these parameters at a 1:1 input:output ratio backs up the rational expectation that large numbers of documents in few bins will be easy to replicate.
 
-A marginally more complex distribution of metadata in the form of the `Words' dimension shows, again, fast convergeance, requiring an output distribution roughly twice the output to replicate with 97.5\% confidence.
+A marginally more complex distribution of metadata in the form of the `Words' dimension shows, again, fast convergence, requiring an output distribution roughly twice the output to replicate with 97.5\% confidence.
 
 By far the most complex input data, `Genre', takes much longer to converge, requiring a ratio of roughly 12:1.  This result is largely a function of the low bin frequencies and the large proportion of bins that have values below the threshold at which log-likelihood may be relied upon to provide a moderately-conservative estimate.
 
-The speed of convergeance reflects the variability that is permitted in any subsequent retrieval process: fixing the `Mode', for example, will lead to a corpus with known proportions of spoken and written text, but variability otherwise according to the population from which they are sourced.  If a particularly large corpus is available with a desirable sample design, restricting only one dimension merely refines the original sample\footnote{Of course, such a situation is difficult if the corpus from which documents are not tagged with relevant metadata, something unlikely if that dimension was not already in the sample design}.
+The speed of convergence reflects the variability that is permitted in any subsequent retrieval process: fixing the `Mode', for example, will lead to a corpus with known proportions of spoken and written text, but variability otherwise according to the population from which they are sourced.  If a particularly large corpus is available with a desirable sample design, restricting only one dimension merely refines the original sample\footnote{Of course, such a situation is difficult if the corpus from which documents are not tagged with relevant metadata, something unlikely if that dimension was not already in the sample design}.
 
 \paragraph{}
 
@@ -147,7 +147,7 @@ The process of random resampling detailed here is in many ways uninteresting: af
     \item The distribution converged upon is arbitrary, and may be defined in the absence of an input corpus (or as a modification thereof).  This allows relaxation of a corpus description's requirements to reduce the necessary oversampling ratio above, or the addition of specific metadata items where the source of documents is particularly easy to sample according to certain properties.
     \item Halting the resampling process at any stage, due to the random selection method used, leads to an unbiased output corpus (though it may well be imprecise to the point of irrelevance).
     \item After resampling of candidate documents through a process of resampling (which has known bounds of error), the process of retrieving documents can be compared against a gold standard.
-    \item When starting with a manually-designed corpus (which has bin sizes only relevant to one another), convergeance can only be achieved where the output corpus size is greater than or equal to that of the input corpus.  Aside from fitting issues where bin sizes are small, corpora fit using the same distribution shape should converge at the same size (i.e. \textsl{not} relative to the input corpus size).
+    \item When starting with a manually-designed corpus (which has bin sizes only relevant to one another), convergence can only be achieved where the output corpus size is greater than or equal to that of the input corpus.  Aside from fitting issues where bin sizes are small, corpora fit using the same distribution shape should converge at the same size (i.e. \textsl{not} relative to the input corpus size).
 
 \end{itemize}
 
@@ -172,7 +172,7 @@ The process of random resampling detailed here is in many ways uninteresting: af
 
 The relationship described by the log-likelihood scores of the two corpora describes the confidence one may have in the original, input, corpus: an input corpus with very few documents in each `bin' is less powerful when used to answer questions using data in that bin, and so will require a greater number of documents in the output corpus to achieve confidence at the same effect size.  This is a useful heuristic, as it ensures that samples are never output that are not in some way large enough to be confident about their distribution, thus enforcing a minimum sample size.  Unfortunately, if this comparison is based on duplication of an existing sample (such as in this case) such an adjustment is non-rigorous as it is based upon the sample parameters, which have an unknown relationship to the population parameters they estimate.  Essentially, whilst this is a heuristic indicating internal validity, it does not ensure external validity.
 
-A notable property of the resampler is that, even if the confidence of the output corpus being 'converged' to a given confidence level is very low (i.e. the log-likelihood score is above a given threshold), the output corpus is unbiased relative to its input due to random selection.  In addition, the convergeance of a corpus with a simpler design than the source corpus will occur at a number of documents lower than that of the input corpus, making it possible to resample an existing corpus using a design with \textit{simpler} metadata properties.  In this case, the `simplicity' of the design is defined by the information in the design distribution relative to the information content of the source corpus.  For example, if our experiment did not care about genre, it would be possible to sample texts directly from word count and audience level, producing a corpus with fewer texts yet the same coverage of those two dimensions.
+A notable property of the resampler is that, even if the confidence of the output corpus being `converged' to a given confidence level is very low (i.e.\ the log-likelihood score is above a given threshold), the output corpus is unbiased relative to its input due to random selection.  In addition, the convergence of a corpus with a simpler design than the source corpus will occur at a number of documents lower than that of the input corpus, making it possible to resample an existing corpus using a design with \textit{simpler} metadata properties.  In this case, the `simplicity' of the design is defined by the information in the design distribution relative to the information content of the source corpus.  For example, if our experiment did not care about genre, it would be possible to sample texts directly from word count and audience level, producing a corpus with fewer texts yet the same coverage of those two dimensions.
 %a mere \td{n} nexts in with a \td{n\%} confidence of representing the input corpus.
 
 

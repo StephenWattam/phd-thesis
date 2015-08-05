@@ -2,8 +2,8 @@
 
 \subsection{Rationale}
 
-Many sampling efforts for linguistic data on the web are heavily focused on producing results comparable to conventional corpora.  These typically take two forms: those based on URI lists (e.g. from search results, as in %~\cite{sharoff2006creating}
-BE06~\cite{baker2009be06}, BootCat~\cite{baroni2004bootcat}), and those formed through crawling (e.g. enTenTen\footnote{\url{http://trac.sketchengine.co.uk/wiki/\\Corpora/enTenTen}}, %~\cite{}, %FIXME
+Many sampling efforts for linguistic data on the web are heavily focused on producing results comparable to conventional corpora.  These typically take two forms: those based on URI lists (e.g.\ from search results, as in %~\cite{sharoff2006creating}
+BE06~\cite{baker2009be06}, BootCat~\cite{baroni2004bootcat}), and those formed through crawling (e.g.\ enTenTen\footnote{\url{http://trac.sketchengine.co.uk/wiki/\\Corpora/enTenTen}}, %~\cite{}, %FIXME
 UKWaC~\cite{ferraresi2008introducing}).
 
 Though initial efforts in web-as-corpus (WaC) focused on the former method %, in part due to concerns over the balance of samples returned, 
@@ -18,8 +18,8 @@ This approach, with its base in a continually-growing supercorpus, parallels the
 %Even for informal searches, tools for date-based lookup are increasingly (e.g. Google).
 
 
-Repeated sampling by crawling, whilst balanced linguistically, omits subtler technical aspects that govern consumption of data online, most notably the user's impression of its location, as defined by the URI.  Low publishing costs online, paired with increasing corporate oversight and reputation management (both personal ~\cite{ICT4DBibliography1650} 
-and professional~\cite{Malaga2000repman})), have lead to a situation where this content is being revised frequently, often without users even noticing.
+Repeated sampling by crawling, whilst balanced linguistically, omits subtler technical aspects that govern consumption of data online, most notably the user's impression of its location, as defined by the URI\@.  Low publishing costs online, paired with increasing corporate oversight and reputation management (both personal\cite{ICT4DBibliography1650} 
+and professional\cite{Malaga2000repman}), have lead to a situation where this content is being revised frequently, often without users even noticing.
 
 The nature of within-URI change have been studied from a technical perspective by those interested in managing network infrastructure, compiling digital libraries~\cite{tyler2003librarians}, and optimising the maintenance of search engine databases~\cite{koehler2004longitudinal}.  The needs of these parties are quite aside from those of corpus researchers, however, since they focus around a best-effort database of information, rather than a dependable longitudinal sample with known margins for error.
 
@@ -80,7 +80,7 @@ This allow a user to investigate how language may change in relation to technica
 LWAC is designed to construct longitudinal samples from URI lists, using only commodity hardware.  It is designed with `full storage' in mind, that is, recording everything about each HTTP session in such a way that it may later be exported and accessed in a parsimonious manner.
 
 
-LWAC is based around a central corpus store that is indexed both by time and URL.  Each sample consists of all datapoints in the corpus, and begins at a specified time: this time is aligned to a sampling interval.
+LWAC is based around a central corpus store that is indexed both by time and URL\@.  Each sample consists of all datapoints in the corpus, and begins at a specified time: this time is aligned to a sampling interval.
 
 Figure~\ref{fig:longitudinal:lwac:samples} shows the logical structure of the corpus: the blue bars represent each sample.  The primary technical challenge lies in maximising the parallelism of each sample, thus improving the comparability of datapoints therein and allowing for a smaller sampling interval.  Samples that overlap their sampling interval will not be stopped: instead the next sample will be delayed until the next `round' interval.  This eases analysis by ensuring the integrity and temporal alignment of each sample.
 
@@ -99,7 +99,7 @@ Documents are downloaded in a random order, so as to avoid systematic variation 
 \end{figure}
 
 
-In order to perform the parallel retrieval stage quickly, LWAC is constructed as a distributed system, with a series of workers performing the page retrieval and passing batches of data to an offline system for further processing.  This archictecture, shown in Figure~\ref{fig:longitudinal:lwac:arch} is extensible until the limit of contention for the storage manager's network connection is reached, which in practice is encountered at many tens of worker nodes.  In addition to the use of multiple workers, each worker performs many parallel requests\footnote{The portion of LWAC used for parallel request management is available separately at \url{https://rubygems.org/gems/blat}}.
+In order to perform the parallel retrieval stage quickly, LWAC is constructed as a distributed system, with a series of workers performing the page retrieval and passing batches of data to an offline system for further processing.  This architecture, shown in Figure~\ref{fig:longitudinal:lwac:arch} is extensible until the limit of contention for the storage manager's network connection is reached, which in practice is encountered at many tens of worker nodes.  In addition to the use of multiple workers, each worker performs many parallel requests\footnote{The portion of LWAC used for parallel request management is available separately at \url{https://rubygems.org/gems/blat}}.
 
 The storage manager is responsible for all scheduling and data integrity: workers are treated as (relatively) untrusted actors, and allocated batches of links on request.  The scheduling system monitors performance of each worker, and dynamically computes a timeout for work units: exceeding this timeout will see the batch of links re-assigned to another worker.  This system allows for great flexibility in workers, which may vary in batch size and connection throughput.
 
@@ -185,7 +185,7 @@ The last of these implies gradual degradation of performance as links rot.  Perf
     \label{fig:longitudinal:lwac:parallelrate}
 \end{figure}
 
-Figure~\ref{fig:longitudinal:lwac:parallelrate} shows the download rate for 140KiB HTML files served over 100Mbit ethernet using the Nginx web server.  This server configuration was designed to offer high-performance yet still be representative of common web deployments\footnote{Nginx is known for its ability to serve many users at once, and ``[a]ccording to Netcraft, nginx served or proxied 21.64\% busiest sites in May 2015.'' -- \url{http://nginx.org/en/}}.
+Figure~\ref{fig:longitudinal:lwac:parallelrate} shows the download rate for 140KiB HTML files served over 100Mbit ethernet using the Nginx web server.  This server configuration was designed to offer high-performance yet still be representative of common web deployments\footnote{Nginx is known for its ability to serve many users at once, and ``[a]ccording to Netcraft, nginx served or proxied 21.64\% busiest sites in May 2015.''---\url{http://nginx.org/en/}}.
 
 The performance of parallel downloads is largely constrained by the platform, in this case the Linux 2.6 kernel.  Downloads are reliable until roughly 700 parallel connections are used, beyond which requests are dropped locally as half-open sockets are closed.  Until this point performance is roughly log-linear, with 100,000 requests taking just 100 seconds with 500 parallel connections.
 

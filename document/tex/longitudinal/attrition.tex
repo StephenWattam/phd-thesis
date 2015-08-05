@@ -4,10 +4,10 @@
 % i've removed narrow focus on 'domain-specific' in the following
 Those using corpus data are increasingly turning to the web as a source of language data. This is unsurprising given the vast quantities of downloadable data that are readily available online. The Web as Corpus (WaC) paradigm\cite{kilgarriff2003introduction} has become popular for compilers of corpora for lexicographic use, replication of standard reference corpora as well as for studies of specific online varieties of language. 
 
-Two general models of WaC have emerged. Using the first model, `browsing', corpus compilers collect data from a set of given domains and select whole or part texts online and incorporate them into their corpora (e.g. the BE06\cite{baker2009be06} corpus comprising material published in paper form but found on the web).
+Two general models of WaC have emerged. Using the first model, `browsing', corpus compilers collect data from a set of given domains and select whole or part texts online and incorporate them into their corpora (e.g.\ the BE06\cite{baker2009be06} corpus comprising material published in paper form but found on the web).
 %This is the model used for compilation of new reference corpora, e.g. BE06\cite{baker2009be06} containing material previously published in paper form but found on the web. 
 
-The second model, `searching', sees the web through the lens of search engines, and is typically used to compile domain-specific corpora from a set of seed terms which are used to locate web pages for incorporation into a corpus (e.g. the BootCat \& WebBootCat tools \cite{baroni2004bootcat}). % THAT OR WHICH 
+The second model, `searching', sees the web through the lens of search engines, and is typically used to compile domain-specific corpora from a set of seed terms which are used to locate web pages for incorporation into a corpus (e.g.\ the BootCat \& WebBootCat tools\cite{baroni2004bootcat}). % THAT OR WHICH 
 % which is ok, see: http://www.oup.com/uk/booksites/content/0199296251/essentials/grammartips/
 %This approach is embodied in the BootCat and WebBootCat tools.
 In some cases, both approaches are combined, using searching for general language seed terms to produce reference corpora\cite{kilgarriff2010corpus}.
@@ -39,7 +39,7 @@ Though many studies have looked at the life-cycle of web pages in general, these
 \cite{nelson2002object} found that only 3\% of documents in digital libraries become unavailable in just over a year. This is perhaps unsurprising given the aim of such projects but serves to illustrate the degree of heterogeneity between types of document host.  
 % do you mean 'unavailable'?
 
-Bar-Ilan and Peritz \cite{bar1999life} present a slightly different method of study, searching for the same information where URIs became unavailable.  Though they primarily investigate the growth of the web in their analysis of the availability of information, they find a similar amount of na\"{i}ve URI attrition to the above studies after a year.  
+Bar-Ilan and Peritz\cite{bar1999life} present a slightly different method of study, searching for the same information where URIs became unavailable.  Though they primarily investigate the growth of the web in their analysis of the availability of information, they find a similar amount of na\"{i}ve URI attrition to the above studies after a year.  
 
 
 
@@ -49,7 +49,7 @@ Bar-Ilan and Peritz \cite{bar1999life} present a slightly different method of st
 
 
 % ------ academic ref section?
-Studies involving academic paper availability mirror open source corpora in that they use references in favour of original text, however, the centralised administration of academic repositories is notably in contrast to most web resources.  Nevertheless, there has been much work into this area, some of which is comparatively reviewed in a paper by \cite{sanderson2011analyzing}.  These studies, spanning years from 1993 to 2008, illustrate that even institutions charged with keeping an accessible record of information are still subject to rates of attrition in the region of 25-45\% over five years.  The reasons for this loss are not investigated.
+Studies involving academic paper availability mirror open source corpora in that they use references in favour of original text, however, the centralised administration of academic repositories is notably in contrast to most web resources.  Nevertheless, there has been much work into this area, some of which is comparatively reviewed in a paper by\cite{sanderson2011analyzing}.  These studies, spanning years from 1993 to 2008, illustrate that even institutions charged with keeping an accessible record of information are still subject to rates of attrition in the region of 25--45\% over five years.  The reasons for this loss are not investigated.
 
 % ------ /academic refs
 
@@ -98,12 +98,12 @@ In order to measure document attrition across a number of linguistic sources I s
 
 
 \subsubsection{Data Summary}
-Data were taken from four open-source corpora (outlined in Table \ref{table:datmeth:datasum}), each of which consist of a sample of URIs referring to web resources.  All of these corpora are cross-sectional, representing data from a short period, however, only the BootCat-based corpora are built using a script that is likely to sample quickly enough to count as a true point sample in the context of this study.
+Data were taken from four open-source corpora (outlined in Table~\ref{table:datmeth:datasum}), each of which consist of a sample of URIs referring to web resources.  All of these corpora are cross-sectional, representing data from a short period, however, only the BootCat-based corpora are built using a script that is likely to sample quickly enough to count as a true point sample in the context of this study.
 
 %\{I want to float table 1 on THIS page, but LaTeX isn't playing}
 \begin{table*}[ht!]
     \centering
-    \begin{tabular}{r | r | r | r | l  }
+    \begin{tabular}{|r|r|r|r|l|}
     Corpus    & Date	    & Size (URIs)   & Sample Period	& Construction \\ 
     \hline
     BE06      & 2006	    & 473	    & 1 year		&  Browsing \\ 
@@ -225,7 +225,7 @@ in the URI string, meaning that the resource is likely to be dynamic.  These fea
 % -----------------------------------------------------------------------------
 
 
-Table \ref{table:longitudinal:attrition-inputdist} describes the availability of documents within the corpora, as sampled on the 21st October 2011.  This forms two data points, the former representing no attrition when the corpus was first compiled.  
+Table~\ref{table:longitudinal:attrition-inputdist} describes the availability of documents within the corpora, as sampled on the 21st October 2011.  This forms two data points, the former representing no attrition when the corpus was first compiled.  
 Document lifetime statistics are calculated assuming exponential decay: both the half-life ($t_{1/2}$, the time it takes for only half of the original corpus to remain available) and the mean lifetime, $\tau$, are provided.
 
 
@@ -279,7 +279,7 @@ Document lifetime statistics are calculated assuming exponential decay: both the
 	BE06       & 5.3  & 42\%    & 6.5	& 15.8\\
 	Delicious  & 2.1  & 7\%	    & 17.8 & 42.4\\
 	Sharoff    & 5.3  & 34\%    & 8.6  & 16.4\\
-	BootCat    & .08  & 0.8\%   & 4.8  & 20.4\\
+	BootCat    & 0.08 & 0.8\%   & 4.8  & 20.4\\
     \end{tabular}
 
     \caption{Loss from corpus inception to October 21st, 2011.}
@@ -287,7 +287,7 @@ Document lifetime statistics are calculated assuming exponential decay: both the
 \end{table}
 
 % ---- Rate of failure per corpus
-The large differences in corpus half-life are revealing --- the Delicious corpus has significantly lower loss than the others.  This is ostensibly owing to its construction: users are likely to bookmark resources that are useful (and hence are well-established, popular sites), in contrast to BootCat's uncritical selection or the deliberate {\it document}-seeking (rather than {\it information}-seeking) represented by BE06.
+The large differences in corpus half-life are revealing --- the Delicious corpus has significantly lower loss than the others.  This is ostensibly owing to its construction: users are likely to bookmark resources that are useful (and hence are well-established, popular sites), in contrast to BootCat's uncritical selection or the deliberate \textsl{document}-seeking (rather than \textsl{information}-seeking) represented by BE06.
 
 
 % ---- Differences between cats
@@ -301,7 +301,7 @@ This may be the result of bias introduced when deliberately omitting non-documen
 
 
 % ---- Why has be06 dropped so fast?
-The relatively high rate of attrition in BE06 is surprising given that it only features documents that were already in print, which ostensibly reside in archives or the websites of large institutions (shown to be relatively nonvolatile in other work).  One possible counter argument is that BE06's sampling policy was to take documents {\it published} in 2006, rather than merely being available, such that these samples have witnessed the initial steep descent on the document survival curve. %this explanation does nothing to explain the short half-life of the younger BootCat though!
+The relatively high rate of attrition in BE06 is surprising given that it only features documents that were already in print, which ostensibly reside in archives or the websites of large institutions (shown to be relatively nonvolatile in other work).  One possible counter argument is that BE06's sampling policy was to take documents \textsl{published} in 2006, rather than merely being available, such that these samples have witnessed the initial steep descent on the document survival curve. %this explanation does nothing to explain the short half-life of the younger BootCat though!
 
 % might it be that these docs are still available, but moved to a new location with no URL redirect in place? so they are still available by 'searching' but not 'browsing'? This might indicate a new methodology for distributing URI lists?
 
@@ -530,7 +530,7 @@ The diversity of status codes returned varies significantly between corpora, wit
 
 
 
-Each of the corpora exhibit similar distributions of each top level domain (TLD), though the large differences in sample size make formal comparison difficult.  The overall distribution of the more popular domains is provided in Figure \ref{fig:longitudinal:attrition:attrition-all-tlds}.  This indicates that \texttt{.com} dominates the selection across corpora, with \texttt{.org} following.  Only BE06 differs from this distribution in its selection of \texttt{.uk} addresses, however, it has been deliberately biased this way so as to represent British English.
+Each of the corpora exhibit similar distributions of each top level domain (TLD), though the large differences in sample size make formal comparison difficult.  The overall distribution of the more popular domains is provided in Figure~\ref{fig:longitudinal:attrition:attrition-all-tlds}.  This indicates that \texttt{.com} dominates the selection across corpora, with \texttt{.org} following.  Only BE06 differs from this distribution in its selection of \texttt{.uk} addresses, however, it has been deliberately biased this way so as to represent British English.
 
 
 Other studies\ref{cite} have identified statistically significant differences in the rate of attrition between the major TLDs.  
@@ -566,7 +566,7 @@ Though each corpus exhibits a dependence between these TLD groups (chosen to rep
     %> plot(  density(deli.s3$uri_npath)  )
     %> plot(  density(boot.s3$uri_npath)  )
     %> plot(  density(serge.s3$uri_npath)  )
-The shape of the empirical distribution for path length of the URI is shown in Figure \ref{fig:longitudinal:attrition:attrition-density}.  Delicious.com users may be expected to bookmark top-level domains with relative frequency, but the difference between the two BootCat samples is more subtle, perhaps an effect of search engine changes.  The preponderance of introductory or `launch' pages in the Delicious data set may also go some way to explaining the longevity of its content --- it seems reasonable to presume that top-level pages remain online for longer (though also perhaps that they change more often).
+The shape of the empirical distribution for path length of the URI is shown in Figure~\ref{fig:longitudinal:attrition:attrition-density}.  Delicious.com users may be expected to bookmark top-level domains with relative frequency, but the difference between the two BootCat samples is more subtle, perhaps an effect of search engine changes.  The preponderance of introductory or `launch' pages in the Delicious data set may also go some way to explaining the longevity of its content --- it seems reasonable to presume that top-level pages remain online for longer (though also perhaps that they change more often).
 
     %The shape of the empirical distribution for the path length of the URI varies between the Delicious and search-engine-built corpora (figure \ref{fig:res:dist}), with users of Delicious more likely to bookmark top-level domains.  This indicates a preponderance of introductory or `launch' pages compared to the other corpora, which exhibit a more bell-like curve that appears more rational as a cross-sectional sample of website URIs.
 

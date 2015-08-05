@@ -14,15 +14,14 @@ The heuristics presented here are document-level.  In most corpus designs, word 
 
 
 \subsection{Audience Level}
-The BNC User's Reference Guide~\cite{burnard1995users}%\td{page}
+The BNC User's Reference Guide~\cite[p. 14]{burnard1995users}
 describes audience level thus:
 
 \begin{quote}
-...a subjective assessment of the text's technicality or difficulty.
+\ldots{}a subjective assessment of the text's technicality or difficulty.
 \end{quote}
 
-This is expanded upon slightly by Lee~\cite{lee2001genres}%\td{page}
-, saying:
+This is expanded upon slightly by Lee~\cite[p. 68]{lee2001genres}, saying:
 
 \begin{quote}
     \textsl{Audience level}, on the other hand, is an \textbf{estimate} (by the compilers) of the \textbf{level of difficulty} of the text, or the amount of background knowledge of its subject matter which is assumed.
@@ -99,7 +98,7 @@ Word counts are, for our purposes, trivial to compute.  There are two challenges
 
 The former of these pertains to metadata and other boilerplate within files.  Files must be processed prior to word counts being performed.  This means (like many other tools) that we must post-process candidate files even if we elect to discard their contents.
 
-Secondly, it is necessary to normalise deviance measures when comparison documents: this poses a particular challenge as word counts are open-ended.  The method used here was to enforce an arbitrary limit, above which any distances in the word count dimension register as $1$.  Because the sampling method does not primarily rely on gradient descent, this is fairly safe, however, selection of the threshold does impact the importance assigned to word count (vs. some other metadata dimension): too high and it will undervalue differences in word count.
+Secondly, it is necessary to normalise deviance measures when comparison documents: this poses a particular challenge as word counts are open-ended.  The method used here was to enforce an arbitrary limit, above which any distances in the word count dimension register as $1$.  Because the sampling method does not primarily rely on gradient descent, this is fairly safe, however, selection of the threshold does impact the importance assigned to word count (vs.\ some other metadata dimension): too high and it will undervalue differences in word count.
 
 The arbitrarly limit selected for the BNC was $10,000$.  This is sufficiently large that any difference greater than it may be considered `absolute', that is, if there is a difference in length of over $10,000$ words, we can reasonably conclude that the lengths differ enough to be describing different types of text.  In practice (as we shall discuss in Section~\ref{sec:evaluation:retrieval}) most documents fall short, and this limit could be reduced.
 
@@ -121,7 +120,7 @@ Due to the complexity of genre taxonomies (and thus the relative difficulty of c
 As this is a proof-of-concept system, the accuracy of the classifiers used need not be cutting-edge.  This relaxed requirement is reinforced by the notion that any errors are `sane', falling along such ambiguities as identified by Lee~\cite[p.~11]{lee2003bnc}:
 
 \begin{quote}
-It may be the case that the actual content/topic of these linguistics-related texts makes them seem less like social science texts than arts or applied science texts...
+It may be the case that the actual content/topic of these linguistics-related texts makes them seem less like social science texts than arts or applied science texts\ldots
 \end{quote}
 
 This `sanity of error' is enforced by using a distance measure that is based on rank correlation of token type frequencies, allowing two categories to be judged on a scale more meaningful than simple boolean equality.  This luxury may not be available for all potential discrete classification systems (such as those read from external indices), and is not a requirement of convergeance to the input distribution.
@@ -170,16 +169,16 @@ The decision to omit sections of the BNC was deemed a necessary trade-off to ach
 \begin{table}[ht]
     \centering
 
-    \begin{tabular}{ |l|c|c|c| }
+    \begin{tabular}{|l|c|c|c|}
         \hline 
         Corpus & Accuracy & Precision & AUC \\
         \hline
-        BNC45  &  70.7\%  &  .721  &  .901 \\
-        BNC46  &  63.7\%  &  .666  &  .877 \\
-        BNC68  &  71.5\%  &  .715  &  .913 \\
-        BNC69a &  65.9\%  &  .685  &  .893 \\
-        BNC69b &  72.1\%  &  .732  &  .918 \\
-        BNC70  &  66.6\%  &  .689  &  .899 \\
+        BNC45  &  70.7\%  &  0.721  &  0.901 \\
+        BNC46  &  63.7\%  &  0.666  &  0.877 \\
+        BNC68  &  71.5\%  &  0.715  &  0.913 \\
+        BNC69a &  65.9\%  &  0.685  &  0.893 \\
+        BNC69b &  72.1\%  &  0.732  &  0.918 \\
+        BNC70  &  66.6\%  &  0.689  &  0.899 \\
         \hline
     \end{tabular}
     \caption{Weighted mean performance (per class) for each classifier.}
@@ -188,7 +187,7 @@ The decision to omit sections of the BNC was deemed a necessary trade-off to ach
 
 Table~\ref{table:evaluation:heuristics:classifieraccuracy} shows the resultant accuracy figures for the models trained on the BNC subsets mentioned.  10-way crossvalidation was used to estimate the above statistics, in an effort to reduce the potential for overfitting to a fixed test/training set.  The statistics are formed from a weighted mean of each classes performance against all others.
 
-These figures reveal that {\textsl spoken conversation} ({\texttt{S\_conv}) has the most deleterious effect on classifier accuracy, indicating that it overlaps most with other categories.  Whilst it was expected that \texttt{W\_misc} would also do this, the performance improvement shown in BNC69b over BNC68 indicates that \texttt{W\_misc} contains some distinct features that are best retained.  Though using a different design of classifier, overall performance is roughly in-line with Sharoff's BNC-based classifiers\footnote{Attempts to fit SVM-based models lead to lower performance than multinomial na\"ive Bayes.  I believe this to be a result of the high number of classes}~\cite[ibid.]{sharoff2007classifying}.  The $45$ and $46$ class models are written-only equivalents, and are listed here due to their use in the retrieval task below.
+These figures reveal that {\textsl spoken conversation} (\texttt{S\_conv}) has the most deleterious effect on classifier accuracy, indicating that it overlaps most with other categories.  Whilst it was expected that \texttt{W\_misc} would also do this, the performance improvement shown in BNC69b over BNC68 indicates that \texttt{W\_misc} contains some distinct features that are best retained.  Though using a different design of classifier, overall performance is roughly in-line with Sharoff's BNC-based classifiers\footnote{Attempts to fit SVM-based models lead to lower performance than multinomial na\"ive Bayes.  I believe this to be a result of the high number of classes}~\cite[ibid.]{sharoff2007classifying}.  The $45$ and $46$ class models are written-only equivalents, and are listed here due to their use in the retrieval task below.
 
     
 
