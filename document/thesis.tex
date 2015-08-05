@@ -118,16 +118,18 @@
 \ifdraft{%
     % inline layout
     \usepackage[left=38mm,top=25mm,right=38mm,bottom=25mm]{geometry}
-}{% else
-    % book layout (asymmetric)
-    \usepackage[left=38mm,top=25mm,right=25mm,bottom=25mm]{geometry}
-}%
 
-\ifdraft{%
     \usepackage{todonotes}
     \newcommand{\td}[1]{\todo[fancyline,size=\tiny,color=yellow!20]{#1}}
     \newcommand{\til}[1]{\todo[inline,size=\small,color=yellow!20]{#1}}
+}{% else
+    % book layout (asymmetric)
+    \usepackage[left=38mm,top=25mm,right=25mm,bottom=25mm]{geometry}
+    
+    \newcommand{\td}[1]{}
+    \newcommand{\til}[1]{}
 }%
+
 % ------------------------------------------------------------------------------
 
 

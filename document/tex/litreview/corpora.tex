@@ -14,7 +14,7 @@ The dominant methodological approach to linguistics immediately prior to Chomsky
 
 They point to a number of studies using systematic analysis of samples to make their conclusions~\cite{kaeding1897haufigkeitsworterbuch,preyer1889mind,stern1924psychology,eaton1940semantic,west1953general}, and decribe Chomsky's influences on the field, which served to lead it to all but abandon corpus techniques in the 1950's, as a turn towards explanatory, rationalist theories of language.
 
-These rationalist theories were often verified using experimentation or elicitation, in an effort to gather data that is detailed and reliable.  It's arguable just how valid and philosophically defensible these methods are, especially given the nature of language as a part-mental, part-tangible concept.%\td{rewrite this paragraph}
+These rationalist theories were often verified using experimentation or elicitation, in an effort to gather data that is detailed and reliable.  It's arguable just how valid and philosophically defensible these methods are, especially given the nature of language as a part-mental, part-tangible concept.
 
 % These early corpora are of a quite different form to those of the `modern era', and will not be discussed in any great detail here except for historical context.
 
@@ -31,33 +31,6 @@ Corpus studies are now widely relied upon across linguistics, and are often the 
 For the purposes of this section I will be focusing on the design of `modern' corpora with respect to their use in validating linguistic theories, and for training automated Natural Language Processing (NLP) and information retrieval systems.  For this reason I will be covering mainly general purpose corpora: those that purport to represent such a large population as to cover a whole language.  This `style' of corpus is built so as to be useful to many research questions and researchers, in part to dilute practical issues surrounding sampling.  This is in contrast to special-purpose corpus, which are designed to represent a restricted context.  Special-purpose corpora may be selected according to demographic or linguistic properties, and are typically much smaller.  Because of this they are often built for a given study, or by re-sampling a general-purpose corpus.
 
 
-% \til{More focus on sampling/representativeness}
-
-% The collection of large volumes of real-world language is one method of increasing the empiricism of this process, and as such has been followed as a parallel stream of inquiry for a long time: [mention 1870's corpus studies, 1950's inquiries].  
-
-
-
-
-
-% --
-
-% 
-% 
-% 
-% The use of corpora for linguistic analysis is a long one---one justification for this is that the alternative to using some kind of corpus is either to manually seek evidence for a linguistic feature (something that very easily leads to pseudoscientific, unfalsifiable theories), or to inspect the "idea" of language that a native speaker (or speakers) posesses.
-% 
-% Whilst, doubtless, much good work has been done using these alternatives, they lack the objective and empirical epistemological possibilities that define the scientific process.  Examination of one's idea of language is likely to be influenced by the knowledge of a linguist, and seeking evidence for a theory in a language with unknown or poorly-defined bounds is likely to yield it regardless of the reality. % when observed from other contexts
-% 
-% Corpus methods, then, free linguistics from the alchemy of human understanding, providing a convenient empirical truth against which we may assess hypotheses.
-% 
-% The value of any inferences evidenced by this empiricism is, however, limited to the extent to which a corpus is associated to the language upon which we wish to comment.  It is this requirement that has raised most objections, for the concept of language is little understood and poorly defined even where people claim to understand it.  Regardless of controversies over form, it is accepted that any corpus representative of useful portions of a language must be very large indeed (though the definition of 'large' is also debated!).
-% 
-% Until recently, the task of gathering, processing, and inspecting large volumes of text was arduous enough to prevent its widespread appeal: some efforts were made before the era of computerisation, %CITE
-% , for example, did X etc \til{mention 1870s work, 1950's popularity}..% and there was a time when corpora were rather popular even without the benfits of computation
-% 
-% The introduction of programmable computing machinery, and (fast) electronic storage, opened the floodgates for easy, large-scale analysis of text.  This brought the second\td{does that mean we're on the third given its lull, or still second?} wave of corpus linguistics... \textsl{~~wavey wavey screen fades into next section like a flashback on 60's TV~~}
-% 
-
 
 
 \subsection{A Brief History of Modern Corpora}
@@ -65,7 +38,7 @@ The Brown Corpus of Standard American English~\cite{francis1961brown}% http://ic
 is widely regarded as the first of the modern age of corpora.  Built in the 60's, Brown's corpus was the first electronic-format general purpose corpus and was roughly one megaword in size.  % 1,014,312
 It contains 500 samples, each roughly $2,000$ words in size, that were taken to represent a cross-section of works published in the United States in 1961.  The proportions and sizes of samples were selected in order to trade off pragmatic concerns with the possible kinds of analysis that could be performed at the time.
 
-The `Standard' in its name referred to Kucera and Francis' intent that the corpus represents their judgement of `standard' English use.  Brown became a \textsl{de facto} standard for American English, and the design was carried forward into many other corpora, mostly regional versions designed to be comparable to Brown\cite{hundt1999manual,johansson1986tagged,hundt1998manual,shastri1988kolhapur,collins1988australian,bauer1993manual,mcenery2004lancaster}.  In order to maximise the value of comparisons within studies, other general purpose corpora chose to mirror Brown's sampling policies.
+The `Standard' in its name referred to Kucera and Francis' intent that the corpus represents their judgement of `standard' English use.  Brown became a \textsl{de facto} standard for American English, and the design was carried forward into many other corpora, mostly regional versions designed to be comparable to Brown~\cite{hundt1999manual,johansson1986tagged,hundt1998manual,shastri1988kolhapur,collins1988australian,bauer1993manual,mcenery2004lancaster}.  In order to maximise the value of comparisons within studies, other general purpose corpora chose to mirror Brown's sampling policies.
 
 % --- 
 
@@ -109,9 +82,6 @@ Though the manual does note:
 Table~\ref{table:litreview:corpora:lobdist} shows the proportions of texts in each genre, relative to Brown (the `American corpus'), as reproduced from the corpus manual.
 
 % ---
-% \til{ Not 100\% sure why I mention LLC here. }
-% http://khnt.hit.uib.no/icame/manuals/londlund/index.htm
-%  The corpus consists of 100 texts, each of 5000 words, totalling 500.000 running words of spoken British English. Information about the compilation of the corpus and explanation of the symbols (prosodic, phonetic, etc.
 The London-Lund Corpus~\cite{greenbaum1990london} was released in 1990, and contains transcribed spoken text, annotated with a number of different markers to indicate intonation, timing and other extra-textual information.  
 The corpus consists of $100$ texts, each of $5,000$ words, totalling $500,000$ running words of spoken British English.
 The annotation scheme used in LLU is much more in-depth than that in many written corpora, reflecting the different nature of research questions for speech.
@@ -119,7 +89,7 @@ The annotation scheme used in LLU is much more in-depth than that in many writte
 
 
 % --- 
-Collins' requirement for a corpus upon which to base their dictionaries spawned the COBUILD and its `representative' subset, the Bank of English~\cite{Jarvinen1994AMW991886.991985,sinclair1987looking}.  COBUILD uses a slightly different approach to corpus building: that of the monitor corpus.  Monitor corpora are continually added to, using a fixed sampling policy but an ongoing sampling process.  At the time of writing, the BoE is 650 million words in size (The whole COBUILD family used by Collins is 4.5 billion)\cite{collinswebcorpus}.
+Collins' requirement for a corpus upon which to base their dictionaries spawned the COBUILD and its `representative' subset, the Bank of English~\cite{Jarvinen1994AMW991886.991985,sinclair1987looking}.  COBUILD uses a slightly different approach to corpus building: that of the monitor corpus.  Monitor corpora are continually added to, using a fixed sampling policy but an ongoing sampling process.  At the time of writing, the BoE is 650 million words in size (The whole COBUILD family used by Collins is 4.5 billion)~\cite{collinswebcorpus}.
 
 The approach taken by the BoE opens many possibilities for analysis of language over time (something also covered by diachronic/historical corpora using more conventional sampling).  Even so, such comparisons are complicated by the irregular additions (c.f.\ diachronic corpora), and this remains the only major corpus built in this fashion prior to automated web retrieval.
 
@@ -130,13 +100,13 @@ The approach taken by the BoE opens many possibilities for analysis of language 
 
 
 
-The de-facto standard of the day is currently the British National Corpus, which comprises $100$ million words of British English\cite{leech1993100}.  The BNC's design was influenced heavily by discussions on corpus building that centred around creating a standard, reliable approach to taxonomy, sampling and annotation that occurred around the early nineties.
+The de-facto standard of the day is currently the British National Corpus, which comprises $100$ million words of British English~\cite{leech1993100}.  The BNC's design was influenced heavily by discussions on corpus building that centred around creating a standard, reliable approach to taxonomy, sampling and annotation that occurred around the early nineties.
 
 The BNC aims at being a synchronic `snapshot' of British English in the early 1990s.  It consists of samples of text up to $45,000$ words each, and is deliberately general-purpose, containing a wide range of genres as well as a sizable spoken portion.  It was released in 1994, but has since been re-coded and augmented, particularly notably by Lee~\cite{lee2003bnc}, who constructed a significantly more detailed (and principled) taxonomy for its texts in 2003.
 
-Lee's genre taxonomy is outlined in Appendix~\ref{sec:appx:sample}.  Lee's decisions to code genres using this system were partially based on fostering compatibility with the ICE-GB\cite{greenbaum1996international} and LOB\cite{johansson1986tagged} corpora.
+Lee's genre taxonomy is outlined in Appendix~\ref{sec:appx:sample}.  Lee's decisions to code genres using this system were partially based on fostering compatibility with the ICE-GB~\cite{greenbaum1996international} and LOB~\cite{johansson1986tagged} corpora.
 
-The prominence and ``whole population'' coverage of the BNC's sampling frame spawned many compatible corpora, though these often show more variation in sample design than the Brown clones.  Xiao, in his survey of influential corpora, notes the existence of national reference corpora for American, Polish, Czech, Hungarian, Russian, Hellenic, German, Slovak, Chinese, Croation, Irish, Norwegian, Kurdish, and many more\cite{xiaoz2008}.  \td{mention BNC2014 if I can work out how to cite it}
+The prominence and ``whole population'' coverage of the BNC's sampling frame spawned many compatible corpora, though these often show more variation in sample design than the Brown clones.  Xiao, in his survey of influential corpora, notes the existence of national reference corpora for American, Polish, Czech, Hungarian, Russian, Hellenic, German, Slovak, Chinese, Croation, Irish, Norwegian, Kurdish, and many more~\cite{xiaoz2008}.  \td{mention BNC2014 if I can work out how to cite it}
 
 % 1.2 General definitions ( from http://www.natcorp.ox.ac.uk/docs/URG/BNCdes.html )
 % 
@@ -194,7 +164,7 @@ Corpora provide limited solutions to both of these issues.  In the former case, 
 
 %------
 \paragraph{}
-At its most basic level a corpus is a sample of text.  Given research questions surrounding a body of text, it is perhaps necessary only to stipulate that a corpus must be represent known population\cite[p. 22]{mcenery2001corpus}:
+At its most basic level a corpus is a sample of text.  Given research questions surrounding a body of text, it is perhaps necessary only to stipulate that a corpus must be represent known population~\cite[p. 22]{mcenery2001corpus}:
 
 \begin{quote}
 \ldots{}a body of text which is carefully sampled to be maximally representative of a language or language variety.
@@ -202,7 +172,7 @@ At its most basic level a corpus is a sample of text.  Given research questions 
 
 Further to this, the modern definition of a corpus has undergone a series of significant refinements thanks largely to the increase in both the ubiquity and power of computing machinery.  Corpora are, with very few exceptions, electronic (with an increasing number documenting texts of electronic origin), multi-modal (covering a wide variety of methods of communication and their linguistic features), and annotated with linguistic data.
 
-Many authors go further by stating that a corpus should be machine-readable, annotated with information useful to linguistic inquiry, built for a specific purpose or methodology, available for use in other studies, finite in size or stratified to provide multiple possible analysis methods with internally valid data\cite{bennett2010using,bowker2002working,leech1992corpora}.
+Many authors go further by stating that a corpus should be machine-readable, annotated with information useful to linguistic inquiry, built for a specific purpose or methodology, available for use in other studies, finite in size or stratified to provide multiple possible analysis methods with internally valid data~\cite{bennett2010using,bowker2002working,leech1992corpora}.
 %The majority of present-day corpora are “balanced” or “systematic”. This means that the texts are collected (“compiled”) according to specific principles, such as different genres, registers or styles of English (e.g. written or spoken English, newspaper editorials or technical writing); these sampling principles do not follow language-internal but language-external criteria. For example, the texts for a corpus are not selected because of their high number of relative clauses but because
 Whilst I do not consider many of these to be requirements for a scientifically useful corpus, they may contribute greatly to corpus utility due to their alignment with common methodologies and uses.  There is undoubtedly a case for this---the utility of a corpus is often limited by its format, however, the extent to which this applies varies wildly by purpose makes it unreasonable to include many resources missing some of the above under the term ``corpus''.
 
@@ -237,22 +207,20 @@ Representativeness is, in effect, the goal of any sample.  It is the property th
 The concept of representativeness is based strongly on philosophies of inference, and epistemology in general.  These are highly dependent on correlation in variables external to those measured by a sample, and any rigorous definition will involve the properties we wish to generalise, the purpose of such generalisation, and the population we wish to generalise about.  Users of reference corpora (those general-purpose corpora designed to represent a whole language) may find, for example, that their claims to validity are wildly variable compared to previous studies, simply due to the nature of their research question.
 
 
-Much has been written on the subject of representativeness\cite{biber1993using,varadi2001linguistic,varadi2000corpus,leech1992corpora,rapp2014using}, both in linguistics and in other fields that are dependent upon complex sources of data.  As with psychology or sociology, the opacity of the mechanisms that generate the object of study is such that significant philosophical disagreement as to the underlying nature of language occurs.  This disagreement has, in many ways, limited efforts to formalise and reason about representativeness in corpus design: taken quantitatively, one person's adequate corpus is another's woefully biased one.
+Much has been written on the subject of representativeness~\cite{biber1993using,varadi2001linguistic,varadi2000corpus,leech1992corpora,rapp2014using}, both in linguistics and in other fields that are dependent upon complex sources of data.  As with psychology or sociology, the opacity of the mechanisms that generate the object of study is such that significant philosophical disagreement as to the underlying nature of language occurs.  This disagreement has, in many ways, limited efforts to formalise and reason about representativeness in corpus design: taken quantitatively, one person's adequate corpus is another's woefully biased one.
 
-The LOB manual hints at the fluid nature of ``representativeness'' in corpus linguistics, and the degree to which corpus design is expert-guided\cite{johansson1986tagged}\td{can only find online version, no page nums}:
+The LOB manual hints at the fluid nature of ``representativeness'' in corpus linguistics, and the degree to which corpus design is expert-guided~\cite{johansson1986tagged}\td{can only find online version, no page nums}:
 \begin{quote}
 The true “representativeness” of the present corpus arises from the deliberate attempt to include relevant categories and subcategories of texts rather than from blind statistical choice. Random sampling simply ensures that, within the stated guidelines, the selection of individual texts is free of the conscious or unconscious influence of personal taste or preference.
 \end{quote}
 
-I consider this a false dichotomy: a high quality random sample is essentially the gold standard to which expert designs should be aspiring, and both are aiming for the same notional goal.  The key benefit to random sampling is, as observed above, the immunity from `unconscious' bias\cite{barnett1991sample}. %p.19
+I consider this a false dichotomy: a high quality random sample is essentially the gold standard to which expert designs should be aspiring, and both are aiming for the same notional goal.  The key benefit to random sampling is, as observed above, the immunity from `unconscious' bias~\cite{barnett1991sample}. %p.19
 
 This ambiguity could be seen as an argument against the concept of a general purpose corpus, however, current progress indicates that this would be hasty: whilst special purpose corpora are often burdened by fewer procedural and pragmatic difficulties, they are necessarily limited in scope.  It is still rational and useful to identify speakers of a language as a homogeneous group at some level, especially for smaller linguistic features.  On the other hand, only a sample that properly encompasses a large amount of variation may be used to describe many effects of interest.
 
 With this in mind, many of the studies into representativeness have focused on examining existing corpora, with a view to testing their internal variation against some known re-sample.  This approach has been taken most famously by Biber~\cite{biber1993representativeness}, who performed a series of studies in which he compared the content of 100-word samples from the LLC and LOB corpora.  Each sample was paired with another from the same text (LOB samples points are $2,000$ words each, and LLC's are $5,000$).  Biber went on to extract some deliberately small-scale linguistic features from each sample, before examining the difference in frequency between each.
 
-% \til{more detail on this paper, since it's so crucial}
-
-Biber concluded that existing corpora were sufficient for examination of smaller linguistic features, however, in the process he saw fit to reject the notion of representativeness used here (and, notably, everywhere else)\cite[p. 247]{biber1993representativeness}:
+Biber concluded that existing corpora were sufficient for examination of smaller linguistic features, however, in the process he saw fit to reject the notion of representativeness used here (and, notably, everywhere else)~\cite[p. 247]{biber1993representativeness}:
 
 \begin{quote}
 Language corpora require a different notion of representativeness, making proportional sampling inappropriate in this case. A proportional language corpus would have to be demographically organized (as discussed at the beginning of Section 3.2), because we have no a priori way to determine the relative proportions of different registers in a language.
@@ -263,28 +231,18 @@ Biber's argument is that we should not aim for any degree of proportional repres
 
 
 %-----
-A further aspect clouding the waters of quantitative representativeness assessment is disagreement over how to parsimoniously stratify language.  This is in part due to the difficulty in defining a taxonomy for genre\cite{lee2001genres}, which is often the most controlled variable within a general purpose corpus' sample design.  Ultimately, I consider that the answer to this is, as mentioned in the LOB manual, down to the individual research question: a corpus sufficient to represent one feature may easily be massively biased for those with greater variation in the population.
+A further aspect clouding the waters of quantitative representativeness assessment is disagreement over how to parsimoniously stratify language.  This is in part due to the difficulty in defining a taxonomy for genre~\cite{lee2001genres}, which is often the most controlled variable within a general purpose corpus' sample design.  Ultimately, I consider that the answer to this is, as mentioned in the LOB manual, down to the individual research question: a corpus sufficient to represent one feature may easily be massively biased for those with greater variation in the population.
 
 %-----
 
 
-In part for the reason that Biber's work was taken early on as a validator of current practices in corpus building, the notion of representativeness has remained an almost entirely philosophical concept within corpus linguistics.% \td{mention efforts to establish it automatically, but retain a working definition here so more discussion may be freed up later}
-
-% "There is a broad consensus among the participants in the project and among corpus linguists that a general-purpose corpus of the English language would ideally contain a high proportion of spoken language in relation to written texts. However, it is significantly more expensive to record and transcribe natural speech than to acquire written text in computer-readable form." -- (http://www.natcorp.ox.ac.uk/docs/URG/BNCdes.html / composition)
+In part for the reason that Biber's work was taken early on as a validator of current practices in corpus building, the notion of representativeness has remained an almost entirely philosophical concept within corpus linguistics.
 
 
 %----
 
-% 
-%  TODO: put me in the ideal corpus stuff.
-% The concept of transferability % taken from sociology
-% is an alternative often applied to qualitative analyses by those in the social sciences \td{find introductory citation, Dornyei?}.  It describes the likelihood that findings may apply to other members of a given, defined, population, without speculating as to the probability that a member of said population may be suitable for such a comparison.  This concept allows us to find evidence-based theories which hold true for groups specified by prior knowledge of the sample and human judgement of its relationship to the population.
-% 
-% It could be said that, prior to corpus methods, the best linguistics could hope to achieve was qualitative transferrability.  Indeed, some may argue that the theoretically infinite population of utterances language makes possible means that any sample is incapable of being representative of language as a whole, and that we are only able to generalise to observations of language [within finite time periods].  
-% 
 
-
-The BNC, though often relied upon as a reference corpus, makes a number of bold assumptions regarding representativeness---to the point of explicitly stating its deviation from being a solid representation of its population\cite[p.6]{lou1995users}:
+The BNC, though often relied upon as a reference corpus, makes a number of bold assumptions regarding representativeness---to the point of explicitly stating its deviation from being a solid representation of its population~\cite[p.6]{lou1995users}:
 
 \begin{quote}
 There is a broad consensus among the participants in the project and among corpus linguists that a general-purpose corpus of the English language would ideally contain a high proportion of spoken language in relation to written texts. However, it is significantly more expensive to record and transcribe natural speech than to acquire written text in computer-readable form. Consequently the spoken component of the BNC constitutes approximately 10 per cent (10 million words) of the total and the written component 90 per cent (90 million words). These were agreed to be realistic targets, given the constraints of time and budget, yet large enough to yield valuable empirical statistical data about spoken English.
@@ -292,7 +250,7 @@ There is a broad consensus among the participants in the project and among corpu
 
 This implies that the corpus should not be taken as a single sample at all, or that large adjustments should be made during analysis to avoid generalisations on purely quantitative bounds.
 
-A similarly pragmatic approach is taken to the sampling of written material according to production and reception statistics, with a balance being brought between the two based on publication, library lending, and magazine circulation statistics.  Further, some samples were taken purposively\cite[p.10]{lou1995users}:
+A similarly pragmatic approach is taken to the sampling of written material according to production and reception statistics, with a balance being brought between the two based on publication, library lending, and magazine circulation statistics.  Further, some samples were taken purposively~\cite[p.10]{lou1995users}:
 
 \begin{quote}
 Half of the books in the ‘Books and Periodicals’ class were selected at random from Whitaker's Books in Print 1992. This was to provide a control group to validate the categories used in the other method of selection:  the random selection disregarded Domain and Time, but texts selected by this method were classified according to these other features after selection.
@@ -300,13 +258,6 @@ Half of the books in the ‘Books and Periodicals’ class were selected at rand
 
 The spoken portion contains a `demographically sampled' portion (comprising 50\%), so called because it makes an attempt to represent speakers according to their sex, age, and social class.  Individuals were randomly distributed, and each provided recordings of their conversations over a two to seven day period.  The major limitation noted here is the short period of time, and thus the low probability of capturing certain, rare, interactions on tape.  In order to remedy this, half of the spoken component was devoted to genre-based stratification, with the intent being to capture a greater breadth of data.
 
-
-
-% \til{ 
-%     Mention balance? esp. in BNC demographic spoken portion
-%     % Mention sampling frame selection.  Describe BNC, relate to others using Xiao's tables.
-% }
-% % \til{Also, refer to the books blow-by-blow (use notebook + quote)}
 
 \til{Include NLP representativeness stuff?
 \\
@@ -321,7 +272,6 @@ So, I definitely found some papers back in 2013, but can't dig them out now.  Is
 
 
 \subsubsection{Size}
-% \til{This is the primary driver of the above, no-one really pins this down but survey some corpora and some more modern approaches (Kilgarriff's google-ology comments at the end would be good.  Link to web corpora for extreme bigness and ref to lower sections at end}
 
 The size of any sample is a crucial and often hard-to-determine property, and corpora do not differ in this respect.  In many ways the question of corpus size is a primary constituent of the representativeness property above, and though it has long been recognised as such there remains little consensus on just how large is large enough.
 
@@ -333,19 +283,17 @@ The first of these is the inability to accurately measure the complexity of lang
 
 \begin{itemize}
     \item Lexicon---Vocabulary, even when restricted to a given demographic, time period or person, is difficult to define with any certainty.  Many people are capable of recognising entirely novel words, simply by virtue of their context or morphology (and the inverse, e.g.\ \textsl{Jabberwocky}).
-    \item Syntax---The meaning of words and phrases is heavily context based, but the context affecting each aspect of language is variable and, in some cases, wide-reaching.  This makes it hard to determine if we should be sampling $2,000$-word texts, single sentences, or the whole thing\cite{hoey2005lexical}.  This unknown sampling unit drives one of the key trade-offs in corpus design, as a 1-million word corpus comprised of single sentences will be capable of embodying more variation than will one made of two $500,000$-word samples.
-    \item Semantics---Variation in our understanding of language in context is poorly understood.  This is the driver behind any models of the above, but also affects how we should sample external variables such as socioeconomic factors and even the direct circumstances in which a text is used\cite{sinclair1991corpus,Stubbs19950101T0000000929998X23}. % sinclair p70 for collocation stuff
+    \item Syntax---The meaning of words and phrases is heavily context based, but the context affecting each aspect of language is variable and, in some cases, wide-reaching.  This makes it hard to determine if we should be sampling $2,000$-word texts, single sentences, or the whole thing~\cite{hoey2005lexical}.  This unknown sampling unit drives one of the key trade-offs in corpus design, as a 1-million word corpus comprised of single sentences will be capable of embodying more variation than will one made of two $500,000$-word samples.
+    \item Semantics---Variation in our understanding of language in context is poorly understood.  This is the driver behind any models of the above, but also affects how we should sample external variables such as socioeconomic factors and even the direct circumstances in which a text is used~\cite{sinclair1991corpus,Stubbs19950101T0000000929998X23}. % sinclair p70 for collocation stuff
     %\item Discourse---
     %\item Pragmatics---
 \end{itemize}
 
-This ambiguity produces a tradeoff that has been identified by relatively few in the corpus-building community\cite{evert2006random,kilgarriff2005language,gries2011corpus}\td{Which ref from Baayen?  The one I have in bibtex doesn't seem suitable}% \td{(notably biber, Greis, Evert with the library)}
+This ambiguity produces a tradeoff that has been identified by relatively few in the corpus-building community~\cite{evert2006random,kilgarriff2005language,gries2011corpus}\td{Which ref from Baayen?  The one I have in bibtex doesn't seem suitable}% \td{(notably biber, Greis, Evert with the library)}
 ---that corpora of equivalent size may yield significantly different inferential power due to their differing number of data points.  This may be seen as an issue of depth vs.\ coverage: corpora including large snippets of text are capable of supporting more complex models and deeper inference, at a cost to the generality of their results.
 
 There remains disagreement upon the extent to which these two aspects should be traded off, though it is notable that the NLP and linguistics fields vary greatly in their treatment of the data, with linguistics typically focusing on frequency and immediate collocation, and NLP being skewed towards more complex, instrumentalist, models.%\td{cite? how?}
 I would suggest that, realistically speaking, researchers should be examining their experimental design with respect to the size and/or complexity of the features they are working with in order to select a corpus that matches most closely.  It is also quite clear that this does not happen: the BNC contains a small number of large samples, yet is often used to analyse small-scale linguistic features.
-
-% \til{mention Biber's contribution in passing, and say how this may also be seen as a property of the clumpiness of language and that work on dispersion is able to help somewhat}
 
 %- 
 
@@ -354,8 +302,7 @@ Secondly, establishing the boundaries of a given language is difficult.  Users o
 Generally it seems that this problem, though having been recognised, has received too little effort for practical reasons.  Issues of balancing demographics in corpus design have typically taken a curiously detached form, that of selecting a sample of language as a proxy for demographics (e.g.\ selecting the bestsellers over unpopular books or sampling more popular newspapers).
 
 
-% This concept has extended itself to the point where corpus building is seen as a problem phrased in terms of which texts to select, rather than how one might select them.  
-This approach has led to a situation where each and every general-purpose corpus carries with it the expert judgement of linguists not only in selecting a wide variety of texts from within the population, but also their socio-linguistic opinions.  Sinclair makes this explicit in ``Developing Linguistic Corpora'', where representativeness is described in entirely subjective terms\cite[p.5]{wynne2005developing}:
+This approach has led to a situation where each and every general-purpose corpus carries with it the expert judgement of linguists not only in selecting a wide variety of texts from within the population, but also their socio-linguistic opinions.  Sinclair makes this explicit in ``Developing Linguistic Corpora'', where representativeness is described in entirely subjective terms~\cite[p.5]{wynne2005developing}:
 
 \begin{quote}
 A corpus that sets out to represent a language or a variety of a language cannot predict what queries will be made of it, so users must be able to refer to its make-up in order to interpret results accurately. In everything to do with criteria, this point about documentation is crucial. So many of our decisions are subjective that it is essential that a user can inspect not only the contents of a corpus but the reasons that the contents are as they are.
@@ -371,7 +318,6 @@ Those using a given corpus are not necessarily able to rigorously define about w
 Finally, disagreement on how we should extract features from language samples (i.e.\ which dimensions of variability are interesting) means that, aside from the immediate and obvious properties such as genre (about which there is arguably less agreement~\cite{lee2001genres,aston2001text,sharoffs2015}), any efforts to stratify language are met with suspicion.  This may lead to researchers performing corpus analysis using informally-subsampled general-purpose corpora, with questionable correspondence between the categories used to select texts and their research goals.
 It is the author's opinion that this is unanswerable except for individual studies: in order to know variation in features affecting one's use of a corpus, it is necessary to define the covariates and evaluation strategy.
 
-% This disagreement robs corpus builders of the power to perform true multi-phase stratified sampling, though it is worth noting that the efforts of the 90's led to a general agreement on how to differentiate between some of the major covariates.\td{rewrite and clarify}
 
 %-
 
@@ -388,10 +334,9 @@ Since sample size and composition are intimately related both to one another and
 
 
 \subsubsection{Purpose}
-% \til{examples of purpose.  General/special.  Cover qualitative issues and quantitative issues of parameter estimation from biased statistics.}
 The reason for sampling a given population is a crucial feature of corpora.  Not only does it define the level and type of metadata available (and the arbitrary definitions used therein), the expert selection of sample designs means it has a large influence on the sampling frame used, and thus the validity of any generalisations made using said data.
 
-The condition given by McEnery \& Wilson\cite{mcenery2001corpus} here is that a corpus must have been built with some degree of linguistic inquiry in mind, for example, the collected works of Shakespeare would be counted, but not one's personal book collection (even if it happens to include the complete works of Shakespeare and nothing else).
+The condition given by McEnery \& Wilson~\cite{mcenery2001corpus} here is that a corpus must have been built with some degree of linguistic inquiry in mind, for example, the collected works of Shakespeare would be counted, but not one's personal book collection (even if it happens to include the complete works of Shakespeare and nothing else).
 
 This distinction seems to be little more than a way of stating that one's ability to infer things from a corpus is relative to its external properties, which is true of any sample.
 
@@ -424,9 +369,9 @@ It is noteworthy, however, that selecting a corpus by its original purpose great
 Many authors stipulate that a modern corpus should be electronic.  To generalise this position, they require that it is in some way processable by machines, i.e.\ that it must be in some way regular.
 This defines the format of not only the basic textual content, but also the availability of metadata at all levels (category/strata, document, word).
 
-Both of these have been addressed to some extent, especially the problem of representing the text itself, which has largely been solved by UTF-8 at the character level, and XML/SGML at the markup level.  Standards derived from efforts such as the TEI\cite{ide1995tei} have some penetration, though there is often still the need to include proprietary extensions if other concerns on this list are to be maintained.
+Both of these have been addressed to some extent, especially the problem of representing the text itself, which has largely been solved by UTF-8 at the character level, and XML/SGML at the markup level.  Standards derived from efforts such as the TEI~\cite{ide1995tei} have some penetration, though there is often still the need to include proprietary extensions if other concerns on this list are to be maintained.
 
-Though earlier work on corpus construction focused on data formats\cite{atkins1992corpus,EagTcwgCtypeaglespreliminary}, with a view to sharing corpora for local analysis, modern approaches tend towards corpora `as a service'\cite{hardie2012cqpweb,ferraresi2008introducing} --- providing a front-end to query and analyse text directly whilst still hosting it at the original institution.  This approach is largely taken to mitigate licensing issues, and to work around the high level of technical skill necessary to work with large-scale data.
+Though earlier work on corpus construction focused on data formats~\cite{atkins1992corpus,EagTcwgCtypeaglespreliminary}, with a view to sharing corpora for local analysis, modern approaches tend towards corpora `as a service'~\cite{hardie2012cqpweb,ferraresi2008introducing} --- providing a front-end to query and analyse text directly whilst still hosting it at the original institution.  This approach is largely taken to mitigate licensing issues, and to work around the high level of technical skill necessary to work with large-scale data.
 
 This thesis takes the view that representation is largely a solved problem: UTF-8 and XML are both capable of storing international characters and complex annotations in a way that is easily mined for many uses, and advances in database technology and distributed processing offer many ways to process and retrieve structured data.
 
@@ -437,10 +382,8 @@ This thesis takes the view that representation is largely a solved problem: UTF-
 Efforts have been made to address the ambiguity of some often used strata such as text-type and genre.  One of the more notable was EAGLES~\cite{EagTcwgCtypeaglespreliminary}, which produced a number of recommendations designed to be applied to new corpora whilst retaining general compatibility with existing designs.
 
 
-To some extent, the form a corpus takes is defined by its content---any meaningful taxonomy is arbitrary and theory-laden.  For this reason, recommendations made by EAGLES were driven by a review of the theoretical basis for existing taxonomies and work at the time\cite{EagTcwgCtypeaglespreliminary}\td{page unknown (online)}:
+To some extent, the form a corpus takes is defined by its content---any meaningful taxonomy is arbitrary and theory-laden.  For this reason, recommendations made by EAGLES were driven by a review of the theoretical basis for existing taxonomies and work at the time~\cite{EagTcwgCtypeaglespreliminary}\td{page unknown (online)}:
 
-%CITE EAGLES http://www.ilc.cnr.it/EAGLES96/intro.html
-% \til{Describe EAGLES briefly, but t'is not a main focus.  Quote below is from \url{http://www.ilc.cnr.it/EAGLES96/intro.html}}
 \begin{quote}
 Any recommendation for harmonisation must take into account the needs and nature of the different major contemporary theories.
 \end{quote}
@@ -451,30 +394,26 @@ The need to provide useful metadata is particularly challenging for general-purp
 
 %--
 
-Internal text distinctions may be drawn using bottom-up (often termed `corpus-driven') methods, however, these are frequently difficult to operationalise.  A prime example of this is Biber's multidimensional analyses of corpora\cite{biber1992complexity}, which focus on feature extraction and principal component analysis in order to identify primary dimensions of variation within corpora.
+Internal text distinctions may be drawn using bottom-up (often termed `corpus-driven') methods, however, these are frequently difficult to operationalise.  A prime example of this is Biber's multidimensional analyses of corpora~\cite{biber1992complexity}, which focus on feature extraction and principal component analysis in order to identify primary dimensions of variation within corpora.
 
 Biber's approach has been held aloft by many as one of the only `unbiased' analyses of variation around, however, this is not the case.  Without an authoritative underlying theory of language use by humans, any features used to construct the model will, however neutrally treated thereafter, exert pressure on the results.  Given the subtlety with which such analyses extract information (and the difficulty in interpreting resultant factors), this is likely to lead to favouring one set of conclusions over another.
 
-This is also true of higher-level techniques such as latent dirichlet allocation (LDA), which is usually trained using token frequencies\cite{Blei2012PTM1338062133826}.  These straight frequencies are still entirely bereft of context, and tokenised using procedures that embody particular theoretical decisions such as the importance of punctuation\cite{pentheroudakis2006tokenizer} (especially true for languages lacking word delimiters, such as Chinese\cite{Wu1994ICT974358974399}).  
+This is also true of higher-level techniques such as latent dirichlet allocation (LDA), which is usually trained using token frequencies~\cite{Blei2012PTM1338062133826}.  These straight frequencies are still entirely bereft of context, and tokenised using procedures that embody particular theoretical decisions such as the importance of punctuation~\cite{pentheroudakis2006tokenizer} (especially true for languages lacking word delimiters, such as Chinese~\cite{Wu1994ICT974358974399}).  
 
-Sharoff\cite{sharoff2007classifying} presents a more transparent clustering methodology that relies on keyword metrics to identify salient features.  This provides some connection to other keyword literature, along with a mechanism for inspecting the resultant categories.
+Sharoff~\cite{sharoff2007classifying} presents a more transparent clustering methodology that relies on keyword metrics to identify salient features.  This provides some connection to other keyword literature, along with a mechanism for inspecting the resultant categories.
 
-Arguably, further problems with the approach of finding natural strata of variation lie with sampling and linguistic problems: many of the practical issues surrounding corpus building involve enumeration of easily identifiable groups of texts, something that would be hard to compromise or `trade off' if working from factor loadings.  Further, many analyses will find subsampling data difficult when defined in terms of many external variables\cite{aston2001text}, though this is more of a challenge for the linguistic community (and providers of its tools).
+Arguably, further problems with the approach of finding natural strata of variation lie with sampling and linguistic problems: many of the practical issues surrounding corpus building involve enumeration of easily identifiable groups of texts, something that would be hard to compromise or `trade off' if working from factor loadings.  Further, many analyses will find subsampling data difficult when defined in terms of many external variables~\cite{aston2001text}, though this is more of a challenge for the linguistic community (and providers of its tools).
 
 %--
 
-Through reasoned examination of existing efforts, Lee\cite{lee2003bnc}
+Through reasoned examination of existing efforts, Lee~\cite{lee2003bnc}
 was able to re-form the BNC's classification by adding external data and classifying documents manually.  This is arguably the most prominent effort to apply the multi-phase `examination and re-appropriation' method that Biber and EAGLES recommend.
 
-His methodology, though labour-intensive, offers a defensible way to trade off the various interests of users.  One key aspect to this is the fact that it was built after the corpus, and thus may take into account common usage when making distinctions between texts---something that Lee relies on in an effort to define categories using `external' definitions (as opposed to Biber's internal variance measures).  This may prove more easy to operationalise in some circumstances, but still involves the subjective expert opinion of someone who may or may not agree with the user's perspective\cite{aston2001text}.
-
-%nal \til{Describe taxonomy defining efforts and perhaps stratification in a way that is more tied to original corpus documentation, esp. stratification w.r.t. brown/brown-inspired corpora}
+His methodology, though labour-intensive, offers a defensible way to trade off the various interests of users.  One key aspect to this is the fact that it was built after the corpus, and thus may take into account common usage when making distinctions between texts---something that Lee relies on in an effort to define categories using `external' definitions (as opposed to Biber's internal variance measures).  This may prove more easy to operationalise in some circumstances, but still involves the subjective expert opinion of someone who may or may not agree with the user's perspective~\cite{aston2001text}.
 
 
 In summary, the problem of producing a meaningful and operationalisable taxonomy for corpus organisation is actually one of community agreement: for any given user of a corpus, the task is simpler.  This indicates that a transparent, well-documented approach should be taken in order to allow end users to decide upon their level of agreement with the pre-applied categories, or that differing levels of confidence should be applied to aid subsampling.
 
-
-% When it comes to large corpora (such as general-purpose ones), there is good reason to require that they are electronic in order for them to be usable, since smaller, `hand-processable' versions would not be sufficiently representative.  As with purpose, then, it seems reasonable to require a standardised format, and increasingly reasonable to require that a corpus be machine-readable.
 
 
 
@@ -487,15 +426,15 @@ The ability for multiple researchers to access a corpus is one of the main benef
 
 The process of building a large, multi-purpose sample for use by a whole field of research mirrors that used in other fields, many of which have similar problems gathering data.
 
-Many examples of this approach exist, such as the British Household Panel Survey and British Crime Survey\cite{taylor1996british,hough1983british}, both of which demand[ed] significant investment over a long period in order to overcome the practical issues of large-scale demographic sampling.  Nonetheless, the quality this yields has lead to their widespread use, for example, both are used extensively by governments to assess social policy impact.
+Many examples of this approach exist, such as the British Household Panel Survey and British Crime Survey~\cite{taylor1996british,hough1983british}, both of which demand[ed] significant investment over a long period in order to overcome the practical issues of large-scale demographic sampling.  Nonetheless, the quality this yields has lead to their widespread use, for example, both are used extensively by governments to assess social policy impact.
 
 Although corpora are generally less sensitive on ethical grounds, many legal challenges remain to distributing and using such a large quantity of data.  This has historically greatly limited both the source and form of data gathered for corpora, and was one of the reasons behind sampling 2000-word samples (rather than whole texts) in Brown's corpus.
 
 Navigating copyright law remains one of the primary tasks of a corpus building effort, though the increasing dependence on digital sources has dulled this somewhat, since they are typically less controlled when being published.  Nonetheless, corpora often come bundled with restrictive licensing, something that limits the ability of the wider community to participate in their use.
 
 Many countries' fair use exemptions apply to research, though this may apply only to copies taken for private study, as laid out in the UK's Copyright, Designs and Patents Act 1988
-%\td{citation: http://www.legislation.gov.uk/ukpga/1988/48/introduction}
-.  The concept of `Fair Dealing' covers many uses of extracts in research, and a recent exemption was added that additionally allows the use of\cite{intellectualpropertyofficeuk2014}\td{nopage, online}:
+%citation: http://www.legislation.gov.uk/ukpga/1988/48/introduction
+.  The concept of `Fair Dealing' covers many uses of extracts in research, and a recent exemption was added that additionally allows the use of~\cite{intellectualpropertyofficeuk2014}\td{nopage, online}:
 
 \begin{quote}
 \ldots{}automated analytical techniques to analyse text and data for patterns, trends and other useful information.
@@ -516,7 +455,7 @@ In an ideal world, it would be possible to replicate studies with one's own samp
 
 
 \subsubsection{Sample Type}
-Corpora span many types of sample, from simple cross-sectional ones (`synchronic' corpora: Brown, BNC) to those that aim to report language use through time (`diachronic' corpora: ICE, Longman/Lancaster) and a hybrid of the two, which is designed to follow language use and update on-the-fly (`monitor' corpora: BoE, COCA)\cite{francis1961brown,burnard1995users,greenbaum1996international,summers1993longman,Jarvinen1994AMW991886.991985,davies2010corpus}.  Further to this, there are parallel corpora, intended to match texts across some variable such as language\cite{koehn2005europarl,mcenery2007parallel}, and many other designs that combine properties of these to satisfy various sample designs.
+Corpora span many types of sample, from simple cross-sectional ones (`synchronic' corpora: Brown, BNC) to those that aim to report language use through time (`diachronic' corpora: ICE, Longman/Lancaster) and a hybrid of the two, which is designed to follow language use and update on-the-fly (`monitor' corpora: BoE, COCA)~\cite{francis1961brown,burnard1995users,greenbaum1996international,summers1993longman,Jarvinen1994AMW991886.991985,davies2010corpus}.  Further to this, there are parallel corpora, intended to match texts across some variable such as language~\cite{koehn2005europarl,mcenery2007parallel}, and many other designs that combine properties of these to satisfy various sample designs.
 
 These approaches represent various use-cases, and are often significantly less `general-purpose' than large synchronic reference corpora such as the BNC.
 

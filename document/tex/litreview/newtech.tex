@@ -4,31 +4,31 @@ The rise in popularity of the web introduced a significant new source of text fo
 
 Due to widespread and diverse use of the web, such corpora span many populations---some efforts focus on describing the web itself, and representing the population of documents online as its own population.  Others are able to focus on more general representation, or offer metadata sufficient to retrieve special-purpose corpora.  It is certainly the case that any modern corpus claiming to be representative of production or reception should include web data.
 
-The first efforts to construct corpora from web data\cite{kilgarriff2001web} focused on the production of tools and resources to download, clean, and index web data at large enough scales to be used in general purpose corpora.  Many of these problems have now been solved to some degree, with the WaC movement producing a number of web-specific corpus tools:
+The first efforts to construct corpora from web data~\cite{kilgarriff2001web} focused on the production of tools and resources to download, clean, and index web data at large enough scales to be used in general purpose corpora.  Many of these problems have now been solved to some degree, with the WaC movement producing a number of web-specific corpus tools:
 
 \begin{itemizeTitle}
     
-    \item[Crawlers] WaC-specific crawlers have been produced that are able to control their behaviour according to linguistic properties\cite{schafer2014focused}, and with the intent to provide an overview of proportions online.
+    \item[Crawlers] WaC-specific crawlers have been produced that are able to control their behaviour according to linguistic properties~\cite{schafer2014focused}, and with the intent to provide an overview of proportions online.
 
-    \item[Boilerplate removal tools] Tools such as JusTexT\cite{pomikalek2013justext} and BoilerPipe\td{cite} are able to remove the `boilerplate' of websites in order to leave just the content areas.
+    \item[Boilerplate removal tools] Tools such as JusTexT~\cite{pomikalek2013justext} and BoilerPipe\td{cite} are able to remove the `boilerplate' of websites in order to leave just the content areas.
 
-    \item[Genre classification schemes] Taxonomies have been produced that include the new genres found online, or those new forms of text such as blogs.  Some of this work has come from search engine designers, eager to improve their results\cite{genreclassification2004}, as well as from linguistics proper\cite{sharoff2007classifying,santini10genreintro,sharoffs2015}.
+    \item[Genre classification schemes] Taxonomies have been produced that include the new genres found online, or those new forms of text such as blogs.  Some of this work has come from search engine designers, eager to improve their results~\cite{genreclassification2004}, as well as from linguistics proper~\cite{sharoff2007classifying,santini10genreintro,sharoffs2015}.
 
-    \item[Retrieval tools] Tools such as BootCaT\cite{baroni2004bootcat} and search engines such as WebCorp\cite{renouf2003webcorp} allow access to increasingly large-scale web resources.
+    \item[Retrieval tools] Tools such as BootCaT~\cite{baroni2004bootcat} and search engines such as WebCorp~\cite{renouf2003webcorp} allow access to increasingly large-scale web resources.
 
 \end{itemizeTitle}
 
-The ease with which users may access web data is of particular value: this has allowed for corpora of unprecedented scale such as the WaCky\cite{baroni2009wacky} and COW\cite{schafer2012building} corpora (which contain tens of billions of words), as well as for near-instant corpus building and replication.
+The ease with which users may access web data is of particular value: this has allowed for corpora of unprecedented scale such as the WaCky~\cite{baroni2009wacky} and COW~\cite{schafer2012building} corpora (which contain tens of billions of words), as well as for near-instant corpus building and replication.
 
 Many WaC efforts focus on sampling the web itself, in order to represent users' experience thereof.  This approach leads to sample designs that focus on uniform coverage of top-level domains, or particular types of web resource, in a manner similar to that of search engine crawlers.
 
-Performing this task in a robust manner is particularly challenging due to the lack of any central index for websites at this level.  As such, it is common to oversample and then select documents after-the-fact using scoring techniques\cite{schafer2013web,schafer2014focused}.
+Performing this task in a robust manner is particularly challenging due to the lack of any central index for websites at this level.  As such, it is common to oversample and then select documents after-the-fact using scoring techniques~\cite{schafer2013web,schafer2014focused}.
 
 A contrasting approach is that of using existing indices to retrieve data, usually by using commercial search engines.  This is the approach taken by the BootCaT tool, which relies on repeatedly requesting URLs from the Microsoft Bing search engine conforming to a number of seed terms.
 
 This could be seen either as an attempt to construct a corpus in the image of the seed (hence the ``bootstrapping'' in the name), or, under conditions of sufficiently general input, one to represent the web itself, using the search engine as a `lens' through which to view web documents.  This is a distinction drawn by the source of variation (the seed terms themselves, or the web's ability to return the desired data).  The primary purpose of this was to find a ready source of documents, and as such conventional sample designs were still used as gold standards.
 
-This performance was examined by Kilgarriff and Grefenstette\cite[p. 343]{kilgarriff2003introduction}, stating regarding representativeness:
+This performance was examined by Kilgarriff and Grefenstette~\cite[p. 343]{kilgarriff2003introduction}, stating regarding representativeness:
 
 \begin{quote}
 The Web is not representative of anything else. But neither are other corpora, in any
@@ -39,13 +39,13 @@ This is something I will revisit in Chapters~\ref{sec:longitudinal} and~\ref{sec
 
 
 \subsection{Intellectual Property}
-The legality of releasing large volumes of text has always been an issue for corpus builders, however, much of the time this issue has been handled by an intermediary: the publisher, able to provide rights to many documents at once.  WaC methods access content by many publishers, often where rights are poorly-stated or belong to owners which cannot be contacted (especially in bulk).  This issue is complicated further by the international nature of the web, and the style of hyperlinking and content embedding\cite{hemming2010copyright}.  
+The legality of releasing large volumes of text has always been an issue for corpus builders, however, much of the time this issue has been handled by an intermediary: the publisher, able to provide rights to many documents at once.  WaC methods access content by many publishers, often where rights are poorly-stated or belong to owners which cannot be contacted (especially in bulk).  This issue is complicated further by the international nature of the web, and the style of hyperlinking and content embedding~\cite{hemming2010copyright}.  
 
-One approach to this is to limit access to end users, providing an interface which still permits some level of inquiry whilst restricting large-scale access to the whole volume of data.  This is the approach taken by BE06\cite{baker2009be06}, which is available through CQPWeb even though it contains data that is nominally copyright to other parties.
+One approach to this is to limit access to end users, providing an interface which still permits some level of inquiry whilst restricting large-scale access to the whole volume of data.  This is the approach taken by BE06~\cite{baker2009be06}, which is available through CQPWeb even though it contains data that is nominally copyright to other parties.
 
 A second approach is to provide lists of URLs from which the original data may be retrieved.  This approach is less legally troublesome than that taken by BE06, yet also requires a significant amount of work on behalf of any replication.
 
-Finally, corpora such as the Google Books corpus\cite{goldberg2013dataset} and the COW corpora\cite{schafer2012building} are offered in a jumbled form, designed to retain frequency information without the ability to recover full texts.  Both corpora mentioned here are particularly large, implying that they are unlikely to be used by researchers reading the text directly due to the large number of results for even very specific queries.
+Finally, corpora such as the Google Books corpus~\cite{goldberg2013dataset} and the COW corpora~\cite{schafer2012building} are offered in a jumbled form, designed to retain frequency information without the ability to recover full texts.  Both corpora mentioned here are particularly large, implying that they are unlikely to be used by researchers reading the text directly due to the large number of results for even very specific queries.
 
 
 I consider that these approaches miss the point somewhat, as the ease of retrieval WaC brings make it possible to perform full scientific replication: retrieving new data conforming to the same sampling policy, rather than repeating the data verbatim.
@@ -57,7 +57,7 @@ The web, and its ease-of-access, also enables new sample designs.
 
 The most obvious of these is the automation of monitor corpus maintenance --- this is analogous to the problem of maintaining search engine indices, and as such there is significant literature from that area focused on the scheduling revisits to pages and ensuring coverage across domains.  These techniques are now widely used in lexicography to keep dictionary resources up-to-date.
 
-The availability of translated documents online also provides easy sources of data for constructing parallel corpora, a task that can be almost completely automated due to web page markup\cite{resnik2003web}.
+The availability of translated documents online also provides easy sources of data for constructing parallel corpora, a task that can be almost completely automated due to web page markup~\cite{resnik2003web}.
 
 The ability to automate retrieval also means that diachronic designs can be automated to some extent.  This is explored and developed further in Chapter~\ref{sec:longitudinal}.
 
@@ -96,7 +96,7 @@ With the availability of powerful portable devices such as tablets and phones (a
 These techniques offer an approach to sampling that, whilst explored by many other fields, is typically seen as expensive and involved.  One's own logged history may be a useful source of data for systems that interact using NLP techniques (in order to mimic one's dialect and idiomatic language use more closely), or the language proportions of social groups may be more accurately determined for scientific study.  The value of such personalisation is already proven in many contexts with more limited interaction methods, for example speech recognition (personalised phonetic models) and web search (Google and others' personalised results).  Further to the benefits of being able to gather real data more easily, life-logging allows us to peer further into social contexts with less disruption, yielding higher quality data.
 
 Where language metadata is needed (rather than verbatim text), many life-logging technologies support discarding of any identifiable information on-the-fly---there are techniques for storing only irreversibly scrambled audio such that the characteristics of speakers may still be identified
-\cite{lee2006voice}, or devices with sufficient power can simply store summaries of the events they observe, discarding the data itself.
+~\cite{lee2006voice}, or devices with sufficient power can simply store summaries of the events they observe, discarding the data itself.
 The decrease in ethical sensitivity associated with such measures further reduces the boundaries to wider sampling of a population, something that may be used to improve and adapt existing languages resources.
 
 
@@ -120,7 +120,7 @@ The ubiquity of technology makes accessing a diverse population of language spea
 
 This has also had other effects, such as the tendency for a single conversation online to include speakers from many countries, cultures and demographics (often without even being aware of that fact).  Also, certain subcultures use various specialised language forms online that can squirrel off into their own little thing with little reference back to `everyday' forms.
 
-One effect of this has been the ability to recruit study participants from across the world at relatively little cost through the use of crowdsourcing platforms such as Amazon AMT\cite{ipeirotis2010analyzing} or Crowdflower\cite{Finin:2010:ANE:1866696.1866709}.  This widespread ability brings with it a significant number of analytical challenges, many of which are still being worked upon, and many of which, such as the problem of managing inter-annotator agreement with many participants, apply nicely to the problem of sampling quality corpus data in a distributed manner.
+One effect of this has been the ability to recruit study participants from across the world at relatively little cost through the use of crowdsourcing platforms such as Amazon AMT~\cite{ipeirotis2010analyzing} or Crowdflower~\cite{Finin:2010:ANE:1866696.1866709}.  This widespread ability brings with it a significant number of analytical challenges, many of which are still being worked upon, and many of which, such as the problem of managing inter-annotator agreement with many participants, apply nicely to the problem of sampling quality corpus data in a distributed manner.
 
   
 
