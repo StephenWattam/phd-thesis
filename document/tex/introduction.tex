@@ -2,14 +2,14 @@
 % \dropcap{T}{he}
 
 Kuhn's view of scientific revolutions~\cite{kuhn1970structure}
-holds that only empirical evidence, well applied, may provide the theoretical framework required to progress a field; as the intricacy and accuracy of theoretical systems evolves, this necessarily requires more accurate data.  Like many of the younger social sciences, linguistics faces a difficult dilemma: it must have high-quality empirical data in order to further develop widely-agreed-upon theories, yet its ability to establish the quality of samples is directly dependent upon said theories.
+holds that only empirical evidence, well applied, may provide the theoretical framework required to progress a field; as the intricacy of theoretical systems evolves, this necessarily requires more accurate data.  Like many of the younger social sciences, linguistics faces a difficult dilemma: it must have high-quality empirical data in order to further develop widely-agreed-upon theories, yet its ability to establish the quality of samples is directly dependent upon said theories.
 
-Current corpus resources are often fashioned around a small subset of exemplar corpora---these have become de-facto standards, and their sample designs are heavily re-used.
+Current corpus resources are often fashioned around a small subset of exemplar corpora---these have become de-facto standards, and their sample designs heavily re-used.
 Whilst this approach ensures compatibility and interoperability, it also leaves many sample design decisions unspoken or assumed.
 
 Many of these examplar corpora were built in the days before widespread use of technology such as the internet, before digital document creation became popular.  As a result they are structured around designs intended to minimise practical issues surrounding retrieval, coding, and transcription that may not apply in a modern context.
 
-This thesis presents three explorations of this gap: identifying methods and techniques for sampling in hitherto-unconventional ways, and assessing their worth within the context of existing general-purpose samples for linguistic research.  For each, a generalisable method and supporting tools are produced, in order to make these efforts accessible to a wider linguistic audience.
+This thesis presents three explorations of this gap: identifying methods and techniques for sampling in unconventional ways, and assessing their worth within the context of existing general-purpose samples for linguistic research.  For each, a generalisable method and supporting tools are produced, in order to make these efforts accessible to a wider linguistic audience.
 
 At its core is the notion of representativeness, the central argument being that the key to improving the validity of corpus-based scientific research (in linguistics or NLP), is the improvement of the sampling method.
 
@@ -20,15 +20,15 @@ This chapter begins by reviewing the history of general-purpose corpus building,
 
 
 \section*{Document Attrition\hfill{}Chapter~\ref{sec:longitudinal}}
-As corpora involving web data become more prevalent, the need to understand the temporal properties of web publishing become increasingly important to the external validity of any scientific claims made using them.  Many others have already observed these changes, though with limited resolution.
+As corpora involving web data become more prevalent, the need to understand the temporal properties of web publishing become increasingly important to the external validity of any scientific claims made using them.  Many others have already observed these changes, though with a focus on technical, rather than linguistic properties.
 
 This chapter presents a motivating investigation into sources of link rot within corpora distributed as lists of URLs.  It finds that many corpora suffer significant loss when retrieved using naive methods, across a timescale likely to affect users of current corpora (some widely-used corpora are now decades old).
 
-This motivates long-term and in-depth analyses, neither of which I am well placed to cover in this thesis: instead, a comprehensive tool was developed in order to perform longitudinal sampling of web data.  This tool offers a mechanism for investigating properties as yet unaddressed by the literature, such as changes through time that do not affect availability (such as the editing of articles according to political whim), and network-level properties (such as the response time and location of hosting providers).
+This motivates long-term and in-depth analyses, neither of which I am well placed to cover in this thesis: however, a comprehensive tool was developed in order to perform longitudinal sampling of web data.  This tool offers a mechanism for investigating properties as yet unaddressed by the literature, such as changes through time that do not affect availability (such as the editing of articles according to political whim), and network-level properties (such as the response time and location of hosting providers).
 
 \paragraph{Contributions:}
 \begin{itemize}
-    \item A minor addition to existing literature on link rot, particularly in linguistic corpora
+    \item A minor addition to existing literature on link rot, particularly in linguistic corpora.
     \item A publicly-accessible tool for longitudinal analysis of web resources, at a resolution and scale not possible with current software.
 \end{itemize}
 
@@ -54,7 +54,7 @@ A central theme of this thesis is the research-question-oriented nature of any s
 
 These two chapters detail the design and production of a system that is designed to unambiguously specify the important variables in a research design, and then retrieve corpora based upon these designs.  This serves to solve a number of significant practical issues with conventional corpus design, and takes sampling from the web in a new direction: away from a corpus of the web itself, and towards a general-purpose source of documents for all purposes.
 
-This is accomplished by the encoding of expert opinion into pluggable modules, that may be used to construct a corpus' sample design according to the whim of the user.  These designs may then be distributed free of any legal restriction and re-used at will.  The automated nature of the corpus retrieval process also serves to vastly speed up and simplify corpus construction.
+This is accomplished by the encoding of procedures based on expert opinion into pluggable modules, that may be used to construct a corpus' sample design according to the whim of the user.  These designs may then be distributed free of any legal restriction and re-used at will.  The automated nature of the corpus retrieval process also serves to vastly speed up and simplify corpus construction.
 
 Because there is no reliance on a gold-standard corpus, evaluation for this method is particularly difficult.  This thesis relies on two mechanisms: a white-box examination of each of the stages of the corpus building process is presented, and its rationality confirmed.  A black-box examination against the source corpus is then performed, in order to identify any subjective unintended bias in the result.  Though the results of this evaluation are difficult to generalise to all corpus designs, these indicate a practical level of success for the common design used.
 

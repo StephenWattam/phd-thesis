@@ -1,9 +1,8 @@
 
 
-\subsection{Rationale}
 
 Many sampling efforts for linguistic data on the web are heavily focused on producing results comparable to conventional corpora.  These typically take two forms: those based on URI lists (e.g.\ from search results, as in %~\cite{sharoff2006creating}
-BE06~\cite{baker2009be06}, BootCat~\cite{baroni2004bootcat}), and those formed through crawling (e.g.\ enTenTen\footnote{\url{http://trac.sketchengine.co.uk/wiki/\\Corpora/enTenTen}}, %~\cite{}, %FIXME
+BE06~\cite{baker2009be06}, BootCat~\cite{baroni2004bootcat}), and those formed through crawling (e.g.\ enTenTen\footnote{\url{http://trac.sketchengine.co.uk/wiki/Corpora/enTenTen}},
 UKWaC~\cite{ferraresi2008introducing}).
 
 Though initial efforts in web-as-corpus (WaC) focused on the former method %, in part due to concerns over the balance of samples returned, 
@@ -37,7 +36,7 @@ Current methods for sampling language change online include:
 \end{itemizeTitle}
 
 
-Each of these methods is subject to a number of downsides, making them difficult to use for many scientific purposes, or requiring significant resources and forward-planning (thus putting them out of the hands of most researchers).  Some issues, such as irregular revisiting of pages and the lack of detail stored about network-level metadata, complicate the process of analysis.  Most corpus formats are also not annotated by time, meaning that analysis often requires repeated export and comparison --- tools for which must be produced on a case-by-case basis.
+Each of these methods is subject to a number of downsides, making them difficult to use for many scientific purposes, or requiring significant resources and forward-planning (thus putting them out of the hands of most researchers).  Some issues, such as irregular revisiting of pages and the lack of detail stored about network-level metadata, complicate the process of analysis.  Most corpus formats are also not annotated by time, meaning that analysis often requires repeated export and comparison---tools for which must be produced on a case-by-case basis.
 
 % 
 % \begin{itemize}
@@ -49,7 +48,7 @@ Each of these methods is subject to a number of downsides, making them difficult
 % 
 
 
-We present here a tool, LWAC, for this form of longitudinal sampling, designed to maximise the comparability of documents downloaded in each sample in terms of their URI rather than content.  To accomplish this, we use a cohort sampling strategy, as illustrated in Figure~\ref{fig:longitudinal:lwac:samples}, to get full coverage over a list of URIs, at the expense of sampling new content.
+I present here a tool, LWAC, for this form of longitudinal sampling, designed to maximise the comparability of documents downloaded in each sample in terms of their URI rather than content.  To accomplish this, we use a cohort sampling strategy, as illustrated in Figure~\ref{fig:longitudinal:lwac:samples}, to get full coverage over a list of URIs, at the expense of sampling new content.
 
 \begin{figure}[Ht]
     \centering
@@ -72,7 +71,7 @@ This allow a user to investigate how language may change in relation to technica
         \vspace{-6pt}
     \item How censorship, redaction and revision affect website contents;
         \vspace{-6pt}
-    \item Website resource persistence and its relation to linguistic content (link rot/document attrition);
+    \item Website resource persistence and its relation to linguistic content;
         \vspace{-6pt}
     \item How institutions' publishing policies affect reporting of current events.
 \end{itemize}
@@ -106,14 +105,12 @@ The storage manager is responsible for all scheduling and data integrity: worker
 The storage manager is also responsible for enforcing atomicity of jobs and of the underlying corpus.  This is enforced using a check-out system: workers check out batches of links that remain allocated until they are returned, completed, by the same worker.  When a sample is complete, it is `sealed' on disk to prevent further edits, and the scheduler instructs workers to sleep until the next sample time.
 
 
-The corpus itself is structured as a root directory, containing a specific structure:
-
 \begin{lstlisting}[language=,caption={Corpus directory structure on-disk},label=lst:longitudinal:lwac:corpusformat]
 root/
 root/database.db
 root/state
-root/files/sample\_id/sample
-root/files/sample\_id/1/2/3/456
+root/files/sample_id/sample
+root/files/sample_id/1/2/3/456
 \end{lstlisting}
 
 % The metadata database (if using SQLite3)
@@ -124,7 +121,7 @@ root/files/sample\_id/1/2/3/456
 
 
 Data storage in the system is split between metadata, stored in an SQL database, and website sample data itself, which is stored as raw HTTP response data in a versioned structure on disk.  The storage format is optimised for large samples, and is nested in order to avoid common filesystem limits (as shown in Listing~\ref{lst:longitudinal:lwac:corpusformat}
-).  LWAC does not enumerate URIs in memory, meaning there is no hard limit on corpus size --- instead it incrementally loads links as requested by the workers.  This means that memory usage is limited to the maximum batch size within the system.
+).  LWAC does not enumerate URIs in memory, meaning there is no hard limit on corpus size---instead it incrementally loads links as requested by the workers.  This means that memory usage is limited to the maximum batch size within the system.
 
 Workers are able to imitate the behaviour of end users' browsers as much as possible, so as to avoid search engine optimisation and user-agent detection tactics.  They are able to provide cookies and request headers commensurate with a web browser, and follow redirects to similar depths.  This behaviour is passed as part of the work unit itself, and so is configured centrally.
 
@@ -187,9 +184,7 @@ The last of these implies gradual degradation of performance as links rot.  Perf
 
 Figure~\ref{fig:longitudinal:lwac:parallelrate} shows the download rate for 140KiB HTML files served over 100Mbit ethernet using the Nginx web server.  This server configuration was designed to offer high-performance yet still be representative of common web deployments\footnote{Nginx is known for its ability to serve many users at once, and ``[a]ccording to Netcraft, nginx served or proxied 21.64\% busiest sites in May 2015.''---\url{http://nginx.org/en/}}.
 
-The performance of parallel downloads is largely constrained by the platform, in this case the Linux 2.6 kernel.  Downloads are reliable until roughly 700 parallel connections are used, beyond which requests are dropped locally as half-open sockets are closed.  Until this point performance is roughly log-linear, with 100,000 requests taking just 100 seconds with 500 parallel connections.
-
-For subsequent tests, 400 connections per worker machine were used.
+The performance of parallel downloads is largely constrained by the platform, in this case the Linux 2.6 kernel.  Downloads are reliable until roughly 700 parallel connections are used, beyond which requests are dropped locally as half-open sockets are closed.  Until this point performance is roughly log-linear, with 100,000 requests taking just 100 seconds with 500 parallel connections.  For subsequent tests, 400 connections per worker machine were used.
 
 
 \begin{figure}[Ht]
@@ -202,7 +197,7 @@ For subsequent tests, 400 connections per worker machine were used.
 
 Selecting the number of worker machines required for a deployment is a tradeoff between many factors, particularly cost and download rate\footnote{Reliability and physical location are also likely to influence results, especially where geography affects the contents of pages}.  As the server is responsible for all co-ordination, the speed improvements seen when adding worker machines is nonlinear, eventually plateauing where the overhead of the batch request equals the difference in time between requests made by $n$ and $n + 1$ workers.
 
-Figure~\ref{fig:longitudinal:lwac:numclients} shows the overall download times for the same dataset when using differing numbers of workers.  Workers were all connected to the storage manager via 100Mbit ethernet (minimising contention), and were making requests via the same link to a local test machine.  As expected, the improvements soon plateau, though there is a large amount of variance --- larger batch sizes and a larger test corpus are expected to show further improvement with $n > 6$\footnote{Procuring machines for this experiment was tricky, as they could not be virtualised}.  This plateau may be expected to occur earlier if workers are connected via relatively low-bandwidth links (for example, if they are connected over long distances via the internet or a VPN).
+Figure~\ref{fig:longitudinal:lwac:numclients} shows the overall download times for the same dataset when using differing numbers of workers.  Workers were all connected to the storage manager via 100Mbit ethernet (minimising contention), and were making requests via the same link to a local test machine.  As expected, the improvements soon plateau, though there is a large amount of variance---larger batch sizes and a larger test corpus are expected to show further improvement with $n > 6$.  This plateau may be expected to occur earlier if workers are connected via relatively low-bandwidth links (for example, if they are connected over long distances via the internet or a VPN).
 
 
 
@@ -223,9 +218,9 @@ The 228,000 URLs used were sourced using BootCaT, making 4600 requests to the Bi
     \label{fig:longitudinal:lwac:realrate400}
 \end{figure}
 
-The throughput over time is shown in Figure~\ref{fig:longitudinal:lwac:realrate400}.  This data was summarised by examining the logs of the storage manager, and thus represents rate calculated after each worker has checked in its batch --- hence the pattern of jagged increases followed by gradual decay.  Larger spikes are seen towards the left hand side due to synchronisation of the check-ins by clients: eventually variations in batch retrieval times cause these to disperse and smooth out.  This deployment can be seen to plateau at roughly 80 links per second (roughly 288,000 per hour), meaning the full 228,000 page corpus was retrieved in roughly 45 minutes.
+The throughput over time is shown in Figure~\ref{fig:longitudinal:lwac:realrate400}.  This data was summarised by examining the logs of the storage manager, and thus represents rate calculated after each worker has checked in its batch---hence the pattern of jagged increases followed by gradual decay.  Larger spikes are seen towards the left hand side due to synchronisation of the check-ins by clients: eventually variations in batch retrieval times cause these to disperse and smooth out.  This deployment can be seen to plateau at roughly 80 links per second (roughly 288,000 per hour), meaning the full 228,000 page corpus was retrieved in roughly 45 minutes.
 
-Using this deployment would mean that retrieval of a corpus the size of the BNC is possible in around eight minutes; a ukWaC\cite{ferraresi2008introducing} copy would take 2.5 hours (or 17 if using the pre-filtered url list), and DECOW2012\cite{schafer2012building} would take 24 hours. \td{cite these?}
+Using this deployment would mean that retrieval of a corpus the size of the BNC is possible in around eight minutes; a ukWaC\cite{ferraresi2008introducing} copy would take 2.5 hours (or 17 if using the pre-filtered url list), and DECOW2012\cite{schafer2012building} would take 24 hours.
 
 
 

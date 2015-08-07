@@ -12,7 +12,7 @@
 
 These results describe data collected during the third iteration of sampling, which lasted roughly two weeks during April 2013.  Table~\ref{fig:personal:dataoverview} describes the availability of data per-day.
 
-The period marked from Friday the 5th to Friday the 19th (inclusive) forms the sampling period described herein (with exceptions to this noted where made).  This was the period for which the on-line notebook was maintained along with other intrusive data collection techniques, though notably some methods continued afterwards due to their ease-of-use.
+The period marked from Friday the 5th to Friday the 19th (inclusive) forms the sampling period described herein (with exceptions to this noted where made).  This was the period for which the live notebook was maintained along with other intrusive data collection techniques, though notably some methods continued afterwards due to their ease-of-use.
 
 Audio data is missing for the 19th as sampling was initially intended to end the day before, however, for producing estimated word counts this was not used as other recording methods cover the data sources.  Though attempts were made to use the audio data, difficulties in automated processing meant that transcription (or precise word counts) were only possible using manual review (something only the subject could legally perform).  Word counts were instead based on an estimated words-per-minute.
 
@@ -527,9 +527,9 @@ Particularly curious is the large number of terminal, web (squid), and music eve
 Table~\ref{table:personal:eventcountbygenre} shows a breakdown of event frequencies by computed genre (which includes the source).  This shows a somewhat predictable Zipfian distribution of genres surrounding a number of themes:
 
 \begin{itemize}
-    \item Daily events, such as reading social media websites
-    \item Short events, such as consuming single programs of media (especially songs due to additive effects with the above)
-    \item Any of the above that are particularly surrounding personal interests of the subject
+    \item Daily events, such as reading social media websites;
+    \item Short events, such as consuming single programs of media (especially songs due to additive effects with the above);
+    \item Any of the above that are particularly surrounding personal interests of the subject.
 \end{itemize}
 
 Clearly, the last of these is the most obvious and desirable effect of building a corpus using this method.  The overwhelming prevalence of \texttt{web/entertainment/social} events may be explained (rather embarrassingly) by one website, \url{imgur.com}, which displays a single image per page (along with socially-contributed captions), and thus demands a lot of page reloads for relatively little content.
@@ -612,13 +612,13 @@ The mean words-per-event for each genre is listed in Table~\ref{fig:personal:gen
     \label{table:personal:wordsperevent}
 \end{table}
 
-Word counts were established either directly, or by assuming an 80 word-per-minute speech rate.  This rate is a conservative estimate according to some literature---\cite{yuan2006towards} estimate almost twice this, however, they do so for continuous conversation, and much of the corpus' spoken data comes from media with interruptions such as TV or music.  The music included in the corpus typically has speech rates falling between $40$ and $70$ WPM.  
+Word counts were established either directly, or by assuming an 80 word-per-minute speech rate.  This rate is a conservative estimate according to some literature---Yuan et.\ al.\cite{yuan2006towards} estimate almost twice this, however, they do so for continuous conversation, and much of the corpus' spoken data comes from media with interruptions such as TV or music.  The music included in the corpus typically has speech rates falling between $40$ and $70$ WPM, a figure easy to calculate using song lengths and lyric sheets.
 
 Table~\ref{table:personal:wordsperevent} shows that the distribution of word count per event is heavily skewed towards the lower end, with the median being 27 words per event.
 
 This figure also reflects the degree to which the attention model affects results---disabling calculations for this, the median word count is affected significantly by the largest source of data, web pages, becoming 442 words.  Most pages are, even compared to other types of event in the corpus, read only partially (often graphical clues indicate which portions to read, especially since most people revisit websites more than they visit new ones).
 
-Figure~\ref{fig:personal:prodcountbyday} shows that the vast majority of all words are consumed, either passively as the result of receiving broadcast media or in part of a conversation.  The vast majority of the `produced' word count is covered by writing documentation for LWAC, and it would seem likely that most people would non-interactively use spoken words.
+Figure~\ref{fig:personal:prodcountbyday} shows that the majority of all words are consumed, either passively as the result of receiving broadcast media or in part of a conversation.  The vast majority of the `produced' word count is covered by writing documentation for LWAC (a tool detailed in Chapter~\ref{sec:longitudinal}), and it would seem likely that most people would non-interactively use spoken words.
 
 
 
@@ -648,7 +648,7 @@ Arguments for the diversity of texts within corpora are driven only vaguely by t
 
 Inspecting the selection of genres yields a diversity not covered in many corpora.  Though notably the BNC is quite good at this, covering many brochures and other incidental texts such as unpublished letters or school essays, it hardly represents the amount of times thanks were exchanged for holding a door open, bottles, cans and other labels were read (particularly addresses on mail), or a tax disc was checked.  It would seem that a corpus purporting to cover a large population would be awash with weirder texts, especially as those less academic than the subject here are likely to have relatively higher proportions of them in their corpora.
 
-A particularly compelling argument is made for the inclusion of song lyrics.  These are a large portion of the corpus collected here  ($163,288 words$), and often spawn sayings, memes and linguistic affectations that can last decades in popular culture (\textit{will you do the Fandango?}).  It's also notable that this is one of the easier things to sample and music use by the population is meticulously documented and studied by the industry already (often in publicly available lists).  In the case of music, use of English as a lingua franca would see its influence spread far beyond the bounds of a national corpus (as well as absorbing influences from other national flavours of the language% Gasolina or Shakira's spanish singing?
+A particularly compelling argument is made for the inclusion of song lyrics.  These are a large portion of the corpus collected here  ($163,288$ words), and often spawn sayings, memes and linguistic affectations that can last decades in popular culture (``will you do the Fandango?'').  It's also notable that this is one of the easier things to sample and music use by the population is meticulously documented and studied by the industry already (often in publicly available lists).  In the case of music, use of English as a lingua franca would see its influence spread far beyond the bounds of a national corpus (as well as absorbing influences from other national flavours of the language% Gasolina or Shakira's spanish singing?
 ).
 
 
@@ -731,10 +731,10 @@ These categories have been selected because they are not only missing from the p
 
 Such missing categories include:
 \begin{itemize}
-    \item School work (and thus many essays)
-    \item Anything relating to religion (sermons, religious texts, etc.\ are missing entirely, yet are among the most popular books for the wider population)
-    \item Business-oriented documents (due to status as a PhD student)
-    \item Medical texts
+    \item School work (and thus many essays);
+    \item Anything relating to religion (sermons, religious texts, etc.\ are missing entirely, yet are among the most popular books for the wider population);
+    \item Business-oriented documents (due to status as a PhD student);
+    \item Medical texts;
     \item Many academic subjects' materials.
 \end{itemize}
 
@@ -758,7 +758,7 @@ Such missing categories include:
 The BNC is now ageing, and some changes are expected that likely generalise to enough of the BNC's population to make a significant difference to its representativeness.  Clearly, the personal corpus described here does not rigorously explore these, rather it is a heuristic for how such changes may affect the representativeness of a larger corpus in real-world terms.
 
 
-Since the BNC pre-dates ubiquitous technology such as smartphones (and, largely, the web), it clearly omits what has been shown to be the largest single source of data in the personal corpus.  The severity of this impact is doubtless effected by the extreme technical experience/interests of the subject, who is both relatively young and technically capable, compared to the wider population, however, this trend is widely acknowledged and set to continue.
+Since the BNC pre-dates ubiquitous technology such as smartphones (and, largely, the web), it clearly omits what has been shown to be the largest single source of data in the personal corpus.  The severity of this impact is doubtless effected by the technical experience/interests of the subject, who is both relatively young and technically capable, compared to the wider population, however, this trend is widely acknowledged and set to continue.
 
 Arguable is the extent to which other genres have been co-opted by the web, suggesting that it is being used more as a transmission medium than a conventional genre.  The depth of this analysis is defined by one's purpose, though it is notable that the breakdown of text genres from web sources in the personal corpus extends Lee's `email' category into 8 sub-categories, all of which overlap significantly with those used elsewhere.  This pattern is repeated for the web (the personal corpus' largest source of data), which yields 68 genres with over 5 entries\footnote{I have excluded genres with low counts as these are unlikely to deserve their own category in Lee's classification, though a suitably scaled general purpose corpus is likely to include many.}.
 

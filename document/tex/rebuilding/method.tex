@@ -1,16 +1,16 @@
 In order to test the design outlined in Section~\ref{sec:rebuilding:design}, a software tool was produced.  The role of this tool is to:
 
 \begin{enumerate}
-    \item `Read' a seed corpus to construct a description of its metadata.
-    \item Store this metadata as a description that is transferrable and portable.
+    \item `Read' a seed corpus to construct a description of its metadata;
+    \item Store this metadata as a description that is transferrable and portable;
     \item Replicate the input distribution of metadata by sampling from the web.
 \end{enumerate}
 
 This forms the basis of the `replication', `rescaling' and `distribution' scenarios specified in Section~\ref{sec:rebuilding:rationale:usecases}, as well as covering a superset of the features required for some simpler workflows (such as `repair').  This section details the design and architecture of the solution produced.
 
 
-\subsection{Architecture/overview of iterative algorithm}
-The tool, named `ImputeCaT', is a small collection of command-line tools written using the Ruby programming language\footnote{\url{https://www.ruby-lang.org/en/}}. It is structured around two main executables: the former of these is called the Corpus ProfileR (hereafter `cpr'), and is responsible to reading a corpus, extracting its metadata, and serialising the resultant distribution to disk.  The latter reads, resamples, and attempts to retreive documents matching an existing corpus---as it is seeking a gold standard, it is named the Golden [standard] Retriever (or simply `gr').
+\subsection{Architecture}
+The tool, named `ImputeCaT', is a small collection of command-line tools written using the Ruby programming language\footnote{\url{https://www.ruby-lang.org/en/}}. It is structured around two main executables: the former of these is called the Corpus ProfileR (hereafter `cpr'), and is responsible to reading a corpus, extracting its metadata, and serialising the resultant distribution to disk.  The latter reads, resamples, and attempts to retreive documents matching an existing corpus profile---as it is seeking a gold standard, it is named the Golden Retriever (or simply `gr').
 
 The separation of the tools at that stage offers many advantages: firstly the serialised corpus distribution acts as a file format, allowing a corpus to be passed between users, and secondly it offers a `DMZ' approach to information security: there is no mechanism for any (potentially sensitive or confidential) information from the original corpus to be used by the retrieval tool, except that which has been explicitly extracted.  Finally, this approach permits easy parallel execution of tools using a corpus description for read-only tasks.
 
@@ -44,15 +44,15 @@ The corpus description process is structured around gradually adding to a `corpu
 
 The distributions used for each metadata type are arbitrary, and may be controlled in a similar manner to priors in Bayesian inference in order to relax or modify the results.  Currently two systems for estimating the empirical distribution of data exist: the simpler of these represents discrete data by simply storing frequencies for each value observed.  A continuous form of this represents  distribution as a sum of Gaussian kernels---this is designed to disperse the observations and provide a more meaningful overview of the input data.  These distributions are specified in the profile document provided to `cpr'.
 
-Each distribution object supports sampling at a given value $x$, returning $P[x | \text{seed corpus data}]$, and a random function that returns a random number following the distribution in question.  The discrete distribution implementation uses roulette sampling to implement this, and the smoothed continuous distribution identifies at random one of the contributing Gaussian function then samples from it using the Box-Muller transform~\cite{box1958}.
+Each distribution object supports sampling at a given value $x$, returning $P[x | \text{seed corpus data}]$, and a \texttt{random} function that returns a random number following the distribution in question.  The discrete distribution implementation uses roulette sampling to implement this, and the smoothed continuous distribution identifies at random one of the contributing Gaussian function then samples from it using the Box-Muller transform~\cite{box1958}.
 
-The process of reading a corpus to describe it is one of loading document metadata from files.  As illustrated in Figure~\ref{fig:rebuilding:loading-block}, the values of metadata may be loaded from a corpus in (almost) any format, or from a manual description of the metadata required.  In addition to the metadata field values for each document, a mapping from field names to metadata distributions is required, in order to define how each item of data is to be stored and manipulated.
+The process of reading a corpus to describe it is one of loading document metadata from files.  As illustrated in Figure~\ref{fig:rebuilding:loading-block}, the values of metadata may be loaded from a corpus in CSV format, or from a manual description of the metadata required.  In addition to the metadata field values for each document, a mapping from CSV field names to metadata distributions is required, in order to define how each item of data is to be stored and manipulated.
 
 It is possible at this stage to select distributions that artificially manipulate the metadata of a corpus, allowing users to `filter' or skew an existing corpus without manually editing each file prior to insertion.  This could be used to produce stochastic subcorpora, where the probability of undesirable documents is not eliminated but merely reduced, in effect rebalancing the corpus on-the-fly.  This is akin to two-phase stratified sampling\td{ensure covered in lit review}, yet offers possibilities beyond simple weighting of each input document.
 
 The selection of distributions is performed using the profile file, in a human-readable format.  This section of the profile currently maps CSV field names to instances of the distribution objects in question, as shown in Listing~\ref{lst:rebuilding:profile-lst}.  The parameter passed to the SmoothedGaussianDistribution constructor defines the standard deviation of the Gaussian distributions used, causing slight variation in sampling around each point.
 
-\begin{lstlisting}[language=Ruby,caption={Field mappings in the BNC World corpus profile.},label=lst:rebuilding:profile-lst]
+\begin{lstlisting}[language=Ruby,caption={Field mappings in the BNC corpus profile.},label=lst:rebuilding:profile-lst]
 PROFILE = {
 
   # ...
@@ -73,7 +73,7 @@ As features are extracted from the seed corpus, they are assembled into a single
 
 It is possible to design a corpus that has no documents, and is simply a description of desired marginal distributions, however, this approach will limit the power of the rest of the system as it is unable to model any interactions between metadata types.  For certain selections of metadata types, this may not be a strong assumption, however, many of the metadata types that can be extracted from existing corpora are designed to be useful to human analysts and are thus non-orthogonal.
 
-It is also possible to import a corpus from text only, by running classifiers and heuristics to extract important metadata during the import.  This method requires access to the full text of the input corpus, but has the benefit of making any errors symmetric with those of the rejection sampling phase of the retrieval tool.
+It is also possible to import a corpus from text only, by running classifiers and heuristics to extract important metadata during the import.  This method requires access to the full text of the input corpus, but has the effect of making any errors symmetric with those of the rejection sampling phase of the retrieval tool.
 
 
 \subsubsection{Resampling}
@@ -96,10 +96,10 @@ ImputeCaT implements three different resampling algorithms:
 
     \item[Conditional] The full conditional sampler selects a metadata dimension at random, selects a value from its distribution, and then produces a sub-corpus conditioned on this value.  This process is repeated until no dimensions remain, at which point the metadata values used are returned (as shown in Listing~\ref{lst:rebuilding:condsampler}).  Since a sub-corpus must be constructed at each iteration (in order to rebuild the remaining variables' marginal distributions), this process is possible only on corpora with knowledge of individual documents.
     
-    \item[Partial Conditional] This sampler follows the same basic `selection and conditioning' iteration as the full conditional sampler, yet stops after a set number of iterations.  It behaves in a manner similar to that of a blocked Gibbs' sampler, producing documents that converge to a similar distribution to the input yet with greater dispersion.
+    \item[Partial Conditional] This sampler follows the same basic `selection and conditioning' iteration as the full conditional sampler, yet stops after a set number of iterations.  It behaves in a manner similar to that of a blocked Gibbs sampler, producing documents that converge to a similar distribution to the input yet with greater dispersion.
 \end{itemizeTitle}
 
-Due to smoothing applied to continuous distributions in a corpus, it is possible to sample at random a value that will return no documents for the conditioning phase of either conditional resampling mechanism: the solution to this is to provide a window width to the method, in which all documents will be selected, effectively providing a reverse function for the smoothing method.  Since the standard deviation of each Gaussian kernel making up the smoothed distribution is known, the window size can be set in such a way to guarantee a given probability of selection, for example, a value of $1.645 \times \sigma$ would result in a 95\% chance of selecting at least one document.  Such effects are more likely the more input distributions are artificially processed for editorial reasons.  Note that this method is a compromise to make sampling tractable: actual Gaussian kernels extend to $x \pm \infty$, meaning we would need to consider every point in the distribution.
+Due to smoothing applied to continuous distributions in a corpus, it is possible to sample at random a value that will return no documents for the conditioning phase of either conditional resampling mechanism: the solution to this is to provide a window width to the method, in which all documents will be selected, effectively providing a reverse function for the smoothing method.  Since the standard deviation of each Gaussian kernel making up the smoothed distribution is known, the window size can be set in such a way to guarantee a given probability of selection, for example, a value of $1.645\sigma$ would result in a 95\% chance of selecting at least one document.  Such effects are more likely the more input distributions are artificially processed for editorial reasons.  Note that this method is a compromise to make sampling tractable: actual Gaussian kernels extend to $x \pm \infty$, meaning we would need to consider every point in the distribution.
 
 The `gr' tool uses the full conditional sampler exclusively: this provides the most accurate documents under the assumption that the `seed' corpus is already fairly complete.
 
@@ -114,10 +114,10 @@ After loading the corpus description and profile from disk, the process of itera
 The process of rebuilding a corpus is one of iterating the algorithm below until the size requirements are met:
 
 \begin{enumerate}
-    \item Sample a document from the seed corpus, known as the `prototype'.
-    \item Using a set of pre-defined search methods, select a set of candidate documents that is a superset of the prototype.
-    \item Impute missing metadata values using context from the search system and document contents using a series of feature extractors.
-    \item Identify and select the best candidate document by minimising distance in vector space.
+    \item Sample a document from the seed corpus, known as the `prototype';
+    \item Using a set of pre-defined search methods, select a set of candidate documents that is a superset of the prototype;
+    \item Impute missing metadata values using context from the search system and document contents using a series of feature extractors;
+    \item Identify and select the best candidate document by minimising distance in vector space (rejection sampling).
 \end{enumerate}
 
 The approach of scoring each candidate document after retrieval is arguably unnecessary if other retrieval methods are used: for example, manually selecting documents could prove so accurate for some metadata types that it need not be verified automatically (though some annotator agreement measures may result in a similar process to the above).
@@ -131,7 +131,7 @@ Output is in the form of plaintext, along with stand-off documentation providing
 \subsubsection{Search Methods}
 Methods used for searching are implemented as pluggable objects that accept a document to search for (and the names of any metadata field types they respect) and follow some procedure for retrieving candidate documents.
 
-Search methods need not retrieve documents by searching for all metadata fields (though ideal, this is essentially not possible online or anywhere else), however, they should maximise variation in dimensions which they do not deliberately target in order to increase the coverage over the search space.  Use of multiple overlapping search strategies in construction of each candidate set ensures that each dimension of metadata is given an equal chance of being selected correctly.
+Search methods need not retrieve documents by searching for all metadata fields (though ideal, this is essentially not possible online), however, they should maximise variation in dimensions which they do not deliberately target in order to increase the coverage over the search space.  Use of multiple overlapping search strategies in construction of each candidate set ensures that each dimension of metadata is given an equal chance of being selected correctly.
 
 It is desirable that these search methods cover as much of the possible search space as possible, such that they do not apply the bias illustrated in Figure~\ref{fig:rebuilding:population-bias}.  Nonetheless, selection of different search methods and heuristics will apply a set of assumptions that must ideally be aligned with the use of the resultant corpus: this is no different to any other corpus construction effort, except that this design explicitly enumerates and codifies this stage.  In the ideal case users will be able to select from a library of methods, each based upon empirically-validated theories---application of these would be able to adjust a corpus from one designer's set of assumptions to another, in order to ensure that it best fits a given use.
 
@@ -143,7 +143,7 @@ A web spidering system, Mechanize~\footnote{\url{http://wwwsearch.sourceforge.ne
 \paragraph{i. Search}
 Through the use of the Azure web services API~\footnote{\url{https://azure.microsoft.com/en-us/}} the Bing search engine can be used to retrieve URLs.  These may then be retrieved directly, or used as the starting point for a spider (see `Hybrid' below).
 
-The Bing search engine allows for multiple search parameters, including language, selection by top level domain, and filtering using a number of heuristics to identify text types (for example, searching for the format of email headers).  These techniques allow for sophisticated lookup of genres, though offer little control over some other features such as document length, which are typically of less interest to the average web user.  Nonetheless, for metadata which is searchable, the method of seeking a prototype offers a way to cut through the distortion applied by the search algorithms\footnote{Though this method is still subject to bias in their spidering algorithms.}.
+The Bing search engine allows for multiple search parameters, including language, selection by top level domain, and filtering using a number of heuristics to identify text types (for example, searching for the format of email headers).  These techniques allow for lookup of genres, though offer little control over some other features such as document length, which are typically of less interest to the average web user.  Nonetheless, for metadata which is searchable, the method of seeking a prototype offers a way to cut through the distortion applied by the search algorithms\footnote{Though this method is still subject to bias in their spidering algorithms.}.
 
 The search mechanism in `gr' operates by detecting languages from metadata, searching the appropriate `market', and uses a series of pre-computed keyword lists to find matching genres.
 
@@ -163,7 +163,9 @@ The hybrid approach uses a search term or directory entry as a set of seed URLs 
 
 The most na\"ive implementation, implemented here, simply spiders a certain depth from each search URL\@.  It is also possible to select URLs to follow based on the prototype's values, either to seek a document directly or to maximise variation across non-controlled-for dimensions.
 
-In his examination of different sources of URLs, Barbaresi identifies a lack of diversity in search engine results relative to sources such as DMOZ~\cite[p.~5]{barbaresi2014finding}, whilst also noting that such directories underperform when applied to certain languages.  The prototype-seeking behaviour detailed here has the benefit of being able to switch between such approaches depending on language, maximising coverage for a given URL source.
+In his examination of different sources of URLs, Barbaresi identifies a lack of diversity in search engine results relative to sources such as DMOZ~\cite{barbaresi2014finding}%
+% p. 5
+, whilst also noting that such directories underperform when applied to certain languages.  The prototype-seeking behaviour detailed here has the benefit of being able to switch between such approaches depending on language, maximising coverage for a given URL source.
 
 
 
@@ -178,7 +180,7 @@ Each relevant document in the fringe may also be used as the starting point for 
 After download, candidate documents must be converted to plaintext.  Processing modules are chainable, meaning that it is possible for each search method to construct a standard pipeline to normalise any contextual information and perform tasks such as boilerplate removal prior to document ranking and imputation using the heuristics.
 
 \paragraph{i. Boilerplate Removal}
-Boilerplate removal is performed by justext~\footnote{\url{http://code.google.com/p/justext/}}.  Though currently this uses the bundled English stoplist, it would be possible to use the document context language attribute to automatically select a stoplist depending upon the input document.
+Boilerplate removal is performed by JusText~\cite{pomikalek2013justext}.  Though currently this uses the bundled English stoplist, it would be possible to use the document context language attribute to automatically select a stoplist depending upon the input document.
 
 
 
@@ -202,10 +204,10 @@ The genre heuristic in this implementation uses keyword data to classify texts b
 
 Rather than simply assuming the taxonomy used elsewhere, it would be possible to represent genre arbitrarily, either as a set of entropy measures against certain features, or in a manner more fitting of the source data.  This approach is valuable where the source documents are less well defined, or where particular control is needed over the composition of a corpus (such as frequency profiles for certain words).
 
-One particular use of this approach would be the modelling of under-resourced languages using bottom-up detection of features, as in \cite{sharoff2007classifying}.  As with all such approaches, however, the reliance on automatic feature detection strips away a large portion of the utility of genre definitions, in that they are often less easily understood by humans.  
+One particular use of this approach would be the modelling of under-resourced languages using bottom-up detection of features, as in Sharoff's 2007 study\cite{sharoff2007classifying}.  As with all such approaches, however, the reliance on automatic feature detection strips away a large portion of the utility of genre definitions, in that they are often less easily understood by humans.  
 
 
-There is some argument for this approach, however, when compared to the often context-based labels applied to the BNC\@.  The classifier in ImputeCaT is tasked with accurate identification of classes that are not particularly easy to separate by linguistic features.  One possible reason for this is their tendency to conflate topic with form: \variable{W\_email} and \variable{W\_hansard} are largely stylistic differentiations compared to \variable{W\_religion} and \variable{W\_ac\_medicine}.  The resultant classifier, following a multinomial Na\"ive Bayes approach~\ref{mccallum1998comparison}, is described in more detail in Chapter~\ref{sec:evaluation}.
+There is some argument for this approach, however, when compared to the often context-based labels applied to the BNC\@.  The classifier in ImputeCaT is tasked with accurate identification of classes that are not particularly easy to separate by linguistic features.  One possible reason for this is their tendency to conflate topic with form: \variable{W\_email} and \variable{W\_hansard} are largely stylistic differentiations compared to \variable{W\_religion} and \variable{W\_ac\_medicine}.  The resultant classifier, following a multinomial na\"ive Bayes approach~\cite{mccallum1998comparison}, is described in more detail in Chapter~\ref{sec:evaluation}.
 
 
 The difficulty with which genre is classified makes a case for careful selection of metadata, and illustrates a compromise: often, the most operationalisable and useful metadata selection will not be easily understood by computers, and yet more synthetic features extracted from texts are often difficult to seek in an online environment that is designed specifically for human use.
@@ -235,7 +237,7 @@ The difficulty with which genre is classified makes a case for careful selection
 % -  ---: 914  items, mean = 82.02288020623476, sd = 20.6424573733852,   var = 426.111046412025
 
 
-Reading ease metrics are used to estimate the `Audience Level' classification provided by Lee.  This takes the form of the Flesch readability ease score~\cite{flesch1948new}, quantised through selection of the `nearest target value as in Table~\ref{tab:rebuilding:method:fscore}.
+Reading ease metrics are used to estimate the `Audience Level' classification provided by Lee.  This takes the form of the Flesch reading ease score~\cite{flesch1948new}, quantised through selection of the nearest target value as in Table~\ref{tab:rebuilding:method:fscore}.
 
 Distance is normalised on this score by dividing the distance between classifications by the maximum distance possible between all classifications.  The score is thus output in terms of distance between categories: comparison of any `low' score to any `high' one will be equal regardless of the degree to which the original value is low or high.
 
@@ -245,7 +247,7 @@ Note that this categorisation is a design choice on behalf of the corpus builder
 \paragraph{iii. Word Count}
 Words are counted by simply splitting the plaintext string on whitespace, and counting the parts.
 
-Whilst this imputation algorithm is trivial, normalising the distance metric is not: the normalised distance between words score is provided by artificially imposing an upper bound (beyond which the distance is simply registered as $1$).
+Whilst this imputation algorithm is trivial, normalising the distance metric is not: the normalised distance between words score is provided by artificially imposing an upper bound beyond which the distance is simply registered as $1$.
 
 
 
@@ -262,11 +264,11 @@ The error surface is, in reality, as intricate as the original distribution of d
 
 \begin{itemizeTitle}
 
-    \item[Mean Error] This is simply a sum of all errors for each metadata item, and provides a coarse-grained measurement of the overall bias for a given dimension.  This measure is analogous to measuring the area under the difference between marginal distributions of the input and output distributions for a given metadata dimension.
+    \item[Mean Error] This is simply the mean of all errors for each metadata item, and provides a coarse-grained measurement of the overall bias for a given dimension.  This measure is analogous to measuring the area under the difference between marginal distributions of the input and output distributions for a given metadata dimension.
 
     \item[Mean Squared Error] A sum of the squares of differences between each document and its prototype, this provides a dispersion measure that does not include direction.  This measure is commonly used to assess the quality of sampling, however, may not adequately represent the difficulties of sampling data online.
 
-    \item[Uniformality of Residuals] Correlation between prototype and document metadata values evidences the responsiveness of search methods, and is testable using Mann-Whitney's U test.  Alternatively, the error surface for each dimension may be tested for uniformality.\td{formalise}
+    \item[Uniformality of Residuals] Correlation between prototype and document metadata values evidences the responsiveness of search methods, and is testable using Mann-Whitney's U.%  Alternatively, the error surface for each dimension may be tested for uniformality.\td{formalise}
 
 \end{itemizeTitle}
 

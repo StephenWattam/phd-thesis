@@ -5,19 +5,19 @@ Corpus building methods are largely based on sampling methods from the social sc
 These decisions largely affect the suitability of a corpus for different forms of analysis, and the frameworks they are based on may be used to motivate design of the sampling process itself.
 Re-examining the original principles of sample selection allows us to use some of the formalisms developed elsewhere to inform judgements on the properties of linguistic samples.
 
-The goal of any sample is to present a scaled-down population, containing individuals that represent all variation within the population.  Before discussing the implication of various approaches, it's therefore important to draw a distinction between variables which are controlled by an experimenter (independent) and those that remain free to vary (dependent).
+The goal of any sample is to present a scaled-down set, containing individuals that represent all variation within the population.  Before discussing the implication of various approaches, it's therefore important to draw a distinction between variables which are controlled by an experimenter (independent) and those that remain free to vary (dependent).
 
 This distinction has a large impact on sample design, as it is impossible to draw conclusions about the population by inspecting independent variables.  Further, the selection of documents according to these controls often leads to systematic bias in dependent variables.  In order to come to conclusions about representativeness and sample quality, it is thus necessary to identify these variables ahead of time.
 % It is this that leads me to stress the importance of corpus documentation
 
-In the case of sampling documents, I will be presuming that users of corpora are primarily interested in inspecting `internal' text features, which are described in terms of `external' document metadata.  This guiding principle mirrors the metadata/data dichotomy seen in corpus tools, and should be uncontroversial\footnote{Note that many definitions of genre, text type, etc.\ make this circular, as they are defined by document content.}.  In this thesis, I will often label variables as internal or external based on these criteria, with the implication that external variables are independent.
+In the case of sampling documents, I will be presuming that users of corpora are primarily interested in inspecting `internal' text features, which are described in terms of `external' document metadata.  This guiding principle mirrors the metadata/data dichotomy seen in corpus tools, and should be uncontroversial\footnote{Note that many definitions of genre, text type, etc.\ make this circular, as they are defined by document content.}.  In this thesis, I will often label variables as internal or external based on these criteria, with the implication that external variables are independent, and vice-versa.
 
 The ideal sampling scheme for a given population and selection of variables, then, contains variables as controlled specifically for the research question about which one wishes to infer, and maximises coverage of internal document content (and uncontrolled-for metadata values).
 
 Taking this principle to extremes yields the maximally-representative census sample: 100\% of the population of interest.  At this point, any inference is mere observation, and the only potential pitfalls are ones related to whether or not the question itself is worth asking, rather than the validity of its answer.  A census still contains theory-laden assertions, however, in the form of its population definition.
 
 
-At the high level, samples may be classified into two main groups: \textsl{probability}, and \textsl{nonprobability} samples.  The former of these has a sampling frame defined by random selection, and the latter is primarily guided by a systematic or subjective choice.
+At the high level, samples may be classified into two main groups: \textsl{nonprobability}, and \textsl{probability} samples.  The former of these is primarily guided by a systematic or subjective choice, and the latter has a sampling frame defined by random selection.
 
 % For statistical analysis, probability sampling is necessary, with the simplest case being simple random sampling (SRS).  In practice such a thing is seldom possible, and methods such as weighting and stratification may be used.
 \subsection{Nonprobability Sampling}
@@ -30,8 +30,7 @@ Three main forms of nonprobability sampling are identified by Barnett~\cite{barn
 \subsubsection{Availability Sampling}
 Also known as convenience sampling, this approach simply takes the most readily available data points.
 
-This method has been widely used in the social sciences, with experimenters often using students from their affiliated institutions.
-(an approach used for some very famous studies).
+This method has been widely used in the social sciences, with experimenters often using students from their affiliated institutions (an approach used for some very famous studies).
 
 Convenience sampling is rightly regarded as extremely unrepresentative of wider populations, particularly in fields (such as psychology) where there are a great number of covariates.  If corpus linguists were to work with data sampled as conveniently as those in the Stanford prison experiment\footnote{``The participants were respondents to a newspaper advertisement, which asked for male volunteers to participate in a psychological study of ‘prison life’ in return for payment of \$15 per day.''}~\cite{zimbardo1971stanford}, they would merely be reading books from their own bookshelves.
 
@@ -50,12 +49,13 @@ This approach is primarily effective against well-known sources of bias, and the
 
 The main difficulty is in avoiding previously-unknown correlations between the theoretical selection criteria and the study variables.  As selection criteria are based on domain knowledge, and heavily theory-laden, it is often difficult to anticipate their interactions with other variables of interest.  As theories improve over time, this may also to lead to the effect of samples being considered more biased as knowledge of an area improves, gradually reducing the perceived validity of any results.
 
-Criteria for selection generally accomplish differing goals, and will suit varying goals of study~\cite{advice2000study} (for example, some of these may be very useful for exploring rare features):
+Criteria for selection generally accomplish differing goals, and will suit varying study aims~\cite{advice2000study} (for example, some of these may be very useful for exploring rare features):
 
 \begin{itemizeTitle}
     \item[Heterogeneous] An attempt to cover as much of the population as possible, by selecting data points that are unlike ones already in the sample.
     \item[Homogenous] Data points are selected to be as similar as possible according to given variables.  This is suited to in-depth qualitative analysis, being somewhat analogous to merely controlling for more variables (i.e.\ reducing the population).
-    \item[Typical Case] Data points are selected according to a theoretical/rational idea of typicality.  This is distinct from statistical representativeness (which relies on the central limit theorem).
+    \item[Typical Case] Data points are selected according to a theoretical/rational idea of typicality.
+        %This is distinct from statistical representativeness (which relies on the central limit theorem).
     \item[Extreme Case] Only those data points regarded as atypical are sampled.  May be used to explore reasons for atypicality.
     \item[Critical Case] Data points are selected based on previous theories, such that they explain certain hypotheses.
     \item[Total Population] An entire sub-population is sampled, due to its ease of access (for example, all members of an organisation, or all publications by a certain author).  If no other items are sampled, this merely becomes a census with a very tight population.
@@ -64,7 +64,7 @@ Criteria for selection generally accomplish differing goals, and will suit varyi
 
 From a corpus construction perspective, where the sampling body is often distinct from the analyst, the complexity of sample inclusion criteria brings with it the need for extensive documentation: without awareness of the expert's choices, it becomes very difficult to defend any use of the sample.  Due to the nuanced nature of their validity, purposive samples are valid only for qualitative analyses, where interactions with the study design are able to be rationalised and explained in context.
 
-This is especially the case where a study's purposive design is borrowed for use in other contexts: for example, the Brown corpus explicitly states its aim to represent ``standard'' English, yet its sample design has been widely copied~\cite{hundt1999manual,shastri1988kolhapur,mcenery2004lancaster}.
+This is especially the case where a study's purposive design is borrowed for use in other contexts: for example, the Brown corpus explicitly states its aim to represent `standard' English, yet its sample design has been widely copied~\cite{hundt1999manual,shastri1988kolhapur,mcenery2004lancaster}.
 
 In fields which lack a cohesive, quantitative model of their population, it is often necessary to start from an expert-defined base.  Ideally, information from this sample may then yield methodological improvements, and, eventually, an unbiased mechanism for retrieving a statistically representative sample.
 % cite: http://dissertation.laerd.com/purposive-sampling.php
@@ -101,7 +101,7 @@ Random selection of data points provides both a mechanism for unbiased estimatio
 Random sampling methods identified by Lohr, Barnett, and Teddlie include~\cite{lohr2009sampling,barnett1991sample,Teddlie01012007}: \textsl{simple random sampling}, \textsl{stratified sampling}, and \textsl{multi-stage sampling}.
 
 \subsubsection{Simple Random Sampling}
-This approach selects members of a population entirely at random.  Each member of the population has a probability of selection that is simply $sample~size/population~size$.
+This approach selects members of a population entirely at random.  Each member of the population has a probability of selection that is simply $\frac{sample~size}{population~size}$.
 
 SRS is free of any errors that stem from classification, reducing the importance of potentially circular genre definitions and taxonomies.
 
@@ -109,7 +109,7 @@ The main disadvantage is that it requires a complete sampling frame: that is, al
 
 Though corpora often contain randomly sampled portions, for example, where data is enumerated by a publisher's list or online directory, the lack of a central authoritative index that covers the whole population is usually an impediment to retrieval of a truly representative sample.  Essentially, simple random sampling is unsuitable for larger samples in linguistics due to this limitation.
 
-Once a corpus has been constructed, it is often possible to use SRS in subsampling approaches.  Its unbiased properties also make it useful in bootstrapping, allowing methods to use the full distributional information contained within the corpus.  These techniques serve to avoid introduction of further bias, but don't sidestep any representativeness issues with the original corpus.
+Once a corpus has been constructed, it is often possible to use SRS in subsampling approaches.  Its unbiased properties also make it useful in bootstrapping, allowing methods to use the full distributional information contained within the corpus\cite{gries2006exploring}.  These techniques serve to avoid introduction of further bias, but don't sidestep any representativeness issues with the original corpus.
 
 \til{examples from CL?}
 
@@ -118,13 +118,11 @@ Stratification is the process of breaking a random sample into a set of bins, wi
 
 This method ensures that at least one individual is selected from each stratum: something that may be used to improve representation for populations with highly heterogeneous distributions.  This adjustment can be tweaked to allow comparison of low-incidence and high-incidence effects by deliberately increasing the proportion of the population sampled for infrequent strata (for example, selecting more people from areas with low population density).
 
-Stratum selection should be along real-world subpopulation boundaries, and is usually selected in order to maximise representativeness (by ensuring that strata are sized according to the population) or statistical power (by ensuring that strata are sized according to the amount of variance in the population).
+Stratum selection should be along real-world subpopulation boundaries, and is usually selected in order to maximise representativeness (by ensuring that strata are sized according to the population) or statistical power (by ensuring that strata are sized according to the amount of variance in the strata).
 
 All stratification requires the ability to exhaustively separate the population into mutually exclusive categories, and sample from these categories in a random manner.  Both of these are a challenge in corpus linguistics, as removing the first level of `no indexing' often leads to another.  Nonetheless, where information silos exist (such as in academic publishing) then this approach is particularly suited.
 
 Where auxiliary data exists, statistical benchmarking may be performed by adjusting sample weights according to the proportions seen in this data.  This may be applied after sampling itself (otherwise said auxiliary data is simply used to determine the initial strata sizes), and so is often referred to as `post-stratification'.  This approach is applicable where ordinary stratification is impossible, for example, where the variables on which to stratify are unknowable at the time of sampling.
-
-\til{examples from CL?}
 
 
 \subsubsection{Multi-stage Sampling}
@@ -147,9 +145,7 @@ Stratified sampling is arguably simpler, in that it allows for testing and defin
 
 
 \subsection{Sample Size Estimation}
-Questions of sample size are primarily based on presumptions of randomness, and power analysis requires the specification of a study design in order to formally establish limits.
-
-Any hypothesis test is defined by four parameters~\cite{ellis2010essential}:
+Quantitative sample size estimation is largely based on ensuring that a given hypothesis test can detect an effect of interest.  This varies according to a number of parameters, including the type of test used.  Any hypothesis test is defined by four parameters~\cite{ellis2010essential}:
 
 \begin{itemizeTitle}
     \item[Probability of Type I Error ($\alpha$)] The probability of rejecting the null hypothesis when no effect exists in the population.  Forms the threshold for the oft-quoted `p-value'.
@@ -158,13 +154,13 @@ Any hypothesis test is defined by four parameters~\cite{ellis2010essential}:
     \item[Sample Size ($n$)] The number of individual units in the sample that are free to vary.
 \end{itemizeTitle}
 
-Sample size must be estimated with knowledge of the power of the test to be done, and of the population distribution:
+Sample size must be estimated with knowledge of the power of the test to be done, and of the population distribution.  A simple binomial test may have its sample size estimated thus:
 
 $$
 n = \frac{Z^2p(1-p)}{d^2}
 $$
 
-Where $Z$ is selected according to the area under the population distribution according to $\alpha$, and $p$ is the parameter value within the population (often estimated as $\hat{p}$).  This implies that a reduction in any effect size we wish to detect increases the required sample size (and vice versa), as do increases in the confidence we wish to reject $H_0$ at.  This general trend applies to all sample types above.
+Where $Z$ is selected according to the area under the population distribution according to $\alpha$, and $p$ is the parameter value within the population (often estimated as $\hat{p}$).  This implies that a reduction in any effect size we wish to detect increases the required sample size (and vice versa), as do increases in the confidence at which we seek to reject $H_0$ at.  This general trend applies to all sample types above.
 
 In addition to sample size, the power of a test is also affected by the method used to perform the hypothesis test.  Tests which are excessively conservative further increase the probability of missing an effect, lowering power, as does violation of assumptions upon which parameter estimates are based.
 
@@ -182,7 +178,7 @@ Saturation-based measures offer a less-formal mechanism for assessing the adequa
 
 
 \subsection{Sample Design}
-The design of a sample can be broken into a number of stages, each of which informs the next.  As we have seen, many of these require theoretical justification or analysis based on the final study design.
+The design of a sample can be broken into a number of stages, each of which informs the next.  As we have seen, many of these require theoretical justification or analysis based on the final study design.  This forms the framework used elsewhere in the thesis as an ideal case.
 
 \til{This isn't cited because it's novel --- I consider it a summary.    }
 % http://blog.reseapro.com/2012/11/sample-designing-steps/
@@ -201,7 +197,7 @@ Dependent and independent variables should be specified unambiguously, and any r
 \subsubsection{Population Definition}
 The bounds of the sampling frame must be defined in terms of the variables to be sampled, such that any retrieval efforts can unambiguously use these.  A population definition is, in effect, definition of an independent variable which is controlled prior to sampling, and as such its relationship to dependent variables and to the original research question is similar to that of any other variable.
 
-\subsubsection{Sample Design}
+\subsubsection{Sample Policy}
 The manner of sample must be decided based on practical issues, and on the various properties specified above.
 
 \subsubsection{Sample Size}
@@ -211,7 +207,7 @@ Depending on the design and analysis method proposed, this may take the form of 
 The existence of previous studies, literature, and datasets may guide all of the above stages, and the progression from expert-opinion-based sampling to a more quantitative understanding of population variance is made possible by iterating the above: something that happens naturally as a field progresses.
 
 It is notable that traditional general-purpose corpus construction efforts are largely unable to specify research questions ahead of time as they are necessarily retrieving data prior to the study even being conceived.  It is also the case that most studies include a significant qualitative component, in interpreting the output of quantitative models or in the form of direct reading~\cite{rayson2008keysem}.
-It seems likely that these properties pose the biggest challenge to the classic question ``how large should a corpus be'', which requires more rigorous specification of these.
+It seems likely that these properties pose the biggest challenge to the classic question ``how large should a corpus be?'', which requires more rigorous specification of these.
 
 
 
@@ -240,21 +236,19 @@ This section identifies potential issues with corpus sampling methods.  The majo
 
 
 \subsubsection{Distributional Issues}
-This category largely describes the manner in which certain important covariates are selected for sampling, or sampled.  Language contains an unknown (but undoubtedly very large) number of possible dimensions to study and compare, and selection of features to describe variation across texts is far from simple.
-
-Such covariates may be listed as external metadata (author age, genre) or for linguistic features (prepositions, wh-relative passives).  Both suffer from a lack of knowledge regarding their true variablility.
+This category largely describes the manner in which certain important covariates are selected for sampling, or sampled.  Language contains an unknown (but undoubtedly very large) number of possible dimensions to study and compare, and selection of features to describe variation across texts is far from simple.  Such covariates may be listed as external metadata (author age, genre) or for linguistic features (prepositions, wh-relative passives).
 
 Atkins et al.~\cite{atkins1992corpus} provide a series of recommendations for covariate selection, which has been used to guide this discussion.
 
 The population for whom a corpus describes language use is relatively difficult to describe, as it is largely a self-referential problem.
 
-Seemingly, one reason why corpora are not specifically targeted is because their selection processes rely on lists that are compiled using data for which it is difficult to determine comparable bounds.  The BNC's policy for selecting written materials, for example, is segmented into the following sources:
+Seemingly, one reason why corpora are not demographically representative is because their selection processes rely on lists that are compiled using data for which it is difficult to determine comparable bounds.  The BNC's policy for selecting written materials, for example, is segmented into the following sources:
 
 % \til{Insert more detailed overview, more critical analysis thereon}
 \begin{itemize}
- \item books, selected from bestsellers, literary prices, library loans, additional texts;
- \item periodicals and magazines (including newspapers);
- \item other media (essays, speeches, letters, internal memoranda).
+ \item Books, selected from bestsellers, literary prices, library loans, additional texts;
+ \item Periodicals and magazines (including newspapers);
+ \item Other media (essays, speeches, letters, internal memoranda).
 \end{itemize}
 
 Of the lists used in the books category, they specify the following criteria~\cite[p. 9]{burnard1995users}:
@@ -267,15 +261,13 @@ It is often difficult, using other sources of data, to establish the details of 
 % Indeed, it seems likely that these bounds are likely to vary according to which type of text is sampled, but this is a relatively minor issue which would complicate use of the corpus).
 These issues are typically better addressed by more specialist corpora, which are subject to easier-to-determine bounds such as social role, context or text type~\cite{kucera2002czech,przepiorkowski2008towards,kyto1993manual}.
 
-Note that the problem of specifying a population is quite apart from that of determining what proportion of each stratum should be included in a corpus.  The relative proportions of each of the above categories (as well as the problem of selecting proportionally from each list) are a problem of the validity of the inference made from a corpus, i.e.\ internal consistency.  Use of a corpus to evidence truths about a given population, where this is either unknown or different, leads to internally consistent, but externally irrelevant conclusions.
-
 Ambiguity in population definition has a number of direct influences on other issues of corpus validity. Selection of stratum sizes, for example, must be based on the relative proportions of language used by the given population.  If a population is defined using purely internal (linguistic) properties, this becomes a reflexive and circular task---we end up selecting proportions of language to match proportions seen in language.  Use of auxiliary data to augment sampling policies (such as social demographics taken from other, large-scale surveys) must also be matched to the population in question.
 
 Where selection of genres is defined by linguistic content, it is necessary to ensure that the frequencies used do not have systematic correlations with features being studied.  This is impossible to automate, and must be assumed based on experience and theoretical reasoning.
 
 %-- 
 
-Speech corpora are often specified in a significantly less ambiguous manner (though not always with more proportional sampling). This seems to be due to the direct nature of speech sampling, which involves the person actually performing an utterance (rather than the language use itself being a persistent and concrete artefact).  Essentially, this is nothing more than a paradigm shift: there is functionally no difference in sampling a work that is synchronously `performed' and received to one asynchronously.
+Speech corpora are often specified in a significantly less ambiguous manner (though not always with more proportional sampling). This seems to be due to the direct nature of speech sampling, which involves the person actually performing an utterance (rather than the language use itself being a persistent and concrete artefact).
 
 This difference is identified by Leech~\cite{leech2006new}, and will be inspected in greater detail below, as it is a potential major source of disagreement between construction and use. % [section about production/consumption]\td{comment more}
 
@@ -286,11 +278,11 @@ Efforts such as EAGLES~\cite{EagTcwgCtypeaglespreliminary} identified this issue
 
 This manifests in two ways. The former being the problem of selecting texts according to external variables about which we may wish to infer findings, such as level of education of the author, nationality, target audience of text, etc.  Many of these factors are imposed by existing structures and systems of classification which were developed for some other use (e.g.\ search engines, library lists).  The latter of these issues is selection and stratification according to externally-imposed, but textual features such as genre, text type, medium, etc.  These two issues are likely to overlap somewhat: those distinctions useful for one research question may prove ambiguous for another.
 
-A secondary, yet related, issue is that of metadata completeness: often, texts are sourced from very different places, and come with differing levels of metadata.  Normalising and homogenising these metadata is particularly challenging, and may include a loss of resolution for many texts.
+A secondary, yet related, issue is that of metadata completeness: often, texts are sourced from very different places, and come with differing levels of metadata.  Normalising and homogenising these metadata is particularly challenging, and may include a loss of resolution.
 
-The temporal aspects of texts are a special case of this.  Diachronic corpora seek to represent a ``slice'' through time of language use, and this requires a representative distribution of text age across the stated population.  Much of this distribution is defined by the production/consumption balance chosen for the corpus: for a given population, how old are texts used on a day-to-day basis?
+The temporal aspects of texts are a special case of this.  Diachronic corpora seek to represent a `slice' through time of language use, and this requires a representative distribution of text age across the stated population.  Much of this distribution is defined by the production/consumption balance chosen for the corpus: for a given population, how old are texts used on a day-to-day basis?
 
-Sampling online, or sampling from historical texts, merely identifying the age of a text is also challenging.
+When sampling online, or sampling from historical texts, merely identifying the age of a text is also challenging.
 
 These questions are also important when analysing historical or monitor corpora, where they must be answered in order to allow accurate sub-sampling.  Corpora such as EEBO~\cite{blum2002early} include such wide temporal coverage that their use often requires identification of a historical context.
 
@@ -310,14 +302,9 @@ Not quite sure which bits of BYU are worth mentioning---resale of data?  I think
 % http://www.birmingham.ac.uk/documents/college-artslaw/corpus/conference-archives/2011/abs-5.pdf
 %
 
-The lack of a central index is also a significant impediment to use of the random sampling techniques detailed above.  
-Any indices that do exist are heterogeneous in purpose, form and extent (a library maintains a list of its books for different reasons than does a journal publisher or search engine administrator). Digital indices such as those maintained by search engines are skewed by corporate forces and also only partially cover their indexed population.
+As a large number of documents are designed as ephemera, these are often not to be found in archives.  As a result, out-of-date ephemera are difficult to obtain retrospectively.  Many digital ephemera are targeted at individuals, introducing ethical issues analogous to covert research.
 
-Many indices conflate the concepts of production and consumption, and use their own metadata taxonomies that may be incompatible with one another.  Search engines are an ideal example of this, as their goal is not to return all results for a term, but to return the `most useful'.
-
-As a large number of documents are designed as ephemera, these are often not listed at all.  As a result, out-of-date ephemera are difficult to obtain retrospectively.  Many digital ephemera are targeted at individuals, introducing ethical issues analogous to covert research.
-
-For speech data, and written data that is not intended for public dissemination, issues of privacy must be considered as a legal and ethical issue.  Any auxiliary data is unlikely to suggest proportions for documents used within a private context (e.g.\ notes left on a fridge), or those controlled by formal social structures (such as documents used in many offices).
+For speech data, and written data that is not intended for public dissemination, privacy must be considered as a legal and ethical issue.  Any auxiliary data is unlikely to suggest proportions for documents used within a private context (e.g.\ notes left on a fridge), or those controlled by formal social structures (such as documents used in many offices).
 
 Some topics and contexts that ought to be represented are difficult to sample due to the cultural taboo surrounding them. This is especially relevant for speech corpora, since speech is often used for informal transactions, and because it is difficult to separate the sampling procedure from the speaker himself.
 
@@ -329,7 +316,7 @@ Finally, though this is increasingly simple as the world moves towards digital s
 
 Paper documents must be scanned, digitised, manually corrected and converted into a normal form. Speech must be gathered in an ethically defensible manner, and metadata about the speakers must be gathered.  Electronic documents require significant format conversion.
 
-Digitisation technology, especially that used for paper documents, has recently progressed significantly due to efforts to preserve historical documents, and libraries' attempts to digitise older publications. In some cases, scanners are capable of scanning entire books without intervention.
+These problems are easing: digitisation technology, especially that used for paper documents, has recently progressed significantly due to efforts to preserve historical documents, and libraries' attempts to digitise older publications. In some cases, scanners are capable of scanning entire books without intervention.
 
 
 
@@ -345,7 +332,7 @@ Some classification schemes apply multiple labels to a text in order to avoid th
 
 Biber and others~\cite{leech2006new,biber1993representativeness} recommend that sampling should occur in an iterative process, with the contents of a corpus being used as evidence to weight selection of strata from the next version.
 
-As Varadi~\cite{varadi2000corpus}~\cite{varadi2001linguistic} notes, this simply doesn't happen.  Indeed, the simpler option of using a previous corpus to guide one's stratum selection is also ignored.  Reasons for this may include the shift in classification priorities, and the time required to re-code and align a previous corpus' annotation structure to that which is to be built. 
+As Varadi~\cite{varadi2000corpus,varadi2001linguistic} notes, this simply doesn't happen.  Reasons for this may include the shift in classification priorities, and the time required to re-code and align a previous corpus' annotation structure to that which is to be built. 
 
 % Having acquired a first iteration of a corpus, there are many methods for assessing the 'completeness' of a sample.  some of these are explored by Biber, and others (including Evert, Greis) go on to describe further internal measures~\cite{evert2004simple}.
 
@@ -364,7 +351,7 @@ Auxiliary data from social surveys may be used as a rough indicator for this, th
 
 
 \subsubsection{Randomness}
-The pragmatic issues surrounding corpora do not apply equally to all genres, media, social demographics, or settings.  This results in a large amount of qualitative correction to the sample design, which restricts the ability to use random sample designs.
+The pragmatic issues surrounding corpora do not apply equally to all genres, media, social demographics, or settings.  This results in the need to apply large qualitative corrections to the sample design, which restricts the ability to use random sample designs.
 
 A prime example of this is the proportions of written and spoken texts in many corpora, and even the proportion of elicited spoken vs. `natural' spoken texts, due to the difficulty in obtaining consent.  Another example may be seen in the BNC's proportion of academic or newspaper texts, both of which comprise a very large proportion of the corpus, yet are read by a relatively small proportion of the population.
 
@@ -387,7 +374,7 @@ Evert's LNRE models offer possibly the most advanced generative method for this~
 
 In spite of the practicality of the techniques surrounding measures of internal feature saturation, few currently do such analyses.  This is perhaps because the linguistic researcher himself must usually perform the analyses in terms of his own study criteria, rather than the corpus builder.
 
-The problem of quantifying variation was tackled by Gries~\cite{gries2006exploring}, where he presents a method for estimating confidence intervals for small-scale features, and uses these to explore the homogeniety of corpora and their internal distinctions.  Therein he focuses not on simply frequency variation, but on grammatical properties that, he claims, are more representative of the sort of inquiry made using corpora.  He starts by using the $Z-score$ centrality measure, noting the limitation of existing partitioning schemes~\cite[p.123]{gries2006exploring}:
+The problem of quantifying variation was tackled by Gries~\cite{gries2006exploring}, where he presents a method for estimating confidence intervals for small-scale features, and uses these to explore the homogeniety of corpora and their internal distinctions.  Therein he focuses not on simply frequency variation, but on grammatical properties that, he claims, are more representative of the sort of inquiry made using corpora.  He starts by using the $Z\--\-score$ centrality measure, noting the limitation of existing partitioning schemes~\cite[p.123]{gries2006exploring}:
 
 \begin{quote}
 In order to measure the homogeneity of a corpus with respect to some parameter, it is of course necessary to have divided the corpus into parts whose similarity to each other is assessed. 
@@ -402,25 +389,25 @@ He then goes on to augment this method by way of bootstrapping, in order to iden
 % i.e. For a given corpus size in words, the size in units may be too small.
 Any sample is, strictly speaking, best analysed in terms of its sampling unit.  Any disagreement leads to a reduction in how free each data point within the sample is to vary~\cite{kilgarriff2005language,lijffijt2014significance,paquot2009distinctive}.
 
-Biber's initial assessments of language variation in 1988~\cite{biber1988variation} examined the suitability of the $2,000$-word sampling unit by splitting each sample and comparing the relative frequency of features in each half.  He determined that, if they were the same, then the sampling unit size was sufficient to represent a given feature.  This lead to the conclusion that corpora were adequate for inspection of `small-scale grammatical features', something that seems to be borne out by the success of corpus methods in this area (POS tagging, etc.).
+Biber's initial assessments of language variation in 1988~\cite{biber1988variation} examined the suitability of the $2,000$-word sampling unit by splitting each sample and comparing the relative frequency of features in each half.  He determined that, if they were the same, then the sampling unit size was sufficient to represent a given feature.  This lead to the conclusion that corpora were adequate for inspection of `small-scale grammatical features', something that seems to be borne out by the success of computational models in this area (POS tagging, etc.).
 
 This issue is often phrased in terms of dispersion, i.e.\ the tendency for a feature to be represented evenly in all documents throughout the corpus.  Dispersion is something that manual inspection of concordances and corpus data renders particularly transparent, as it is often possible to see that all instances of a particular idiom are traceable to a given author, or all coverage of a certain topic is from one publication.  This is a prime example of the unit of analysis being far smaller than the sampling unit, a problem that is receiving increasing recognition.
 
 Evert, with his library metaphor~\cite{evert2006random}, describes a sampling policy for corpus linguistics that avoids this disparity.  In it, he describes randomly sampling progressively smaller units in a virtual library, moving from books through pages to sentences.%  todo: check if he stops short of words, iirc he does.
 
-Since many statistical problems arise from the disparity between sampling and analysis units, a particularly problematic instance of this issue is the use of bag-of-words (frequency) models.  These model language without taking into account order, and as such would be best applied to a corpus sampled at the word level: any section of text beyond this is going to exhibit `clumpiness' effects that are beyond the comprehension of the model.
+Since many statistical problems arise from the disparity between sampling and analysis units, a particularly problematic instance of this issue is the use of bag-of-words (BOW) models.  These model language without taking into account order, and as such would be best applied to a corpus sampled at the word level: any section of text beyond this is going to exhibit `clumpiness' effects that are beyond the comprehension of the model.
 
 The prevalence of BOW models is such that many people choose to phrase their objections in terms of the accuracy of binomial models of language frequency~\cite{kilgarriff2005language,evert2004simple,evert2007zipfr}.  Undoubtedly they have a point---more complex LNRE models are capable of far more useful inferences, however, it's worth noting that only a model that can integrate the linguistic influence of word 1 upon word $2,000$ in a sample will truly justify a $2,000$-word sample\footnote{This is a quantitative form of Hoey's argument that whole texts are necessary to truly describe human expectations of word use.}.
 
 %--
 
-One part of the problem is caused by a fixation on word lengths. A given corpus, $100,000$ words in length, may comprise just $50$ texts. For the purposes of many analyses involving person-person variation, it can be said that we really only have $50$ data points. Though care if often taken to sample these texts broadly, the idea of targeting a corpus in terms of its word length, rather than the number of samples, leads to extremely poor suitability for analysis of many small-scale features.
+One part of the problem is caused by a fixation on word frequencies. A given corpus, $100,000$ words in length, may comprise just $50$ texts. For the purposes of many analyses involving person-person variation, it can be said that we really only have $50$ data points. Though care is often taken to sample these texts broadly, the idea of targeting a corpus in terms of its word length, rather than the number of samples, leads to extremely poor suitability for analysis of many small-scale features.
 
 The problem of quite what sample size to choose is a trade-off: if we were to sample single sentences for our $100,000$ word corpus, we would soon require thousands of samples, each from a randomly selected and carefully-stratified source. If we wished to perform a complex analysis of narrative structure within those sentences, we'd find there is insufficient data.
 
 Except in certain cases, there is a plateau of difficulty for sample size: sampling $2,000$ words from a book incurs very similar levels of practical obstacles than does sampling $100$. Sampling units should be chosen in accordance with the complexity required by researchers of the time---for example, those working in information retrieval and NLP fields will demand relatively large sample units by comparison to many researchers in linguistics.
 
-Corpora should, ideally, be defined in terms of the number of datapoints, rather than words.  This is one area where compatibility with existing corpora and techniques is arguably damaging to the final result, and where documentation should be clearer in guiding valid use.
+Corpora should, ideally, be defined in terms of the number of \textsl{datapoints}, rather than words.  This is one area where compatibility with existing corpora and techniques is arguably damaging to the final result, and where documentation should be clearer in guiding valid use.
 
 
 
@@ -438,11 +425,12 @@ Corpora should, ideally, be defined in terms of the number of datapoints, rather
 
 % -----------------------------------------------------------------
 \subsection{Validity Concerns in Corpus Analysis}
-One of the primary reasons for using quantitative methods in research is their objectivity and empirical basis.  This is especially true of linguistics, which seeks to generalise about a social property that is difficult to quantify or relate to other users.
+One of the primary reasons for using quantitative methods in research is their objectivity and empirical basis.  This is especially the case in linguistics, which seeks to generalise about a social property that is difficult to quantify or relate to other users.
 
 In addition to the above procedural concerns, manual inspection and summarisation of corpora (or collections of features extracted by corpora) often leads to situations where errors of human judgement may imply certain findings.  These cognitive biases are widely recognised in many cases, and have been identified in other fields as common causes of error~\cite{jain2012does,lieberman2009type}.
 
-Many of these biases are fairly minor, and scientific methods are designed to counter-act their effect.  Nonetheless, qualitative analysis, poor corpus design, and presentation of certain features once extracted for inspection, are possible cause.
+Many of these biases are fairly minor, and scientific methods are designed to counter-act their effect.  Nonetheless, qualitative analysis, poor corpus design, and presentation of certain features once extracted for inspection, can introduce their effects.
+
 
 % \til{Until I decide to keep this section, here's an informal list:}
 
@@ -453,9 +441,9 @@ Many of these biases are fairly minor, and scientific methods are designed to co
 
     \item[Prosecutor's Fallacy] Assuming conditional probabilities indicate unconditional ones, and vice-versa.  This might be less prevalent, but when conditioning on a certain feature, subsample of the corpus, etc.\ it is common to assume that the trends identified are indicative (or anti-indicative) of similar trends in the rest of the corpus.
 
-    \item[Texas Sharpshooter Fallacy (post-hoc theorising)] Testing hypotheses on the data they were derived from, i.e.\ inspection then derivation then testing.  Also called `data dredging', this is a risk of large-scale community reuse of corpora.  A solution to this is to reuse sample \textsl{designs}, but not the actual data itself, fetching new data each time.
+    \item[Texas Sharpshooter Fallacy (post-hoc theorising)] Testing hypotheses on the data they were derived from, i.e.\ inspection then derivation then testing.  Also called `data dredging', this is a risk of large-scale community reuse of corpora.  A solution to this is to reuse sample \textsl{designs}, but not the actual data itself.
 
-    \item[Availability Heuristic] The tendency for people to mentally overestimate the probability of features which they can immediately recall examples for~\cite{tversky1973availability,schafer2014focused}.  This effect is likely to occur when examining corpora qualitatively, particularly if features are returned in response to searches on particular features.
+    \item[Availability Heuristic] The tendency for people to mentally overestimate the probability of features which they can immediately recall examples for~\cite{tversky1973availability,schafer2014focused}.  This effect is likely to occur when examining corpora qualitatively, particularly if features are inspected in response to searches on particular features.
 \end{itemizeTitle}
 
 Many of these concerns are difficult to address without fully quantifying or automating analysis stages that are currently performed manually, something that is often a technical challenge.  Though reduction of their incidence is the goal of a corpus builder, there is often little that can be done directly prior to analysis.
@@ -464,7 +452,8 @@ The quantitative stages of corpus analysis are also not free from statistical ch
 
 One approach to this is advocated by Wallis~\cite{wallis2013vexed}, who proposes using a baseline linguistic feature as a control.  This serves to normalise the frequency against which one is comparing during statistical tests, but remains subject to issues of low power due to use of samples that contain too few independent sources.
 
-Use of better-informed linguistic models in order to take account of non-orthogonal variation in linguistic features is also possible.  One method of doing this is to adjust for (or at least recognise qualitatively) the dispersion of features across samples~\cite{gries2008dispersions,gries2010dispersions}.  Research is needed in order to best use these measures to adjust existing statistical procedures, however, and dispersion particularly is plotted for qualitative interpretation in some popular tools~\cite{anthony2011antconc}.
+Use of better-informed linguistic models in order to take account of non-orthogonal variation in linguistic features is also possible.  One method of doing this is to adjust for (or at least recognise qualitatively) the dispersion of features across samples~\cite{gries2008dispersions,gries2010dispersions}.  Research is needed in order to best use these measures for qualitative interpretation (dispersion is already displayed in some popular tools\cite{anthony2011antconc}) and to adjust existing statistical procedures.
+
 
 
 

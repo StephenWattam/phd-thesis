@@ -9,13 +9,15 @@ This line of reasoning is the primary justification behind the explicit corpus d
 
 One important question to return to is how this fits with the problems associated with sampling general-purpose corpora.  If specification of research questions is important to any assessment of representativeness, then general-purpose corpora are doomed to fail.  The model I have presented here is one of ensuring that a corpus' coverage is similar to that of existing general-purpose ones, but relaxing requirements on features that are not of interest to a particular study.  It seems likely that there is a viable trade-off where a composite of many such `specific-purpose' corpora would form a widely-representative corpus.  Achieving this will require agreement on the underlying theories that generate such research questions though.
 
-Though Chapter~\ref{sec:personal}'s contribution may seem exclusively special-purpose, it is worth remembering that some of the main goals of proportional sampling are to represent variation across demographic values: something that is usually made difficult by sampling texts at such distance from their creators/consumers.  Repeated application of such inverted sampling methods yield valuable empirical information into the variance that can be observed in language taxonomies, allowing such data to be used to weight larger general-purpose sample designs.
+Though Chapter~\ref{sec:personal}'s contribution may seem exclusively special-purpose, it is notable that some of the main goals of proportional sampling are to represent variation across demographic values: something that is usually made difficult by sampling texts at such distance from their creators/consumers.  Repeated application of such inverted sampling methods yield valuable empirical information into the variance that can be observed in language taxonomies, allowing such data to be used to weight larger general-purpose sample designs.
 
 
 % \paragraph{}
 A second theme has been sampling from the web.  Each of the methods here is made possible only due to the existence of web data, and existing tools from WaC.
 
 Chapters~\ref{sec:longitudinal},~\ref{sec:rebuilding} and~\ref{sec:evaluation} cover tools and methods for retrieving web data according to novel sampling policies.  In the former case, this is performed at a scale and level of detail not currently possible, with the added dimension of time, but in a manner familiar with anyone currently using `open-source' corpora or URL-lists from other sources.
+
+Chapter~\ref{sec:personal} also features logging from web data, which was identified as one of the least intrusive (and thus easiest to widely utilise) features.
 
 The latter generalises this further at the expense of some detail, covering multiple research designs to form an extensible platform.  Ultimately, the success of such a general method is built upon the quality and pertinence of the heuristics it is using: the purpose of such a tool is to encode the expert opinion once injected by humans in an unambiguous, transparent, portable fashion\footnote{This is essentially the approach taken by all of technology, much to the chagrin of John Henry.}.
 
@@ -34,9 +36,9 @@ All three of the methods presented here are also only possible due to this autom
 % \paragraph{}
 Ultimately, this thesis has presented three novel methods for sampling in corpus linguistics.  The first of these may be used in an already-rich area of investigation to aid our understanding of web publishing for the sake not only of linguistics, but also for time-sensitive NLP systems such as search and knowledge engines.
 
-The case study presented in Chapeter~\ref{sec:personal} provides a perspective on existing sampling methods and a mechanism for construction of corpora annotated with metadata that are traditionally unavailable.  Lessons from this could be incorporated into future designs for new general-purpose corpora, or each personal corpus could be used as its own statistical baseline: both go some way to solving significant practical issues.
+The case study presented in Chapter~\ref{sec:personal} provides a perspective on existing sampling methods and a mechanism for construction of corpora annotated with metadata that are traditionally unavailable.  Lessons from this could be incorporated into future designs for new general-purpose corpora, or each personal corpus could be used as its own statistical baseline: both go some way to solving significant practical issues.
 
-These first two methods are potential sources of data for quantitative expression of population properties, necessary for more formal approaches to corpus sample design.  Profile-guided corpus capitalises on this, offering a generalisation of existing WaC methods, and a system for unambiguously describing (and thus disseminating) sample designs.  Though the utility of such methods are in the hands of those imbuing them with expert knowledge, initial results indicate an ability to duplicate existing corpora with predictable bounds for error.  Such measures are the first steps towards being able to measure the bias of common sampling techniques.
+These first two methods are potential sources of data for quantitative expression of population properties, necessary for more formal approaches to corpus sample design.  Profile-guided corpus construction capitalises on this, offering a generalisation of existing WaC methods, and a system for unambiguously describing (and thus disseminating) sample designs.  Though the utility of such methods lies in the hands of those imbuing them with expert knowledge, initial results indicate an ability to duplicate existing corpora with predictable bounds for error.  Such measures are the first steps towards being able to measure the bias of common sampling techniques.
 
 
 
@@ -70,9 +72,9 @@ As much of this thesis has been exploratory, there is a wealth of further work n
 
 
 \subsection{Large-Scale Longitudinal Document Attrition Studies}
-A large-scale longitudinal sample of WaC sources is one obvious extension to this work\footnote{Indeed, one was underway, but due to technical failures the results were not ready for publication here.}.
+A large-scale longitudinal sample of WaC sources is one obvious extension to the work in Chapter~\ref{sec:longitudinal}\footnote{Indeed, one was underway, but due to technical failures the results were not ready for publication here.}.
 
-Such a study would be able to answer questions not only on the rate of decay (as has been addressed elsewhere), but also the shape of the decay curve: this is something that has often been presumed to follow exponential decay.
+Such a study would be able to answer questions not only on the rate of decay (as has been addressed elsewhere), but also the shape of the decay curve, hitherto presumed to be exponential for most types of data.
 
 Further to this, there are many web page changes that do not constitute `link rot' in that the original information may still be present, but are still interesting for various linguistic and social questions, for example how often documents are changed in response to news events, or have their boilerplate changed in order to affect the context in which documents are presented.
 
@@ -90,7 +92,7 @@ There are many mechanisms which could be used to establish a provisional model o
 
 This would require work to formalise and proceduralise the data gathering methods presented, in order to discount those with the least `effort efficiency' and maximise automation.  The continuing ubiquity of smartphone technology offers a vehicle through which to distribute such methods and collect resulting data.
 
-Operationalising the results of such sampling is also an open question, though such work would largely require the application of existing stratification and re-weighting techniques.  This would allow an experimentor to select a small sample demographic, and then use a general-purpose corpus to augment it with larger quantities of linguistic information in a representative manner.  In order for these methods to be useful at a large scale, they should be informed by further work on power analysis, which is currently in its infancy in corpus linguistics.
+Operationalising the results of such sampling is also an open question, though such work would largely require the application of existing stratification and re-weighting techniques.  This would allow an experimenter to select a small sample demographic, and then use a general-purpose corpus to augment it with larger quantities of linguistic information in a representative manner.  In order for these methods to be useful at a large scale, they should be informed by further work on power analysis, which is currently in its infancy in corpus linguistics.
 
 
 

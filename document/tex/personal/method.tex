@@ -1,8 +1,6 @@
-As this case study is largely exploratory, seeking to drive and refine the methods used for recording \textsl{all} language use, an iterative design was chosen.  This saw a number of preliminary sampling periods, with a review after each to identify the strengths and weaknesses of each.
+As this case study is exploratory, seeking to drive and refine the methods used for recording \textsl{all} language use, an iterative design was chosen.  This saw a number of preliminary sampling periods, with a review after each to identify the strengths and weaknesses of each.
 
-The subject was myself---this was done for a number of reasons:
-
-Firstly, legal and ethical issues surrounding recording and review of the data were mitigated by having the analysis performed by a member of the original conversations, etc.
+The subject was myself---this was done for a number of reasons:  Firstly, legal and ethical issues surrounding recording and review of the data were mitigated by having the analysis performed by a member of the original conversations, etc.
 Secondly, iterative review of methods involved was possible with internal, `white box' examination of how data were collected, and what edge cases and procedural difficulties arose.
 Thirdly, the demographic status and other person-related variables are well known and need no formal elicitation, minimising time spent on construction of questionnaires etc.
 
@@ -29,7 +27,7 @@ Sources initially identified by introspection are listed in black in Figure~\ref
 
 
 
-The inadequacies of introspective methods to comprehensively identify data sources soon became apparent during preliminary tests, as the process of recording brought increased awareness of language use, raising a series of edge cases.  These were collected and resulted in a final selection of sources displayed below.  As well as covering the set of sources to be gathered, methods of collection were chosen with flexibility in mind in order to cope with un-envisaged sources of data\footnote{This flexibility has the unwelcome effect of slowing down analysis later on, and may be undesirable in some use cases}.
+The inadequacies of introspective methods to comprehensively identify data sources soon became apparent during preliminary tests, as the process of recording brought increased awareness of language use, raising a series of edge cases.  These were collected and used to augment the list of sources shown in Figure~\ref{fig:personal:datasources}.  As well as covering the set of sources to be gathered, methods of collection were chosen with flexibility in mind in order to cope with un-envisaged sources of data\footnote{This flexibility has the unwelcome effect of slowing down analysis later on, and may be undesirable in some use cases}.
 
 
 % \begin{itemize}
@@ -50,9 +48,9 @@ The inadequacies of introspective methods to comprehensively identify data sourc
 %     \item Files accessed
 % \end{itemize}
 
-The list shown in Figure~\ref{fig:personal:datasources} is necessarily furnished according to the life of the subject in question---from this study I am unable to assert that it is generalisable to others, though the process of doing so would involve relatively little intrusive sampling.
+The list is necessarily furnished according to the life of the subject in question---from this study I am unable to assert that it is generalisable to others, though the process of doing so would involve relatively little intrusive sampling.
 
-Each of these sources is ``covered'' by one or more sampling tools.  These tools progressed most during the iterative process, and each was subject to a number of procedural subtleties that were refined throughout the study.
+Each of these sources is `covered' by one or more sampling tools.  These tools progressed most during the iterative process, and each was subject to a number of procedural subtleties that were refined throughout the study.
 
 
 
@@ -170,7 +168,7 @@ Files were identified in a number of ways.
 
 Some, particularly those on which the subject worked and contributed data, were written down in the journals.  This is a precise method of separating what has been read, but incurs a large overhead.
 
-Since the subject works entirely on projects and files that reside in a RCS repository, the logs from each commit were used to generate a diff, and this was accessed after the sampling period to identify contributions made.
+Since the subject works entirely on projects and files that reside in a repository managed by a Revision Control System (RCS), the logs from each commit were used to generate a diff, and this was accessed after the sampling period to identify contributions made.
 
 Another policy that may be used is identification of files by unix mtime (modification) or ctime (inode change, often creation), however, this is fraught with inaccuracy, as files are liable to be modified on disk many times whilst being edited, and sampling the differences is likely to happen at haphazard times.  Further, this technique would capture many log files and others that have been edited by processes where the subject was not involved linguistically.  By contrast, commits to an RCS are scheduled around logical additions, and are manually pushed so that only deliberately edited files are stored.
 
@@ -212,7 +210,7 @@ At the end of the day (immediately prior to sleep), a journal entry was written 
 
 \subsection{Operationalisation, Processing and Analysis}
 \label{sec:personal:method:operationalisation}
-Normalising and operationalising such heterogenous data without significant overhead proved to be a significant problem that was only partially solved, and the data set presented here required significant manual intervention that was possible in part due to the fact that the analyst is the subject.
+Normalising and operationalising such heterogeneous data without large overheads proved to be a significant problem that was only partially solved, and the data set presented here required manual editing that was possible in part due to the fact that the analyst is the subject.
 
 This advantage, clearly, cannot be relied upon in other studies, and this part of the method demands most further study in order to define typical parameters for many processes that are dependent on human properties.
 
@@ -231,13 +229,13 @@ Though this approach was suitable for the aims of this particular study, it is d
 Beyond coding, by far the largest single influence on the data recorded was the human interest model applied.  This was created in order to take into account two factors that had become particularly apparent (and notably do not apply in the same manner to conventional corpus designs, where many eyes may cover a whole document in sum):
 
 \begin{itemize}
-    \item Often, only small (usually predictable) portions of a text are used.  For example, I have started to read more books than I have finished reading.  Generalised, this means that even Brown-styled corpora should favour the start of their texts slightly when selecting excerpts.  Some media were more surceptible to this than others, and the automated normalisation tools were built with facilities to take this into account.
+    \item Often, only small (usually predictable) portions of a text are used.  For example, I have \textsl{started} to read more books than I have \textsl{finished} reading.  Generalised, this means that even Brown-styled corpora should favour the start of their texts slightly when selecting excerpts.  Some media were more susceptible to this than others, and the automated normalisation tools were built with facilities to take this into account\footnote{Amazon have the ability to monitor which pages are read on their Kindle ebooks, meaning that they possibly have a large dataset related to this effect.}.
     \item Texts, especially broadcast media and speech, were often used whilst also accomplishing a non-textual task (or sometimes both at once, such as talking with the radio on in the background).
 \end{itemize}
 
-Both of these were noted in journals, and added to the processing toolchain---each data source's normalisation script contained a model to extract the portions of text that were read, and each row of the normalised data format contained an ``attention index'', ranging from 0--1, that served as a coefficient of the word count.
+Both of these were noted in journals, and added to the processing toolchain---each data source's normalisation script contained a model to extract the portions of text that were read, and each row of the normalised data format contained an `attention index', ranging from 0--1, that served as a coefficient of the word count.
 
-Though crude, this measure was able to produce approximations for word counts that were inline with the expectations of the subject.  (It is recognised that this may not hold much scientific value to others wishing to replicate the study, and in general it is necessary to investigate the inter-person variability of these properties in order to create more generalised processing tools.)
+Though crude, this measure was able to produce approximations for word counts that were inline with the expectations of the subject.  It is recognised that this may not hold much scientific value to others wishing to replicate the study, and in general it is necessary to investigate the inter-person variability of these properties in order to create more generalised processing tools.
 
 
 % TODO: perhaps a run-down of each annotation program?
@@ -245,11 +243,11 @@ Though crude, this measure was able to produce approximations for word counts th
 The human interest model for web logging was built by inspection of the web logs and cross-referencing with information about the hosts identified.  The normalisation script is concerned primarily with removing material that was downloaded without ever having been viewed, for example, non-text MIME types and advertising, and contains a multi-stage strategy for excluding content:
 
 \begin{enumerate}
-    \item Filter only successful requests
-    \item Filter only those requests that are of textual mime types (\texttt{text/*})
-    \item Apply a blacklist of advertising websites and file extensions (manually constructed)
-    \item Discard links where the page was reloaded and the URL is the same as the previous entry in the list (this pattern is often caused by initially connecting to the proxy, for example)
-    \item Non-visible text items were discarded (non-body elements if the file is HTML), and markup was removed
+    \item Filter only successful requests;
+    \item Filter only those requests that are of textual mime types (\texttt{text/*});
+    \item Apply a blacklist of advertising websites and file extensions (manually constructed);
+    \item Discard links where the page was reloaded and the URL is the same as the previous entry in the list (this pattern is often caused by initially connecting to the proxy, for example);
+    \item Discard Non-visible text items (non-body elements if the file is HTML), and remove markup.
 \end{enumerate}
 
 Beyond this initial normalisation, a speadsheet's \texttt{LOOKUP} function was used to manually assign attention coefficients to the domains, based upon entries in the journals and interesting portions of web pages that follow regular structures.
@@ -290,7 +288,7 @@ This process was done in order to deliberately apply distinctions made by Lee wh
 It's particularly noteworthy here that the analyst selecting codes for genres is the same person as the subject gathering the data.  This, along with the mnemonic form of the notebooks and data captured, provides extra (informal) insight afforded by context.
 
 
-Because of the large volume of data, and the manner in which it was extracted from its original sources, coding was performed using a semi-automated process on a source-by-source basis.  This was chosen in part because the source itself refers to how the language was used by the subject, rather than simply what form it was available to the corpus builder, and is thus a contextual factor affecting genre distinctions.  This would have to be noted in more detail for other studies.
+Because of the large volume of data, and the manner in which it was extracted from its original sources, coding was performed using a semi-automated process on a source-by-source basis.  This was chosen in part because the source itself refers to how the language was used by the subject, rather than simply what form it was available to the corpus builder, and is thus a contextual factor affecting genre distinctions.  This would have to be documented in more detail for other studies.
 
 For data that were processed and annotated largely automatically, codes were assigned after a systematic review of the data itself, using a spreadsheet to reduce the number of lines according to variables that were assumed to define a given genre (for example, web data was split by domain, and music was assigned by artist).  These distinctions were then written into the extraction tools as heuristics, or applied directly before being merged with the main corpus.
 

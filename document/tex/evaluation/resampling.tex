@@ -17,7 +17,7 @@ The research questions answered by the analysis here run to:
 
 \begin{enumerate}
     \item Does the resampler converge on the same distribution as its input?
-    \item How many `target' documents are required to converge upon the input distribution (at some known probability)
+    \item How many `target' documents are required to converge upon the input distribution (at some known probability)?
 \end{enumerate}
 
 
@@ -49,7 +49,7 @@ Evaluation methods provided in the prototype implementation are:
 For the purposes of this evaluation, a distribution comparison method, Log-likelihood, was selected due to its known statistical bounds and wide use in corpus linguistics\footnote{It it worth noting that the log-likelihood statistic is just one of a large number of valid goodness-of-fit tests, the main contender being two-sample Kolmogorov-Smirnov}.  The major disadvantage of using this method, that it is harder to directly relate to the content of each text, is not relevant at this stage of analysis.
 
 
-Log likelihood comparison methods are already widely used in corpus linguistics for keywording and corpus comparison, and have the notable property of measuring significance (using Wilks' theorem), rather than effect size (as with many information-theory-based deviance measures such as MI and Jaccard).  This evaluation makes use of such properties in that we desire to know at what point the output distribution is, to a given standard of probability, the same as the input: as we do not control the size of the input distribution we are unable to control the ultimate power of the test and thus the effect size.
+Log likelihood comparison methods are already widely used in corpus linguistics for keywording and corpus comparison, and measure significance (using Wilks' theorem), rather than effect size (as with many information-theory-based deviance measures such as MI and Jaccard).  This evaluation makes use of such properties in that we desire to know at what point the output distribution is, to a given standard of probability, drawn from the same population as the input.%: as we do not control the size of the input distribution we are unable to control the ultimate power of the test and thus the effect size.
 
 This comparison of the output and input distributions was repeated as documents are re-sampled, the point at which the two cease to be significantly different noted.  This process should establish both RQs:
 
@@ -60,7 +60,7 @@ This comparison of the output and input distributions was repeated as documents 
 \end{enumerate}
 
 
-Note that this method treats each metadata dimension of the input corpus as an independent distribution, effectively evaluating the joint distribution of the sample.  This was done to permit comparison where obtaining a sample large enough to provide sufficient statistical power is largely impossible --- even in the BNC, there are seldom many documents that share \textsl{all} metadata values.  This has the effect of weakening the test such that the `Conditional' sampler is indistinguishable from the `Marginal' sampler (as mentioned in Section~\ref{sec:rebuilding:method:retrieval:resampling}).
+Note that this method treats each metadata dimension of the input corpus as an independent distribution, effectively evaluating the joint distribution of the sample.  This was done to permit comparison where obtaining a sample large enough to provide sufficient statistical power is largely impossible---even in the BNC, there are seldom many documents that share \textsl{all} metadata values.  This has the effect of weakening the test such that the `Conditional' sampler is indistinguishable from the `Marginal' sampler (as mentioned in Section~\ref{sec:rebuilding:method:retrieval:resampling}).
 
 
 
@@ -81,14 +81,14 @@ The word count is binned irregularly due to the low frequency of files with more
 \begin{figure}[Ht]
     \centering
     \includegraphics[width=1\textwidth]{evaluation/4waybnchist}
-    \caption{Word count distribution from the BNC index (n=4054, breaks at 5k < 80k, max=428248)}
+    \caption{Word count distribution from the BNC index (n=4,054, breaks at 5k < 80k, max=428,248)}
     \label{fig:evaluation:resampling:bncwordhist}
 \end{figure}
 
 
 The convergence rate of each of the variables is, as mentioned above, dependent on the information content of the input bins' frequencies (due to the complexity of the sample) and the number of bins with fewer than five members (due to log-likelihood converging slowly to the $\chi^2$ distribution).  Each variable's convergence may thus be appropriately expressed in terms of how long the average bootstrapping process takes to converge upon the distribution to a given confidence value, relative to the size of the input.
 
-A basic description of the bins used for each input metadata item is presented in Table~\ref{table:evaluation:resampling:inputdist}.  Medians and interquartile ranges were used as centrality and deviance measures due to the Zipfian nature of the bin distributions (a feature expected to manifest in most corpora).  The `ID' column gives the `index of dispersion' --- a normalised measure of the variability in the distribution's bins computed by dividing the centrality measure (median) by the centrality measure (median).
+A basic description of the bins used for each input metadata item is presented in Table~\ref{table:evaluation:resampling:inputdist}.  Medians and interquartile ranges were used as centrality and deviance measures due to the Zipfian nature of the bin distributions (a feature expected to manifest in most corpora).  The `ID' column gives the `index of dispersion'---a normalised measure of the variability in the distribution's bins computed by dividing the centrality measure (median) by the dispersion measure (IQR).
 
 % TODO: table with variable, bin count, num<10, stdev, mean, convergeance mean, convergeance confint@95%
 \begin{table}[Ht]
@@ -111,9 +111,9 @@ A basic description of the bins used for each input metadata item is presented i
 The figures in Table~\ref{table:evaluation:resampling:inputdist} represent common cases for real-world corpora:
 
 \begin{itemize}
-    \item `Mode' is a simple binary classification with very different group sizes.
-    \item `AudLvl' is a simple classification with a very `flat' distribution.
-    \item `Words' is a bimodally distributed measure with a large amount of variation but also very large numbers in each bin.  This is a good representation of the counts of many linguistic features.
+    \item `Mode' is a simple binary classification with very different group sizes;
+    \item `AudLvl' is a simple classification with a relatively `flat' distribution;
+    \item `Words' is a bimodally distributed measure with a large amount of variation but also very large numbers in each bin.  This is a good representation of the counts of many linguistic features;
     \item `Genre' is moderately heterogeneous, yet has a distribution with many low-frequency items in it.
 \end{itemize}
 
@@ -129,7 +129,7 @@ We may reason from the index of dispersion that convergence will occur faster fo
 \end{figure}
 
 
-Figure~\ref{fig:evaluation:resampling:4wayCI95} displays the log-likelihood score of the output distribution as it is built.  These graphs clearly illustrate the relative complexity of the input distributions, as well as the downsides of estimating log-likelihood measures for low-frequency results.  After an initial burn-in period (the end of which is marked when the output distribution size matches that of the input), all dimensions gradually converge upon the target distribution.  For any input distribution with low counts, the similarity measure will not be accurate until these lowest bins are filled---marked on the graph roughly as the point where the output distribution is equal in size to the input.%\td{though this is not entirely precise and I think is estimable using binomial}.
+Figure~\ref{fig:evaluation:resampling:4wayCI95} displays the log-likelihood score of the output distribution as it is built.  These graphs clearly illustrate the relative complexity of the input distributions, as well as the downsides of estimating log-likelihood measures for low-frequency results.  After an initial burn-in period, all dimensions gradually converge upon the target distribution.  For any input distribution with low counts, the similarity measure will not be accurate until these lowest bins are filled---marked on the graph roughly as the point where the output distribution is equal in size to the input.%\td{though this is not entirely precise and I think is estimable using binomial}.
 
 The two simpler distributions, `Mode' and `AudLvl', peak at levels well below the 95\% threshold chosen for the log-likelihood statistic.  In the case where the `target' input distribution is defined by profiling an existing corpus, this implies that we could properly build a corpus \textit{smaller} than the input (though unfortunately this is not rigorous without also know the relationship of the original input corpus to the population as it is itself generated from that sample).  The relatively confident estimates for these parameters at a 1:1 input:output ratio backs up the rational expectation that large numbers of documents in few bins will be easy to replicate.
 
@@ -145,8 +145,8 @@ The process of random resampling detailed here is in many ways uninteresting: af
 
 \begin{itemize}
     \item The distribution converged upon is arbitrary, and may be defined in the absence of an input corpus (or as a modification thereof).  This allows relaxation of a corpus description's requirements to reduce the necessary oversampling ratio above, or the addition of specific metadata items where the source of documents is particularly easy to sample according to certain properties.
-    \item Halting the resampling process at any stage, due to the random selection method used, leads to an unbiased output corpus (though it may well be imprecise to the point of irrelevance).
-    \item After resampling of candidate documents through a process of resampling (which has known bounds of error), the process of retrieving documents can be compared against a gold standard.
+    \item Halting the resampling process at any stage, due to the random selection method used, leads to an unbiased output corpus (though it may well be imprecise).
+    % \item After resampling of candidate documents through a process of resampling (which has known bounds of error), the process of retrieving documents can be compared against a gold standard.
     \item When starting with a manually-designed corpus (which has bin sizes only relevant to one another), convergence can only be achieved where the output corpus size is greater than or equal to that of the input corpus.  Aside from fitting issues where bin sizes are small, corpora fit using the same distribution shape should converge at the same size (i.e. \textsl{not} relative to the input corpus size).
 
 \end{itemize}
@@ -172,7 +172,7 @@ The process of random resampling detailed here is in many ways uninteresting: af
 
 The relationship described by the log-likelihood scores of the two corpora describes the confidence one may have in the original, input, corpus: an input corpus with very few documents in each `bin' is less powerful when used to answer questions using data in that bin, and so will require a greater number of documents in the output corpus to achieve confidence at the same effect size.  This is a useful heuristic, as it ensures that samples are never output that are not in some way large enough to be confident about their distribution, thus enforcing a minimum sample size.  Unfortunately, if this comparison is based on duplication of an existing sample (such as in this case) such an adjustment is non-rigorous as it is based upon the sample parameters, which have an unknown relationship to the population parameters they estimate.  Essentially, whilst this is a heuristic indicating internal validity, it does not ensure external validity.
 
-A notable property of the resampler is that, even if the confidence of the output corpus being `converged' to a given confidence level is very low (i.e.\ the log-likelihood score is above a given threshold), the output corpus is unbiased relative to its input due to random selection.  In addition, the convergence of a corpus with a simpler design than the source corpus will occur at a number of documents lower than that of the input corpus, making it possible to resample an existing corpus using a design with \textit{simpler} metadata properties.  In this case, the `simplicity' of the design is defined by the information in the design distribution relative to the information content of the source corpus.  For example, if our experiment did not care about genre, it would be possible to sample texts directly from word count and audience level, producing a corpus with fewer texts yet the same coverage of those two dimensions.
+A notable property of the resampler is that, even if the confidence of the output corpus being `converged' to a given confidence level is very low (i.e.\ the log-likelihood score is above a chosen threshold), the output corpus is unbiased relative to its input due to random selection.  In addition, the convergence of a corpus with a simpler design than the source corpus will occur at a number of documents lower than that of the input corpus, making it possible to resample an existing corpus using a design with \textit{simpler} metadata properties.  In this case, the `simplicity' of the design is defined by the information in the design distribution relative to the information content of the source corpus.  For example, if our experiment did not care about genre, it would be possible to sample texts directly from word count and audience level, producing a corpus with fewer texts yet the same coverage of those two dimensions.
 %a mere \td{n} nexts in with a \td{n\%} confidence of representing the input corpus.
 
 
@@ -180,29 +180,29 @@ A notable property of the resampler is that, even if the confidence of the outpu
 
 
 
-\begin{lstlisting}[language=,caption={Example output showing the recursive resampling process.},label=lst:evaluation:resampling:resampleexample]
-example of running the thing:
+% \begin{lstlisting}[language=,caption={Example output showing the recursive resampling process.},label=lst:evaluation:resampling:resampleexample]
+% example of running the thing:
 
-Loading profile...
-[genre] Loading classifier data from memdump: ./resources/list_classifier_dump.dat...
-Loading corpus from /tmp/test.corpus...
-Building sampler for corpus #<Corpus:3:269543840>...
-Using full conditional sampling with Z = 1.645, sd = 30
-Creating (virtual) output corpus...
-Corpus created using 3 dimensions of metadata:
-  - GENRE of type #<Impute::DiscreteDistribution:0x000000025d2710>
-  - Word Total of type #<Impute::SmoothedGaussianDistribution:0x000000025d26c0>
-  - Aud Level of type #<Impute::DiscreteDistribution:0x000000025d2648>
-Selecting random document from #<Corpus:3:269543840>...
- - dims: 3, docs: 4054
- - dims: 2, docs: 4 (Word Total == 32528.538691473)
- - dims: 1, docs: 1 (Aud Level == low)
-=> #<Impute::Document:0x0000002123f3b8
- @dimensions={"Word Total"=>32528.538691473, "Aud Level"=>"low", "GENRE"=>"W_pop_lore"},
- @id="115f72d0-94cc-4c4d-91d1-6b8cbe18a081",
- @meta={},
- @text="">
-\end{lstlisting}
+% Loading profile...
+% [genre] Loading classifier data from memdump: ./resources/list_classifier_dump.dat...
+% Loading corpus from /tmp/test.corpus...
+% Building sampler for corpus #<Corpus:3:269543840>...
+% Using full conditional sampling with Z = 1.645, sd = 30
+% Creating (virtual) output corpus...
+% Corpus created using 3 dimensions of metadata:
+%   - GENRE of type #<Impute::DiscreteDistribution:0x000000025d2710>
+%   - Word Total of type #<Impute::SmoothedGaussianDistribution:0x000000025d26c0>
+%   - Aud Level of type #<Impute::DiscreteDistribution:0x000000025d2648>
+% Selecting random document from #<Corpus:3:269543840>...
+%  - dims: 3, docs: 4054
+%  - dims: 2, docs: 4 (Word Total == 32528.538691473)
+%  - dims: 1, docs: 1 (Aud Level == low)
+% => #<Impute::Document:0x0000002123f3b8
+%  @dimensions={"Word Total"=>32528.538691473, "Aud Level"=>"low", "GENRE"=>"W_pop_lore"},
+%  @id="115f72d0-94cc-4c4d-91d1-6b8cbe18a081",
+%  @meta={},
+%  @text="">
+% \end{lstlisting}
 
 
 
