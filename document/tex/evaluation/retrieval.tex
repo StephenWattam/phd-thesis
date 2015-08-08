@@ -5,7 +5,7 @@ The value in the resampling process above largely lies in the ability to present
 \subsection{Method}
 \label{sec:evaluation:method}
 
-The proof-of-concept evaluated here implements a mechanism similar to that of BootCaT~\cite{baroni2004bootcat}, using a search engine to retrieve results based on key n-grams.  This mechanism was selected due to the pertinence of its method to other corpus building efforts---there is no technical limitation imposed by the software tool, and users are free to select any other source of data or mechanism of retrieval.
+The proof-of-concept evaluated here implements a mechanism similar to that of BootCaT\cite{baroni2004bootcat}, using a search engine to retrieve results based on key n-grams.  This mechanism was selected due to the pertinence of its method to other corpus building efforts---there is no technical limitation imposed by the software tool, and users are free to select any other source of data or mechanism of retrieval.
 
 The similarity of the retrieval system described here to BootCaT, along with the use of concrete prototype documents, allows us to inspect the `measurement error' of using search engines to retrieve data based on key terms.  This evaluation is, therefore, primarily an assessment of that bias and a preliminary assessment of its sources.
 
@@ -25,7 +25,7 @@ The retrieval process (as summaried in Figure~\ref{fig:evaluation:retrieval:outl
 \begin{enumerate}
     \item Sample a prototype document from the corpus profile;
     \item Retrieve candidate links using the Microsoft Bing search engine\footnote{\url{https://datamarket.azure.com/dataset/bing/searchweb}};
-    \item Download, remove boilerplate (using JusText~\cite{pomikalek2013justext}), and classify each document using heuristics from the corpus profile;
+    \item Download, remove boilerplate (using JusText\cite{pomikalek2013justext}), and classify each document using heuristics from the corpus profile;
     \item Measure distance in the resulting vector space according to each heuristic's value.
 \end{enumerate}
 
@@ -77,7 +77,7 @@ The retriever must, as far as possible, return documents according to \textsl{al
 \subsection{Results}
 \label{sec:evaluation:results}
 
-In total $72,540$ documents were downloaded after $6,510$ requests to Bing.  After boilerplate removal using JusText~\cite{pomikalek2013justext} and discarding of short documents, $55,790$ documents remained in the corpus.
+In total $72,540$ documents were downloaded after $6,510$ requests to Bing.  After boilerplate removal using JusText\cite{pomikalek2013justext} and discarding of short documents, $55,790$ documents remained in the corpus.
 
 
 This sample size is $\approx 21$ times the input corpus.  Estimating using graphical methods (as in Section~\ref{sec:evaluation:resampler}, this should be sufficient to provide an appropriately distributed sample of genres.  The worst case is that each Bing search returns very few documents with the desired genre, for example, if each search returns only a single document of interest then this ratio is reduced to $\approx 3n$.

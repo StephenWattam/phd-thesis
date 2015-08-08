@@ -1,4 +1,4 @@
-The heuristics selected for this evaluation are formed around Lee's BNC index~\cite{lee2003bnc}.  This selection was chosen because of their alignment to operationalisable, human-level metadata and the existence of multiple corpora with this level of annotation.
+The heuristics selected for this evaluation are formed around Lee's BNC index\cite{lee2003bnc}.  This selection was chosen because of their alignment to operationalisable, human-level metadata and the existence of multiple corpora with this level of annotation.
 
 
 
@@ -30,7 +30,7 @@ This is expanded upon slightly by Lee~\cite[p. 68]{lee2001genres}, saying:
 One approach to modelling this complexity is to use word lists such as those used in education, however, this is difficult to apply to such disparate topics without extensive compilation of such lists.  A simpler approach uses metrics computed from the morphology of words to form a readability score.  Such metrics are already widely used in word processing software and for designing documents for public consumption.
 
 
-The classifier used for evaluation is based on the Flesch reading ease score~\cite{flesch1948new}.  This score is widely used, easy to compute, and correlates with the simple `low/med/high' classification used in the BNC metadata:
+The classifier used for evaluation is based on the Flesch reading ease score\cite{flesch1948new}.  This score is widely used, easy to compute, and correlates with the simple `low/med/high' classification used in the BNC metadata:
 
 $$
 readability_{F} = 06.835 - 1.015 \left( \frac{\text{total words}}{\text{total sentences}} \right) - 84.6 \left( \frac{\text{total syllables}}{\text{total words}} \right)
@@ -141,9 +141,9 @@ The problem of identifying BNC genre from free text is a simple 70-way classific
 
 
 
-In his 2007 paper on web genres, Sharoff~\cite{sharoff2007classifying}%
+In his 2007 paper on web genres, Sharoff\cite{sharoff2007classifying}%
 %p. 5
- fits a number of classifiers to the BNC, using a variety of genre taxonomies.  Therein he reports success using a supervised learning approach to classify `grouped' versions of the BNC taxonomy: one aligned to the EAGLES~\cite{EagTcwgCtypeaglespreliminary} text typology recommendations, and one 10-way grouping based on unsupervised methods.
+ fits a number of classifiers to the BNC, using a variety of genre taxonomies.  Therein he reports success using a supervised learning approach to classify `grouped' versions of the BNC taxonomy: one aligned to the EAGLES\cite{EagTcwgCtypeaglespreliminary} text typology recommendations, and one 10-way grouping based on unsupervised methods.
 
 An alternative method would be to use entirely ground-up techniques such as factor analysis or LDA.  These mechanisms will extract maximally homogenous groupings from text, but at the expense of predictable alignment with human understanding (and thus any research questions or search engine designs).
 
@@ -151,7 +151,7 @@ Since part of the intent here is to retain a parsimonious corpus profile documen
 
 The ambiguity and external nature of some of the distinctions drawn in the BNC index causes problems here, and represents a common dichotomy in linguistics: a human-readable and intuitive classification is rarely easy to model quantitatively (to the point where we are often simply unable).
 
-Ultimately, the classifiers detailed here used the na\"ive Bayes approach and were fit using WEKA~\cite{hall2009weka}.  In accordance with the findings of McCallum \& Nigam, the multinomial model was used over the Bernoulli due to its ability to maintain classification accuracy in models with large numbers of dimensions~\cite{mccallum1998comparison}.  This also unexpectedly yielded the benefit that it was much faster to fit.
+Ultimately, the classifiers detailed here used the na\"ive Bayes approach and were fit using WEKA\cite{hall2009weka}.  In accordance with the findings of McCallum \& Nigam, the multinomial model was used over the Bernoulli due to its ability to maintain classification accuracy in models with large numbers of dimensions\cite{mccallum1998comparison}.  This also unexpectedly yielded the benefit that it was much faster to fit.
 
 For the use-case presented here, absolute accuracy of the classifier matters little: we care only that `positive'ly classified cases are reliable for any one pass over the set of candidate documents, \textsl{not} that every candidate is selected.  Because of this, and because the number of classes is high enough to indicate that errors are unlikely to occur in the direction of the current class, the evaluations below focus on the precision of each method.
 
@@ -190,7 +190,7 @@ The decision to omit sections of the BNC was deemed a necessary trade-off to ach
 
 Table~\ref{table:evaluation:heuristics:classifieraccuracy} shows the resultant accuracy figures for the models trained on the BNC subsets mentioned.  10-way crossvalidation was used to estimate the above statistics, in an effort to reduce the potential for overfitting to a fixed test/training set.  The statistics are formed from a weighted mean of each classes performance against all others.
 
-These figures reveal that {\textsl spoken conversation} (\texttt{S\_conv}) has the most deleterious effect on classifier accuracy, indicating that it overlaps most with other categories.  Whilst it was expected that \texttt{W\_misc} would also do this, the performance improvement shown in BNC69b over BNC68 indicates that \texttt{W\_misc} contains some distinct features that are best retained.  Though using a different design of classifier, overall performance is roughly in-line with Sharoff's BNC-based classifiers\footnote{Attempts to fit SVM-based models lead to lower performance than multinomial na\"ive Bayes.  I believe this to be a result of the high number of classes}~\cite{sharoff2007classifying}.  The $45$- and $46$-class models are written-only equivalents, and are listed here due to their use in the retrieval task below.
+These figures reveal that {\textsl spoken conversation} (\texttt{S\_conv}) has the most deleterious effect on classifier accuracy, indicating that it overlaps most with other categories.  Whilst it was expected that \texttt{W\_misc} would also do this, the performance improvement shown in BNC69b over BNC68 indicates that \texttt{W\_misc} contains some distinct features that are best retained.  Though using a different design of classifier, overall performance is roughly in-line with Sharoff's BNC-based classifiers\footnote{Attempts to fit SVM-based models lead to lower performance than multinomial na\"ive Bayes.  I believe this to be a result of the high number of classes}\cite{sharoff2007classifying}.  The $45$- and $46$-class models are written-only equivalents, and are listed here due to their use in the retrieval task below.
 
     
 
@@ -210,7 +210,7 @@ The error surface described in Figure~\ref{fig:evaluation:heuristics:bnc68bconfu
 % -- 
 \paragraph{}
 
-One final note should cover the generality of the methods used here.  As with all portions of the heuristics, the choice of classifier is heavily theory-laden, and should conform to the underlying data's nature as much as possible.  Classification of genre is a particularly awkward aspect since it relies on imputing fairly complex external information (such that it can then be worked with by the software) from linguistic content, something that, as a rule, should be avoided for the sake of statistical validity.  Notably, the EAGLES guidelines on text typology~\cite{EagTcwgCtypeaglespreliminary} warn:
+One final note should cover the generality of the methods used here.  As with all portions of the heuristics, the choice of classifier is heavily theory-laden, and should conform to the underlying data's nature as much as possible.  Classification of genre is a particularly awkward aspect since it relies on imputing fairly complex external information (such that it can then be worked with by the software) from linguistic content, something that, as a rule, should be avoided for the sake of statistical validity.  Notably, the EAGLES guidelines on text typology\cite{EagTcwgCtypeaglespreliminary} warn:
 
 \begin{quote}
 The classification of texts into different genres seems to have been mostly achieved through external criteria rather than through internal, linguistic criteria.
