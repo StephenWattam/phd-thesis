@@ -98,7 +98,7 @@ In order to measure document attrition across a number of linguistic sources ser
 
 
 \subsubsection{Data Summary}
-Data were taken from four open-source corpora (outlined in Table~\ref{table:datmeth:datasum}), each of which consist of a sample of URLs referring to web resources.  All of these corpora are cross-sectional, representing data from a short period, however, only the BootCat-based corpora are built using a script that is likely to sample quickly enough to count as a true point sample in the context of this study.
+Data were taken from four open-source corpora (outlined in Table~\ref{table:datmeth:datasum}), each of which consist of a sample of URLs referring to web resources.  All of these corpora are cross-sectional, representing data from a short period, however, only the BootCaT-based corpora are built using a script that is likely to sample quickly enough to count as a true point sample in the context of this study.
 
 %\{I want to float table 1 on THIS page, but LaTeX isn't playing}
 \begin{table*}[ht!]
@@ -110,7 +110,7 @@ Data were taken from four open-source corpora (outlined in Table~\ref{table:datm
     Delicious & Sep. 2009   & 630,476	    & 1 month		&  Browsing \\
     Sharoff   & 2006\footnote{Sharoff does not state which month this sample was taken, it is presumed to be June}	    
                             & 82,257	    & hours		&  Searching \\
-    BootCat  & Sep. 2011   & 177,145	    & hours		&  Searching \\ 
+    BootCaT  & Sep. 2011   & 177,145	    & hours		&  Searching \\ 
     \end{tabular}
 
     \caption{An overview of the corpora selected for study.}
@@ -122,9 +122,9 @@ was built as a conventional, hand-selected corpus designed as an update to the L
 
 The Delicious corpus represents a sample of links posted to the front page of delicious.com\footnote{A social bookmarking site where users post and exchange links.} during the whole of September 2009.  
 
-Sharoff's corpus is the same one used in his 2006 paper on open-source corpora, and is built using modified BootCat scripts from a series of 4-tuple seed terms selected from the British National Corpus.
+Sharoff's corpus is the same one used in his 2006 paper on open-source corpora, and is built using modified BootCaT scripts from a series of 4-tuple seed terms selected from the British National Corpus.
 
-The BootCat corpus is built for this study from 4-tuples that are themselves built from the same terms as Sharoff uses for his 2006 study, using updated versions of his original scripts\footnote{As retrieved from \url{http://corpus.leeds.ac.uk/internet.html}}.
+The BootCaT corpus is built for this study from 4-tuples that are themselves built from the same terms as Sharoff uses for his 2006 study, using updated versions of his original scripts\footnote{As retrieved from \url{http://corpus.leeds.ac.uk/internet.html}}.
 
 
 %Corpora were sampled at the same points in time... see tex notes %[the assumption implicit in this is that the drift is regular, however, this can be tested by not comparing analyses]
@@ -275,11 +275,11 @@ Document lifetime statistics are calculated assuming exponential decay: both the
 	%BE06       & 5.3 / 1954 & 42\%    & 6.53 / 2384\\
 	%Delicious  & 2.1 / 766  & 7\%	  & 17.81 / 6501\\
 	%Sharoff    & 5.3 / 1954 & 34\%    & 8.64 / 3156\\
-	%BootCat   & .08 / 31   & 0.8\%   & 4.84 / 1758\\
+	%BootCaT   & .08 / 31   & 0.8\%   & 4.84 / 1758\\
 	BE06       & 5.3  & 42\%    & 6.5	& 15.8\\
 	Delicious  & 2.1  & 7\%	    & 17.8 & 42.4\\
 	Sharoff    & 5.3  & 34\%    & 8.6  & 16.4\\
-	BootCat    & 0.08 & 0.8\%   & 4.8  & 20.4\\
+	BootCaT    & 0.08 & 0.8\%   & 4.8  & 20.4\\
     \end{tabular}
 
     \caption{Loss from corpus inception to October 21st, 2011.}
@@ -287,11 +287,11 @@ Document lifetime statistics are calculated assuming exponential decay: both the
 \end{table}
 
 % ---- Rate of failure per corpus
-The large differences in corpus half-life are revealing---the Delicious corpus has significantly lower loss than the others.  This is ostensibly owing to its construction: users are likely to bookmark resources that are useful (and hence are well-established, popular sites), in contrast to BootCat's uncritical selection or the deliberate \textsl{document}-seeking (rather than \textsl{information}-seeking) represented by BE06.
+The large differences in corpus half-life are revealing---the Delicious corpus has significantly lower loss than the others.  This is ostensibly owing to its construction: users are likely to bookmark resources that are useful (and hence are well-established, popular sites), in contrast to BootCaT's uncritical selection or the deliberate \textsl{document}-seeking (rather than \textsl{information}-seeking) represented by BE06.
 
 
 % ---- Differences between cats
-The difference in half-life between Sharoff's corpus and my own BootCat-derived one is harder to explain.  Though both are large corpora built using similar methods, they were sampled years apart with heavy influence from search engines which, will have updated significantly in this period.  It is also possible that 31 days is an insufficient period to achieve an estimate for attrition that is representative of a full year's loss, implying that a pattern may be evident due to external influences (such as hosting renewals around the commencement of the tax year).%, a point to be addressed in our planned high-resolution longitudinal study.
+The difference in half-life between Sharoff's corpus and my own BootCaT-derived one is harder to explain.  Though both are large corpora built using similar methods, they were sampled years apart with heavy influence from search engines which, will have updated significantly in this period.  It is also possible that 31 days is an insufficient period to achieve an estimate for attrition that is representative of a full year's loss, implying that a pattern may be evident due to external influences (such as hosting renewals around the commencement of the tax year).%, a point to be addressed in our planned high-resolution longitudinal study.
 % TODO: talk about plans in conclusion
 
 
@@ -301,7 +301,7 @@ This may be the result of bias introduced when deliberately omitting non-documen
 
 
 % ---- Why has be06 dropped so fast?
-The relatively high rate of attrition in BE06 is surprising given that it only features documents that were already in print, which ostensibly reside in archives or the websites of large institutions (shown to be relatively nonvolatile in other work).  One possible counter argument is that BE06's sampling policy was to take documents \textsl{published} in 2006, rather than merely being available, such that these samples have witnessed the initial steep descent on the document survival curve. %this explanation does nothing to explain the short half-life of the younger BootCat though!
+The relatively high rate of attrition in BE06 is surprising given that it only features documents that were already in print, which ostensibly reside in archives or the websites of large institutions (shown to be relatively nonvolatile in other work).  One possible counter argument is that BE06's sampling policy was to take documents \textsl{published} in 2006, rather than merely being available, such that these samples have witnessed the initial steep descent on the document survival curve. %this explanation does nothing to explain the short half-life of the younger BootCaT though!
 
 % might it be that these docs are still available, but moved to a new location with no URL redirect in place? so they are still available by 'searching' but not 'browsing'? This might indicate a new methodology for distributing URL lists?
 
@@ -566,7 +566,7 @@ Though each corpus exhibits a dependence between these TLD groups (chosen to rep
     %> plot(  density(deli.s3$uri_npath)  )
     %> plot(  density(boot.s3$uri_npath)  )
     %> plot(  density(serge.s3$uri_npath)  )
-The shape of the empirical distribution for path length of the URL is shown in Figure~\ref{fig:longitudinal:attrition:attrition-density}.  Delicious.com users may be expected to bookmark top-level domains with relative frequency, but the difference between the two BootCat samples is more subtle, perhaps an effect of search engine changes.  The preponderance of introductory or `launch' pages in the Delicious data set may also go some way to explaining the longevity of its content---it seems reasonable to presume that top-level pages remain online for longer (though also perhaps that they change more often).
+The shape of the empirical distribution for path length of the URL is shown in Figure~\ref{fig:longitudinal:attrition:attrition-density}.  Delicious.com users may be expected to bookmark top-level domains with relative frequency, but the difference between the two BootCaT samples is more subtle, perhaps an effect of search engine changes.  The preponderance of introductory or `launch' pages in the Delicious data set may also go some way to explaining the longevity of its content---it seems reasonable to presume that top-level pages remain online for longer (though also perhaps that they change more often).
 
     %The shape of the empirical distribution for the path length of the URL varies between the Delicious and search-engine-built corpora (figure \ref{fig:res:dist}), with users of Delicious more likely to bookmark top-level domains.  This indicates a preponderance of introductory or `launch' pages compared to the other corpora, which exhibit a more bell-like curve that appears more rational as a cross-sectional sample of website URLs.
 
@@ -610,7 +610,7 @@ The shape of the empirical distribution for path length of the URL is shown in F
      %FALSE   TRUE 
     %165894  10544  = 5.95%
 Taking the presence of GET-arguments in a URL 
-as an indicator of a page being dynamic, a number of effects may be seen across the corpora.  The BE06 corpus had 24\% of all links dynamic, exceeding Sharoff's at 17\% and Delicious \& BootCat at 8\% and 6\% respectively.  This difference is probably due to the selection of published documents, since the compiler was seeking specific materials within sites rather than attempting to retain the location of a resource (as with Delicious) or sampling randomly from URL-space (as with BootCat).  Differences between the two BootCat-based corpora may reflect changing weights within search engine algorithms. %TODO: which may also use this property as an indicator, amongst other things
+as an indicator of a page being dynamic, a number of effects may be seen across the corpora.  The BE06 corpus had 24\% of all links dynamic, exceeding Sharoff's at 17\% and Delicious \& BootCaT at 8\% and 6\% respectively.  This difference is probably due to the selection of published documents, since the compiler was seeking specific materials within sites rather than attempting to retain the location of a resource (as with Delicious) or sampling randomly from URL-space (as with BootCaT).  Differences between the two BootCaT-based corpora may reflect changing weights within search engine algorithms. %TODO: which may also use this property as an indicator, amongst other things
 
 
 
