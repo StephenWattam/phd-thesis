@@ -1,7 +1,7 @@
 
 
 
-Many sampling efforts for linguistic data on the web are heavily focused on producing results comparable to conventional corpora.  These typically take two forms: those based on URI lists (e.g.\ from search results, as in %~\cite{sharoff2006creating}
+Many sampling efforts for linguistic data on the web are heavily focused on producing results comparable to conventional corpora.  These typically take two forms: those based on URL lists (e.g.\ from search results, as in %~\cite{sharoff2006creating}
 BE06~\cite{baker2009be06}, BootCat~\cite{baroni2004bootcat}), and those formed through crawling (e.g.\ enTenTen\footnote{\url{http://trac.sketchengine.co.uk/wiki/Corpora/enTenTen}},
 UKWaC~\cite{ferraresi2008introducing}).
 
@@ -17,10 +17,10 @@ This approach, with its base in a continually-growing supercorpus, parallels the
 %Even for informal searches, tools for date-based lookup are increasingly (e.g. Google).
 
 
-Repeated sampling by crawling, whilst balanced linguistically, omits subtler technical aspects that govern consumption of data online, most notably the user's impression of its location, as defined by the URI\@.  Low publishing costs online, paired with increasing corporate oversight and reputation management (both personal\cite{ICT4DBibliography1650} 
+Repeated sampling by crawling, whilst balanced linguistically, omits subtler technical aspects that govern consumption of data online, most notably the user's impression of its location, as defined by the URL\@.  Low publishing costs online, paired with increasing corporate oversight and reputation management (both personal\cite{ICT4DBibliography1650} 
 and professional\cite{Malaga2000repman}), have lead to a situation where this content is being revised frequently, often without users even noticing.
 
-The nature of within-URI change have been studied from a technical perspective by those interested in managing network infrastructure, compiling digital libraries~\cite{tyler2003librarians}, and optimising the maintenance of search engine databases~\cite{koehler2004longitudinal}.  The needs of these parties are quite aside from those of corpus researchers, however, since they focus around a best-effort database of information, rather than a dependable longitudinal sample with known margins for error.
+The nature of within-URL change have been studied from a technical perspective by those interested in managing network infrastructure, compiling digital libraries~\cite{tyler2003librarians}, and optimising the maintenance of search engine databases~\cite{koehler2004longitudinal}.  The needs of these parties are quite aside from those of corpus researchers, however, since they focus around a best-effort database of information, rather than a dependable longitudinal sample with known margins for error.
 
 % ---
 Current methods for sampling language change online include:
@@ -48,12 +48,12 @@ Each of these methods is subject to a number of downsides, making them difficult
 % 
 
 
-I present here a tool, LWAC, for this form of longitudinal sampling, designed to maximise the comparability of documents downloaded in each sample in terms of their URI rather than content.  To accomplish this, we use a cohort sampling strategy, as illustrated in Figure~\ref{fig:longitudinal:lwac:samples}, to get full coverage over a list of URIs, at the expense of sampling new content.
+I present here a tool, LWAC, for this form of longitudinal sampling, designed to maximise the comparability of documents downloaded in each sample in terms of their URL rather than content.  To accomplish this, we use a cohort sampling strategy, as illustrated in Figure~\ref{fig:longitudinal:lwac:samples}, to get full coverage over a list of URLs, at the expense of sampling new content.
 
 \begin{figure}[Ht]
     \centering
     \includegraphics[width=0.6\textwidth]{longitudinal/lwac-samples}
-    \caption{URI coverage for batch and crawl}
+    \caption{URL coverage for batch and crawl}
     \label{fig:longitudinal:lwac:samples}
 \end{figure}
 
@@ -76,7 +76,7 @@ This allow a user to investigate how language may change in relation to technica
     \item How institutions' publishing policies affect reporting of current events.
 \end{itemize}
 
-LWAC is designed to construct longitudinal samples from URI lists, using only commodity hardware.  It is designed with `full storage' in mind, that is, recording everything about each HTTP session in such a way that it may later be exported and accessed in a parsimonious manner.
+LWAC is designed to construct longitudinal samples from URL lists, using only commodity hardware.  It is designed with `full storage' in mind, that is, recording everything about each HTTP session in such a way that it may later be exported and accessed in a parsimonious manner.
 
 
 LWAC is based around a central corpus store that is indexed both by time and URL\@.  Each sample consists of all datapoints in the corpus, and begins at a specified time: this time is aligned to a sampling interval.
@@ -121,7 +121,7 @@ root/files/sample_id/1/2/3/456
 
 
 Data storage in the system is split between metadata, stored in an SQL database, and website sample data itself, which is stored as raw HTTP response data in a versioned structure on disk.  The storage format is optimised for large samples, and is nested in order to avoid common filesystem limits (as shown in Listing~\ref{lst:longitudinal:lwac:corpusformat}
-).  LWAC does not enumerate URIs in memory, meaning there is no hard limit on corpus size---instead it incrementally loads links as requested by the workers.  This means that memory usage is limited to the maximum batch size within the system.
+).  LWAC does not enumerate URLs in memory, meaning there is no hard limit on corpus size---instead it incrementally loads links as requested by the workers.  This means that memory usage is limited to the maximum batch size within the system.
 
 Workers are able to imitate the behaviour of end users' browsers as much as possible, so as to avoid search engine optimisation and user-agent detection tactics.  They are able to provide cookies and request headers commensurate with a web browser, and follow redirects to similar depths.  This behaviour is passed as part of the work unit itself, and so is configured centrally.
 

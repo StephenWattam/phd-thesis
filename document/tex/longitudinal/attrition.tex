@@ -14,14 +14,14 @@ In some cases, both approaches are combined, using searching for general languag
 
 % --------- overview of WAC ----------
 %These two WaC approaches can be seen as taking a snapshot of online data.  % TODO: moved to the data section
-Collecting corpora online raises legal questions regarding redistribution rights.  Consequently, many compilers choose to make data available only through a web interface (with restricted access for fair-use) or by distributing URI lists (known as \textsl{open-source} corpora\cite{sharoff2006open}).
+Collecting corpora online raises legal questions regarding redistribution rights.  Consequently, many compilers choose to make data available only through a web interface (with restricted access for fair-use) or by distributing URL lists (known as \textsl{open-source} corpora\cite{sharoff2006open}).
 
 
 
-%If a corpus is collected online, then the legal grey area of redistribution rights means that many compilers chose to make data available only through a web interface (with restricted access for fair-use) or by distributing URI lists, known as open-source corpora \cite{sharoff2006open}.
+%If a corpus is collected online, then the legal grey area of redistribution rights means that many compilers chose to make data available only through a web interface (with restricted access for fair-use) or by distributing URL lists, known as open-source corpora \cite{sharoff2006open}.
 Online content changes much faster due to the decentralised, open publishing model of the web, which may have a serious impact on two aspects of the WaC paradigm: availability and replicability.
 
-As websites change, the URI lists need updating to reflect new locations. 
+As websites change, the URL lists need updating to reflect new locations. 
 Worse, websites or pages may be completely removed, thus the corresponding part of a corpus is no longer available.
 This attrition of documents through time affects both users of open-source corpora 
 and those attempting to interpret the results of studies using corpora that were built just a few years ago.
@@ -33,17 +33,17 @@ Though many studies have looked at the life-cycle of web pages in general, these
 
 
 
-Koehler~\cite{koehler2002web}, through four years of weekly sampling, found that just 66\% of their original seed URIs remain online after a year, with this proportion dropping to around 31\% by the end of the study.  Koehler started his study in the early days of the web (December 1996) using a relatively small sample of only 361 URIs.  His analysis found differences in the type of page as well as variation across top-level domains (TLD). %that sentence sucks; study such as cho2000evolution again... i've fixed this to some extent
+Koehler~\cite{koehler2002web}, through four years of weekly sampling, found that just 66\% of their original seed URLs remain online after a year, with this proportion dropping to around 31\% by the end of the study.  Koehler started his study in the early days of the web (December 1996) using a relatively small sample of only 361 URLs.  His analysis found differences in the type of page as well as variation across top-level domains (TLD). %that sentence sucks; study such as cho2000evolution again... i've fixed this to some extent
 % I'd need to see the Koehler study but I could style this paper as an update of Koehler's work on a much larger scale and with a corpus focus?
 
 Nelson \& Allen~\cite{nelson2002object} found that only 3\% of documents in digital libraries become unavailable in just over a year. This is perhaps unsurprising given the aim of such projects but serves to illustrate the degree of heterogeneity between types of document host.  
 % do you mean 'unavailable'?
 
-Bar-Ilan and Peritz\cite{bar1999life} present a slightly different method of study, searching for the same information where URIs became unavailable.  Though they primarily investigate the growth of the web in their analysis of the availability of information, they find a similar amount of na\"{i}ve URI attrition to the above studies after a year.  
+Bar-Ilan and Peritz\cite{bar1999life} present a slightly different method of study, searching for the same information where URLs became unavailable.  Though they primarily investigate the growth of the web in their analysis of the availability of information, they find a similar amount of na\"{i}ve URL attrition to the above studies after a year.  
 
 
 
-% this is irrelevant, but studied in their study:  Due to the growth of the web, their relatively technical subject matter (often hosted on sites seen in other studies to be more long-lived), and sampling method, they find that information online is often available more readily than the naive URI death-time would suggest % ahrg, terribly written ;-)
+% this is irrelevant, but studied in their study:  Due to the growth of the web, their relatively technical subject matter (often hosted on sites seen in other studies to be more long-lived), and sampling method, they find that information online is often available more readily than the naive URL death-time would suggest % ahrg, terribly written ;-)
 
 % I think this is probably irrelevant [Though focusing on mapping sites in their entirety, a more thorough effort to model loss by content type is made by Cho and Garcia-Molina \cite{cho2000evolution}, who develop a model to optimise site crawling, with the aim being to maximise availability for other search engines.]
 
@@ -63,7 +63,7 @@ Sharoff~\cite{sharoff2006creating} touches upon this in his WaC work, presenting
 % ---------- What I're doing ----------
 %Very little work has been carried out to estimate the effects of this skew on corpora built using web data
 %Sharoff \cite{sharoff2006creating}
-%calls this `URI half-life' and tries to estimate the rate of disappearance of URIs in his corpus.
+%calls this `URL half-life' and tries to estimate the rate of disappearance of URLs in his corpus.
 %In this paper, I use the term `document attrition'. I outline a preliminary analysis of this skew,
 %attempting to identify trends within corpora of differing construction. I use a number of corpora
 %and present results over a short time period to determine the scale of the problem. This paper is part of
@@ -71,12 +71,12 @@ Sharoff~\cite{sharoff2006creating} touches upon this in his WaC work, presenting
 %such as academic/commercial, country, etc. %  need to beef this up --- is this sufficiently beefed? I fear I've beefed the wrong bit [23-10]
 
 
-Rather than analysing web resources in isolation of their linguistic uses, I outline a preliminary analysis of what I term `document attrition' relative to a number of corpora of differing construction.  This is done in a manner similar to those using open-source corpora: the retrieval of URIs, rather than information.
+Rather than analysing web resources in isolation of their linguistic uses, I outline a preliminary analysis of what I term `document attrition' relative to a number of corpora of differing construction.  This is done in a manner similar to those using open-source corpora: the retrieval of URLs, rather than information.
 
 
 
 
-% I do this by comparing each corpus' construction with a series of URI-based explanatory variables, as part of a larger longitudinal study that will go on to use full text features in order to identify linguistic influence and trends upon web-based corpora and document attrition as a whole.
+% I do this by comparing each corpus' construction with a series of URL-based explanatory variables, as part of a larger longitudinal study that will go on to use full text features in order to identify linguistic influence and trends upon web-based corpora and document attrition as a whole.
 
 
 
@@ -92,19 +92,19 @@ Rather than analysing web resources in isolation of their linguistic uses, I out
 
 
 % ----------- What I'm doing ----------
-In order to measure document attrition across a number of linguistic sources series of corpora were selected, chosen due to their differing constructions and ages, and downloaded them using a process that closely approximates an end user's view of the web.  Statistics on the availability of these documents were then annotated with a series of URI-related variables for analysis.
+In order to measure document attrition across a number of linguistic sources series of corpora were selected, chosen due to their differing constructions and ages, and downloaded them using a process that closely approximates an end user's view of the web.  Statistics on the availability of these documents were then annotated with a series of URL-related variables for analysis.
 
 
 
 
 \subsubsection{Data Summary}
-Data were taken from four open-source corpora (outlined in Table~\ref{table:datmeth:datasum}), each of which consist of a sample of URIs referring to web resources.  All of these corpora are cross-sectional, representing data from a short period, however, only the BootCat-based corpora are built using a script that is likely to sample quickly enough to count as a true point sample in the context of this study.
+Data were taken from four open-source corpora (outlined in Table~\ref{table:datmeth:datasum}), each of which consist of a sample of URLs referring to web resources.  All of these corpora are cross-sectional, representing data from a short period, however, only the BootCat-based corpora are built using a script that is likely to sample quickly enough to count as a true point sample in the context of this study.
 
 %\{I want to float table 1 on THIS page, but LaTeX isn't playing}
 \begin{table*}[ht!]
     \centering
     \begin{tabular}{|r|r|r|r|l|}
-    Corpus    & Date	    & Size (URIs)   & Sample Period	& Construction \\ 
+    Corpus    & Date	    & Size (URLs)   & Sample Period	& Construction \\ 
     \hline
     BE06      & 2006	    & 473	    & 1 year		&  Browsing \\ 
     Delicious & Sep. 2009   & 630,476	    & 1 month		&  Browsing \\
@@ -175,8 +175,8 @@ Taking this user perspective, the notion of document availability becomes slight
 %  > probably keep any more detail for the full paper later
 
 % ---- data source and type
-Both metadata and original response details are stored by the download software.  This experiment will focus on features of URIs, such as the presence of GET arguments\footnote{Parameters appended to a URI string, typically used to control dynamic scripts}
-in the URI string, meaning that the resource is likely to be dynamic.  These features have been chosen to indicate aspects of web hosting and affiliation that are likely to vary between users with both different reasons for uploading their content, and different degrees of technical expertise.
+Both metadata and original response details are stored by the download software.  This experiment will focus on features of URLs, such as the presence of GET arguments\footnote{Parameters appended to a URL string, typically used to control dynamic scripts}
+in the URL string, meaning that the resource is likely to be dynamic.  These features have been chosen to indicate aspects of web hosting and affiliation that are likely to vary between users with both different reasons for uploading their content, and different degrees of technical expertise.
 
 
 %The variables identified are summarised in table [
@@ -195,7 +195,7 @@ in the URI string, meaning that the resource is likely to be dynamic.  These fea
 
 
 % -----------------------------------------------------------------------------
-% * Acquire massive list of URIs (open source corpus)
+% * Acquire massive list of URLs (open source corpus)
 %   - bootcat
 %   - manually built
 %   - Delicious
@@ -303,7 +303,7 @@ This may be the result of bias introduced when deliberately omitting non-documen
 % ---- Why has be06 dropped so fast?
 The relatively high rate of attrition in BE06 is surprising given that it only features documents that were already in print, which ostensibly reside in archives or the websites of large institutions (shown to be relatively nonvolatile in other work).  One possible counter argument is that BE06's sampling policy was to take documents \textsl{published} in 2006, rather than merely being available, such that these samples have witnessed the initial steep descent on the document survival curve. %this explanation does nothing to explain the short half-life of the younger BootCat though!
 
-% might it be that these docs are still available, but moved to a new location with no URL redirect in place? so they are still available by 'searching' but not 'browsing'? This might indicate a new methodology for distributing URI lists?
+% might it be that these docs are still available, but moved to a new location with no URL redirect in place? so they are still available by 'searching' but not 'browsing'? This might indicate a new methodology for distributing URL lists?
 
 % HTTP error codes per corpus
     %> summary(factor(be.s3$responsecode))
@@ -561,24 +561,24 @@ Though each corpus exhibits a dependence between these TLD groups (chosen to rep
 
 
 
-%t URI PATH LENGTH
+%t URL PATH LENGTH
     %> plot(  density(be.s3$uri_npath)  )
     %> plot(  density(deli.s3$uri_npath)  )
     %> plot(  density(boot.s3$uri_npath)  )
     %> plot(  density(serge.s3$uri_npath)  )
-The shape of the empirical distribution for path length of the URI is shown in Figure~\ref{fig:longitudinal:attrition:attrition-density}.  Delicious.com users may be expected to bookmark top-level domains with relative frequency, but the difference between the two BootCat samples is more subtle, perhaps an effect of search engine changes.  The preponderance of introductory or `launch' pages in the Delicious data set may also go some way to explaining the longevity of its content---it seems reasonable to presume that top-level pages remain online for longer (though also perhaps that they change more often).
+The shape of the empirical distribution for path length of the URL is shown in Figure~\ref{fig:longitudinal:attrition:attrition-density}.  Delicious.com users may be expected to bookmark top-level domains with relative frequency, but the difference between the two BootCat samples is more subtle, perhaps an effect of search engine changes.  The preponderance of introductory or `launch' pages in the Delicious data set may also go some way to explaining the longevity of its content---it seems reasonable to presume that top-level pages remain online for longer (though also perhaps that they change more often).
 
-    %The shape of the empirical distribution for the path length of the URI varies between the Delicious and search-engine-built corpora (figure \ref{fig:res:dist}), with users of Delicious more likely to bookmark top-level domains.  This indicates a preponderance of introductory or `launch' pages compared to the other corpora, which exhibit a more bell-like curve that appears more rational as a cross-sectional sample of website URIs.
+    %The shape of the empirical distribution for the path length of the URL varies between the Delicious and search-engine-built corpora (figure \ref{fig:res:dist}), with users of Delicious more likely to bookmark top-level domains.  This indicates a preponderance of introductory or `launch' pages compared to the other corpora, which exhibit a more bell-like curve that appears more rational as a cross-sectional sample of website URLs.
 
 \begin{figure}[Ht]
     \centering
     \includegraphics[width=0.8\textwidth]{longitudinal/attrition-density}
-    \caption{Differences in the empirical distribution of URI path length.}
+    \caption{Differences in the empirical distribution of URL path length.}
     \label{fig:longitudinal:attrition:attrition-density}
 \end{figure}
 
 
-% URI ARGUMENTS (dynamic-ness)
+% URL ARGUMENTS (dynamic-ness)
 % SUMMARY OF ARGUMENTS
     %> summary(factor(be.s3$uri_nargs))
       %0   1   2   3   4 
@@ -609,8 +609,8 @@ The shape of the empirical distribution for path length of the URI is shown in F
     %> summary(factor(boot.s3$uri_nargs > 0))
      %FALSE   TRUE 
     %165894  10544  = 5.95%
-Taking the presence of GET-arguments in a URI 
-as an indicator of a page being dynamic, a number of effects may be seen across the corpora.  The BE06 corpus had 24\% of all links dynamic, exceeding Sharoff's at 17\% and Delicious \& BootCat at 8\% and 6\% respectively.  This difference is probably due to the selection of published documents, since the compiler was seeking specific materials within sites rather than attempting to retain the location of a resource (as with Delicious) or sampling randomly from URI-space (as with BootCat).  Differences between the two BootCat-based corpora may reflect changing weights within search engine algorithms. %TODO: which may also use this property as an indicator, amongst other things
+Taking the presence of GET-arguments in a URL 
+as an indicator of a page being dynamic, a number of effects may be seen across the corpora.  The BE06 corpus had 24\% of all links dynamic, exceeding Sharoff's at 17\% and Delicious \& BootCat at 8\% and 6\% respectively.  This difference is probably due to the selection of published documents, since the compiler was seeking specific materials within sites rather than attempting to retain the location of a resource (as with Delicious) or sampling randomly from URL-space (as with BootCat).  Differences between the two BootCat-based corpora may reflect changing weights within search engine algorithms. %TODO: which may also use this property as an indicator, amongst other things
 
 
 
@@ -627,7 +627,7 @@ as an indicator of a page being dynamic, a number of effects may be seen across 
 \subsection{Discussion}
 
 
-These preliminary results indicate that the process of corpus compilation, by introducing deliberate bias into the content  (the selection of full documents, filtering of navigation pages, etc.), impacts the observed document attrition rate.  These biases have been evidenced by the URI features alone, raising interesting questions about the effect that collection strategies have upon corpus integrity---should the tendencies of different groups of web publishers be factored into sampling strategies for open-source or subject-specific corpora?
+These preliminary results indicate that the process of corpus compilation, by introducing deliberate bias into the content  (the selection of full documents, filtering of navigation pages, etc.), impacts the observed document attrition rate.  These biases have been evidenced by the URL features alone, raising interesting questions about the effect that collection strategies have upon corpus integrity---should the tendencies of different groups of web publishers be factored into sampling strategies for open-source or subject-specific corpora?
 
 The ramifications of these biases for the WaC availability sampling strategy remain an open question --- does `searching' for links imply a minimum age, and hence a pre-existing skew towards certain content?
 
