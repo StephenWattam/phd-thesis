@@ -3,42 +3,49 @@
 
 This thesis has examined the problem of improving corpus sampling from a number of perspectives, offering modest novelty in each.  This chapter will serve to summarise these, before offering an overview of significant areas for further research.
 
-The first of these perspectives is that of sampling and representativeness in general-purpose corpora.  Each of the tools covered here offers a mechanism for investigating this within a larger linguistic context, and this restriction is primarily due to the theory-laden nature of the target: representativeness must ultimately be defined relative to a research question.
+Chapter~\ref{sec:longitudinal} presents a motivating study of link rot in open-source corpora, finding large variations in document half-life using a URL-seeking method.  This illustrates that temporal effects have a significant impact on the availability of data, and that such effects vary according to source.  Much literature exists that has related these to layout features (such as the role of navigation and landing pages), yet the impact this has upon linguistic content is less well understood.
 
-This line of reasoning is the primary justification behind the explicit corpus description covered in Chapter~\ref{sec:rebuilding}---making the variables identified in research questions explicit and quantitative allows for systematic evaluation against them, either automatically or by other users of the corpus.  This mechanism generalises the approach taken by BootCaT to perform bootstrapping in terms of user-specified metadata dimensions.
+In order to make such investigation possible, a cohort sampling approach is necessary, performed at a high resolution over a long period of time.  The LWAC tool automates this process, providing a mechanism to construct large-scale corpora that are indexed by time as well as URL.  Key to the utility of such a tool is its performance, which was shown to be adequate to construct corpora in the millions of documents, sampled daily.
 
-One important question to return to is how this fits with the problems associated with sampling general-purpose corpora.  If specification of research questions is important to any assessment of representativeness, then general-purpose corpora are doomed to fail.  The model I have presented here is one of ensuring that a corpus' coverage is similar to that of existing general-purpose ones, but relaxing requirements on features that are not of interest to a particular study.  It seems likely that there is a viable trade-off where a composite of many such `specific-purpose' corpora would form a widely-representative corpus.  Achieving this will require agreement on the underlying theories that generate such research questions though.
+This wealth of data enables analysis not only of `simple' availability, but also changes through time due to editorial processes or site redesigns.  This may allow sociolinguistic analysis surrounding specific events, or a more general picture of long-term genre change through time.  It is hoped that the latter of these can be used as auxiliary data to inform stratification of future general-purpose corpora (or at least their web-based components).
 
-Though Chapter~\ref{sec:personal}'s contribution may seem exclusively special-purpose, it is notable that some of the main goals of proportional sampling are to represent variation across demographic values: something that is usually made difficult by sampling texts at such distance from their creators/consumers.  Repeated application of such inverted sampling methods yield valuable empirical information into the variance that can be observed in language taxonomies, allowing such data to be used to weight larger general-purpose sample designs.
+% ---
+Chapter~\ref{sec:personal} presents a case study detailing a short-term linguistic census of a single subject.  The sample design used therein is a `narrow and deep' design, orthogonal to the 'broad but shallow' coverage of the large national corpora.  This makes it particularly useful for judging rationally how well such data apply to individuals, and offers a way to retrieve metadata not found using conventional data gathering methods.
 
+Such a detailed sample also provides a mechanism for reasoning about corpus size: the data observed in just two weeks for a single subject yielded almost a million words.  Assuming significant inter-person variation for a given linguistic feature, this implies that a population of ~60 million people cannot be well represented by a corpus of just a few million words.  Quantitative knowledge of inter-person variation is needed to operationalise this, but such data could be gathered using some of the automation methods presented.
 
-% \paragraph{}
-A second theme has been sampling from the web.  Each of the methods here is made possible only due to the existence of web data, and existing tools from WaC.
+Such methods were largely taken from lifelogging, a field chosen due to its focus on unobtrusive, best-effort, and wide-ranging sampling techniques.  These proved to be significantly more troublesome than expected: though automation was assistive, much manual correction was necessary to operationalise the data, including the need for a human-interest model to correct summary statistics that were gathered at a low resolution.
 
-Chapters~\ref{sec:longitudinal},~\ref{sec:rebuilding} and~\ref{sec:evaluation} cover tools and methods for retrieving web data according to novel sampling policies.  In the former case, this is performed at a scale and level of detail not currently possible, with the added dimension of time, but in a manner familiar with anyone currently using `open-source' corpora or URL-lists from other sources.
+% ---
+Chapters~\ref{sec:rebuilding} and~\ref{sec:evaluation} cover a method for `profiling' a corpus purely based on independent variable specification.  This profile has many potential uses, both as human documentation for a corpus and as a machine-readable descriptor.
 
-Chapter~\ref{sec:personal} also features logging from web data, which was identified as one of the least intrusive (and thus easiest to widely utilise) features.
+This system is one designed to extend and generalise the approach taken by BootCaT in order to make its selection criteria easier to operationalise.  As such, it is designed to be modular, allowing those building a corpus to re-use algorithms and taxonomies in a simple manner: essentially, the aim is that the tool should be working using the same concepts and distinctions as the desired sampling frame.
 
-The latter generalises this further at the expense of some detail, covering multiple research designs to form an extensible platform.  Ultimately, the success of such a general method is built upon the quality and pertinence of the heuristics it is using: the purpose of such a tool is to encode the expert opinion once injected by humans in an unambiguous, transparent, portable fashion\footnote{This is essentially the approach taken by all of technology, much to the chagrin of John Henry.}.
+Monte-carlo techniques were used as a method for operationalising the profile, something that was shown to achieve convergence to the desired distribution within a tractable period for a BNC-like corpus.  The classifiers required to identify documents for final selection were shown to be workable, but their performance was borderline for the more complex dimensions such as genre---this is in part due to the ambiguity in the test data's taxonomy, and in part due to the difficulty of large-scale classification tasks.  Such issues are of wide utility, however, implying that improvement in this area will not require specific study.
 
-This generalisation opens up something that is only recently being recognised by compilers of new corpora\td{cite bnc2014}---so much of modern life is now digitised (and available online), that we can use the web to build samples that tell us about more than the web as a separate entity.  This is a start on fixing Kilgarriff \& Grefenstette's issue with web corpora\cite[p. 343]{kilgarriff2003introduction}:
-
-\begin{quote}
-The Web is not representative of anything else. But neither are other corpora, in any well-understood sense.
-\end{quote}
+Retrieval of documents according to the prototypes was shown to be possibly the biggest challenge.  This is in part due to the classic corpus sampling problems of being unable to locate documents in a uniform and reliable manner, and in part due to the biases seen online.  A number of methods were presented to work around these issues, such as manual selection or use of manually-curated web indices, and evaluation of these remains as further work.
 
 
-% \paragraph{}
-The third and final theme has been the provision of tools to simplify the methods presented here.  This is a tradition of corpus linguistics, which has always relied on automation to make possible the analysis of texts at a scale beyond human bounds.
 
-All three of the methods presented here are also only possible due to this automation: each relies on the speed and reliability of modern computing hardware.  In the case of Chapters~\ref{sec:longitudinal},~\ref{sec:rebuilding} and~\ref{sec:evaluation}, this is down to brute speed in retrieving and processing data.  For the data-gathering tools used in Chapter~\ref{sec:personal}, their value is in being able to transparently slip between the everyday tools of work and their data sources, or, in the special case of smartphones, being able to slip into any situation unnoticed.
 
-% \paragraph{}
-Ultimately, this thesis has presented three novel methods for sampling in corpus linguistics.  The first of these may be used in an already-rich area of investigation to aid our understanding of web publishing for the sake not only of linguistics, but also for time-sensitive NLP systems such as search and knowledge engines.
+% --------
+\paragraph{}
+To revisit the problem of representativeness, this thesis has taken the view that any such question must be framed in terms of a larger study design.  This is not to say that general-purpose corpora are impossible to create: sampling is such a challenging and resource-intensive endeavour that it will most likely always have to be offloaded onto a third party for larger populations.
 
-The case study presented in Chapter~\ref{sec:personal} provides a perspective on existing sampling methods and a mechanism for construction of corpora annotated with metadata that are traditionally unavailable.  Lessons from this could be incorporated into future designs for new general-purpose corpora, or each personal corpus could be used as its own statistical baseline: both go some way to solving significant practical issues.
+The aim, then, is to provide a general-purpose corpus that is uniformly representative for a wide, and well-specified set of research questions.  This corpus should be sampled using random sampling techniques, and this thesis' tools have been designed to inform stratification efforts with this in mind.  Such a corpus should also be unambiguously and comprehensively documented: assumptions should be made explicit in corpus documentation so that they may be compared against those made by researchers, and the limitations of the intended use of a corpus should be stated in quantitative terms.
 
-These first two methods are potential sources of data for quantitative expression of population properties, necessary for more formal approaches to corpus sample design.  Profile-guided corpus construction capitalises on this, offering a generalisation of existing WaC methods, and a system for unambiguously describing (and thus disseminating) sample designs.  Though the utility of such methods lies in the hands of those imbuing them with expert knowledge, initial results indicate an ability to duplicate existing corpora with predictable bounds for error.  Such measures are the first steps towards being able to measure the bias of common sampling techniques.
+The contributions within this thesis have been targeted to provide some insight into the underlying population that is not possible using current techniques.  I do not suppose that these alternative sampling designs will be used in their own right (though there is utility in this for some), but that the perspective they yield may be used to inform and improve upon existing corpus retrieval methods.
+
+
+% Kilgarriff \& Grefenstette's issue with web corpora\cite[p. 343]{kilgarriff2003introduction}:
+
+% \begin{quote}
+% The Web is not representative of anything else. But neither are other corpora, in any well-understood sense.
+% \end{quote}
+
+
+
+
 
 
 
