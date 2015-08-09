@@ -19,7 +19,7 @@ The process of constructing a corpus description is outlined in~\ref{fig:rebuild
 \end{figure}
 
 
-For direct use, the user would specify their salient dimensions, and the distribution for each.  This is essentially a description of the sampling policy---where variables are discrete and nominal (such as genre labels), this would take the form of a table with desired proportions against each.  Where variables are continuous, a probability density function is defined.  Note that this method does not, without prohibitive complexity, allow for specification of interactions between variables, leaving it unable to represent, for example, differing genres within spoken and written portions of a corpus\td{c,o,m,m,a,s}\td{return to this and comment on it later}.
+For direct use, the user would specify their salient dimensions, and the distribution for each.  This is essentially a description of the sampling policy---where variables are discrete and nominal (such as genre labels), this would take the form of a table with desired proportions against each.  Where variables are continuous, a probability density function is defined.  Note that this method does not, without prohibitive complexity, allow for specification of interactions between variables, leaving it unable to represent, for example, differing genres within spoken and written portions of a corpus.%\td{c,o,m,m,a,s}\td{return to this and comment on it later}.
 
 Profiling through the use of a `seed' corpus begins with specifications of the salient dimensions, the data for which are then read from the seed (by $f()$ and $g()$ functions in the figure).  As each document is read, the corpus description may contain information not only on marginal distributions for each variable, but also the effects of conditioning on one or more value.
 
@@ -61,13 +61,11 @@ To perform this resampling, we must be able to sample from the distribution of e
 Two methods were implemented for selection of the prototype, representing two of the most popular use-cases.  
 
 \begin{itemize}
-    \item Simple selection from marginals.  This is the best case possible where a corpus lacks interaction information, and follows the joint distribution of the metadata properties across the whole corpus.  Despite its relative simplicity it may be suitable for some corpus designs, and is analogous to the BNC's balancing of spoken corpora \td{check this, cite the page where they describe their balancing}.
+    \item Simple selection from marginals.  This is the best case possible where a corpus lacks interaction information, and follows the joint distribution of the metadata properties across the whole corpus.  Despite its relative simplicity it may be suitable for some corpus designs, and is analogous to the BNC's balancing of spoken corpora.% \td{check this, cite the page where they describe their balancing}.
     \item Full conditional selection.  This is implemented by recursively selecting a random sequence of metadata types, and then conditioning on a value drawn from the distribution of that type conditional on the values selected for those previous to it.
 \end{itemize}
 
-\til{Does this need the algorithm for both here?  It's terribly simple}
-
-It is additionally possible to sample conditioning on fewer variables (yet randomly selecting them each time) in order to emulate the behaviour of a `blocked' Gibbs' sampler\td{cite}.
+It is additionally possible to sample conditioning on fewer variables (yet randomly selecting them each time) in order to emulate the behaviour of a `blocked' Gibbs' sampler\cite{gibbs1993}.
 
 The former of these, whilst faster and simpler, will fail to take into account any interactions between metadata and is included since it is the only method capable of running on a very simply specified corpus description.  The experiments in this thesis use full conditional selection, as they have the luxury of using a corpus description built from a full seed corpus.
 
@@ -138,8 +136,7 @@ By aligning the taxonomies used in metadata to those in an existing web director
 
 This method is subject to errors regarding the age of content on web directories (the popularity of which is waning in favour of search engine technology), as well as those introduced by human categorisers whose aims may not be aligned to the definitions required for a given research question.  Additionally, the granularity of each category is fixed and cannot reasonably be changed.
 
-Nonetheless, such an approach is close to that used in conventional corpora and is easily defended, providing that the directory is well trusted.%  It should be noted that some web directories are already used by search engine operators to augment their taxonomies.
-\til{Note that `best of the web' has a specific blog directory and is used by search engines}
+Nonetheless, such an approach is close to that used in conventional corpora and is easily defended, providing that the directory is well trusted.  Notably, these directories are already used by search engines to inform their results\cite{sloanpaul2007}.%  It should be noted that some web directories are already used by search engine operators to augment their taxonomies.
 
 \paragraph{iv. Manual Selection}
 Crowdsourcing services offer a cheap mechanism for retrieving documents by requesting that humans manually seek a document fitting the prototype metadata.  This method has severe volume and speed limitations not present in the others, however, the accuracy of a human search is likely to be far greater, minimising overdispersion in the output set.
@@ -147,8 +144,6 @@ Crowdsourcing services offer a cheap mechanism for retrieving documents by reque
 Where a corpus must be duplicated as accurately as possible (yet there is less importance placed on scale or speed of rebuilding), this is most likely a good choice for almost all metadata properties.
 
 The major disadvantage of this method is that the speed of lookup is greatly reduced, bringing the corpus building process closer to that used by a conventional corpus.  The main difference here is that the weight of expertise required to select documents is handed off to those constructing the corpus definition, rather than those searching the indices.
-
-
 
 
 
@@ -175,9 +170,9 @@ There are two possible approaches to working with biased populations:
 
 The former of these approaches may seem ideal, however, it will only be effective if sufficient documents have already been selected for each conditional distribution, and if the population distribution is only slightly biased.  It will also slow down the seeking stage of each document and, in the event that the population yields no perfect documents, stop it completely.  It is a stricter and more reliable approach, but also vastly reduces the practicality of any system using it.
 
-Variations on this theme form the basis of many MCMC methods, particularly Metropolis-Hastings.  MCMC algorithms are generally used where it is difficult to estimate marginals, however, this is not the case for our corpus data.
+Variations on this theme form the basis of many MCMC methods, particularly Metropolis-Hastings.  MCMC algorithms are generally used where it is difficult to estimate marginals, however, this is not the case for our corpus data, where the marginals are well known (or manually specified).
 
-\til{Check that there isn't some way these can be used\ldots [DL]}
+% \til{Check that there isn't some way these can be used\ldots [DL]}
 
 The latter, rejection sampling, is much more viable, as the clustered and hyperlinked nature of the internet makes retrieval of many similar documents only slightly more difficult than retrieval of just one.
 
@@ -212,7 +207,7 @@ The F score may also be generated only for the best documents returned, providin
 
 Ideally, heuristics form pluggable, reliable modules with known degrees of error that may be ignored when using the method as a source of linguistic data.  The degree to which this applies is defined by how well each is aligned with a source of data: Keyword-based heuristics, for example, are well aligned with the search systems of search engines, but poorly aligned with the strengths and weaknesses of humans seeking a document type.
 
-The value a heuristic yields is a trade-off between how closely it describes the document and how accurately it is possible to retrieve a document from the source. \td{perhaps remove, poorly worded}
+The value a heuristic yields is a trade-off between how closely it describes the document and how accurately it is possible to retrieve a document from the source.
 
 
 \paragraph{Document Distance}

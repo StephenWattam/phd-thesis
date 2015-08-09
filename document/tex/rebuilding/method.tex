@@ -48,7 +48,7 @@ Each distribution object supports sampling at a given value $x$, returning $P[x 
 
 The process of reading a corpus to describe it is one of loading document metadata from files.  As illustrated in Figure~\ref{fig:rebuilding:loading-block}, the values of metadata may be loaded from a corpus in CSV format, or from a manual description of the metadata required.  In addition to the metadata field values for each document, a mapping from CSV field names to metadata distributions is required, in order to define how each item of data is to be stored and manipulated.
 
-It is possible at this stage to select distributions that artificially manipulate the metadata of a corpus, allowing users to `filter' or skew an existing corpus without manually editing each file prior to insertion.  This could be used to produce stochastic subcorpora, where the probability of undesirable documents is not eliminated but merely reduced, in effect rebalancing the corpus on-the-fly.  This is akin to two-phase stratified sampling\td{ensure covered in lit review}, yet offers possibilities beyond simple weighting of each input document.
+It is possible at this stage to select distributions that artificially manipulate the metadata of a corpus, allowing users to `filter' or skew an existing corpus without manually editing each file prior to insertion.  This could be used to produce stochastic subcorpora, where the probability of undesirable documents is not eliminated but merely reduced, in effect rebalancing the corpus on-the-fly.  This is akin to two-phase stratified sampling, yet offers possibilities beyond simple weighting of each input document.
 
 The selection of distributions is performed using the profile file, in a human-readable format.  This section of the profile currently maps CSV field names to instances of the distribution objects in question, as shown in Listing~\ref{lst:rebuilding:profile-lst}.  The parameter passed to the SmoothedGaussianDistribution constructor defines the standard deviation of the Gaussian distributions used, causing slight variation in sampling around each point.
 
@@ -155,7 +155,7 @@ By using existing an existing web index, it is possible to map taxonomies direct
 
 The ability to use different indices (or search them) based upon another dimension of metadata makes this method suitable for use with very special-purpose corpora.  For example, one may search Project Gutenberg (a large repository of free ebooks) where the text type is `book', yet return to Bing search or DMOZ~\footnote{A.K.A. The open directory project, available at \url{http://wwwsearch.sourceforge.net/mechanize/}} for less specialist documents.
 
-Some of these resources may also fall offline, for example, a complete dump of Wikipedia and DMOZ are available and are used directly by ImputeCaT to find URLs.\td{well, they're not yet but I can enable that.}
+Some of these resources may also fall offline, for example, a complete dump of Wikipedia and DMOZ are available and are used directly by ImputeCaT to find URLs.
 
 
 \paragraph{iii. Hybrid}
@@ -260,7 +260,8 @@ Notably, by scoring each document according to its target, it is possible to mea
 
 As documents are selected, it is possible to compute their sampling error by taking the difference between metadata values relative to the prototype.  This difference will be in units defined per metadata type, following a distribution that, in the ideal case, is uniform.
 
-The error surface is, in reality, as intricate as the original distribution of documents: there is no way to compute errors for all conditions within the corpus without simply comparing documents.  To operationalise measures of total distance, therefore, we may summarise the error in a number of ways \td{make a mathematical notation for this}:
+The error surface is, in reality, as intricate as the original distribution of documents: there is no way to compute errors for all conditions within the corpus without simply comparing documents.  To operationalise measures of total distance, therefore, we may summarise the error in a number of ways: 
+% \td{make a mathematical notation for this}:
 
 \begin{itemizeTitle}
 
@@ -273,7 +274,7 @@ The error surface is, in reality, as intricate as the original distribution of d
 \end{itemizeTitle}
 
 
-\til{These ought to be decided upon rel. Ch6's methods}
+% \til{These ought to be decided upon rel. Ch6's methods}
 
 If weighting the candidate document selection function, greater mean standard error should be observed on those dimensions with lower weights.
 
