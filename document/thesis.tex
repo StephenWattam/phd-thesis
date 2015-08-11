@@ -76,11 +76,13 @@
 % Restrictions on figure movement
 \usepackage{placeins}
 
+% Hyperlinks back from the bibliography to
+% the use
+\usepackage{backref}
 
-% hyperref
+% hyperref (should be last)
 \usepackage{hyperref}
 \hypersetup{%
-    pagebackref=true,
     final=true,     % Show even when doc is in draft mode
     hidelinks=true,
     unicode=true,   % Enable the 21st century
@@ -97,10 +99,6 @@
     bookmarks=true,
     linktocpage=true
 }%
-
-
-% PDF bookmarks
-% \usepackage{bookmark}
 
 
 % ------------------------------------------------------------------------------
