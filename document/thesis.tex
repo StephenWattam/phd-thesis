@@ -76,9 +76,8 @@
 % Restrictions on figure movement
 \usepackage{placeins}
 
-% Hyperlinks back from the bibliography to
-% the use
-\usepackage{backref}
+% Hyperlinks back from the bibliography to the use
+% \usepackage{backref}
 
 % hyperref (should be last)
 \usepackage{hyperref}
@@ -158,8 +157,11 @@
 \input{tex/abstract}
 %\pagebreak
 
-\chapter*{Acknowledgements}
-\input{tex/acknowledgements}
+
+\ifdraft{}else{%
+    \chapter*{Acknowledgements}
+    \input{tex/acknowledgements}
+}
 %\pagebreak
 
 \chapter*{Declaration}
