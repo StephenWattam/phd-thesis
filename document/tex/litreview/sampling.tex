@@ -17,7 +17,7 @@ The ideal sampling scheme for a given population and selection of variables, the
 Taking this principle to extremes yields the maximally-representative census sample: 100\% of the population of interest.  At this point, any inference is mere observation, and the only potential pitfalls are ones related to whether or not the question itself is worth asking, rather than the validity of its answer.  A census still contains theory-laden assertions, however, in the form of its population definition\cite{atkins1992corpus}.
 
 
-At the high level, samples may be classified into two main groups: \textsl{nonprobability}, and \textsl{probability} samples.  The former of these is primarily guided by a systematic or subjective choice, and the latter has a sampling frame defined by random selection.
+At the high level, samples may be classified into two main groups: \textsl{nonprobability}, and \textsl{probability} samples\cite{neyman1934representative}.  The former of these is primarily guided by a systematic or subjective choice, and the latter has a sampling frame defined by random selection.
 
 % For statistical analysis, probability sampling is necessary, with the simplest case being simple random sampling (SRS).  In practice such a thing is seldom possible, and methods such as weighting and stratification may be used.
 \subsection{Nonprobability Sampling}
@@ -38,7 +38,7 @@ There are a number of methods that are designed to adjust for these biases.  Bir
 
 Farrokhi\cite{farrokhi2012rethinking} approaches the problem of constructing two groups: a control and treatment group, using a series of predetermined criteria to assign membership.  This approach mirrors the comparative nature of many corpus linguistic methods, but does not directly offer a way to produce a more representative corpus for `general use' aside from the principles of using heuristics to guide design.
 
-Despite the drawbacks of conveinence sampling, such an approach may be appropriate for populations where it is agreed that there is little variation between individuals for the variables of interest: for example, a study which seeks to establish the modal number of eyes humans have might be well served with a very small sample.  Smaller linguistic features such as unigram frequencies are likely to be similarly easy to represent.
+Despite the drawbacks of convenience sampling, such an approach may be appropriate for populations where it is agreed that there is little variation between individuals for the variables of interest: for example, a study which seeks to establish the modal number of eyes humans have might be well served with a very small sample.  Smaller linguistic features such as unigram frequencies are likely to be similarly easy to represent.
 
 
 
@@ -98,7 +98,7 @@ There are many probability-based designs available, and the choice of them is la
 
 Random selection of data points provides both a mechanism for unbiased estimation of parameters such as means, as well as knowledge of variation.  The latter of these is the key difference between a probability-based sample and a well-chosen nonprobability one, and is vital to basic hypothesis testing procedures.  Further, notions of sample size are entirely based on these measures: power analysis demands some knowledge of variance and effect size, both of which are only meaningful under conditions of random selection.
 
-Random sampling methods identified by Lohr, Barnett, and Teddlie include\cite{lohr2009sampling,barnett1991sample,Teddlie01012007}: \textsl{simple random sampling}, \textsl{stratified sampling}, and \textsl{multi-stage sampling}.
+Random sampling methods identified by Lohr, Barnett, and Teddlie\cite{lohr2009sampling,barnett1991sample,Teddlie01012007} include: \textsl{simple random sampling}, \textsl{stratified sampling}, and \textsl{multi-stage sampling}.
 
 \subsubsection{Simple Random Sampling}
 This approach selects members of a population entirely at random.  Each member of the population has a probability of selection that is simply $\frac{sample~size}{population~size}$.
@@ -116,11 +116,11 @@ Once a corpus has been constructed, it is often possible to use SRS in subsampli
 \subsubsection{Stratified Sampling}
 Stratification is the process of breaking a random sample into a set of bins, with sizes weighted according to some policy.  In the case that the strata are selected in an unbiased manner, this should yield the same sample as SRS.
 
-This method ensures that at least one individual is selected from each stratum: something that may be used to improve representation for populations with highly heterogeneous distributions.  This adjustment can be tweaked to allow comparison of low-incidence and high-incidence effects by deliberately increasing the proportion of the population sampled for infrequent strata (for example, selecting more people from areas with low population density).
+This method can be used to ensure that subpopulations are sampled comprehensively by overestimating their proportions, or by using a different sampling method for that stratum.  (for example, selecting more people from areas with low population density).  Such practices damage representativeness but may be useful for qualitative analysis\cite{trost1986qualitative}.
 
-Stratum selection should be along real-world subpopulation boundaries, and is usually selected in order to maximise representativeness (by ensuring that strata are sized according to the population) or statistical power (by ensuring that strata are sized according to the amount of variance in the strata).
+Stratum selection should be along real-world subpopulation boundaries, and is usually selected in order to maximise representativeness (by ensuring that strata are sized according to the population) or statistical power (by ensuring that strata are sized according to the amount of variance in the strata).  Stratification is most efficient when strata are homogeneous and well separated.
 
-All stratification requires the ability to exhaustively separate the population into mutually exclusive categories, and sample from these categories in a random manner.  Both of these are a challenge in corpus linguistics, as removing the first level of `no indexing' often leads to another.  Nonetheless, where information silos exist (such as in academic publishing) then this approach is particularly suited.
+Stratification requires the ability to exhaustively separate the population into mutually exclusive categories, and sample from these categories in a random manner.  Both of these are a challenge in corpus linguistics, as removing the first level of `no indexing' often leads to another.  Nonetheless, where information silos exist (such as in academic publishing) then this approach is particularly suited\cite{rossi2013handbook}.
 
 Where auxiliary data exists, statistical benchmarking may be performed by adjusting sample weights according to the proportions seen in this data.  This may be applied after sampling itself (otherwise said auxiliary data is simply used to determine the initial strata sizes), and so is often referred to as `post-stratification'.  This approach is applicable where ordinary stratification is impossible, for example, where the variables on which to stratify are unknowable at the time of sampling.
 
@@ -297,8 +297,7 @@ Copyright is one major problem with sampling large volumes of text from any sour
 
 This is stated in the original documentation for the Brown corpus as one reason for their choice of sampling unit, and often causes `black spots' in the sampling frame of a corpus, where certain publishers are known for their absolute declination in offering material.
 
-\til{Tony's talk at CL'11 had this mentioned but his abstract in the proceedings doesn't.\\
-Not quite sure which bits of BYU are worth mentioning---resale of data?  I think much of this topic is beyond the scope of the thesis but it might be worth a mention}
+\til{Tony's talk at CL'11 had this mentioned but his abstract in the proceedings doesn't.}
 % http://www.birmingham.ac.uk/documents/college-artslaw/corpus/conference-archives/2011/abs-5.pdf
 %
 
@@ -316,7 +315,7 @@ Finally, though this is increasingly simple as the world moves towards digital s
 
 Paper documents must be scanned, digitised, manually corrected and converted into a normal form. Speech must be gathered in an ethically defensible manner, and metadata about the speakers must be gathered.  Electronic documents require significant format conversion.
 
-These problems are easing: digitisation technology, especially that used for paper documents, has recently progressed significantly due to efforts to preserve historical documents, and libraries' attempts to digitise older publications. In some cases, scanners are capable of scanning entire books without intervention.
+These problems are easing: digitisation technology, especially that used for paper documents, has recently progressed significantly due to efforts to preserve historical documents, and libraries' attempts to digitise older publications. In some cases, scanners are capable of scanning entire books without intervention.  Such advances are not without their own challenges, and significant further work is needed to reduce error rates in line with human transcription\cite{ameliajoulainjay2015,alex2012digitised,6065393}.%,Evershed2014CNO25951882595200}.
 
 
 
@@ -365,7 +364,7 @@ Nonrandom sampling is an unavoidable truth of corpus building in almost all cont
 
 Sample size calculations are a complex topic, particularly where the variance for a given population is difficult to determine.  Due to limitations in power analysis methods for mixed-methods designs, many of the sample size judgements required during corpus construction will necessarily include some expert opinion.
 
-Evert's LNRE models offer possibly the most advanced generative method for this\cite{evert2007zipfr}, and can be seen as a progression upon Biber's variation analyses of the early nineties.  The issues with using such models to determine corpus variability sit neatly in two categories:
+LNRE models offer possibly the most advanced generative method for this\cite{baayen1998sample,evert2007zipfr}, and can be seen as a progression upon Biber's variation analyses of the early nineties.  The issues with using such models to determine corpus variability sit neatly in two categories:
 
 \begin{enumerate}
  \item Selection of interesting variables to measure sufficiency (this, in reality, would be part of the corpus documentation: we can say it is sufficiently representative for frequency counts, grammatical analyses up to $n$ tokens, etc.\ with little risk)
@@ -374,7 +373,7 @@ Evert's LNRE models offer possibly the most advanced generative method for this\
 
 In spite of the practicality of the techniques surrounding measures of internal feature saturation, few currently do such analyses.  This is perhaps because the linguistic researcher himself must usually perform the analyses in terms of his own study criteria, rather than the corpus builder.
 
-The problem of quantifying variation was tackled by Gries\cite{gries2006exploring}, where he presents a method for estimating confidence intervals for small-scale features, and uses these to explore the homogeniety of corpora and their internal distinctions.  Therein he focuses not on simply frequency variation, but on grammatical properties that, he claims, are more representative of the sort of inquiry made using corpora.  He starts by using the $Z\--\-score$ centrality measure, noting the limitation of existing partitioning schemes~\cite[p.123]{gries2006exploring}:
+The problem of quantifying variation was tackled by Gries\cite{gries2006exploring}, where he presents a method for estimating confidence intervals for small-scale features, and uses these to explore the homogeniety of corpora and their internal distinctions.  Therein he focuses not on simple frequency variation, but on grammatical properties that, he claims, are more representative of the sort of inquiry made using corpora.  He starts by using the $Z\--\-score$ centrality measure, noting the limitation of existing partitioning schemes~\cite[p.123]{gries2006exploring}:
 
 \begin{quote}
 In order to measure the homogeneity of a corpus with respect to some parameter, it is of course necessary to have divided the corpus into parts whose similarity to each other is assessed. 
@@ -391,13 +390,13 @@ Any sample is, strictly speaking, best analysed in terms of its sampling unit.  
 
 Biber's initial assessments of language variation in 1988\cite{biber1988variation} examined the suitability of the $2,000$-word sampling unit by splitting each sample and comparing the relative frequency of features in each half.  He determined that, if they were the same, then the sampling unit size was sufficient to represent a given feature.  This lead to the conclusion that corpora were adequate for inspection of `small-scale grammatical features', something that seems to be borne out by the success of computational models in this area (POS tagging, etc.).
 
-This issue is often phrased in terms of dispersion, i.e.\ the tendency for a feature to be represented evenly in all documents throughout the corpus.  Dispersion is something that manual inspection of concordances and corpus data renders particularly transparent, as it is often possible to see that all instances of a particular idiom are traceable to a given author, or all coverage of a certain topic is from one publication.  This is a prime example of the unit of analysis being far smaller than the sampling unit, a problem that is receiving increasing recognition.
+This issue is often phrased in terms of dispersion\cite{kilgarriff2005language,sparkjones1972tfidf}, i.e.\ the tendency for a feature to be represented evenly in all documents throughout the corpus.  Dispersion is something that manual inspection of concordances and corpus data renders particularly transparent, as it is often possible to see that all instances of a particular idiom are traceable to a given author, or all coverage of a certain topic is from one publication.  This is a prime example of the unit of analysis being far smaller than the sampling unit, a problem that is receiving increasing recognition.
 
 Evert, with his library metaphor\cite{evert2006random}, describes a sampling policy for corpus linguistics that avoids this disparity.  In it, he describes randomly sampling progressively smaller units in a virtual library, moving from books through pages to sentences.%  todo: check if he stops short of words, iirc he does.
 
 Since many statistical problems arise from the disparity between sampling and analysis units, a particularly problematic instance of this issue is the use of bag-of-words (BOW) models.  These model language without taking into account order, and as such would be best applied to a corpus sampled at the word level: any section of text beyond this is going to exhibit `clumpiness' effects that are beyond the comprehension of the model.
 
-The prevalence of BOW models is such that many people choose to phrase their objections in terms of the accuracy of binomial models of language frequency\cite{kilgarriff2005language,evert2004simple,evert2007zipfr}.  Undoubtedly they have a point---more complex LNRE models are capable of far more useful inferences, however, it's worth noting that only a model that can integrate the linguistic influence of word 1 upon word $2,000$ in a sample will truly justify a $2,000$-word sample\footnote{This is a quantitative form of Hoey's argument that whole texts are necessary to truly describe human expectations of word use.}.
+The prevalence of BOW models is such that many people choose to phrase their objections in terms of the accuracy of binomial models of language frequency\cite{kilgarriff2005language,evert2004simple,evert2007zipfr}.  Undoubtedly they have a point---more complex LNRE models are capable of far more useful inferences, however, it's worth noting that only a model that can integrate the linguistic influence of word 1 upon word $2,000$ in a sample will truly justify a $2,000$-word sample\footnote{This is a quantitative form of Hoey's argument that whole texts are necessary to truly describe human expectations of word use\cite{hoey2005lexical}.}.
 
 %--
 
@@ -452,7 +451,7 @@ The quantitative stages of corpus analysis are also not free from statistical ch
 
 One approach to this is advocated by Wallis\cite{wallis2013vexed}, who proposes using a baseline linguistic feature as a control.  This serves to normalise the frequency against which one is comparing during statistical tests, but remains subject to issues of low power due to use of samples that contain too few independent sources.
 
-Use of better-informed linguistic models in order to take account of non-orthogonal variation in linguistic features is also possible.  One method of doing this is to adjust for (or at least recognise qualitatively) the dispersion of features across samples\cite{gries2008dispersions,gries2010dispersions}.  Research is needed in order to best use these measures for qualitative interpretation (dispersion is already displayed in some popular tools\cite{anthony2011antconc}) and to adjust existing statistical procedures.
+Use of better-informed linguistic models in order to take account of non-orthogonal variation in linguistic features is also possible.  One method of doing this is to adjust for (or at least recognise qualitatively) the dispersion of features across samples\cite{gries2008dispersions,gries2010dispersions}.  Research is needed in order to best use these measures for qualitative interpretation (dispersion is already displayed in some popular tools\cite{anthony2011antconc,rayson2008wmatrix}) and to adjust existing statistical procedures.
 
 
 
