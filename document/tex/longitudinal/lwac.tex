@@ -47,13 +47,6 @@ Each of these methods is subject to a number of downsides, making them difficult
 % \end{itemize}
 % 
 
-\begin{figure}[Ht]
-    \centering
-    \includegraphics[width=0.6\textwidth]{longitudinal/lwac-samples}
-    \caption{URL coverage for batch and crawl}
-    \label{fig:longitudinal:lwac:samples}
-\end{figure}
-
 I present here a tool, LWAC, for this form of longitudinal sampling, designed to maximise the comparability of documents downloaded in each sample in terms of their URL rather than content.  To accomplish this, we use a cohort sampling strategy, as illustrated in Figure~\ref{fig:longitudinal:lwac:samples}, to get full coverage over a list of URLs, at the expense of sampling new content.
 
 
@@ -78,6 +71,15 @@ LWAC is designed to construct longitudinal samples from URL lists, using only co
 
 
 LWAC is based around a central corpus store that is indexed both by time and URL\@.  Each sample consists of all datapoints in the corpus, and begins at a specified time: this time is aligned to a sampling interval.
+
+
+\begin{figure}[Ht]
+    \centering
+    \includegraphics[width=0.6\textwidth]{longitudinal/lwac-samples}
+    \caption{URL coverage for batch and crawl}
+    \label{fig:longitudinal:lwac:samples}
+\end{figure}
+
 
 Figure~\ref{fig:longitudinal:lwac:samples} shows the logical structure of the corpus: the blue bars represent each sample.  The primary technical challenge lies in maximising the parallelism of each sample, thus improving the comparability of datapoints therein and allowing for a smaller sampling interval.  Samples that overlap their sampling interval will not be stopped: instead the next sample will be delayed until the next `round' interval.  This eases analysis by ensuring the integrity and temporal alignment of each sample.
 

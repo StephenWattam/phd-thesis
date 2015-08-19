@@ -33,7 +33,7 @@ Though many studies have looked at the life-cycle of web pages in general, these
 
 
 
-Koehler\cite{koehler2002web}, through four years of weekly sampling, found that just 66\% of their original seed URLs remain online after a year, with this proportion dropping to around 31\% by the end of the study.  Koehler started his study in the early days of the web (December 1996) using a relatively small sample of only 361 URLs.  His analysis found differences in the type of page as well as variation across top-level domains (TLD). %that sentence sucks; study such as cho2000evolution again... i've fixed this to some extent
+Koehler\cite{koehler2002web,koehler2004longitudinal}, through four years of weekly sampling, found that just 66\% of their original seed URLs remain online after a year, with this proportion dropping to around 31\% by the end of the study.  Koehler started his study in the early days of the web (December 1996) using a relatively small sample of only 361 URLs.  His analysis found differences in the type of page as well as variation across top-level domains (TLD). %that sentence sucks; study such as cho2000evolution again... i've fixed this to some extent
 % I'd need to see the Koehler study but I could style this paper as an update of Koehler's work on a much larger scale and with a corpus focus?
 
 Nelson \& Allen\cite{nelson2002object} found that only 3\% of documents in digital libraries become unavailable in just over a year. This is perhaps unsurprising given the aim of such projects but serves to illustrate the degree of heterogeneity between types of document host.  
@@ -92,7 +92,7 @@ Rather than analysing web resources in isolation of their linguistic uses, I out
 
 
 % ----------- What I'm doing ----------
-In order to measure document attrition across a number of linguistic sources series of corpora were selected, chosen due to their differing constructions and ages, and downloaded them using a process that closely approximates an end user's view of the web.  Statistics on the availability of these documents were then annotated with a series of URL-related variables for analysis.
+In order to measure document attrition across a number of linguistic sources a set of corpora were selected, chosen due to their differing constructions and ages, and downloaded using a process that closely approximates an end user's view of the web.  Statistics on the availability of these documents were then annotated with a series of URL-related variables for analysis.
 
 
 
@@ -104,25 +104,27 @@ Data were taken from four open-source corpora (outlined in Table~\ref{table:datm
 \begin{table*}[ht!]
     \centering
     \begin{tabular}{|r|r|r|r|l|}
+    \hline
     Corpus    & Date	    & Size (URLs)   & Sample Period	& Construction \\ 
     \hline
     BE06      & 2006	    & 473	    & 1 year		&  Browsing \\ 
     Delicious & Sep. 2009   & 630,476	    & 1 month		&  Browsing \\
-    Sharoff   & 2006\footnote{Sharoff does not state which month this sample was taken, it is presumed to be June}	    
-                            & 82,257	    & hours		&  Searching \\
-    BootCaT  & Sep. 2011   & 177,145	    & hours		&  Searching \\ 
+    Sharoff   & 2006        & 82,257	    & hours		&  Searching \\
+    BootCaT  & Sep. 2011    & 177,145	    & hours		&  Searching \\ 
+    \hline
     \end{tabular}
 
+    
     \caption{An overview of the corpora selected for study.}
     \label{table:datmeth:datasum}
 \end{table*}
 
 BE06\cite{baker2009be06} 
-was built as a conventional, hand-selected corpus designed as an update to the LOB\cite{johansson1980lob} and FLOB\cite{hundt1998manual} corpora.  It contains texts from sources published in 2006 but also available online.
+was built as a conventional, hand-selected corpus designed as an update to the LOB\cite{johansson1980lob} and FLOB\cite{hundt1998manual} corpora\footnote{The author wishes to thank Paul Baker for providing the URL list for this study}.  It contains texts from sources published in 2006 but also available online.
 
 The Delicious corpus represents a sample of links posted to the front page of delicious.com\footnote{A social bookmarking site where users post and exchange links.} during the whole of September 2009.  
 
-Sharoff's corpus is the same one used in his 2006 paper on open-source corpora, and is built using modified BootCaT scripts from a series of 4-tuple seed terms selected from the British National Corpus.
+Sharoff's corpus is the same one used in his 2006 paper on open-source corpora, and is built using modified BootCaT scripts from a series of 4-tuple seed terms selected from the British National Corpus.  As with BE06, the month of construction was assumed to be June (half-way through the year), in order to minimise potential error.
 
 The BootCaT corpus is built for this study from 4-tuples that are themselves built from the same terms as Sharoff uses for his 2006 study, using updated versions of his original scripts\footnote{As retrieved from \url{http://corpus.leeds.ac.uk/internet.html}}.
 
@@ -155,7 +157,7 @@ The tool used here was later developed into a more complete solution for investi
 % spoofs as firefox on windows XP
 
 
-Taking this user perspective, the notion of document availability becomes slightly more complex.  Redirect requests were followed up to a depth of 5\footnote{As recommended in the HTTP specification and commonly implemented in browsers}.  Since I do not account for content changing in this experiment, failure was taken as receiving a HTTP status code other than 200, or a network timeout (60 seconds was the timeout used for DNS and TCP)%
+Taking this user perspective, the notion of document availability becomes slightly more complex.  Redirect requests were followed up to a depth of five, as recommended in the HTTP specification and commonly implemented in browsers.  Since I do not account for content changing in this experiment, failure was taken as receiving a final HTTP status code other than 200, or a network timeout (60 seconds was the timeout used for DNS and TCP)%
 \footnote{Timeout errors also occur stochastically due to routing policies, and are impossible to avoid entirely when downloading resources in bulk.  The download process was tuned to minimise this source of error.}.
 
 %In accordance with this emulation of a typical user, the point at which documents become unavailable should also be clarified.  A lack of availability is most likely to manifest itself as a removal of the desired content (aside from, say, a mere change of site design or name), presenting a few ways in which this may technically manifest:
@@ -268,7 +270,8 @@ Document lifetime statistics are calculated assuming exponential decay: both the
 
 \begin{table}[h*tb]
     \centering
-    \begin{tabular}{r | r | r | r | l}
+    \begin{tabular}{|r | r | r | r | l|}
+    \hline
 	  Corpus & Age (yr.) & Loss & $t_{1/2}$ (yr.) & $\tau$ (yr.) \\
 	\hline 
 	
@@ -280,6 +283,7 @@ Document lifetime statistics are calculated assuming exponential decay: both the
 	Delicious  & 2.1  & 7\%	    & 17.8 & 42.4\\
 	Sharoff    & 5.3  & 34\%    & 8.6  & 16.4\\
 	BootCaT    & 0.08 & 0.8\%   & 4.8  & 20.4\\
+    \hline
     \end{tabular}
 
     \caption{Loss from corpus inception to October 21st, 2011.}
@@ -533,7 +537,7 @@ The diversity of status codes returned varies significantly between corpora, wit
 Each of the corpora exhibit similar distributions of each top level domain (TLD), though the large differences in sample size make formal comparison difficult.  The overall distribution of the more popular domains is provided in Figure~\ref{fig:longitudinal:attrition:attrition-all-tlds}.  This indicates that \texttt{.com} dominates the selection across corpora, with \texttt{.org} following.  Only BE06 differs from this distribution in its selection of \texttt{.uk} addresses, however, it has been deliberately biased this way so as to represent British English.
 
 
-Other studies have identified statistically significant differences in the rate of attrition between the major TLDs.  
+Other studies have identified statistically significant differences in the rate of attrition between the major TLDs\cite{koehler2004longitudinal}.  
 Though each corpus exhibits a dependence between these TLD groups (chosen to represent the vast majority of each corpus' content) in a $\chi^2$ indepdence test ($\chi^2 > 33.8; p<0.01$ in all cases), generalised linear models reveal that the nature of this dependence varies greatly between corpora, indicating that this estimate is far too simplistic to represent the real causes of attrition.
 
 
