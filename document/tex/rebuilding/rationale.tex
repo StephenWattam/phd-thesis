@@ -1,12 +1,13 @@
 
 
-Existing methods of study in corpus linguistics centre themselves around re-use of large, known datasets.  This, as detailed in Chapters~\ref{sec:litreview} and~\ref{sec:longitudinal}, is potentially the cause of many biases---replication is unlikely to use a comparable dataset, and many studies test their hypotheses on the same dataset from which they derived the initial idea.
+Existing methods of study in corpus linguistics centre themselves around re-use of large, known datasets.  This, as detailed in Chapters~\ref{sec:litreview}--\ref{sec:personal}, is potentially the cause of many biases---replication is unlikely to use a comparable dataset, and many studies test their hypotheses on the same dataset from which they derived the initial idea.
 
 This re-use of data is common to many other fields (such as sociology\cite{mcgrath1986british} and computer vision\cite{griffin2007caltech}) where raw data is fundamentally difficult to acquire, however, this need not be the case: the internet offers a source of new text with little barrier to retrieval, offering access to a model closer to that used by many other sciences, where datasets are built with a specific research question in mind, and may be replicated from the original population without relying on the same verbatim data.
 
-Corpora built from online sources are (as we have seen in previous chapters), nothing new, and they are largely constructed with ease by automated tools that are able to emulate existing corpus proportions.
+Corpora built from online sources are nothing new, and they are largely constructed with ease by automated tools that are able to emulate existing corpus proportions.
 
-The `conventional' method of sampling data is to specify parameters external to the text, such as medium or context, which are (with the exception of the relationship specified in the alternate hypothesis) uncorrelated with its content.  The process of relating these specifications to the location of documents to be selected (and identifying $\pi$, the probability of selection) is performed, in lieu of a census of such metadata in the real world, largely through expert opinion.  Often this means reliance on partial indices such as bestseller lists or library loan records, or simply the fixing of the proportions used (as used in the demographic portion of the BNC spoken data).
+The `conventional' method of sampling data is to specify parameters external to the text, such as medium or context, which are (with the exception of the relationship specified in the alternate hypothesis) uncorrelated with its content.  The process of relating these specifications to the location of documents to be selected %(and identifying $\pi$, the probability of selection)
+is performed, in lieu of a census of such metadata in the real world, largely through expert opinion.  Often this means reliance on partial indices such as bestseller lists or library loan records, or simply the fixing of the proportions used (as used in the demographic portion of the BNC spoken data).
 
 
 The lack of availability of consistent metadata online has led the authors of web corpus sampling tools to largely use an intensive query system, providing values for linguistic variables (such as example n-grams) and returning `similar' documents through the use of search engines---either pre-existing consumer ones such as Google or Yahoo, or those specifically-built for linguistic purposes.  Where a study is interested in frequencies that are correlated with these terms (something that is often difficult to establish even hypothetically), this approach is statistically fallacious.  The value of this approach is in the high dimensionality of the input data---it is deemed unlikely that any one variable of interest is `truly' correlated.
@@ -23,7 +24,7 @@ In order to apply sampling of external variables to the web, it is necessary to 
 \end{itemize}
 
 
-One of the reasons the parameterisation of expert opinion has not been attempted is because of the high dimensionality of many corpora---it is difficult to usefully specify the contents of a corpus and retrieve them without conforming to a very complex set of interactions.  This is a well-known problem in Bayesian statistics, and is often solved by the application of Markov-chain Monte-Carlo (MCMC) techniques.
+One of the reasons the parameterisation of expert opinion has not been attempted is because of the high dimensionality of many corpora---it is difficult to usefully specify the contents of a corpus and retrieve them without conforming to a very complex set of interactions.  This is a well-known problem in Bayesian statistics, and is often solved by the application of Markov-chain Monte-Carlo (MCMC) techniques\cite{gibbs1993}.
 
 MCMC sampling methods iteratively construct a markov chain of samples from easy-to-determine distributions, the sum of which (and thus the result of the chain) converges towards the desired distribution.  This approach can be used to reduce the dimensionality of requests for web data whilst ensuring that the overall corpus still approaches the desired properties.
      
@@ -45,7 +46,7 @@ The use of external metadata in description of a corpus allows a number of diffe
 
     \item[Replication] Replication studies are able to use the same corpus description but operate on new data.
 
-    \item[Repair] It is possible to repair a corpus that has missing documents by resampling them to augment the corpus until the overall distribution is similar.
+    \item[Repair] It is possible to repair a corpus that has missing documents (e.g.\ due to link rot) by resampling them to augment the corpus until the overall distribution is similar.
 
     \item[Anonymisation] Distribution of metadata only allows otherwise-sensitive corpora to be disseminated.
 \end{itemizeTitle}

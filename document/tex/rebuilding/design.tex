@@ -9,7 +9,7 @@ The method proposed here is built around two processes, each of which may be imp
 The latter of these may be accomplished most easily by a process of bootstrapping: using Monte Carlo methods to sample from a conditional distribution.  These samples can then be sought a number of ways, such as manual (or crowdsourced) selection of documents, or use of existing search tools.
 
 \subsection{Profiling}
-The process of constructing a corpus description is outlined in~\ref{fig:rebuilding:profiling}.  This may be started either from a seed corpus, or from direct user design.
+The process of constructing a corpus description is outlined in Figure~\ref{fig:rebuilding:profiling}.  This may be started either from a seed corpus, or from direct user design.
 
 \begin{figure}[h]
     \centering
@@ -19,11 +19,11 @@ The process of constructing a corpus description is outlined in~\ref{fig:rebuild
 \end{figure}
 
 
-For direct use, the user would specify their salient dimensions, and the distribution for each.  This is essentially a description of the sampling policy---where variables are discrete and nominal (such as genre labels), this would take the form of a table with desired proportions against each.  Where variables are continuous, a probability density function is defined.  Note that this method does not, without prohibitive complexity, allow for specification of interactions between variables, leaving it unable to represent, for example, differing genres within spoken and written portions of a corpus.%\td{c,o,m,m,a,s}\td{return to this and comment on it later}.
+For direct use, the user would specify their salient dimensions, and the distribution for each.  This is essentially a description of the sampling policy---where variables are discrete and nominal (such as genre labels), this would take the form of a table with desired proportions against each.  Where variables are continuous, a probability density function is defined.  Note that this method does not, without prohibitive complexity, allow for specification of interactions between variables, leaving it unable to represent, for example, differing genres within spoken and written portions of a corpus.
 
 Profiling through the use of a `seed' corpus begins with specifications of the salient dimensions, the data for which are then read from the seed (by $f()$ and $g()$ functions in the figure).  As each document is read, the corpus description may contain information not only on marginal distributions for each variable, but also the effects of conditioning on one or more value.
 
-Note that, whichever method is used, this stage is merely a metadata description task.  The corpus description document itself contains no more information than the metadata of the corpus from which is it built---for specifications involving full data on interactions this reduces to a list of points in vector space.  For a corpus designed only by specifying marginal distributions, it constitutes a distribution for each.
+Note that, whichever method is used, this stage is merely a metadata description task.  The corpus description document itself contains no more information than the metadata of the corpus from which is it built---for specifications involving full data on interactions this reduces to a list of points in vector space.  For a corpus designed only by specifying marginal distributions, it constitutes a distribution for each.  An example profile, compatible with the implementation used in this thesis, is shown later in Listing~\ref{lst:rebuilding:profile-lst}.
 
 Those specifying variables to describe must, as with all sampling, be mindful of potential systematic correlations with variables of interest to any given research question.  The value of the approach presented here is in documentation---it is possible for a researcher to eyeball the variables (and potentially their distributions) and determine whether or not a corpus is correctly conditioned for use inferring about a given variable.  This cannot be said for bootstrapping systems that use internal variables, which seek to copy corpus contents at the risk of varying their metadata.
 
@@ -37,7 +37,7 @@ Retrieval in accordance with the complex distributions specified in a corpus des
     \item Any combination of variables sampled from the distribution must then be sought based on its metadata alone.
 \end{itemize}
 
-The former of these is difficult because many seed corpora may lack sufficient data to specify their distributions, and because of the high dimensionality of the distributions in question.  These issues may be addressed using techniques such as Gibbs, slice, or rejection sampling.
+The former of these is difficult because many seed corpora may lack sufficient data to specify their distributions, and because of the high dimensionality of the distributions in question.  These issues may be addressed using techniques such as Gibbs, slice, or rejection sampling\cite{gilks1992adaptive,neal2003}.
 
 The sampling of `prototype' documents from the metadata distribution is possible regardless of the manner of its construction (however, those specified as marginal distributions will lack any interactions).  Here we assume a full specification, since this method is the more comprehensive case.
 
@@ -170,7 +170,8 @@ There are two possible approaches to working with biased populations:
 
 The former of these approaches may seem ideal, however, it will only be effective if sufficient documents have already been selected for each conditional distribution, and if the population distribution is only slightly biased.  It will also slow down the seeking stage of each document and, in the event that the population yields no perfect documents, stop it completely.  It is a stricter and more reliable approach, but also vastly reduces the practicality of any system using it.
 
-Variations on this theme form the basis of many MCMC methods, particularly Metropolis-Hastings.  MCMC algorithms are generally used where it is difficult to estimate marginals, however, this is not the case for our corpus data, where the marginals are well known (or manually specified).
+Variations on this theme form the basis of many MCMC methods%, particularly Metropolis-Hastings
+.  MCMC algorithms are generally used where it is difficult to estimate marginals, however, this is not the case for our corpus data, where the marginals are well known (or manually specified).
 
 % \til{Check that there isn't some way these can be used\ldots [DL]}
 

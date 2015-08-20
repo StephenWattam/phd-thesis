@@ -1,20 +1,20 @@
 
 
-We have seen in Chapters~\ref{sec:litreview} and~\ref{sec:longitudinal} a number of scientific and practical issues that affect current corpus collection methods.  Many of these surround stratification and selection of documents for corpora, particularly when applied to specific research questions.
+We have seen in previous chapters, a number of scientific and practical issues that affect current corpus collection methods.  Many of these surround stratification and selection of documents for corpora, particularly when applied to specific research questions.
 
-This has typically been a problem for those building `general purpose' corpora due to the large variety of resulting studies.  The LOB manual\cite{johansson1986tagged}\td{page unknown as I can't find a printed/formatted version} notes:
+This has typically been a problem for those building `general purpose' corpora due to the large variety of resulting studies.  The LOB manual\cite{johansson1986tagged} notes:
 
 \begin{quote}
 The text must be coded in such a way that it can be used maximally efficiently in linguistic research. As the possible uses are many and difficult to foresee, the main guiding principle has been to produce a faithful representation of the text with as little loss of information as possible.
 \end{quote}
 
 
-This chapter details the design and implementation of a method for performing number of common corpus building workflows which allow per-use adaptation of these coding stages.
+This chapter details the design and implementation of a method for performing a number of common corpus building workflows which allow per-use adaptation of these coding stages.  These workflows allow for application of stratified sample designs whilst working with existing concepts in corpus linguistics, allowing for replication and progression of current corpus designs.
 %These workflows are designed both as a continuation of the methods detailed in Chapter~\ref{sec:personal} and as part of work with existing corpora, and represent areas of scientific importance in corpus studies.
 
 The chapter begins in Section~\ref{sec:rebuilding:rationale} with an outline of the workflows involved, detailing the rationale behind each, and the value that formalising the process may yield.  Immediately following in Section~\ref{sec:rebuilding:design} is an outline of the design of the method, specifying the processes involved and comparing them both to existing procedures and to the original workflows.
 
 Section~\ref{sec:rebuilding:method} describes the mechanisms used to implement these designs, and covers the architecture of the software used to test the method.  It discusses the algorithms used, as well as the variables selected for the test system and the strengths and weaknesses of these as a mechanism for evaluating the method described earlier.  This section then specifies the technical details of the implementation, and provides details on the approximation and optimisation methods used.  
 
-Finally, Section~\ref{sec:rebuilding:summary} relates the design and implementation of the method back to the aims detailed in Chapter~\ref{sec:longitudinal}, drawing comparisons again to the capabilities of other existing systems.
+Finally, Section~\ref{sec:rebuilding:summary} relates the design and implementation of the method back to the aims detailed in Section~\ref{sec:rebuilding:rationale}, drawing comparisons again to the capabilities of other existing systems.
 

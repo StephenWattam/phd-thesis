@@ -10,7 +10,7 @@ This forms the basis of the `replication', `rescaling' and `distribution' scenar
 
 
 \subsection{Architecture}
-The tool, named `ImputeCaT', is a small collection of command-line tools written using the Ruby programming language\footnote{\url{https://www.ruby-lang.org/en/}}. It is structured around two main executables: the former of these is called the Corpus ProfileR (hereafter `cpr'), and is responsible to reading a corpus, extracting its metadata, and serialising the resultant distribution to disk.  The latter reads, resamples, and attempts to retreive documents matching an existing corpus profile---as it is seeking a gold standard, it is named the Golden Retriever (or simply `gr').
+The tool, named `ImputeCaT', is a small collection of command-line tools written using the Ruby programming language\footnote{\url{https://www.ruby-lang.org/en/}}. It is structured around two main executables: the former of these is called the Corpus ProfileR (hereafter `cpr'), and is responsible for reading a corpus, extracting its metadata, and serialising the resultant distribution to disk.  The latter reads, resamples, and attempts to retrieve documents matching an existing corpus profile---as it is seeking a gold standard, it is named the Golden Retriever (or simply `gr').
 
 The separation of the tools at that stage offers many advantages: firstly the serialised corpus distribution acts as a file format, allowing a corpus to be passed between users, and secondly it offers a `DMZ' approach to information security: there is no mechanism for any (potentially sensitive or confidential) information from the original corpus to be used by the retrieval tool, except that which has been explicitly extracted.  Finally, this approach permits easy parallel execution of tools using a corpus description for read-only tasks.
 
@@ -52,6 +52,8 @@ It is possible at this stage to select distributions that artificially manipulat
 
 The selection of distributions is performed using the profile file, in a human-readable format.  This section of the profile currently maps CSV field names to instances of the distribution objects in question, as shown in Listing~\ref{lst:rebuilding:profile-lst}.  The parameter passed to the SmoothedGaussianDistribution constructor defines the standard deviation of the Gaussian distributions used, causing slight variation in sampling around each point.
 
+\setstretch{1.0}{%
+{\small{}
 \begin{lstlisting}[language=Ruby,caption={Field mappings in the BNC corpus profile.},label=lst:rebuilding:profile-lst]
 PROFILE = {
 
@@ -59,13 +61,14 @@ PROFILE = {
 
   # CSV fields mapped to their distribution type
   fields: {
-          'GENRE'         => Impute::DiscreteDistribution.new(),
-          'Word Total'    => Impute::SmoothedGaussianDistribution.new(30),
-          'Aud Level'     => Impute::DiscreteDistribution.new(),
-          'Language'      => Impute::DiscreteDistribution.new(),
+    'GENRE'         => Impute::DiscreteDistribution.new(),
+    'Word Total'    => Impute::SmoothedGaussianDistribution.new(30),
+    'Aud Level'     => Impute::DiscreteDistribution.new(),
+    'Language'      => Impute::DiscreteDistribution.new(),
   },
 }
 \end{lstlisting}
+}}
 
 This approach allows the application of weights and control over the resampling process in a manner that is explicit and more efficient than implementing a different sampling algorithm for each modification.
 
@@ -151,7 +154,7 @@ Keywords for the system are passed as an argument in the corpus profile, and can
 
 
 \paragraph{ii. Directory Search}
-By using existing an existing web index, it is possible to map taxonomies directly to sets of links.  This has the distinct advantage of reliability and replicability, yet significantly reduces the potential pool of documents for selection.
+By using an existing web index, it is possible to map taxonomies directly to sets of links.  This has the distinct advantage of reliability and replicability, yet significantly reduces the potential pool of documents for selection.
 
 The ability to use different indices (or search them) based upon another dimension of metadata makes this method suitable for use with very special-purpose corpora.  For example, one may search Project Gutenberg (a large repository of free ebooks) where the text type is `book', yet return to Bing search or DMOZ~\footnote{A.K.A. The open directory project, available at \url{http://wwwsearch.sourceforge.net/mechanize/}} for less specialist documents.
 
