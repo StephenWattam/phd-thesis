@@ -52,7 +52,6 @@ It is possible at this stage to select distributions that artificially manipulat
 
 The selection of distributions is performed using the profile file, in a human-readable format.  This section of the profile currently maps CSV field names to instances of the distribution objects in question, as shown in Listing~\ref{lst:rebuilding:profile-lst}.  The parameter passed to the SmoothedGaussianDistribution constructor defines the standard deviation of the Gaussian distributions used, causing slight variation in sampling around each point.
 
-\setstretch{1.0}{%
 {\small{}
 \begin{lstlisting}[language=Ruby,caption={Field mappings in the BNC corpus profile.},label=lst:rebuilding:profile-lst]
 PROFILE = {
@@ -68,7 +67,7 @@ PROFILE = {
   },
 }
 \end{lstlisting}
-}}
+}
 
 This approach allows the application of weights and control over the resampling process in a manner that is explicit and more efficient than implementing a different sampling algorithm for each modification.
 

@@ -12,12 +12,13 @@ This wealth of data enables analysis not only of `simple' availability, but also
 % ---
 Chapter~\ref{sec:personal} presents a case study detailing a short-term linguistic census of a single subject.  The sample design used therein is a `narrow and deep' design, orthogonal to the 'broad but shallow' coverage of the large national corpora.  This makes it particularly useful for judging rationally how well such data apply to individuals, and offers a way to retrieve metadata not found using conventional data gathering methods.
 
-Such a detailed sample also provides a mechanism for reasoning about corpus size: the data observed in just two weeks for a single subject yielded almost a million words.  Assuming significant inter-person variation for a given linguistic feature, this implies that a population of ~60 million people cannot be well represented by a corpus of just a few million words.  Quantitative knowledge of inter-person variation is needed to operationalise this, but such data could be gathered using some of the automation methods presented.
+Such a detailed sample also provides a mechanism for reasoning about problems of corpus size: the data observed in just two weeks for a single subject yielded almost a million words.  Assuming significant inter-person variation for a given linguistic feature, this implies that a population of ~60 million people cannot be well represented by a corpus of just a few million words.  Quantitative knowledge of inter-person variation is needed to operationalise this, but such data could be gathered using some of the automation methods presented.
 
 Such methods were largely taken from lifelogging, a field chosen due to its focus on unobtrusive, best-effort, and wide-ranging sampling techniques.  These proved to be significantly more troublesome than expected: though automation was assistive, much manual correction was necessary to operationalise the data, including the need for a human-interest model to correct summary statistics that were gathered at a low resolution.
 
+
 % ---
-Chapters~\ref{sec:rebuilding} and~\ref{sec:evaluation} cover a method for `profiling' a corpus purely based on independent variable specification.  This profile has many potential uses, both as human documentation for a corpus and as a machine-readable descriptor.
+Chapters~\ref{sec:rebuilding} and~\ref{sec:evaluation} cover a method for `profiling' a corpus purely based on independent variable specification.  This profile has many potential uses, both as human documentation for a corpus and as a machine-readable descriptor, and constitutes a way to gradually refine corpus designs over time.
 
 This system is one designed to extend and generalise the approach taken by BootCaT in order to make its selection criteria easier to operationalise.  It is designed to be modular, allowing those building a corpus to re-use algorithms and taxonomies in a simple manner: essentially, the aim is that the tool should be working using the same concepts and distinctions as the desired sample design.
 
@@ -30,7 +31,7 @@ Retrieval of documents according to the prototypes was shown to be possibly the 
 
 % --------
 \paragraph{}
-To revisit the problem of representativeness, this thesis has taken the view that any such question must be framed in terms of a larger study design.  This is not to say that general-purpose corpora are impossible to create: sampling is such a challenging and resource-intensive endeavour that it will most likely always have to be offloaded onto a third party for larger populations.
+To revisit the problem of representativeness, this thesis has taken the view that any such question must be framed in terms of a larger study design.  This is not to say that general-purpose corpora are impossible to create: sampling larger populations is such a challenging and resource-intensive endeavour that it will most likely always have to be offloaded onto a third party.
 
 The aim, then, is to provide a general-purpose corpus that is uniformly representative for a wide, and well-specified, set of research questions.  This corpus should be sampled using random sampling techniques, and this thesis' tools have been designed to inform stratification efforts with this in mind.  Such a corpus should also be unambiguously and comprehensively documented: assumptions should be made explicit in corpus documentation so that they may be compared against those made by researchers, and the limitations of the intended use of a corpus should be stated in quantitative terms.
 
