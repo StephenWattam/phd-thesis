@@ -238,11 +238,11 @@ Though it is not possible to separate classifier error from retrieval error with
 
 
 
-\begin{table}[hb]
+\begin{table}[Htb]
     \centering
-    \begin{tabular}{@{}llll||llll@{}}
+    \begin{tabular}{|lrrr||lrrr|}
         \hline
-        \multicolumn{4}{c||}{{\bf Over-sampled}}                       & \multicolumn{4}{c}{{\bf Under-sampled}}                         \\ 
+        \multicolumn{4}{|c||}{{\bf Over-sampled}}                       & \multicolumn{4}{c|}{{\bf Under-sampled}}                         \\ 
         {\bf term} & {\bf original} & {\bf retrieved} & {\bf loglik} & {\bf term}    & {\bf original} & {\bf retrieved} & {\bf loglik} \\ \hline
         p          & 29217          & 8839489         & 1977900.5    & she'd         & 7338           & 4050            & -17407.3     \\
         s          & 17778          & 1903037         & 357245.2     & darlington    & 5559           & 1521            & -16657.0     \\
@@ -275,7 +275,6 @@ Though it is not possible to separate classifier error from retrieval error with
 
 
 
-
 Finally, keywords were computed relative to the original input corpus using log likelihood.  These offer insight into the specific biases of the data source and a handle on qualitative differences between sampling processes.  
 
 % This is a comparison of the supercorpus against the input used to generate it.
@@ -285,6 +284,8 @@ Finally, keywords were computed relative to the original input corpus using log 
 The top 200 keywords\footnote{I recognise that nspection of the top $n$ keywords is not a hugely sound methodology, but it should prove indicative for these purposes} were inspected for the whole supercorpus relative to the seed corpus. Overrepresented tokens were scored separately to under-represented ones in accordance with Baron et.\ al.\cite{baron2009word}, and the lists were free-coded for prominent themes.  The 20 most over- and under-represented terms are displayed in Table~\ref{table:evaluation:retrieval:keywords}.  The full lists are included in Appendix~\ref{sec:appx:keywords}.
 
 Overrepresented terms may be grouped into a number of categories.  The first of these is technical terms: those that are side-effects of the tokeniser or otherwise are related specifically to the web.  This includes features such as protocols (\textsl{HTTP}), and features of URLs (\textsl{co}, \textsl{org}), as well as terms such as \textsl{email} and \textsl{posted} which have simply become more prevalent since the BNC was produced.  It's difficult to say whether or not a more recent seed corpus would eliminate most of these from the keyword list.
+
+
 
 Temporal features dominate the rest of the list, with many terms related to date or proper nouns (\textsl{Obama}, \textsl{Nike}).  Dates feature prominently: \textsl{2001}-\textsl{2012} are all mentioned, along with \textsl{1991} and \textsl{1988}.  Genetics is also mentioned (\textsl{gene}, \textsl{mutation}), along with education (\textsl{university}, \textsl{pupils}) and government (\textsl{government}, \textsl{council}).
 
@@ -298,7 +299,7 @@ There is also a strong theme of legal terms (\textsl{offeror}, \textsl{solicitor
 
 Some technical terms are also presented in the keyword list due to the speed of progress in that field: \textsl{80486} and \textsl{microcomputer} both showing their age.
 
-Finally, there are a number of gastric terms (\textsl{oesophegeal}, \textsl{pylori}, \textsl{dueodenal}), which point to a very specific set of documents missing in the returned data.  These terms are from an academic context that, like legal documents, is under-represented for technical reasons, however, it is also likely that the specificity of this category indicates an over-representation within the BNC to some degree.
+Finally, there are a number of gastric terms (\textsl{oesophegeal}, \textsl{pylori}, \textsl{duodenal}), which point to a very specific set of documents missing in the returned data.  These terms are from an academic context that, like legal documents, is under-represented for technical reasons, however, it is also likely that the specificity of this category indicates an over-representation within the BNC to some degree.
 
 The relative obscurity of the under-represented terms and the predictable, largely temporal, nature of the over-represented ones is particularly encouraging, indicating that the web is a suitable source for many general-purpose (or current-affairs-focused) applications.
 
