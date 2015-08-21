@@ -111,7 +111,7 @@ From the point of view of one sampling documents to form a supercorpus, it is de
 Figure~\ref{fig:evaluation:retrieval:flesh} shows the distribution of reading ease scores across the collected documents, the $y$ axis showing the values as downloaded from the web.  The red line is plotted with a gradient of $0.5$, and shows the ideal zone where documents should lie if retrieved perfectly.
 
 
-The readability dimension (Figure~\ref{fig:evaluation:retrieval:flesh}) is fairly well dispersed, indicating that there are no documents fundamentally unreachable using the search engine method.  Though this dimension is the simplest, both the prototype and retrieved documents have similar standard deviations ($16.2$ and $17.9$ respectively) and means ($57.5$ and $57.4$ respectively).  There is very little correlation between prototype and retrieved values: with a PMCC of just $0.06$.  Generally, this indicates that most distributions of readability are `covered' online, and the one used in the BNC is easily represented.
+The readability dimension (Figure~\ref{fig:evaluation:retrieval:flesh}) is fairly well dispersed, indicating that there are no documents fundamentally unreachable using the search engine method.  Though this dimension is the simplest, both the prototype and retrieved documents have similar standard deviations ($16.2$ and $17.9$ respectively) and means ($57.5$ and $57.4$ respectively).  There is very little correlation between prototype and retrieved values: with a correlation coefficient of just $0.06$.  Generally, this indicates that most distributions of readability are `covered' online, and the one used in the BNC is easily represented.
 
 \begin{figure}[Ht]
     % ./analysis/
@@ -139,7 +139,7 @@ The distribution plots in Figure~\ref{fig:evaluation:retrieval:words-dist} displ
 
     \begin{tabular}{|r|l|r|r|r|r|}
         \hline
-        & Genre & Prototype & Downloaded & TP & tpr (\%) \\ 
+        & Genre & Prototype & Downloaded & TP & TPR (\%) \\ 
         \hline
         1 & W\_ac\_humanities\_arts & 2180 & 1089 & 181 & 8.30 \\ 
         2 & W\_ac\_medicine & 987 & 1162 & 415 & 42.05 \\ 
@@ -292,7 +292,7 @@ The remaining terms are pronouns or function words.  These, along with the large
 
 This central theme is interesting to contrast against the BNC, which contains a large quantity of news material already, indicating that news genres are even more prevalent online, or that news media (or perhaps just online news) has become more extreme (that is, less similar to other written genres) than the bulk of the BNC data.
 
-Features that are significantly under-represented prodominantly fall into the category of proper nouns, and these are mostly political and from the UK (\textsl{Kinnock}, \textsl{Gummer}, \textsl{Heseltine}).  Since the search engine was instructed to search the `GB' marketplace, many of these are most likely explained by temporal effects---the prevalence of these keywords also points at the strength of news within the BNC, along with places and organisations that featured in the news at the time (\textsl{TUC}, \textsl{Maastricht}, \textsl{DTI}).
+Features that are significantly under-represented predominantly fall into the category of proper nouns, and these are mostly political and from the UK (\textsl{Kinnock}, \textsl{Gummer}, \textsl{Heseltine}).  Since the search engine was instructed to search the `GB' marketplace, many of these are most likely explained by temporal effects---the prevalence of these keywords also points at the strength of news within the BNC, along with places and organisations that featured in the news at the time (\textsl{TUC}, \textsl{Maastricht}, \textsl{DTI}).
 
 There is also a strong theme of legal terms (\textsl{offeror}, \textsl{solicitor}, \textsl{arbitrage}), which points at a clear under-representation of legal documents returned by search engines.  This is likely a technical limitation of the retriever, which avoids files in PDF format.
 

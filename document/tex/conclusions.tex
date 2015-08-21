@@ -3,6 +3,12 @@
 
 This thesis has examined the problem of improving corpus sampling from a number of perspectives.  This chapter will serve to summarise these, before offering an overview of significant areas for further research.
 
+Chapter~\ref{sec:litreview} provided an overview of current corpus construction techniques from two main perspectives: the former is that of corpus linguistics itself, which has debated issues of representativeness largely from the point of view of improving existing corpora.  The latter is that of sampling in other fields (largely the social sciences, still), which is able to provide a more theoretical framework.
+
+Comparisons between these two yield a number of issues with current corpora, largely focusing on their population definition, and the relationship between expert opinion and demographic frequency.  New recording technologies, and sources of data such as the web, offer ways to make some progress on both of these.
+
+% ---
+
 Chapter~\ref{sec:longitudinal} presents a motivating study of link rot in open-source corpora, finding large variations in document half-life using a URL-seeking method.  This illustrates that temporal effects have a significant impact on the availability of data, and that such effects vary according to source.  Much literature exists that has related these to layout features (such as the role of navigation and landing pages), yet the impact this has upon linguistic content is less well understood.
 
 In order to make such investigation possible, a cohort sampling approach is necessary, performed at a high resolution over a long period of time.  The LWAC tool automates this process, providing a mechanism to construct large-scale corpora that are indexed by time as well as URL.  Key to the utility of such a tool is its performance, which was shown to be adequate to construct corpora in the millions of documents, sampled daily.
@@ -35,7 +41,8 @@ To revisit the problem of representativeness, this thesis has taken the view tha
 
 The aim, then, is to provide a general-purpose corpus that is uniformly representative for a wide, and well-specified, set of research questions.  This corpus should be sampled using random sampling techniques, and this thesis' tools have been designed to inform stratification efforts with this in mind.  Such a corpus should also be unambiguously and comprehensively documented: assumptions should be made explicit in corpus documentation so that they may be compared against those made by researchers, and the limitations of the intended use of a corpus should be stated in quantitative terms.
 
-The contributions within this thesis have been targeted to provide some insight into the underlying population that is not possible using current techniques.  I do not suppose that these alternative sampling designs will be used in their own right (though there is utility in this for some), but that the perspective they yield may be used to inform and improve upon existing corpus retrieval methods.
+The contributions within this thesis have been targeted to provide some insight into the underlying population that is not possible using current techniques
+%I do not suppose that these alternative sampling designs will be used in their own right (though there is utility in this for some), but that the perspective they yield may be used to inform and improve upon existing corpus retrieval methods.
 
 
 % Kilgarriff \& Grefenstette's issue with web corpora\cite[p. 343]{kilgarriff2003introduction}:
@@ -44,6 +51,29 @@ The contributions within this thesis have been targeted to provide some insight 
 % The Web is not representative of anything else. But neither are other corpora, in any well-understood sense.
 % \end{quote}
 
+
+
+% --------
+\paragraph{}
+In accordance with~\ref{rq1}, a number of sampling methods have been rendered accessible to corpus linguistics by the tools presented here.  Longitudinal sampling is now available as a strictly regulated, cohort design with many quantitative regressors, and quantified, operationalisable stratification is possible through use of the corpus profiling tools in Chapters~\ref{sec:rebuilding} and~\ref{sec:evaluation}.
+
+WaC methods are used in two ways: both as a way of constructing corpora entirely, and as a mechanism to inform other corpora.
+
+The former of these, the focus of~\ref{rq2}, is addressed by Chapters~\ref{sec:longitudinal} and~\ref{sec:personal}, both of which use the web as an easy source of information to construct corpora that are able to inform design choices for more conventional approaches.
+
+Chapters~\ref{sec:rebuilding} and~\ref{sec:evaluation} focus on being able to operationalise any insights from this, providing an opportunity to incrementally improve sampling for general-purpose corpora (the focus of~\ref{rq3}).
+
+Specifically, the contributions of this thesis are:
+
+\begin{itemize}%[label=\textbf{C\arabic*}]
+    \item Tools for sampling documents from the web according to a cohort sampling, longitudinal design;
+    \item A method for sampling at the point of use, and a discussion of the implications this has for conventional corpus building;
+    \item A method for resampling corpus data stratified according to user-selected linguistic variables, and representing the distribution therefrom;
+    \item Software tools for automatically reconstructing corpora from designs described using said profiles.
+\end{itemize}
+
+
+% all of the studies in this thesis: without web data, studies in this thesis would be severely restricted by manual overheads, and robust quantification of linguistic properties would prove infesible.  
 
 
 
