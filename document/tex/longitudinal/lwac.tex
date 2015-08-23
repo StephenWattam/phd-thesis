@@ -220,7 +220,7 @@ The 228,000 URLs used were sourced using BootCaT, making 4600 requests to the Bi
 
 The throughput over time is shown in Figure~\ref{fig:longitudinal:lwac:realrate400}.  This data was summarised by examining the logs of the storage manager, and thus represents rate calculated after each worker has checked in its batch---hence the pattern of jagged increases followed by gradual decay.  Larger spikes are seen towards the left hand side due to synchronisation of the check-ins by clients: eventually variations in batch retrieval times cause these to disperse and smooth out.  This deployment can be seen to plateau at roughly 80 links per second (roughly 288,000 per hour), meaning the full 228,000 page corpus was retrieved in roughly 45 minutes.
 
-Using this deployment would mean that retrieval of a corpus the size of the BNC is possible in around eight minutes; a ukWaC\cite{ferraresi2008introducing} copy would take 2.5 hours (or 17 if using the pre-filtered url list), and DECOW2012\cite{schafer2012building} would take 24 hours.
+Using this deployment would mean that retrieval of a corpus the size of the BNC is possible in around eight minutes; a ukWaC\cite{ferraresi2008introducing} copy would take 2.5 hours (or 17 if using the pre-filtered url list), and DECOW2012\cite{schafer8building} would take 24 hours.
 
 
 
