@@ -8,7 +8,6 @@
     \caption{The availability of data from various sources}
     \label{fig:personal:dataoverview}
 \end{figure}
-\FloatBarrier{}
 
 These results describe data collected during the third iteration of sampling, which lasted roughly two weeks during April 2013.  Table~\ref{fig:personal:dataoverview} describes the availability of data per-day.
 
@@ -16,6 +15,7 @@ The period marked from Friday the 5th to Friday the 19th (inclusive) forms the s
 
 Audio data is missing for the 19th as sampling was initially intended to end the day before, however, for producing estimated word counts this was not used as other recording methods cover the data sources.  Though attempts were made to use the audio data, difficulties in automated processing meant that transcription (or precise word counts) were only possible using manual review (something only the subject could legally perform).  Word counts were instead based on an estimated words-per-minute.
 
+% \FloatBarrier{}
 
 This fifteen-day recording period covers 8,619 linguistic events, encompassing an estimated 980,000 words.  In total 3.4GB of data were collected, though the majority of this figure (2.3GB, 67\%) of this is audio data.  This is roughly in line with other life-logging studies\cite{gemmell2006mylifebits}.
 
@@ -31,7 +31,7 @@ Variables recorded on each linguistic event are based heavily on Lee's BNC index
 The variables \variable{source2} and \variable{duration} have missing values exclusively due to non-applicability.  As such they have been integrated into (complete) summary variables for analysis, forming the computed words and computer genre in an effort to unify measurement of spoken and written material, and increase the specificity of the data source recorded.
 
 
-\begin{table}[hp]
+\begin{table}[htb]
 \centering
     \begin{tabular}{|l|c|p{7cm}|}
     \hline
@@ -85,7 +85,7 @@ Mornings and evenings also usually featured the radio, and often some form of TV
 % ---------------------------------------------------------------------------
 \subsection{Distribution}
 
-\begin{figure}[hp]
+\begin{figure}[htb]
     \centering
     \includegraphics[width=0.8\textwidth]{personal/ebyday}
     \caption{Daily event frequencies}
@@ -109,7 +109,7 @@ Contrary to expectations, and in part due to large amounts of terminal and web u
 % 
 
 
-\begin{figure}[hp]
+\begin{figure}[htb]
     \centering
     \includegraphics[width=0.8\textwidth]{personal/cbyday}
     \caption{Daily word counts}
@@ -121,7 +121,7 @@ As shown in Figure~\ref{fig:personal:eventcountbyday}, the event count as broken
 Before this study it was conjectured that the vast majority of all language used would be spoken.
 
 
-\begin{figure}[hp]
+\begin{figure}[htb]
     \centering
     \includegraphics[width=0.8\textwidth]{personal/prodbyday}
     \caption{Daily word counts broken down by receipient status}
@@ -160,7 +160,7 @@ Figure~\ref{fig:personal:prodcountbyday} shows the breakdown of words used by th
 % Events have a median size of 28 words (further information is available in Table~\ref{fig:personal:eventsizedist}).
 
 
-\begin{figure}[hp]
+\begin{figure}[htb]
     \centering
     \includegraphics[width=0.8\textwidth]{personal/ebysource}
    %  \begin{verbatim}
@@ -180,7 +180,7 @@ Particularly curious is the large number of terminal, web (squid), and music eve
 
 
  
-\begin{table}[ht]
+\begin{table}[htb]
     \centering
 
     \includegraphics[width=\textwidth]{personal/ebygenre}
