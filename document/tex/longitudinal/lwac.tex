@@ -73,7 +73,7 @@ LWAC is designed to construct longitudinal samples from URL lists, using only co
 LWAC is based around a central corpus store that is indexed both by time and URL\@.  Each sample consists of all datapoints in the corpus, and begins at a specified time: this time is aligned to a sampling interval.
 
 
-\begin{figure}[Ht]
+\begin{figure}[ht]
     \centering
     \includegraphics[width=0.6\textwidth]{longitudinal/lwac-samples}
     \caption{URL coverage for batch and crawl}
@@ -90,7 +90,7 @@ Documents are downloaded in a random order, so as to avoid systematic variation 
 \subsection{Design \& Implementation}
 
 
-\begin{figure}[Ht]
+\begin{figure}[ht]
     \centering
     \includegraphics[width=\textwidth]{longitudinal/lwac-arch}
     \caption{System Architecture}
@@ -175,7 +175,7 @@ The last of these implies gradual degradation of performance as links rot.  Perf
 \subsubsection{Artificial}
 
 
-\begin{figure}[Ht]
+\begin{figure}[ht]
     \centering
     \includegraphics[width=\textwidth]{longitudinal/lwac-parallelrate}
     \caption{Download speeds for one worker for various levels of parallelism}
@@ -187,7 +187,7 @@ Figure~\ref{fig:longitudinal:lwac:parallelrate} shows the download rate for 140K
 The performance of parallel downloads is largely constrained by the platform, in this case the Linux 2.6 kernel.  Downloads are reliable until roughly 700 parallel connections are used, beyond which requests are dropped locally as half-open sockets are closed.  Until this point performance is roughly log-linear, with 100,000 requests taking just 100 seconds with 500 parallel connections.  For subsequent tests, 400 connections per worker machine were used.
 
 
-\begin{figure}[Ht]
+\begin{figure}[ht]
     \centering
     \includegraphics[width=\textwidth]{longitudinal/lwac-clientrate}
     \caption{Download speeds for 10,000 real-world HTML documents.}
@@ -211,7 +211,7 @@ In order to test retrieval performance in a real-world scenario, a test deployme
 The 228,000 URLs used were sourced using BootCaT, making 4600 requests to the Bing search engine and retrieving 50 links per request.  This resulted in a corpus size of 14.9GiB, which, after boilerplate removal, yielded 588 million words.
 
 
-\begin{figure}[Ht]
+\begin{figure}[ht]
     \centering
     \includegraphics[width=\textwidth]{longitudinal/lwac-realrate400}
     \caption{Download rate over time for real-world BootCaT derived dataset.}

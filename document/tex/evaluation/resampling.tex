@@ -25,7 +25,7 @@ The research questions answered by the analysis here run to:
 Evaluation of the selection method is possible separately to document retrieval as the input distribution is known.  This means that, unlike a bootstrapping operation, we can rely on model deviance measures (rather than heuristics such as autocorrelation) to indicate the point at which we have sufficient data to represent the input distribution.  Since documents are retrieved and compared against their `target' as selected by this process, it is thus possible to guarantee conformance to some property of the input distribution, providing retrieval is performed accurately.  The eventual error for the corpus is a sum of these two deviances.
 
 
-\begin{figure}[Ht]
+\begin{figure}[ht]
     \centering
     \includegraphics[width=0.9\textwidth]{evaluation/resample-overview}
     \caption{Data flow for evaluation of the sampler.}
@@ -78,7 +78,7 @@ The evaluation here focuses on categorical values with over five members due to 
 The word count is binned irregularly due to the low frequency of files with more than 80,000 words listed in the index.  This results in a distribution shown by the histogram in Figure~\ref{fig:evaluation:resampling:bncwordhist}, with the minimum bin frequency being 8.  Other variables were left unmodified.
 
 
-\begin{figure}[Ht]
+\begin{figure}[ht]
     \centering
     \includegraphics[width=1\textwidth]{evaluation/4waybnchist}
     \caption{Word count distribution from the BNC index (n=4,054, breaks at 5k < 80k, max=428,248)}
@@ -91,7 +91,7 @@ The convergence rate of each of the variables is, as mentioned above, dependent 
 A basic description of the bins used for each input metadata item is presented in Table~\ref{table:evaluation:resampling:inputdist}.  Medians and interquartile ranges were used as centrality and deviance measures due to the Zipfian nature of the bin distributions (a feature expected to manifest in most corpora).  The `ID' column gives the `index of dispersion'---a normalised measure of the variability in the distribution's bins computed by dividing the centrality measure (median) by the dispersion measure (Inter-Quartile Range).
 
 % TODO: table with variable, bin count, num<10, stdev, mean, convergeance mean, convergeance confint@95%
-\begin{table}[Ht]
+\begin{table}[ht]
     \centering
 
     \begin{tabular}{|l|c|c|c|c|c|}
@@ -120,7 +120,7 @@ The figures in Table~\ref{table:evaluation:resampling:inputdist} represent commo
 We may reason from the index of dispersion that convergence will occur faster for `AudLvl' and `Mode' than for `Genre' and `Words' --- the ordering of the other two largely being determined by the conservative estimation of log-likelihood for low-frequency bins.
 
 
-\begin{figure}[Ht]
+\begin{figure}[ht]
     % ./analysis/loglik-significance.r
     \centering
     \includegraphics[width=1\textwidth]{evaluation/4wayCI95}
