@@ -1,0 +1,52 @@
+
+
+\subsection{Post-processing Scripts}
+The post-processing tools presented here are largely tasked with transforming the disparate formats recorded by different recording methods into a standard CSV format, based on Lee's BNC index.  Where appropriate, fields such as the medium and word count were computed on-the-fly.
+
+In addition to these methods, annotation was aided by manually creating lookup tables to impute metadata for some fields: for example, musical genre is easily and reliably determined by artist.
+
+
+\subsubsection*{Files}
+
+Files not sourced from a version control system were stored each day.  The processing script for these uses the diff tool to compute patches between each version, outputting the word counts to a CSV file broken down per-day.
+
+\subsubsection*{Phone Calls}
+Calls were recorded in CSV format by a smartphone application.  This script simply reformatted the CSV to be compatible with other records.  Due to the low number, calls were tagged by hand using records from the two notebooks.
+
+
+\subsubsection*{Emails}
+Emails were processed from mbox format by normalising their character sets and parsing of their headers to extract timestamps, addressees, and subjects.  Email contents were then exported to an intermediate CSV format for further processing (such as removal of replies and word counting), which were then transformed into the same format as other data.
+
+
+
+\subsubsection*{IRC Logs}
+The bot that monitored IRC rooms already contained a timeout, and would stop listening ten minutes after the last activity by the user of interest.  The first 20 characters of the first message beginning a conversation was taken as a reminder of the topic, and word counts were exported to the unified CSV format.
+
+
+\subsubsection*{Music (\texttt{last.fm})}
+A third-party script was used to scrape the entirety of the subject's music-listening history from the `scrobbling' service \texttt{last.fm}.  This was returned in TSV format, containing the time at which each track was listened to, along with identifying information.  This was converted into the standard CSV format.  Later stages computed word counts by automatically searching for song lyrics using a web-based API.%  This approach proved remarkably successful, only omitting a few tracks (out of 
+
+
+
+\subsubsection*{SMS}
+SMS records were exported in a similar manner to phone calls, and simply converted into the normalised CSV format.
+
+
+
+\subsubsection*{Web logs (SQUID)}
+SQUID logs were filtered to identify documents which would have been rendered by the subject's browser.  This was done by filtering on:
+
+\begin{itemize}
+    \item Username (the subject used a different username for each device);
+    \item MIME type (in order to remove images, CSS, javascript and other non-readable formats);
+    \item URL patterns (in order to remove advertising, AJAX calls, and analytics);
+    \item Return code.
+\end{itemize}
+
+This yielded a list of URLs accessed by each device for each day.  These were then retrieved and processed further using Nokogiri to remove boilerplate and normalise character set in order to achieve a word count.  Results from this stage were then transformed into the standard CSV format.  An additional parameter, the time between page reloads, was also extracted but proved not to be useful due to the low number of reloaded pages.
+
+\subsubsection*{Terminals}
+The \texttt{script} tool was used to log terminal output.  This logs every single instruction provided to the terminal, and as such the main post-processing task was to resolve the meaning of control characters by passing this into a terminal emulator.  In order to estimate the proportion of fast-moving output read by the subject, timestamps were used to gauge when terminal output had stopped for more than 60 seconds, above which the last 40 lines of output were taken as a text.  This scrollback was chosen based upon the geometry of the subject's screen and constituted a rough average of window size.  Word counts from these were then computed for insertion into the normalised CSV format.
+
+
+
