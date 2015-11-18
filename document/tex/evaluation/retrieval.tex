@@ -229,7 +229,8 @@ Treating the searching process as a classifier allows us to examine the expectat
 Per-class retrieval rates are displayed in the right-most column of Table~\ref{table:evaluation:retrieval:words-dist}.  There is correlation between the size of a genre and its true positive rate ($\rho = 0.29$)%
 % Spearman: rho = 0.59
 % not sure what this is: ($\rho = 0.84$)
-, and inspection of the table indicates that performance is better predicted by the `linguistic specificity' of a given category (with religion, medicine and tech leading the recall rate statistics).
+, and inspection of the table indicates that performance is highly variable.  Particularly low retrieval rates (below 5\%) were reported for ten categories.  Many of these are very `general', defined by their context rather than topic: such topics both resist keyword-based retrieval using search engines, and make classification itself difficult once retrieved.  The notable exceptions are the \texttt{\_science} and \texttt{\_social} news categories, retrieval rates of which are likely to be affected by the anachronistic nature of the keyword source (the BNC).  Notably, though retrieval rates were low for these categories, documents were available in all cases, they were simply not the result of that particular search iteration.
+% better predicted by the `linguistic specificity' of a given category (with religion, medicine and tech leading the recall rate statistics).
 
 Though it is not possible to separate classifier error from retrieval error without construction of a gold standard corpus (something that lies beyond the scope of this work), earlier evaluations of the classifier used (Section~\ref{sec:evaluation:heuristics:genre}) show that classifier error is not strongly biased.  This allows us to conclude that evidence of significant bias in the resultant data is largely a product of the searching process, rather than document classification.
 
