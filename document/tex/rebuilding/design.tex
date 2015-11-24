@@ -56,7 +56,7 @@ Sampling from the seed corpus' profile produces a `prototype' document, which ha
 
 The process of constructing a new corpus is one of continually producing these `prototypes' conditional on the values of metadata already sampled, and then retrieving texts matching each.
 
-To perform this resampling, we must be able to sample from the distribution of each variable conditional on all of the others, requiring that the corpus description contains information on interactions between values.  As such it is only possible if the original corpus description document contains this information, something that is only practically a product of describing an existing set of documents (as manually filling in the values would be prohibitively expensive).
+To perform this resampling, we must be able to sample from the distribution of each variable conditional on all of the others, requiring that the corpus description contains information on interactions between values.  As such it is only possible if the original corpus description document contains this information, something that is only practically a product of describing an existing set of documents (as manually filling in the values would be prohibitively time-consuming).
 
 Two methods were implemented for selection of the prototype, representing two of the most popular use-cases.  
 
@@ -195,7 +195,7 @@ The degree to (and conditions under) which this relaxation occurs must be determ
 
 
 
-\subsection{Measuring Fit}
+\subsection{Measuring Performance}
 A system built with contingency for accepting certain levels of error is of very little use without some method for measuring it in operationalisable terms. A number of properties of the system are measurable, each yielding information that is useful under different circumstances:
 
 
@@ -204,7 +204,7 @@ The quality of each heuristic may be measured according to its ability to return
 
 The choice of evaluation metric will vary according to the type of metadata and its availability online.  Heuristics operating in particularly large search spaces (such as those primarily using search engines) will desire a greater weight on precision, whereas those seeking rare (online) data will favour recall.  Since heuristics are, ideally, already the results of well-established methods in linguistics, this score and its desirable range should be established empirically prior to use.
 
-The F score may also be generated only for the best documents returned, providing a score for the whole `batch' of documents returned by a heuristic.  This measure is likely to be more representative of stateful heuristics (i.e.\ those that crawl), however, it conflates the statistics used for measuring document similarity with those used to retrieve them.
+The F score may also be generated only for the best documents returned, providing a score for the whole `batch' of documents returned by a heuristic.  This measure is likely to be more representative of stateful retrieval methods (i.e.\ those that crawl), however, it conflates the statistics used for measuring document similarity with those used to retrieve them.
 
 Ideally, heuristics form pluggable, reliable modules with known degrees of error that may be ignored when using the method as a source of linguistic data.  The degree to which this applies is defined by how well each is aligned with a source of data: Keyword-based heuristics, for example, are well aligned with the search systems of search engines, but poorly aligned with the strengths and weaknesses of humans seeking a document type.
 

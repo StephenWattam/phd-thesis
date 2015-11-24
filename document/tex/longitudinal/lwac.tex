@@ -47,7 +47,7 @@ Each of these methods is subject to a number of downsides, making them difficult
 % \end{itemize}
 % 
 
-I present here a tool, LWAC, for this form of longitudinal sampling, designed to maximise the comparability of documents downloaded in each sample in terms of their URL rather than content.  To accomplish this, we use a cohort sampling strategy, as illustrated in Figure~\ref{fig:longitudinal:lwac:samples}, to get full coverage over a list of URLs, at the expense of sampling new content.
+I present here a tool, LWAC, for this form of longitudinal sampling, designed to maximise the comparability of documents downloaded in each sample in terms of their URL rather than content.  To accomplish this, a cohort sampling strategy is used, as illustrated in Figure~\ref{fig:longitudinal:lwac:samples}, to get full coverage over a list of URLs at the expense of sampling new content.
 
 
 This approach allows for reliable re-visits to each member of the sample, and thus the construction of vertically comparable data points, whilst making short-term effects visible by revisiting each link.  Such a sample design should repeat each individual sample as quickly as possible, so as to minimise the time differences between documents within.
@@ -147,7 +147,7 @@ Exports are performed by filtering data using a series of expressions.  These da
 
 \subsubsection{Resource Usage}
 
-LWAC is designed to handle corpora of theoretically infinite size, and uses a pipelined design to avoid enumerating its corpus members.  In practice the limit on corpus size is imposed by the SQL server used.
+LWAC is designed to handle corpora of unlimited size, and uses a pipelined design to avoid enumerating its corpus members.  In practice the limit on corpus size is imposed by the SQL server used.
 
 Memory usage is $O(1)$ for both the storage server (which backs all of its corpus data with the disk) and the client (which only ever loads as many datapoints as number of parallel connections).  Ultimate limits are defined by the batch size chosen for workers:
 

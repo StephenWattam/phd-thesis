@@ -18,15 +18,15 @@ The first efforts to construct corpora from web data\cite{kilgarriff2001web} foc
 
 \end{itemizeTitle}
 
-The ease with which users may access web data is of particular value: this has allowed for corpora of unprecedented scale such as WaCky\cite{baroni2009wacky} and COW\cite{schafer2012building} (which contain tens of billions of words), as well as for near-instant corpus building and replication.
+The ease with which users may access web data is of particular value: this has allowed for corpora of unprecedented scale such as WaCky\cite{baroni2009wacky} and COW\cite{schafer8building} (which contain tens of billions of words), as well as for near-instant corpus building and replication.
 
 Many WaC efforts focus on sampling the web itself, in order to represent users' experience thereof.  This approach leads to sample designs that focus on uniform coverage of top-level domains, or particular types of web resource, in a manner similar to that of search engine crawlers.
 
-Performing this task in a robust manner is particularly challenging due to the lack of any central index for websites at this level.  As such, it is common to oversample and then select documents after-the-fact using scoring techniques\cite{schafer2013web,schafer2014focused}.  This is especially challenging due to the difficulty in obtaining consistent metadata for the web.
+Performing this task in a robust manner is particularly challenging due to the lack of any central index for websites at this level.  As such, it is common to oversample and then select documents after-the-fact using scoring techniques\cite{schafer2013web,schafer2014focused}.  This remains challenging due to the difficulty in obtaining consistent metadata for the web.
 
 A contrasting approach is that of using existing indices to retrieve data, usually by using commercial search engines.  This is the approach taken by the BootCaT tool, which relies on repeatedly requesting URLs from the Microsoft Bing search engine conforming to a number of seed terms.
 
-This could be seen either as an attempt to construct a corpus in the image of the seed (hence the ``bootstrapping'' in the name), or, under conditions of sufficiently general input, one to represent the web itself, using the search engine as a `lens' through which to view web documents.  This is a distinction drawn by the source of variation: the seed terms themselves, or the web's ability to return the desired data.  The primary purpose of this was to find a ready source of documents, and as such conventional sample designs were still used as gold standards.
+This could be seen either as an attempt to construct a corpus in the image of the seed (hence the `bootstrapping' in the name), or, under conditions of sufficiently general input, one to represent the web itself, using the search engine as a `lens' through which to view web documents.  This is a distinction drawn by the source of variation: the seed terms themselves, or the web's ability to return the desired data.  The primary purpose of this was to find a ready source of documents, and as such conventional sample designs were still used as gold standards.
 
 Performance of such methods was examined by Kilgarriff and Grefenstette~\cite[p. 343]{kilgarriff2003introduction}, stating regarding representativeness:
 
@@ -55,7 +55,7 @@ I consider that these approaches miss the point somewhat, as the ease of retriev
 \subsection{Sample Design}
 The web, and its ease-of-access, also enables new sample designs.
 
-The most obvious of these is the automation of monitor corpus maintenance---this is analogous to the problem of maintaining search engine indices, and as such there is significant literature from that area focused on the scheduling revisits to pages and ensuring coverage across domains.  These techniques are now widely used in lexicography to keep dictionary resources up-to-date\cite{meunier2011taste}.
+The most obvious of these is the automation of monitor corpus maintenance---this is analogous to the problem of maintaining search engine indices, and as such there is significant literature from that area focused on the scheduling revisits to pages and ensuring coverage across domains.  These techniques are now used in lexicography to keep dictionary resources up-to-date\cite{meunier2011taste}.
 
 The availability of translated documents online also provides easy sources of data for constructing parallel corpora, a task that can be almost completely automated due to web page markup\cite{resnik2003web}.
 
@@ -115,7 +115,7 @@ Miniaturisation of technology, and increases in computing power, gradually unvei
 
 
 \subsubsection{Access to Technology}
-The ubiquity of technology makes accessing a diverse population of language speakers with little concern for geographic limitations.  Submissions of textual data may quickly be acquired via the internet, and populations of people otherwise unrepresented in corpora may be sampled this way.
+The ubiquity of technology makes accessing a diverse population of language users with little concern for geographic limitations.  Submissions of textual data may quickly be acquired via the internet, and populations of people otherwise unrepresented in corpora may be sampled this way.
 
 
 This has also had other effects, such as the tendency for a single conversation online to include speakers from many countries, cultures and demographics (often without even being aware of that fact).  

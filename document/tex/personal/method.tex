@@ -119,7 +119,7 @@ Capturing was performed with an Olympus VN713PC dictaphone, storing audio on a s
 \end{figure}
 % \FloatBarrier{}
 
-Aligning the recorder's output to the events mentioned in the notebook was a tricky process---Though the recorder itself supports index marks, there is a limit of 99, which was deemed too low for continuous use.  Two devices were built to insert absolute silence onto the recording (something that is rare in real life and thus easy to programmatically detect), the later of which is pictured in Figure~\ref{fig:personal:clicker}.  These clickers were to be pressed at the beginning of each conversation, so that voice activity detection could be performed to estimate the word count of each conversation (or, in an ideal world, extract verbatim text).
+Aligning the recorder's output to the events mentioned in the notebook was a tricky process---Though the recorder itself supports index marks, there is a limit of 99, which was deemed too low for continuous use.  Two devices were built to insert absolute silence onto the recording (something that is rare in real life and thus easy to programmatically detect), the latter of which is pictured in Figure~\ref{fig:personal:clicker}.  These clickers were to be pressed at the beginning of each conversation, so that voice activity detection could be performed to estimate the word count of each conversation (or, in an ideal world, extract verbatim text).
 
 In practice, the process of tapping the button proved intrusive and, from the perspective of one talking to the subject, suspicious.
 
@@ -189,7 +189,7 @@ At the end of the sampling period, these tags were collected and downloaded in m
 
 \subsection{Recording Procedure}
 \label{sec:personal:method:recording}
-The study is based around a period of continuous sampling using the methods discussed above.  For two weeks (in some cases longer), data was captured for each source.  This process was structured around a daily routine:
+The study is based around a period of continuous sampling using the methods discussed above.  For two weeks (in some cases longer), data were captured for each source.  This process was structured around a daily routine:
 
 Upon waking, and before any language was used, the recorder was turned on and a note of the time at which this occurred was made in the live notebook.  Recording was then continued until the end of the day without interruption.
 
@@ -214,7 +214,7 @@ Normalising and operationalising such heterogeneous data without large overheads
 
 This advantage, clearly, cannot be relied upon in other studies, and this part of the method demands most further study in order to define typical parameters for many processes that are dependent on human properties.
 
-Two main processes were followed in data processing.  The former of these was aggregation and normalisation---each data source was collected and transformed into a one-event-per-line CSV containing a standard set of fields (the selection of fields used was modelled on Lee's BNC index\cite{lee2001genres} in order to facilitate comparison).
+Two main processes were followed in data processing.  The former of these was aggregation and normalisation---each data source was collected and transformed into a one-event-per-line CSV containing a standard set of fields (the selection of which was modelled on Lee's BNC index\cite{lee2001genres} in order to facilitate comparison).
 
 After this normalisation process was complete, data were manually annotated to complete any fields that were not stored in the original metadata.  This was largely an objective, uncreative task that simply demanded human reasoning capacity, but it is inevitable that some bias will creep in at this stage.
 
@@ -250,7 +250,7 @@ The human interest model for web logging was built by inspection of the web logs
     \item Discard Non-visible text items (non-body elements if the file is HTML), and remove markup.
 \end{enumerate}
 
-Beyond this initial normalisation, a speadsheet's \texttt{LOOKUP} function was used to manually assign attention coefficients to the domains, based upon entries in the journals and interesting portions of web pages that follow regular structures.
+Beyond this initial normalisation, a spreadsheet's \texttt{LOOKUP} function was used to manually assign attention coefficients to the domains, based upon entries in the journals and interesting portions of web pages that follow regular structures.
 
 Days were classified as changing at 4am, since there were no points in the data set where the subject was still using the web at this time.
 
@@ -263,7 +263,7 @@ In order to capture a human notion of day, that is, one demarked by sleep rather
 
 
 
-\paragraph{Terminal [Console] logs}
+\paragraph{Terminal (Console) logs}
 Terminal data was logged with timestamps on each individual character, and the model was thus responsible for inferring when a command had output, and suggesting which portions of text were still on screen.
 
 This was done with a `timeout' and a `scrollback'---the former describing a delay that had to be present for the text to have been read (rather than simply scrolling offscreen), and the latter describing the average size of a terminal (and thus the number of rows of text that remain displayed).
