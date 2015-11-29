@@ -1,11 +1,11 @@
 
 Though trained on BNC data, the majority of data classified here is written directly for the web.  The impact this has upon classifier performance is not known, and insufficient gold standard data exists, tagged at sufficient resolution, to perform a direct evaluation.
 
-Instead, data indexed by the Open Directory Project (DMOZ) was used as a measure of systematic bias.  The classification scheme used in DMOZ is significantly more diverse than that used in Lee's BNC index, covering a wider range of topics to a finer level of granularity.  As its goal is to represent a greater portion of the population than simply British English users, this is unsurprising, however, its hierarchical nature often presents similar distinctions.
+Instead, data indexed by the Open Directory Project (DMOZ) was used as a measure of systematic bias.  The classification scheme used in DMOZ is significantly more diverse than that used in Lee's BNC index, covering a wider range of topics to a finer level of granularity.  As its goal is to represent a greater portion of the population than simply British English users this is unsurprising, however, it is organised hierarchically, and thus has larger-scale categories which are more compatible.
 
 For each of the documents retrieved in the final corpus, an attempt was made to identify its DMOZ-equivalent category.  This was performed by matching URL or, failing such a detailed pattern, domain name, against 699,385 URLs taken from the publicly-accessible DMOZ archive.
 
-For each BNC category (as assigned by the BNC45 model used in the retrieval task), the homogeniety of DMOZ categories was measured at each level of the DMOZ hierarchy.  Categories below those which consist only of a single uppercase letter were concatenated, in order to remove some `A-Z' listings.
+For each BNC category (as assigned by the BNC45 model used in the retrieval task), the homogeniety of DMOZ categories was measured at each level of the hierarchy.  Categories below those which consist only of a single uppercase letter were concatenated, in order to remove some `A-Z' listing categories.
 
 
 %Plots and tables.
@@ -45,7 +45,9 @@ Figure~\ref{fig:appendices:dmozvars} shows log transformed variance in a similar
 
 Figure~\ref{fig:appendices:dmozproportion} shows the proportion of variance within each BNC genre.  This displays a small reduction around a tree depth of five, mirroring the steepening of the curve in Figure~\ref{fig:appendices:dmozvars}.  This eclipsed by the relatively poor fit of later categories (as would be expected), before dropping off due to the smaller frequency of DMOZ categories beyond a tree depth of approximately ten.
 
-These plots tentative evidence that best agreement between the DMOZ classification and the BNC45 classifier exists at a tree depth of around five.  It also indicates that the DMOZ classifications are potentially a useful tool in guiding retrieval of data, or, given sufficient human alignment, construction of gold standard data for further classifier evaluation.
+These plots provide tentative evidence that best agreement between the DMOZ classification and the BNC45 classifier exists at a tree depth of around five.  It also indicates that the DMOZ classifications are potentially a useful tool in guiding retrieval of data, or, given sufficient human alignment, construction of gold standard data for further classifier evaluation.
 
+%The main challenge would seem to be the variable tree depth for branches of the DMOZ tree, meaning that best agreement with other classification schemes is 
 
+% The relative homogeniety of DMOZ classes for each BNC class may
 
